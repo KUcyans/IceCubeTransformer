@@ -1,0 +1,601 @@
+2025-01-22 14:51:48,009 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:51:48,022 - INFO - attn_output has nan: False
+2025-01-22 14:51:48,615 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:51:48,619 - INFO - x has nan: False
+2025-01-22 14:51:48,619 - INFO - mu has nan: False
+2025-01-22 14:51:48,620 - INFO - var has nan: False
+2025-01-22 14:51:48,623 - INFO - x_normalised has nan: False
+2025-01-22 14:51:48,626 - INFO - x_tilde has nan: False
+2025-01-22 14:51:48,777 - INFO - ---------FFN-----------
+2025-01-22 14:51:48,791 - INFO - s_i has nan : False
+2025-01-22 14:51:48,805 - INFO - h_i has nan : False
+2025-01-22 14:51:48,808 - INFO - x_next has nan : False
+2025-01-22 14:51:48,910 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:51:48,914 - INFO - x has nan: False
+2025-01-22 14:51:48,914 - INFO - mu has nan: False
+2025-01-22 14:51:48,914 - INFO - var has nan: False
+2025-01-22 14:51:48,918 - INFO - x_normalised has nan: False
+2025-01-22 14:51:48,921 - INFO - x_tilde has nan: False
+2025-01-22 14:51:48,921 - INFO - ---------Encoder Block-----------
+2025-01-22 14:51:48,925 - INFO - x has nan: False
+2025-01-22 14:51:54,095 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:51:54,102 - INFO - attn_output has nan: False
+2025-01-22 14:51:54,720 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:51:54,724 - INFO - x has nan: False
+2025-01-22 14:51:54,724 - INFO - mu has nan: False
+2025-01-22 14:51:54,725 - INFO - var has nan: False
+2025-01-22 14:51:54,728 - INFO - x_normalised has nan: False
+2025-01-22 14:51:54,731 - INFO - x_tilde has nan: False
+2025-01-22 14:51:54,877 - INFO - ---------FFN-----------
+2025-01-22 14:51:54,890 - INFO - s_i has nan : False
+2025-01-22 14:51:54,904 - INFO - h_i has nan : False
+2025-01-22 14:51:54,908 - INFO - x_next has nan : False
+2025-01-22 14:51:55,004 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:51:55,008 - INFO - x has nan: False
+2025-01-22 14:51:55,008 - INFO - mu has nan: False
+2025-01-22 14:51:55,008 - INFO - var has nan: False
+2025-01-22 14:51:55,011 - INFO - x_normalised has nan: False
+2025-01-22 14:51:55,015 - INFO - x_tilde has nan: False
+2025-01-22 14:51:55,015 - INFO - ---------Encoder Block-----------
+2025-01-22 14:51:55,018 - INFO - x has nan: False
+2025-01-22 14:52:00,059 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:00,066 - INFO - attn_output has nan: False
+2025-01-22 14:52:00,646 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:00,649 - INFO - x has nan: False
+2025-01-22 14:52:00,650 - INFO - mu has nan: False
+2025-01-22 14:52:00,650 - INFO - var has nan: False
+2025-01-22 14:52:00,653 - INFO - x_normalised has nan: False
+2025-01-22 14:52:00,656 - INFO - x_tilde has nan: False
+2025-01-22 14:52:00,790 - INFO - ---------FFN-----------
+2025-01-22 14:52:00,803 - INFO - s_i has nan : False
+2025-01-22 14:52:00,814 - INFO - h_i has nan : False
+2025-01-22 14:52:00,818 - INFO - x_next has nan : False
+2025-01-22 14:52:00,898 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:00,901 - INFO - x has nan: False
+2025-01-22 14:52:00,902 - INFO - mu has nan: False
+2025-01-22 14:52:00,902 - INFO - var has nan: False
+2025-01-22 14:52:00,905 - INFO - x_normalised has nan: False
+2025-01-22 14:52:00,908 - INFO - x_tilde has nan: False
+2025-01-22 14:52:00,908 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:00,911 - INFO - x has nan: False
+2025-01-22 14:52:08,620 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:08,625 - INFO - attn_output has nan: False
+2025-01-22 14:52:09,341 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:09,345 - INFO - x has nan: False
+2025-01-22 14:52:09,346 - INFO - mu has nan: False
+2025-01-22 14:52:09,346 - INFO - var has nan: False
+2025-01-22 14:52:09,350 - INFO - x_normalised has nan: False
+2025-01-22 14:52:09,354 - INFO - x_tilde has nan: False
+2025-01-22 14:52:09,507 - INFO - ---------FFN-----------
+2025-01-22 14:52:09,523 - INFO - s_i has nan : False
+2025-01-22 14:52:09,538 - INFO - h_i has nan : False
+2025-01-22 14:52:09,543 - INFO - x_next has nan : False
+2025-01-22 14:52:09,603 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:09,608 - INFO - x has nan: False
+2025-01-22 14:52:09,608 - INFO - mu has nan: False
+2025-01-22 14:52:09,609 - INFO - var has nan: False
+2025-01-22 14:52:09,612 - INFO - x_normalised has nan: False
+2025-01-22 14:52:09,616 - INFO - x_tilde has nan: False
+2025-01-22 14:52:09,617 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:09,620 - INFO - x has nan: False
+2025-01-22 14:52:15,002 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:15,008 - INFO - attn_output has nan: False
+2025-01-22 14:52:15,632 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:15,635 - INFO - x has nan: False
+2025-01-22 14:52:15,636 - INFO - mu has nan: False
+2025-01-22 14:52:15,636 - INFO - var has nan: False
+2025-01-22 14:52:15,639 - INFO - x_normalised has nan: False
+2025-01-22 14:52:15,642 - INFO - x_tilde has nan: False
+2025-01-22 14:52:15,804 - INFO - ---------FFN-----------
+2025-01-22 14:52:15,818 - INFO - s_i has nan : False
+2025-01-22 14:52:15,832 - INFO - h_i has nan : False
+2025-01-22 14:52:15,836 - INFO - x_next has nan : False
+2025-01-22 14:52:15,913 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:15,916 - INFO - x has nan: False
+2025-01-22 14:52:15,917 - INFO - mu has nan: False
+2025-01-22 14:52:15,917 - INFO - var has nan: False
+2025-01-22 14:52:15,921 - INFO - x_normalised has nan: False
+2025-01-22 14:52:15,924 - INFO - x_tilde has nan: False
+2025-01-22 14:52:15,925 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:15,928 - INFO - x has nan: False
+2025-01-22 14:52:21,556 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:21,562 - INFO - attn_output has nan: False
+2025-01-22 14:52:22,103 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:22,107 - INFO - x has nan: False
+2025-01-22 14:52:22,107 - INFO - mu has nan: False
+2025-01-22 14:52:22,107 - INFO - var has nan: False
+2025-01-22 14:52:22,110 - INFO - x_normalised has nan: False
+2025-01-22 14:52:22,113 - INFO - x_tilde has nan: False
+2025-01-22 14:52:22,238 - INFO - ---------FFN-----------
+2025-01-22 14:52:22,249 - INFO - s_i has nan : False
+2025-01-22 14:52:22,260 - INFO - h_i has nan : False
+2025-01-22 14:52:22,264 - INFO - x_next has nan : False
+2025-01-22 14:52:22,338 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:22,341 - INFO - x has nan: False
+2025-01-22 14:52:22,342 - INFO - mu has nan: False
+2025-01-22 14:52:22,342 - INFO - var has nan: False
+2025-01-22 14:52:22,345 - INFO - x_normalised has nan: False
+2025-01-22 14:52:22,348 - INFO - x_tilde has nan: False
+2025-01-22 14:52:22,348 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:22,351 - INFO - x has nan: False
+2025-01-22 14:52:23,325 - INFO - ###############Training epoch 0###############
+2025-01-22 14:52:32,050 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:32,061 - INFO - attn_output has nan: False
+2025-01-22 14:52:32,545 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:32,557 - INFO - x has nan: False
+2025-01-22 14:52:32,558 - INFO - mu has nan: False
+2025-01-22 14:52:32,559 - INFO - var has nan: False
+2025-01-22 14:52:32,561 - INFO - x_normalised has nan: False
+2025-01-22 14:52:32,565 - INFO - x_tilde has nan: False
+2025-01-22 14:52:32,761 - INFO - ---------FFN-----------
+2025-01-22 14:52:32,802 - INFO - s_i has nan : False
+2025-01-22 14:52:32,813 - INFO - h_i has nan : False
+2025-01-22 14:52:32,816 - INFO - x_next has nan : False
+2025-01-22 14:52:32,997 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:33,000 - INFO - x has nan: False
+2025-01-22 14:52:33,001 - INFO - mu has nan: False
+2025-01-22 14:52:33,001 - INFO - var has nan: False
+2025-01-22 14:52:33,004 - INFO - x_normalised has nan: False
+2025-01-22 14:52:33,007 - INFO - x_tilde has nan: False
+2025-01-22 14:52:33,007 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:33,013 - INFO - x has nan: False
+2025-01-22 14:52:38,285 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:38,295 - INFO - attn_output has nan: False
+2025-01-22 14:52:38,704 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:38,708 - INFO - x has nan: False
+2025-01-22 14:52:38,708 - INFO - mu has nan: False
+2025-01-22 14:52:38,709 - INFO - var has nan: False
+2025-01-22 14:52:38,711 - INFO - x_normalised has nan: False
+2025-01-22 14:52:38,714 - INFO - x_tilde has nan: False
+2025-01-22 14:52:38,919 - INFO - ---------FFN-----------
+2025-01-22 14:52:38,953 - INFO - s_i has nan : False
+2025-01-22 14:52:38,986 - INFO - h_i has nan : False
+2025-01-22 14:52:38,989 - INFO - x_next has nan : False
+2025-01-22 14:52:39,129 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:39,132 - INFO - x has nan: False
+2025-01-22 14:52:39,133 - INFO - mu has nan: False
+2025-01-22 14:52:39,133 - INFO - var has nan: False
+2025-01-22 14:52:39,136 - INFO - x_normalised has nan: False
+2025-01-22 14:52:39,139 - INFO - x_tilde has nan: False
+2025-01-22 14:52:39,139 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:39,142 - INFO - x has nan: False
+2025-01-22 14:52:44,726 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:52:44,730 - INFO - attn_output has nan: False
+2025-01-22 14:52:45,134 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:45,138 - INFO - x has nan: False
+2025-01-22 14:52:45,139 - INFO - mu has nan: False
+2025-01-22 14:52:45,140 - INFO - var has nan: False
+2025-01-22 14:52:45,144 - INFO - x_normalised has nan: False
+2025-01-22 14:52:45,148 - INFO - x_tilde has nan: False
+2025-01-22 14:52:45,456 - INFO - ---------FFN-----------
+2025-01-22 14:52:45,475 - INFO - s_i has nan : False
+2025-01-22 14:52:45,501 - INFO - h_i has nan : False
+2025-01-22 14:52:45,506 - INFO - x_next has nan : False
+2025-01-22 14:52:45,599 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:52:45,604 - INFO - x has nan: False
+2025-01-22 14:52:45,605 - INFO - mu has nan: False
+2025-01-22 14:52:45,605 - INFO - var has nan: False
+2025-01-22 14:52:45,609 - INFO - x_normalised has nan: False
+2025-01-22 14:52:45,613 - INFO - x_tilde has nan: False
+2025-01-22 14:52:45,614 - INFO - ---------Encoder Block-----------
+2025-01-22 14:52:45,621 - INFO - x has nan: False
+2025-01-22 14:53:25,376 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:53:25,388 - INFO - attn_output has nan: False
+2025-01-22 14:53:25,742 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:53:25,749 - INFO - x has nan: False
+2025-01-22 14:53:25,749 - INFO - mu has nan: False
+2025-01-22 14:53:25,750 - INFO - var has nan: False
+2025-01-22 14:53:25,752 - INFO - x_normalised has nan: False
+2025-01-22 14:53:25,755 - INFO - x_tilde has nan: False
+2025-01-22 14:53:25,966 - INFO - ---------FFN-----------
+2025-01-22 14:53:25,989 - INFO - s_i has nan : False
+2025-01-22 14:53:26,012 - INFO - h_i has nan : False
+2025-01-22 14:53:26,016 - INFO - x_next has nan : False
+2025-01-22 14:53:26,143 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:53:26,146 - INFO - x has nan: False
+2025-01-22 14:53:26,147 - INFO - mu has nan: False
+2025-01-22 14:53:26,147 - INFO - var has nan: False
+2025-01-22 14:53:26,150 - INFO - x_normalised has nan: False
+2025-01-22 14:53:26,153 - INFO - x_tilde has nan: False
+2025-01-22 14:53:26,153 - INFO - ---------Encoder Block-----------
+2025-01-22 14:53:26,156 - INFO - x has nan: False
+2025-01-22 14:53:31,874 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:53:31,884 - INFO - attn_output has nan: False
+2025-01-22 14:53:32,343 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:53:32,347 - INFO - x has nan: False
+2025-01-22 14:53:32,348 - INFO - mu has nan: False
+2025-01-22 14:53:32,348 - INFO - var has nan: False
+2025-01-22 14:53:32,353 - INFO - x_normalised has nan: False
+2025-01-22 14:53:32,357 - INFO - x_tilde has nan: False
+2025-01-22 14:53:32,667 - INFO - ---------FFN-----------
+2025-01-22 14:53:32,696 - INFO - s_i has nan : False
+2025-01-22 14:53:32,725 - INFO - h_i has nan : False
+2025-01-22 14:53:32,730 - INFO - x_next has nan : False
+2025-01-22 14:53:32,867 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:53:32,871 - INFO - x has nan: False
+2025-01-22 14:53:32,872 - INFO - mu has nan: False
+2025-01-22 14:53:32,872 - INFO - var has nan: False
+2025-01-22 14:53:32,877 - INFO - x_normalised has nan: False
+2025-01-22 14:53:32,881 - INFO - x_tilde has nan: False
+2025-01-22 14:53:32,881 - INFO - ---------Encoder Block-----------
+2025-01-22 14:53:32,885 - INFO - x has nan: False
+2025-01-22 14:53:39,015 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:53:39,019 - INFO - attn_output has nan: False
+2025-01-22 14:53:39,360 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:53:39,364 - INFO - x has nan: False
+2025-01-22 14:53:39,364 - INFO - mu has nan: False
+2025-01-22 14:53:39,365 - INFO - var has nan: False
+2025-01-22 14:53:39,368 - INFO - x_normalised has nan: False
+2025-01-22 14:53:39,372 - INFO - x_tilde has nan: False
+2025-01-22 14:53:39,608 - INFO - ---------FFN-----------
+2025-01-22 14:53:39,626 - INFO - s_i has nan : False
+2025-01-22 14:53:39,644 - INFO - h_i has nan : False
+2025-01-22 14:53:39,648 - INFO - x_next has nan : False
+2025-01-22 14:53:39,729 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:53:39,733 - INFO - x has nan: False
+2025-01-22 14:53:39,734 - INFO - mu has nan: False
+2025-01-22 14:53:39,734 - INFO - var has nan: False
+2025-01-22 14:53:39,738 - INFO - x_normalised has nan: False
+2025-01-22 14:53:39,741 - INFO - x_tilde has nan: False
+2025-01-22 14:53:39,741 - INFO - ---------Encoder Block-----------
+2025-01-22 14:53:39,745 - INFO - x has nan: False
+2025-01-22 14:54:18,139 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:54:18,148 - INFO - attn_output has nan: False
+2025-01-22 14:54:18,502 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:54:18,508 - INFO - x has nan: False
+2025-01-22 14:54:18,509 - INFO - mu has nan: False
+2025-01-22 14:54:18,509 - INFO - var has nan: False
+2025-01-22 14:54:18,512 - INFO - x_normalised has nan: False
+2025-01-22 14:54:18,515 - INFO - x_tilde has nan: False
+2025-01-22 14:54:18,731 - INFO - ---------FFN-----------
+2025-01-22 14:54:18,752 - INFO - s_i has nan : False
+2025-01-22 14:54:18,766 - INFO - h_i has nan : False
+2025-01-22 14:54:18,769 - INFO - x_next has nan : False
+2025-01-22 14:54:18,878 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:54:18,882 - INFO - x has nan: False
+2025-01-22 14:54:18,882 - INFO - mu has nan: False
+2025-01-22 14:54:18,882 - INFO - var has nan: False
+2025-01-22 14:54:18,886 - INFO - x_normalised has nan: False
+2025-01-22 14:54:18,889 - INFO - x_tilde has nan: False
+2025-01-22 14:54:18,889 - INFO - ---------Encoder Block-----------
+2025-01-22 14:54:18,893 - INFO - x has nan: False
+2025-01-22 14:54:23,973 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:54:23,980 - INFO - attn_output has nan: False
+2025-01-22 14:54:24,344 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:54:24,347 - INFO - x has nan: False
+2025-01-22 14:54:24,348 - INFO - mu has nan: False
+2025-01-22 14:54:24,348 - INFO - var has nan: False
+2025-01-22 14:54:24,351 - INFO - x_normalised has nan: False
+2025-01-22 14:54:24,354 - INFO - x_tilde has nan: False
+2025-01-22 14:54:24,545 - INFO - ---------FFN-----------
+2025-01-22 14:54:24,568 - INFO - s_i has nan : False
+2025-01-22 14:54:24,590 - INFO - h_i has nan : False
+2025-01-22 14:54:24,594 - INFO - x_next has nan : False
+2025-01-22 14:54:24,690 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:54:24,694 - INFO - x has nan: False
+2025-01-22 14:54:24,694 - INFO - mu has nan: False
+2025-01-22 14:54:24,695 - INFO - var has nan: False
+2025-01-22 14:54:24,698 - INFO - x_normalised has nan: False
+2025-01-22 14:54:24,701 - INFO - x_tilde has nan: False
+2025-01-22 14:54:24,701 - INFO - ---------Encoder Block-----------
+2025-01-22 14:54:24,703 - INFO - x has nan: False
+2025-01-22 14:54:29,953 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:54:29,957 - INFO - attn_output has nan: False
+2025-01-22 14:54:30,291 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:54:30,295 - INFO - x has nan: False
+2025-01-22 14:54:30,296 - INFO - mu has nan: False
+2025-01-22 14:54:30,296 - INFO - var has nan: False
+2025-01-22 14:54:30,300 - INFO - x_normalised has nan: False
+2025-01-22 14:54:30,303 - INFO - x_tilde has nan: False
+2025-01-22 14:54:30,504 - INFO - ---------FFN-----------
+2025-01-22 14:54:30,521 - INFO - s_i has nan : False
+2025-01-22 14:54:30,538 - INFO - h_i has nan : False
+2025-01-22 14:54:30,542 - INFO - x_next has nan : False
+2025-01-22 14:54:30,620 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:54:30,624 - INFO - x has nan: False
+2025-01-22 14:54:30,624 - INFO - mu has nan: False
+2025-01-22 14:54:30,624 - INFO - var has nan: False
+2025-01-22 14:54:30,628 - INFO - x_normalised has nan: False
+2025-01-22 14:54:30,631 - INFO - x_tilde has nan: False
+2025-01-22 14:54:30,631 - INFO - ---------Encoder Block-----------
+2025-01-22 14:54:30,635 - INFO - x has nan: False
+2025-01-22 14:55:06,335 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:55:06,343 - INFO - attn_output has nan: False
+2025-01-22 14:55:06,696 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:06,700 - INFO - x has nan: False
+2025-01-22 14:55:06,701 - INFO - mu has nan: False
+2025-01-22 14:55:06,701 - INFO - var has nan: False
+2025-01-22 14:55:06,704 - INFO - x_normalised has nan: False
+2025-01-22 14:55:06,708 - INFO - x_tilde has nan: False
+2025-01-22 14:55:06,930 - INFO - ---------FFN-----------
+2025-01-22 14:55:06,953 - INFO - s_i has nan : False
+2025-01-22 14:55:06,965 - INFO - h_i has nan : False
+2025-01-22 14:55:06,968 - INFO - x_next has nan : False
+2025-01-22 14:55:07,071 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:07,075 - INFO - x has nan: False
+2025-01-22 14:55:07,075 - INFO - mu has nan: False
+2025-01-22 14:55:07,076 - INFO - var has nan: False
+2025-01-22 14:55:07,078 - INFO - x_normalised has nan: False
+2025-01-22 14:55:07,081 - INFO - x_tilde has nan: False
+2025-01-22 14:55:07,082 - INFO - ---------Encoder Block-----------
+2025-01-22 14:55:07,084 - INFO - x has nan: False
+2025-01-22 14:55:12,256 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:55:12,263 - INFO - attn_output has nan: False
+2025-01-22 14:55:12,678 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:12,682 - INFO - x has nan: False
+2025-01-22 14:55:12,683 - INFO - mu has nan: False
+2025-01-22 14:55:12,683 - INFO - var has nan: False
+2025-01-22 14:55:12,687 - INFO - x_normalised has nan: False
+2025-01-22 14:55:12,691 - INFO - x_tilde has nan: False
+2025-01-22 14:55:12,968 - INFO - ---------FFN-----------
+2025-01-22 14:55:12,994 - INFO - s_i has nan : False
+2025-01-22 14:55:13,017 - INFO - h_i has nan : False
+2025-01-22 14:55:13,020 - INFO - x_next has nan : False
+2025-01-22 14:55:13,130 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:13,134 - INFO - x has nan: False
+2025-01-22 14:55:13,134 - INFO - mu has nan: False
+2025-01-22 14:55:13,135 - INFO - var has nan: False
+2025-01-22 14:55:13,138 - INFO - x_normalised has nan: False
+2025-01-22 14:55:13,142 - INFO - x_tilde has nan: False
+2025-01-22 14:55:13,142 - INFO - ---------Encoder Block-----------
+2025-01-22 14:55:13,146 - INFO - x has nan: False
+2025-01-22 14:55:19,013 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:55:19,017 - INFO - attn_output has nan: False
+2025-01-22 14:55:19,384 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:19,388 - INFO - x has nan: False
+2025-01-22 14:55:19,389 - INFO - mu has nan: False
+2025-01-22 14:55:19,389 - INFO - var has nan: False
+2025-01-22 14:55:19,391 - INFO - x_normalised has nan: False
+2025-01-22 14:55:19,395 - INFO - x_tilde has nan: False
+2025-01-22 14:55:19,583 - INFO - ---------FFN-----------
+2025-01-22 14:55:19,598 - INFO - s_i has nan : False
+2025-01-22 14:55:19,613 - INFO - h_i has nan : False
+2025-01-22 14:55:19,616 - INFO - x_next has nan : False
+2025-01-22 14:55:19,696 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:19,700 - INFO - x has nan: False
+2025-01-22 14:55:19,701 - INFO - mu has nan: False
+2025-01-22 14:55:19,701 - INFO - var has nan: False
+2025-01-22 14:55:19,704 - INFO - x_normalised has nan: False
+2025-01-22 14:55:19,708 - INFO - x_tilde has nan: False
+2025-01-22 14:55:19,708 - INFO - ---------Encoder Block-----------
+2025-01-22 14:55:19,711 - INFO - x has nan: False
+2025-01-22 14:55:56,813 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:55:56,821 - INFO - attn_output has nan: False
+2025-01-22 14:55:57,377 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:57,386 - INFO - x has nan: False
+2025-01-22 14:55:57,387 - INFO - mu has nan: False
+2025-01-22 14:55:57,387 - INFO - var has nan: False
+2025-01-22 14:55:57,391 - INFO - x_normalised has nan: False
+2025-01-22 14:55:57,396 - INFO - x_tilde has nan: False
+2025-01-22 14:55:57,702 - INFO - ---------FFN-----------
+2025-01-22 14:55:57,726 - INFO - s_i has nan : False
+2025-01-22 14:55:57,743 - INFO - h_i has nan : False
+2025-01-22 14:55:57,748 - INFO - x_next has nan : False
+2025-01-22 14:55:57,874 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:55:57,878 - INFO - x has nan: False
+2025-01-22 14:55:57,879 - INFO - mu has nan: False
+2025-01-22 14:55:57,879 - INFO - var has nan: False
+2025-01-22 14:55:57,884 - INFO - x_normalised has nan: False
+2025-01-22 14:55:57,888 - INFO - x_tilde has nan: False
+2025-01-22 14:55:57,889 - INFO - ---------Encoder Block-----------
+2025-01-22 14:55:57,893 - INFO - x has nan: False
+2025-01-22 14:56:03,263 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:56:03,270 - INFO - attn_output has nan: False
+2025-01-22 14:56:03,594 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:03,598 - INFO - x has nan: False
+2025-01-22 14:56:03,599 - INFO - mu has nan: False
+2025-01-22 14:56:03,599 - INFO - var has nan: False
+2025-01-22 14:56:03,603 - INFO - x_normalised has nan: False
+2025-01-22 14:56:03,606 - INFO - x_tilde has nan: False
+2025-01-22 14:56:03,852 - INFO - ---------FFN-----------
+2025-01-22 14:56:03,876 - INFO - s_i has nan : False
+2025-01-22 14:56:03,889 - INFO - h_i has nan : False
+2025-01-22 14:56:03,893 - INFO - x_next has nan : False
+2025-01-22 14:56:04,008 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:04,012 - INFO - x has nan: False
+2025-01-22 14:56:04,013 - INFO - mu has nan: False
+2025-01-22 14:56:04,013 - INFO - var has nan: False
+2025-01-22 14:56:04,016 - INFO - x_normalised has nan: False
+2025-01-22 14:56:04,020 - INFO - x_tilde has nan: False
+2025-01-22 14:56:04,021 - INFO - ---------Encoder Block-----------
+2025-01-22 14:56:04,024 - INFO - x has nan: False
+2025-01-22 14:56:09,335 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:56:09,339 - INFO - attn_output has nan: False
+2025-01-22 14:56:09,643 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:09,647 - INFO - x has nan: False
+2025-01-22 14:56:09,648 - INFO - mu has nan: False
+2025-01-22 14:56:09,648 - INFO - var has nan: False
+2025-01-22 14:56:09,651 - INFO - x_normalised has nan: False
+2025-01-22 14:56:09,654 - INFO - x_tilde has nan: False
+2025-01-22 14:56:09,852 - INFO - ---------FFN-----------
+2025-01-22 14:56:09,868 - INFO - s_i has nan : False
+2025-01-22 14:56:09,888 - INFO - h_i has nan : False
+2025-01-22 14:56:09,891 - INFO - x_next has nan : False
+2025-01-22 14:56:09,970 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:09,974 - INFO - x has nan: False
+2025-01-22 14:56:09,975 - INFO - mu has nan: False
+2025-01-22 14:56:09,975 - INFO - var has nan: False
+2025-01-22 14:56:09,985 - INFO - x_normalised has nan: False
+2025-01-22 14:56:09,988 - INFO - x_tilde has nan: False
+2025-01-22 14:56:09,988 - INFO - ---------Encoder Block-----------
+2025-01-22 14:56:09,992 - INFO - x has nan: False
+2025-01-22 14:56:46,617 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:56:46,629 - INFO - attn_output has nan: False
+2025-01-22 14:56:46,987 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:46,994 - INFO - x has nan: False
+2025-01-22 14:56:46,994 - INFO - mu has nan: False
+2025-01-22 14:56:46,995 - INFO - var has nan: False
+2025-01-22 14:56:46,998 - INFO - x_normalised has nan: False
+2025-01-22 14:56:47,001 - INFO - x_tilde has nan: False
+2025-01-22 14:56:47,233 - INFO - ---------FFN-----------
+2025-01-22 14:56:47,254 - INFO - s_i has nan : False
+2025-01-22 14:56:47,268 - INFO - h_i has nan : False
+2025-01-22 14:56:47,271 - INFO - x_next has nan : False
+2025-01-22 14:56:47,376 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:47,380 - INFO - x has nan: False
+2025-01-22 14:56:47,380 - INFO - mu has nan: False
+2025-01-22 14:56:47,381 - INFO - var has nan: False
+2025-01-22 14:56:47,384 - INFO - x_normalised has nan: False
+2025-01-22 14:56:47,387 - INFO - x_tilde has nan: False
+2025-01-22 14:56:47,388 - INFO - ---------Encoder Block-----------
+2025-01-22 14:56:47,391 - INFO - x has nan: False
+2025-01-22 14:56:52,596 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:56:52,603 - INFO - attn_output has nan: False
+2025-01-22 14:56:52,975 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:52,979 - INFO - x has nan: False
+2025-01-22 14:56:52,979 - INFO - mu has nan: False
+2025-01-22 14:56:52,980 - INFO - var has nan: False
+2025-01-22 14:56:52,983 - INFO - x_normalised has nan: False
+2025-01-22 14:56:52,987 - INFO - x_tilde has nan: False
+2025-01-22 14:56:53,212 - INFO - ---------FFN-----------
+2025-01-22 14:56:53,235 - INFO - s_i has nan : False
+2025-01-22 14:56:53,261 - INFO - h_i has nan : False
+2025-01-22 14:56:53,265 - INFO - x_next has nan : False
+2025-01-22 14:56:53,383 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:53,387 - INFO - x has nan: False
+2025-01-22 14:56:53,388 - INFO - mu has nan: False
+2025-01-22 14:56:53,388 - INFO - var has nan: False
+2025-01-22 14:56:53,392 - INFO - x_normalised has nan: False
+2025-01-22 14:56:53,395 - INFO - x_tilde has nan: False
+2025-01-22 14:56:53,396 - INFO - ---------Encoder Block-----------
+2025-01-22 14:56:53,399 - INFO - x has nan: False
+2025-01-22 14:56:58,820 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:56:58,823 - INFO - attn_output has nan: False
+2025-01-22 14:56:59,140 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:59,144 - INFO - x has nan: False
+2025-01-22 14:56:59,145 - INFO - mu has nan: False
+2025-01-22 14:56:59,145 - INFO - var has nan: False
+2025-01-22 14:56:59,148 - INFO - x_normalised has nan: False
+2025-01-22 14:56:59,152 - INFO - x_tilde has nan: False
+2025-01-22 14:56:59,401 - INFO - ---------FFN-----------
+2025-01-22 14:56:59,420 - INFO - s_i has nan : False
+2025-01-22 14:56:59,437 - INFO - h_i has nan : False
+2025-01-22 14:56:59,441 - INFO - x_next has nan : False
+2025-01-22 14:56:59,520 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:56:59,524 - INFO - x has nan: False
+2025-01-22 14:56:59,524 - INFO - mu has nan: False
+2025-01-22 14:56:59,524 - INFO - var has nan: False
+2025-01-22 14:56:59,528 - INFO - x_normalised has nan: False
+2025-01-22 14:56:59,531 - INFO - x_tilde has nan: False
+2025-01-22 14:56:59,531 - INFO - ---------Encoder Block-----------
+2025-01-22 14:56:59,535 - INFO - x has nan: False
+2025-01-22 14:57:37,322 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:57:37,338 - INFO - attn_output has nan: False
+2025-01-22 14:57:37,772 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:57:37,780 - INFO - x has nan: False
+2025-01-22 14:57:37,781 - INFO - mu has nan: False
+2025-01-22 14:57:37,781 - INFO - var has nan: False
+2025-01-22 14:57:37,785 - INFO - x_normalised has nan: False
+2025-01-22 14:57:37,789 - INFO - x_tilde has nan: False
+2025-01-22 14:57:38,033 - INFO - ---------FFN-----------
+2025-01-22 14:57:38,057 - INFO - s_i has nan : False
+2025-01-22 14:57:38,071 - INFO - h_i has nan : False
+2025-01-22 14:57:38,075 - INFO - x_next has nan : False
+2025-01-22 14:57:38,198 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:57:38,202 - INFO - x has nan: False
+2025-01-22 14:57:38,203 - INFO - mu has nan: False
+2025-01-22 14:57:38,203 - INFO - var has nan: False
+2025-01-22 14:57:38,207 - INFO - x_normalised has nan: False
+2025-01-22 14:57:38,211 - INFO - x_tilde has nan: False
+2025-01-22 14:57:38,211 - INFO - ---------Encoder Block-----------
+2025-01-22 14:57:38,215 - INFO - x has nan: False
+2025-01-22 14:57:43,757 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:57:43,764 - INFO - attn_output has nan: False
+2025-01-22 14:57:44,107 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:57:44,111 - INFO - x has nan: False
+2025-01-22 14:57:44,111 - INFO - mu has nan: False
+2025-01-22 14:57:44,112 - INFO - var has nan: False
+2025-01-22 14:57:44,115 - INFO - x_normalised has nan: False
+2025-01-22 14:57:44,119 - INFO - x_tilde has nan: False
+2025-01-22 14:57:44,332 - INFO - ---------FFN-----------
+2025-01-22 14:57:44,355 - INFO - s_i has nan : False
+2025-01-22 14:57:44,378 - INFO - h_i has nan : False
+2025-01-22 14:57:44,381 - INFO - x_next has nan : False
+2025-01-22 14:57:44,484 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:57:44,488 - INFO - x has nan: False
+2025-01-22 14:57:44,488 - INFO - mu has nan: False
+2025-01-22 14:57:44,489 - INFO - var has nan: False
+2025-01-22 14:57:44,492 - INFO - x_normalised has nan: False
+2025-01-22 14:57:44,496 - INFO - x_tilde has nan: False
+2025-01-22 14:57:44,496 - INFO - ---------Encoder Block-----------
+2025-01-22 14:57:44,500 - INFO - x has nan: False
+2025-01-22 14:57:49,979 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:57:49,984 - INFO - attn_output has nan: False
+2025-01-22 14:57:50,362 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:57:50,366 - INFO - x has nan: False
+2025-01-22 14:57:50,367 - INFO - mu has nan: False
+2025-01-22 14:57:50,367 - INFO - var has nan: False
+2025-01-22 14:57:50,371 - INFO - x_normalised has nan: False
+2025-01-22 14:57:50,375 - INFO - x_tilde has nan: False
+2025-01-22 14:57:50,617 - INFO - ---------FFN-----------
+2025-01-22 14:57:50,638 - INFO - s_i has nan : False
+2025-01-22 14:57:50,657 - INFO - h_i has nan : False
+2025-01-22 14:57:50,662 - INFO - x_next has nan : False
+2025-01-22 14:57:50,752 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:57:50,756 - INFO - x has nan: False
+2025-01-22 14:57:50,757 - INFO - mu has nan: False
+2025-01-22 14:57:50,757 - INFO - var has nan: False
+2025-01-22 14:57:50,761 - INFO - x_normalised has nan: False
+2025-01-22 14:57:50,765 - INFO - x_tilde has nan: False
+2025-01-22 14:57:50,765 - INFO - ---------Encoder Block-----------
+2025-01-22 14:57:50,769 - INFO - x has nan: False
+2025-01-22 14:58:28,244 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:58:28,254 - INFO - attn_output has nan: False
+2025-01-22 14:58:28,695 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:58:28,703 - INFO - x has nan: False
+2025-01-22 14:58:28,703 - INFO - mu has nan: False
+2025-01-22 14:58:28,704 - INFO - var has nan: False
+2025-01-22 14:58:28,707 - INFO - x_normalised has nan: False
+2025-01-22 14:58:28,712 - INFO - x_tilde has nan: False
+2025-01-22 14:58:28,979 - INFO - ---------FFN-----------
+2025-01-22 14:58:29,006 - INFO - s_i has nan : False
+2025-01-22 14:58:29,022 - INFO - h_i has nan : False
+2025-01-22 14:58:29,027 - INFO - x_next has nan : False
+2025-01-22 14:58:29,152 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:58:29,156 - INFO - x has nan: False
+2025-01-22 14:58:29,157 - INFO - mu has nan: False
+2025-01-22 14:58:29,157 - INFO - var has nan: False
+2025-01-22 14:58:29,161 - INFO - x_normalised has nan: False
+2025-01-22 14:58:29,165 - INFO - x_tilde has nan: False
+2025-01-22 14:58:29,166 - INFO - ---------Encoder Block-----------
+2025-01-22 14:58:29,170 - INFO - x has nan: False
+2025-01-22 14:58:34,416 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:58:34,424 - INFO - attn_output has nan: False
+2025-01-22 14:58:34,790 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:58:34,794 - INFO - x has nan: False
+2025-01-22 14:58:34,795 - INFO - mu has nan: False
+2025-01-22 14:58:34,795 - INFO - var has nan: False
+2025-01-22 14:58:34,798 - INFO - x_normalised has nan: False
+2025-01-22 14:58:34,802 - INFO - x_tilde has nan: False
+2025-01-22 14:58:35,013 - INFO - ---------FFN-----------
+2025-01-22 14:58:35,035 - INFO - s_i has nan : False
+2025-01-22 14:58:35,046 - INFO - h_i has nan : False
+2025-01-22 14:58:35,049 - INFO - x_next has nan : False
+2025-01-22 14:58:35,174 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:58:35,177 - INFO - x has nan: False
+2025-01-22 14:58:35,177 - INFO - mu has nan: False
+2025-01-22 14:58:35,178 - INFO - var has nan: False
+2025-01-22 14:58:35,180 - INFO - x_normalised has nan: False
+2025-01-22 14:58:35,183 - INFO - x_tilde has nan: False
+2025-01-22 14:58:35,184 - INFO - ---------Encoder Block-----------
+2025-01-22 14:58:35,186 - INFO - x has nan: False
+2025-01-22 14:58:40,322 - INFO - ---------- attention(Innocent) ---------- 
+2025-01-22 14:58:40,326 - INFO - attn_output has nan: False
+2025-01-22 14:58:40,629 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:58:40,633 - INFO - x has nan: False
+2025-01-22 14:58:40,633 - INFO - mu has nan: False
+2025-01-22 14:58:40,634 - INFO - var has nan: False
+2025-01-22 14:58:40,637 - INFO - x_normalised has nan: False
+2025-01-22 14:58:40,640 - INFO - x_tilde has nan: False
+2025-01-22 14:58:40,832 - INFO - ---------FFN-----------
+2025-01-22 14:58:40,849 - INFO - s_i has nan : False
+2025-01-22 14:58:40,865 - INFO - h_i has nan : False
+2025-01-22 14:58:40,868 - INFO - x_next has nan : False
+2025-01-22 14:58:40,946 - INFO - ---------Layer Normalisation-----------
+2025-01-22 14:58:40,949 - INFO - x has nan: False
+2025-01-22 14:58:40,950 - INFO - mu has nan: False
+2025-01-22 14:58:40,950 - INFO - var has nan: False
+2025-01-22 14:58:40,953 - INFO - x_normalised has nan: False
+2025-01-22 14:58:40,956 - INFO - x_tilde has nan: False
+2025-01-22 14:58:40,956 - INFO - ---------Encoder Block-----------
+2025-01-22 14:58:40,959 - INFO - x has nan: False

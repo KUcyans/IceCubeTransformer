@@ -1,0 +1,73 @@
+2025-01-24 10:36:09,462 - INFO - | Parameter       | Value           |
+|-----------------|-----------------|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 256            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 1e-05          |
+
+
+2025-01-24 10:36:09,463 - INFO - Starting training...
+2025-01-24 10:37:34,278 - INFO - Epoch 1: val_loss=0.5526, val_acc=93.75%
+2025-01-24 10:37:47,335 - INFO - Epoch 1: val_loss=0.5371, val_acc=90.62%
+2025-01-24 10:37:47,636 - INFO - ####################Training epoch 0####################
+2025-01-24 10:38:03,370 - INFO - Epoch 1: train_loss=0.5469
+2025-01-24 10:38:32,832 - INFO - Epoch 1: train_loss=0.4749
+2025-01-24 10:38:59,256 - INFO - Epoch 1: train_loss=0.4543
+2025-01-24 10:39:30,080 - INFO - Epoch 1: train_loss=0.5095
+2025-01-24 10:40:09,810 - INFO - Epoch 1: train_loss=0.4383
+2025-01-24 10:40:44,964 - INFO - Epoch 1: train_loss=0.4049
+2025-01-24 10:41:17,912 - INFO - Epoch 1: train_loss=0.3894
+2025-01-24 10:41:48,463 - INFO - Epoch 1: train_loss=0.3707
+2025-01-24 10:42:17,807 - INFO - Epoch 1: train_loss=0.3762
+2025-01-24 10:42:46,552 - INFO - Epoch 1: train_loss=0.2968
+2025-01-24 10:43:14,914 - INFO - Epoch 1: train_loss=0.3976
+2025-01-24 10:43:42,551 - INFO - Epoch 1: train_loss=0.3907
+2025-01-24 10:44:11,491 - INFO - Epoch 1: train_loss=0.3119
+2025-01-24 10:44:41,091 - INFO - Epoch 1: train_loss=0.2472
+2025-01-24 10:45:10,917 - INFO - Epoch 1: train_loss=0.2869
+2025-01-24 10:45:39,989 - INFO - Epoch 1: train_loss=0.2561
+2025-01-24 10:46:07,881 - INFO - Epoch 1: train_loss=0.2685
+2025-01-24 10:46:35,585 - INFO - Epoch 1: train_loss=0.1833
+2025-01-24 10:47:03,471 - INFO - Epoch 1: train_loss=0.1822
+2025-01-24 10:47:33,351 - INFO - Epoch 1: train_loss=0.1790
+2025-01-24 10:48:02,084 - INFO - Epoch 1: train_loss=0.1550
+2025-01-24 10:48:30,036 - INFO - Epoch 1: train_loss=0.2035
+2025-01-24 10:48:59,877 - INFO - Epoch 1: train_loss=0.1447
+2025-01-24 10:49:31,044 - INFO - Epoch 1: train_loss=0.2092
+2025-01-24 10:49:59,850 - INFO - Epoch 1: train_loss=0.2433
+2025-01-24 10:50:27,494 - INFO - Epoch 1: train_loss=0.2326
+2025-01-24 10:50:56,298 - INFO - Epoch 1: train_loss=0.2233
+2025-01-24 10:51:26,160 - INFO - Epoch 1: train_loss=0.1798
+2025-01-24 10:51:55,040 - INFO - Epoch 1: train_loss=0.1635
+2025-01-24 10:52:24,634 - INFO - Epoch 1: train_loss=0.2149
+2025-01-24 10:52:54,864 - INFO - Epoch 1: train_loss=0.1915
+2025-01-24 10:53:23,169 - INFO - Epoch 1: train_loss=0.0950
+2025-01-24 10:53:52,581 - INFO - Epoch 1: train_loss=0.1887
+2025-01-24 10:54:22,009 - INFO - Epoch 1: train_loss=0.2855
+2025-01-24 10:54:51,614 - INFO - Epoch 1: train_loss=0.1292
+2025-01-24 10:55:19,153 - INFO - Epoch 1: train_loss=0.1203
+2025-01-24 10:55:47,756 - INFO - Epoch 1: train_loss=0.1244
+2025-01-24 10:56:14,848 - INFO - Epoch 1: train_loss=0.1547
+2025-01-24 10:56:41,958 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:57:07,316 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:57:29,958 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:57:52,672 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:58:15,663 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:58:38,654 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:59:01,514 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:59:25,198 - INFO - Epoch 1: train_loss=nan
+2025-01-24 10:59:47,988 - INFO - Epoch 1: train_loss=nan
+2025-01-24 11:00:11,067 - INFO - Epoch 1: train_loss=nan
+2025-01-24 11:00:34,087 - INFO - Epoch 1: train_loss=nan
+2025-01-24 11:00:57,065 - INFO - Epoch 1: train_loss=nan
+2025-01-24 11:01:20,188 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%
+2025-01-24 11:01:31,424 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%
+2025-01-24 11:01:42,630 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%
+2025-01-24 11:01:54,230 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%
+2025-01-24 11:02:05,701 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%
+2025-01-24 11:02:16,839 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%
+2025-01-24 11:02:19,782 - INFO - Epoch 1: val_loss=nan, val_acc=0.00%

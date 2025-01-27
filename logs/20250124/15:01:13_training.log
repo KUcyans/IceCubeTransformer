@@ -1,0 +1,52 @@
+2025-01-24 15:01:14,689 - INFO - | Parameter       | Value           |
+|-----------------|-----------------|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 256            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 1e-05          |
+
+
+2025-01-24 15:01:14,691 - INFO - Starting training...
+2025-01-24 15:06:45,210 - INFO - | Parameter       | Value           |
+|-----------------|-----------------|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 256            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 1e-05          |
+
+
+2025-01-24 15:06:45,211 - INFO - Starting training...
+2025-01-24 15:12:57,481 - INFO - | Parameter       | Value           |
+|-----------------|-----------------|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 256            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 1e-05          |
+
+
+2025-01-24 15:12:57,482 - INFO - Starting training...
+2025-01-24 15:14:22,790 - INFO - | Parameter       | Value           |
+|-----------------|-----------------|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 256            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 1e-05          |
+
+
+2025-01-24 15:14:22,792 - INFO - Starting training...
