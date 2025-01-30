@@ -1,0 +1,197 @@
+2025-01-30 16:21:26,813 INFO    StreamThr :3217362 [internal.py:wandb_internal():85] W&B internal server running at pid: 3217362, started at: 2025-01-30 16:21:26.812257
+2025-01-30 16:21:26,815 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: status
+2025-01-30 16:21:26,831 INFO    WriterThread:3217362 [datastore.py:open_for_write():87] open: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/run-lv6x8n45.wandb
+2025-01-30 16:21:26,833 DEBUG   SenderThread:3217362 [sender.py:send():379] send: header
+2025-01-30 16:21:26,867 DEBUG   SenderThread:3217362 [sender.py:send():379] send: run
+2025-01-30 16:21:27,358 INFO    SenderThread:3217362 [dir_watcher.py:__init__():211] watching files in: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files
+2025-01-30 16:21:27,358 INFO    SenderThread:3217362 [sender.py:_start_run_threads():1188] run started: lv6x8n45 with start time 1738250486.828777
+2025-01-30 16:21:27,364 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: check_version
+2025-01-30 16:21:27,364 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: check_version
+2025-01-30 16:21:27,441 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: run_start
+2025-01-30 16:21:27,457 DEBUG   HandlerThread:3217362 [system_info.py:__init__():26] System info init
+2025-01-30 16:21:27,457 DEBUG   HandlerThread:3217362 [system_info.py:__init__():41] System info init done
+2025-01-30 16:21:27,458 INFO    HandlerThread:3217362 [system_monitor.py:start():194] Starting system monitor
+2025-01-30 16:21:27,458 INFO    SystemMonitor:3217362 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-01-30 16:21:27,458 INFO    HandlerThread:3217362 [system_monitor.py:probe():214] Collecting system info
+2025-01-30 16:21:27,458 INFO    SystemMonitor:3217362 [interfaces.py:start():188] Started cpu monitoring
+2025-01-30 16:21:27,458 INFO    SystemMonitor:3217362 [interfaces.py:start():188] Started disk monitoring
+2025-01-30 16:21:27,459 INFO    SystemMonitor:3217362 [interfaces.py:start():188] Started gpu monitoring
+2025-01-30 16:21:27,460 INFO    SystemMonitor:3217362 [interfaces.py:start():188] Started memory monitoring
+2025-01-30 16:21:27,461 INFO    SystemMonitor:3217362 [interfaces.py:start():188] Started network monitoring
+2025-01-30 16:21:27,494 DEBUG   HandlerThread:3217362 [system_info.py:probe():152] Probing system
+2025-01-30 16:21:27,500 DEBUG   HandlerThread:3217362 [system_info.py:_probe_git():137] Probing git
+2025-01-30 16:21:27,516 DEBUG   HandlerThread:3217362 [system_info.py:_probe_git():145] Probing git done
+2025-01-30 16:21:27,516 DEBUG   HandlerThread:3217362 [system_info.py:probe():200] Probing system done
+2025-01-30 16:21:27,516 DEBUG   HandlerThread:3217362 [system_monitor.py:probe():223] {'os': 'Linux-5.14.0-427.24.1.el9_4.x86_64-x86_64-with-glibc2.34', 'python': '3.9.18', 'heartbeatAt': '2025-01-30T15:21:27.494880', 'startedAt': '2025-01-30T15:21:26.798554', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py', 'codePathLocal': 'TrainingDebuggingYard.py', 'codePath': 'TrainingDebuggingYard.py', 'git': {'remote': 'https://github.com/KUcyans/IceCubeTransformer.git', 'commit': 'bc3ce97cb283c3d90da52dd627624f5b926e861a'}, 'email': 'bsf873@alumni.ku.dk', 'root': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer', 'host': 'hep04.cluster', 'username': 'cyan', 'executable': '/usr/bin/python3.9', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3716.991796875, 'min': 2200.0, 'max': 3700.0}, 'cpu_freq_per_core': [{'current': 4290.074, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4102.823, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}], 'disk': {'/': {'total': 948.8187103271484, 'used': 44.41635513305664}}, 'gpu': 'NVIDIA GeForce RTX 3090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}], 'memory': {'total': 125.14518356323242}}
+2025-01-30 16:21:27,516 INFO    HandlerThread:3217362 [system_monitor.py:probe():224] Finished collecting system info
+2025-01-30 16:21:27,516 INFO    HandlerThread:3217362 [system_monitor.py:probe():227] Publishing system info
+2025-01-30 16:21:27,519 INFO    HandlerThread:3217362 [system_monitor.py:probe():229] Finished publishing system info
+2025-01-30 16:21:27,624 DEBUG   SenderThread:3217362 [sender.py:send():379] send: files
+2025-01-30 16:21:27,625 INFO    SenderThread:3217362 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-01-30 16:21:28,136 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: python_packages
+2025-01-30 16:21:28,136 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: python_packages
+2025-01-30 16:21:28,137 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 16:21:28,138 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:28,139 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 16:21:28,264 INFO    wandb-upload_0:3217362 [upload_job.py:push():130] Uploaded file /tmp/tmpt7tymj1hwandb/brwhjmgr-wandb-metadata.json
+2025-01-30 16:21:28,317 DEBUG   SenderThread:3217362 [sender.py:send():379] send: telemetry
+2025-01-30 16:21:28,361 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/output.log
+2025-01-30 16:21:28,361 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/wandb-metadata.json
+2025-01-30 16:21:28,361 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/requirements.txt
+2025-01-30 16:21:30,361 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/output.log
+2025-01-30 16:21:32,320 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 16:21:32,662 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:33,662 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:34,665 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:35,665 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:36,665 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:37,665 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:38,137 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 16:21:38,665 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:39,665 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:40,075 DEBUG   SenderThread:3217362 [sender.py:send():379] send: telemetry
+2025-01-30 16:21:40,117 DEBUG   SenderThread:3217362 [sender.py:send():379] send: telemetry
+2025-01-30 16:21:40,118 DEBUG   SenderThread:3217362 [sender.py:send():379] send: exit
+2025-01-30 16:21:40,118 INFO    SenderThread:3217362 [sender.py:send_exit():586] handling exit code: 1
+2025-01-30 16:21:40,118 INFO    SenderThread:3217362 [sender.py:send_exit():588] handling runtime: 12
+2025-01-30 16:21:40,120 INFO    SenderThread:3217362 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-30 16:21:40,120 INFO    SenderThread:3217362 [sender.py:send_exit():594] send defer
+2025-01-30 16:21:40,120 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,120 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 0
+2025-01-30 16:21:40,120 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,120 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-01-30 16:21:40,120 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 1
+2025-01-30 16:21:40,120 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,120 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 1
+2025-01-30 16:21:40,121 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,121 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-01-30 16:21:40,121 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 2
+2025-01-30 16:21:40,121 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,121 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 2
+2025-01-30 16:21:40,121 INFO    HandlerThread:3217362 [system_monitor.py:finish():203] Stopping system monitor
+2025-01-30 16:21:40,121 INFO    HandlerThread:3217362 [interfaces.py:finish():200] Joined cpu monitor
+2025-01-30 16:21:40,121 DEBUG   SystemMonitor:3217362 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-01-30 16:21:40,122 INFO    HandlerThread:3217362 [interfaces.py:finish():200] Joined disk monitor
+2025-01-30 16:21:40,122 DEBUG   SystemMonitor:3217362 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-01-30 16:21:40,122 DEBUG   SystemMonitor:3217362 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-01-30 16:21:40,362 INFO    HandlerThread:3217362 [interfaces.py:finish():200] Joined gpu monitor
+2025-01-30 16:21:40,362 INFO    HandlerThread:3217362 [interfaces.py:finish():200] Joined memory monitor
+2025-01-30 16:21:40,362 INFO    HandlerThread:3217362 [interfaces.py:finish():200] Joined network monitor
+2025-01-30 16:21:40,363 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,363 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-01-30 16:21:40,363 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 3
+2025-01-30 16:21:40,363 DEBUG   SenderThread:3217362 [sender.py:send():379] send: stats
+2025-01-30 16:21:40,363 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,363 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 3
+2025-01-30 16:21:40,364 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,364 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-01-30 16:21:40,364 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 4
+2025-01-30 16:21:40,364 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,364 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 4
+2025-01-30 16:21:40,364 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,364 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-01-30 16:21:40,364 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 5
+2025-01-30 16:21:40,364 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,364 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 5
+2025-01-30 16:21:40,364 DEBUG   SenderThread:3217362 [sender.py:send():379] send: summary
+2025-01-30 16:21:40,366 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/output.log
+2025-01-30 16:21:40,366 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/wandb-summary.json
+2025-01-30 16:21:40,366 INFO    SenderThread:3217362 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-30 16:21:40,366 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,366 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-01-30 16:21:40,366 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 6
+2025-01-30 16:21:40,367 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,367 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 6
+2025-01-30 16:21:40,367 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,367 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-01-30 16:21:40,370 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 16:21:40,585 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 7
+2025-01-30 16:21:40,585 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:40,585 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 7
+2025-01-30 16:21:40,585 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:40,585 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-01-30 16:21:41,118 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 16:21:41,367 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/config.yaml
+2025-01-30 16:21:42,344 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 8
+2025-01-30 16:21:42,344 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 16:21:42,344 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:42,345 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 8
+2025-01-30 16:21:42,345 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:42,345 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-01-30 16:21:42,345 INFO    SenderThread:3217362 [job_builder.py:build():440] Attempting to build job artifact
+2025-01-30 16:21:42,346 INFO    SenderThread:3217362 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-01-30 16:21:42,367 INFO    Thread-12 :3217362 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/output.log
+2025-01-30 16:21:42,373 INFO    SenderThread:3217362 [job_builder.py:build():545] adding wandb-job metadata file
+2025-01-30 16:21:42,391 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 9
+2025-01-30 16:21:42,391 DEBUG   SenderThread:3217362 [sender.py:send():379] send: artifact
+2025-01-30 16:21:42,391 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:42,392 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 9
+2025-01-30 16:21:43,118 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 16:21:43,573 INFO    wandb-upload_0:3217362 [upload_job.py:push():88] Uploaded file /tmp/tmpr1qn1dre/wandb-job.json
+2025-01-30 16:21:43,640 INFO    wandb-upload_1:3217362 [upload_job.py:push():88] Uploaded file /groups/icecube/cyan/.local/share/wandb/artifacts/staging/tmpgbsehl0v
+2025-01-30 16:21:44,649 INFO    SenderThread:3217362 [sender.py:send_artifact():1530] sent artifact job-https___github.com_KUcyans_IceCubeTransformer.git_TrainingDebuggingYard.py - {'id': 'QXJ0aWZhY3Q6MTQ3ODI2MjYwNw==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU1Mzg2NDczNQ==', 'latestArtifact': None}}
+2025-01-30 16:21:44,649 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:44,649 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-01-30 16:21:44,649 INFO    SenderThread:3217362 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-01-30 16:21:45,368 INFO    SenderThread:3217362 [dir_watcher.py:finish():388] scan: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files
+2025-01-30 16:21:45,368 INFO    SenderThread:3217362 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/requirements.txt requirements.txt
+2025-01-30 16:21:45,369 INFO    SenderThread:3217362 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/wandb-metadata.json wandb-metadata.json
+2025-01-30 16:21:45,369 INFO    SenderThread:3217362 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/wandb-summary.json wandb-summary.json
+2025-01-30 16:21:45,371 INFO    SenderThread:3217362 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/config.yaml config.yaml
+2025-01-30 16:21:45,372 INFO    SenderThread:3217362 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/output.log output.log
+2025-01-30 16:21:45,374 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 10
+2025-01-30 16:21:45,375 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 16:21:45,375 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:45,377 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 10
+2025-01-30 16:21:45,377 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:45,377 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-01-30 16:21:45,377 INFO    SenderThread:3217362 [file_pusher.py:finish():169] shutting down file pusher
+2025-01-30 16:21:45,799 INFO    wandb-upload_0:3217362 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/requirements.txt
+2025-01-30 16:21:45,820 INFO    wandb-upload_2:3217362 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/config.yaml
+2025-01-30 16:21:45,873 INFO    wandb-upload_1:3217362 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/wandb-summary.json
+2025-01-30 16:21:45,875 INFO    wandb-upload_3:3217362 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/files/output.log
+2025-01-30 16:21:46,075 INFO    Thread-11 :3217362 [sender.py:transition_state():614] send defer: 11
+2025-01-30 16:21:46,076 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:46,076 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 11
+2025-01-30 16:21:46,076 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:46,076 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-01-30 16:21:46,076 INFO    SenderThread:3217362 [file_pusher.py:join():175] waiting for file pusher
+2025-01-30 16:21:46,076 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 12
+2025-01-30 16:21:46,077 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:46,077 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 12
+2025-01-30 16:21:46,077 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:46,077 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-01-30 16:21:46,077 INFO    SenderThread:3217362 [file_stream.py:finish():601] file stream finish called
+2025-01-30 16:21:46,119 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 16:21:46,301 INFO    SenderThread:3217362 [file_stream.py:finish():605] file stream finish is done
+2025-01-30 16:21:46,301 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 13
+2025-01-30 16:21:46,301 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 16:21:46,301 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:46,301 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 13
+2025-01-30 16:21:46,301 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:46,301 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-01-30 16:21:46,301 INFO    SenderThread:3217362 [sender.py:transition_state():614] send defer: 14
+2025-01-30 16:21:46,302 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 16:21:46,302 DEBUG   SenderThread:3217362 [sender.py:send():379] send: final
+2025-01-30 16:21:46,302 INFO    HandlerThread:3217362 [handler.py:handle_request_defer():184] handle defer: 14
+2025-01-30 16:21:46,302 DEBUG   SenderThread:3217362 [sender.py:send():379] send: footer
+2025-01-30 16:21:46,302 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: defer
+2025-01-30 16:21:46,302 INFO    SenderThread:3217362 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-01-30 16:21:46,302 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 16:21:46,303 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 16:21:46,303 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: server_info
+2025-01-30 16:21:46,303 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: server_info
+2025-01-30 16:21:46,303 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 16:21:46,304 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: get_summary
+2025-01-30 16:21:46,305 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: sampled_history
+2025-01-30 16:21:46,305 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 16:21:46,449 DEBUG   SenderThread:3217362 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 16:21:46,449 INFO    MainThread:3217362 [wandb_run.py:_footer_history_summary_info():3988] rendering history
+2025-01-30 16:21:46,449 INFO    MainThread:3217362 [wandb_run.py:_footer_history_summary_info():4020] rendering summary
+2025-01-30 16:21:46,449 INFO    MainThread:3217362 [wandb_run.py:_footer_sync_info():3947] logging synced files
+2025-01-30 16:21:46,450 DEBUG   HandlerThread:3217362 [handler.py:handle_request():158] handle_request: shutdown
+2025-01-30 16:21:46,450 INFO    HandlerThread:3217362 [handler.py:finish():882] shutting down handler
+2025-01-30 16:21:47,305 INFO    WriterThread:3217362 [datastore.py:close():296] close: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162126-lv6x8n45/run-lv6x8n45.wandb
+2025-01-30 16:21:47,449 INFO    SenderThread:3217362 [sender.py:finish():1608] shutting down sender
+2025-01-30 16:21:47,449 INFO    SenderThread:3217362 [file_pusher.py:finish():169] shutting down file pusher
+2025-01-30 16:21:47,449 INFO    SenderThread:3217362 [file_pusher.py:join():175] waiting for file pusher

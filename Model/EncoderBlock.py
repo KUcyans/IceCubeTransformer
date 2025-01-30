@@ -1,13 +1,13 @@
 import torch
 import torch.nn as nn
 
-from BuildingBlocks.InnocentAttention import InnocentAttention
-from BuildingBlocks.ScaledDotProductAttention import ScaledDotProductAttention
-from BuildingBlocks.LayerNormalisation import LayerNormalisation
-from BuildingBlocks.FFN import FFN
+from Model.BuildingBlocks.InnocentAttention import InnocentAttention
+from Model.BuildingBlocks.ScaledDotProductAttention import ScaledDotProductAttention
+from Model.BuildingBlocks.LayerNormalisation import LayerNormalisation
+from Model.BuildingBlocks.FFN import FFN
 
 class EncoderBlock(nn.Module):
-    def __init__(self, d_model, n_heads, d_f, dropout=0.1, layer_idx=0, nan_logger=None):
+    def __init__(self, d_model, n_heads, d_f, dropout=0.1, nan_logger=None, layer_idx=0):
         super().__init__()
         self.d_model = d_model
         self.n_heads = n_heads
@@ -18,12 +18,20 @@ class EncoderBlock(nn.Module):
         self.nan_logger = nan_logger
         
         # self.attention = InnocentAttention(self.d_model, self.n_heads, dropout)
-        self.attention = ScaledDotProductAttention(self.d_model, self.n_heads, dropout, self.nan_logger)
-        self.norm_attention = LayerNormalisation(self.d_model, self.nan_logger)
+        self.attention = ScaledDotProductAttention(
+            d_model = self.d_model, 
+            n_heads = self.n_heads, 
+            dropout = dropout, 
+            nan_logger = self.nan_logger)
+        self.norm_attention = LayerNormalisation(d_n = self.d_model, 
+                                                 nan_logger = self.nan_logger)
         
-        self.ffn = FFN(self.d_model, self.d_f, dropout, self.nan_logger)
-        self.norm_ffn = LayerNormalisation(self.d_model, self.nan_logger)
-        
+        self.ffn = FFN(d_model = self.d_model, 
+                       d_f = self.d_f, 
+                       dropout = dropout, 
+                       nan_logger = self.nan_logger)
+        self.norm_ffn = LayerNormalisation(d_n = self.d_model, 
+                                           nan_logger = self.nan_logger)
         
     def forward(self, x, mask=None):
         self.nan_logger.info(f"==============Entering Encoder Block {self.layer_idx}==============")

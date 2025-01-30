@@ -1,0 +1,900 @@
+2025-01-30 19:41:03,037 INFO    StreamThr :3302999 [internal.py:wandb_internal():85] W&B internal server running at pid: 3302999, started at: 2025-01-30 19:41:03.036222
+2025-01-30 19:41:03,039 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status
+2025-01-30 19:41:03,040 INFO    WriterThread:3302999 [datastore.py:open_for_write():87] open: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/run-ebp8ubsy.wandb
+2025-01-30 19:41:03,041 DEBUG   SenderThread:3302999 [sender.py:send():379] send: header
+2025-01-30 19:41:03,069 DEBUG   SenderThread:3302999 [sender.py:send():379] send: run
+2025-01-30 19:41:03,488 INFO    SenderThread:3302999 [dir_watcher.py:__init__():211] watching files in: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files
+2025-01-30 19:41:03,488 INFO    SenderThread:3302999 [sender.py:_start_run_threads():1188] run started: ebp8ubsy with start time 1738262463.037483
+2025-01-30 19:41:03,495 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: check_version
+2025-01-30 19:41:03,495 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: check_version
+2025-01-30 19:41:03,574 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: run_start
+2025-01-30 19:41:03,591 DEBUG   HandlerThread:3302999 [system_info.py:__init__():26] System info init
+2025-01-30 19:41:03,591 DEBUG   HandlerThread:3302999 [system_info.py:__init__():41] System info init done
+2025-01-30 19:41:03,591 INFO    HandlerThread:3302999 [system_monitor.py:start():194] Starting system monitor
+2025-01-30 19:41:03,591 INFO    SystemMonitor:3302999 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-01-30 19:41:03,591 INFO    HandlerThread:3302999 [system_monitor.py:probe():214] Collecting system info
+2025-01-30 19:41:03,591 INFO    SystemMonitor:3302999 [interfaces.py:start():188] Started cpu monitoring
+2025-01-30 19:41:03,592 INFO    SystemMonitor:3302999 [interfaces.py:start():188] Started disk monitoring
+2025-01-30 19:41:03,592 INFO    SystemMonitor:3302999 [interfaces.py:start():188] Started gpu monitoring
+2025-01-30 19:41:03,593 INFO    SystemMonitor:3302999 [interfaces.py:start():188] Started memory monitoring
+2025-01-30 19:41:03,594 INFO    SystemMonitor:3302999 [interfaces.py:start():188] Started network monitoring
+2025-01-30 19:41:03,624 DEBUG   HandlerThread:3302999 [system_info.py:probe():152] Probing system
+2025-01-30 19:41:03,630 DEBUG   HandlerThread:3302999 [system_info.py:_probe_git():137] Probing git
+2025-01-30 19:41:03,646 DEBUG   HandlerThread:3302999 [system_info.py:_probe_git():145] Probing git done
+2025-01-30 19:41:03,646 DEBUG   HandlerThread:3302999 [system_info.py:probe():200] Probing system done
+2025-01-30 19:41:03,646 DEBUG   HandlerThread:3302999 [system_monitor.py:probe():223] {'os': 'Linux-5.14.0-427.24.1.el9_4.x86_64-x86_64-with-glibc2.34', 'python': '3.9.18', 'heartbeatAt': '2025-01-30T18:41:03.624802', 'startedAt': '2025-01-30T18:41:03.005498', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py', 'codePathLocal': 'TrainingDebuggingYard.py', 'codePath': 'TrainingDebuggingYard.py', 'git': {'remote': 'https://github.com/KUcyans/IceCubeTransformer.git', 'commit': 'bc3ce97cb283c3d90da52dd627624f5b926e861a'}, 'email': 'bsf873@alumni.ku.dk', 'root': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer', 'host': 'hep04.cluster', 'username': 'cyan', 'executable': '/usr/bin/python3.9', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3707.752109375, 'min': 2200.0, 'max': 3700.0}, 'cpu_freq_per_core': [{'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4221.337, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}], 'disk': {'/': {'total': 948.8187103271484, 'used': 44.41788101196289}}, 'gpu': 'NVIDIA GeForce RTX 3090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}], 'memory': {'total': 125.14518356323242}}
+2025-01-30 19:41:03,646 INFO    HandlerThread:3302999 [system_monitor.py:probe():224] Finished collecting system info
+2025-01-30 19:41:03,647 INFO    HandlerThread:3302999 [system_monitor.py:probe():227] Publishing system info
+2025-01-30 19:41:03,649 INFO    HandlerThread:3302999 [system_monitor.py:probe():229] Finished publishing system info
+2025-01-30 19:41:03,663 DEBUG   SenderThread:3302999 [sender.py:send():379] send: files
+2025-01-30 19:41:03,663 INFO    SenderThread:3302999 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-01-30 19:41:03,866 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: python_packages
+2025-01-30 19:41:03,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: python_packages
+2025-01-30 19:41:03,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:41:03,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:03,869 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:41:04,168 DEBUG   SenderThread:3302999 [sender.py:send():379] send: telemetry
+2025-01-30 19:41:04,273 INFO    wandb-upload_0:3302999 [upload_job.py:push():130] Uploaded file /tmp/tmpboogv_elwandb/4509g8ng-wandb-metadata.json
+2025-01-30 19:41:04,491 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/requirements.txt
+2025-01-30 19:41:04,491 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/wandb-metadata.json
+2025-01-30 19:41:04,491 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:04,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:05,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:06,491 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:06,777 DEBUG   SenderThread:3302999 [sender.py:send():379] send: telemetry
+2025-01-30 19:41:06,818 DEBUG   SenderThread:3302999 [sender.py:send():379] send: telemetry
+2025-01-30 19:41:06,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:07,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:08,238 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:08,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:09,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:10,493 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:10,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:11,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:12,494 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:12,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:13,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:13,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:14,494 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:14,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:15,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:16,495 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:16,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:17,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:18,495 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:18,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:41:18,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:41:18,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:19,040 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:19,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:20,496 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:20,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:21,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:22,497 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:22,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:23,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:24,497 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:24,649 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:24,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:25,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:26,498 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:26,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:27,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:28,499 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:28,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:29,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:29,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:30,499 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:30,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:31,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:32,500 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:32,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:33,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:41:33,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:41:33,908 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:34,501 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:34,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:35,506 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:35,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:36,502 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/config.yaml
+2025-01-30 19:41:36,503 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:36,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:37,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:38,503 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:38,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:39,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:40,504 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:40,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:41,403 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:41,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:42,504 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:42,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:43,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:44,505 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:44,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:45,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:46,505 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:46,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:47,306 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:47,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:48,506 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:48,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:41:48,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:41:48,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:49,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:50,507 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:50,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:51,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:52,507 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:52,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:53,205 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:53,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:54,508 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:54,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:55,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:56,508 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:56,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:57,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:58,509 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:41:58,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:41:58,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:41:59,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:00,509 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:00,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:01,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:02,510 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:02,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:03,594 DEBUG   SystemMonitor:3302999 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-01-30 19:42:03,595 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:42:03,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:42:03,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:42:03,908 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:04,091 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:04,511 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:04,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:05,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:06,511 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:06,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:07,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:08,512 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:08,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:09,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:09,913 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:10,512 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:10,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:11,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:12,513 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:12,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:13,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:14,513 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:14,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:14,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:15,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:16,514 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:16,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:17,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:18,515 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:18,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:42:18,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:42:18,908 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:19,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:20,515 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:20,756 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:20,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:21,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:22,516 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:22,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:23,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:24,517 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:24,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:25,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:26,001 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:26,517 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:26,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:27,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:28,518 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:28,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:29,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:30,518 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:30,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:31,694 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:31,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:32,519 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:32,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:33,596 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:42:33,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:42:33,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:42:33,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:34,520 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:34,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:35,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:36,520 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:36,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:37,601 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:37,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:38,521 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:38,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:39,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:40,522 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:40,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:41,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:42,522 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:42,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:43,508 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:43,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:44,523 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:44,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:45,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:46,524 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:46,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:47,874 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:48,524 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:48,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:42:48,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:42:48,908 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:49,057 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:49,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:50,525 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:50,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:51,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:52,525 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:52,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:53,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:54,526 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:54,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:42:54,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:55,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:56,527 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:56,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:57,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:58,527 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:42:58,875 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:42:59,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:00,305 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:00,527 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:00,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:01,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:02,528 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:02,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:03,599 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:43:03,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:43:03,867 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:43:03,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:04,529 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:04,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:05,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:06,214 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:06,529 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:06,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:07,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:08,530 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:08,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:09,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:10,530 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:10,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:11,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:12,120 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:12,531 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:12,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:13,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:14,531 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:14,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:15,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:16,532 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:16,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:17,876 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:18,025 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:18,532 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:18,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:43:18,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:43:18,908 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:19,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:20,533 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:20,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:21,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:22,533 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:22,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:23,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:23,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:24,534 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:24,898 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:25,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:26,535 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:26,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:27,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:28,535 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:28,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:29,869 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:29,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:30,536 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:30,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:31,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:32,536 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:32,877 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:33,598 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:43:33,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:43:33,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:43:33,908 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:34,537 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:34,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:35,747 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:35,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:36,537 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:36,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:37,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:38,538 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:38,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:39,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:40,538 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:40,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:41,228 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:41,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:42,539 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:42,878 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:43,912 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:44,540 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:44,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:45,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:46,540 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:46,699 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:46,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:47,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:48,541 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:48,867 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:43:48,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:43:48,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:49,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:50,541 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:50,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:51,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:52,542 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:52,610 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:52,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:53,880 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:54,543 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:54,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:55,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:56,543 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:56,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:57,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:58,519 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:43:58,544 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:43:58,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:43:59,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:00,545 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:00,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:01,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:02,545 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:02,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:03,598 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:44:03,599 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:03,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:44:03,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:44:03,909 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:04,546 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:04,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:05,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:06,547 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:06,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:07,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:08,547 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:08,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:08,881 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:09,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:10,548 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:10,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:11,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:12,549 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:12,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:13,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:13,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:14,549 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:14,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:15,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:16,550 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:16,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:17,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:18,551 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:18,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:44:18,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:44:18,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:19,045 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:19,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:20,551 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:20,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:21,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:22,552 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:22,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:23,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:24,120 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:24,553 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:24,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:25,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:26,553 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:26,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:27,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:28,554 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:28,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:29,870 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:29,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:30,555 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:30,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:31,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:32,555 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:32,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:33,599 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:44:33,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:44:33,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:44:33,909 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:34,556 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:34,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:35,094 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:35,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:36,556 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:36,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:37,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:38,557 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:38,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:39,915 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:40,558 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:40,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:40,915 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:41,886 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:42,558 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:42,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:43,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:44,559 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:44,883 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:45,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:46,560 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:46,824 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:46,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:47,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:48,561 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:48,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:44:48,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:44:48,909 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:49,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:50,561 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:50,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:51,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:52,562 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:52,731 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:52,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:53,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:54,563 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:54,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:55,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:56,563 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:56,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:57,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:58,218 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:44:58,564 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:44:58,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:44:59,884 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:00,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:01,566 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:01,901 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:02,901 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:03,566 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:03,600 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:45:03,601 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:03,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:45:03,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:45:03,901 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:04,901 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:05,567 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:05,901 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:06,901 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:07,568 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:07,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:08,619 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:08,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:09,568 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:09,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:10,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:11,569 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:11,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:12,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:13,570 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:13,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:13,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:14,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:15,570 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:15,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:16,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:17,571 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:17,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:18,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:45:18,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:45:18,909 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:19,110 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:19,572 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:19,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:20,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:21,572 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:21,902 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:22,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:23,573 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:23,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:24,871 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:24,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:25,574 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:25,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:26,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:27,574 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:27,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:28,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:29,575 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:29,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:30,275 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:30,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:31,575 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:31,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:32,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:33,576 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:33,601 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:45:33,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:45:33,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:45:33,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:34,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:35,577 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:35,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:36,178 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:36,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:37,577 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:37,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:38,903 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:39,578 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:39,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:40,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:41,578 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:41,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:42,087 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:42,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:43,579 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:43,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:44,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:45,580 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:45,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:46,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:47,580 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:47,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:47,994 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:48,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:45:48,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:45:48,909 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:49,581 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:49,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:50,933 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:51,581 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:51,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:52,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:53,582 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:53,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:53,904 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:54,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:55,582 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:55,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:56,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:57,583 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:57,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:58,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:45:59,583 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:45:59,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:45:59,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:00,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:01,584 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:01,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:02,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:03,584 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:03,602 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:46:03,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:46:03,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:46:03,909 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:04,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:05,585 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:05,709 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:05,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:06,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:07,585 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:07,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:08,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:09,586 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:09,905 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:10,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:11,586 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:11,616 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:11,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:12,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:13,587 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:13,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:14,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:15,587 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:15,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:16,864 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:16,906 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:17,588 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:17,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:18,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:46:18,869 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:46:18,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:19,589 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:19,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:20,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:21,589 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:21,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:22,565 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:22,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:23,590 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:23,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:24,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:25,590 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:25,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:26,921 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:27,591 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:27,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:28,470 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:28,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:29,591 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:29,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:30,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:31,592 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:31,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:32,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:33,592 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:33,603 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:46:33,603 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:33,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:46:33,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:46:33,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:34,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:35,593 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:35,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:36,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:37,593 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:37,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:38,872 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:38,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:39,594 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:39,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:40,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:41,594 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:41,922 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:42,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:43,595 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:43,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:43,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:44,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:45,595 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:45,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:46,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:47,596 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:47,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:48,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:46:48,869 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:46:48,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:49,068 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:49,596 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:49,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:50,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:51,597 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:51,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:52,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:53,597 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:53,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:54,102 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:54,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:55,598 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:55,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:56,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:57,598 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:57,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:58,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:46:59,599 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:46:59,873 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:46:59,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:00,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:01,599 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:01,923 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:02,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:03,599 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:03,604 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:47:03,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:47:03,868 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:47:03,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:04,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:05,042 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:05,600 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:05,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:06,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:07,600 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:07,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:08,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:09,601 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:09,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:10,847 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:10,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:11,601 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:11,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:12,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:13,602 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:13,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:14,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:15,602 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:15,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:16,750 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:16,924 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:17,603 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:17,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:18,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:47:18,869 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:47:18,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:19,603 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:19,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:20,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:21,604 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:21,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:22,656 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:22,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:23,604 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:23,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:24,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:25,605 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:25,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:26,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:27,605 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:27,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:28,562 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:28,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:29,605 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:29,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:30,925 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:31,606 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:31,941 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:32,940 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:33,604 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:47:33,605 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:33,607 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:33,868 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 19:47:33,869 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 19:47:33,940 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:34,881 DEBUG   SenderThread:3302999 [sender.py:send():379] send: telemetry
+2025-01-30 19:47:34,882 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: server_info
+2025-01-30 19:47:34,882 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: server_info
+2025-01-30 19:47:35,024 DEBUG   SenderThread:3302999 [sender.py:send():379] send: exit
+2025-01-30 19:47:35,024 INFO    SenderThread:3302999 [sender.py:send_exit():586] handling exit code: 0
+2025-01-30 19:47:35,024 INFO    SenderThread:3302999 [sender.py:send_exit():588] handling runtime: 391
+2025-01-30 19:47:35,025 INFO    SenderThread:3302999 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-30 19:47:35,026 INFO    SenderThread:3302999 [sender.py:send_exit():594] send defer
+2025-01-30 19:47:35,026 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,026 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 0
+2025-01-30 19:47:35,026 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,026 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-01-30 19:47:35,026 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 1
+2025-01-30 19:47:35,026 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,026 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 1
+2025-01-30 19:47:35,026 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,026 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-01-30 19:47:35,026 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 2
+2025-01-30 19:47:35,026 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,027 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 2
+2025-01-30 19:47:35,027 INFO    HandlerThread:3302999 [system_monitor.py:finish():203] Stopping system monitor
+2025-01-30 19:47:35,027 DEBUG   SystemMonitor:3302999 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-01-30 19:47:35,027 INFO    HandlerThread:3302999 [interfaces.py:finish():200] Joined cpu monitor
+2025-01-30 19:47:35,027 DEBUG   SystemMonitor:3302999 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-01-30 19:47:35,027 INFO    HandlerThread:3302999 [interfaces.py:finish():200] Joined disk monitor
+2025-01-30 19:47:35,237 INFO    HandlerThread:3302999 [interfaces.py:finish():200] Joined gpu monitor
+2025-01-30 19:47:35,237 INFO    HandlerThread:3302999 [interfaces.py:finish():200] Joined memory monitor
+2025-01-30 19:47:35,238 INFO    HandlerThread:3302999 [interfaces.py:finish():200] Joined network monitor
+2025-01-30 19:47:35,238 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,238 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-01-30 19:47:35,238 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 3
+2025-01-30 19:47:35,238 DEBUG   SenderThread:3302999 [sender.py:send():379] send: stats
+2025-01-30 19:47:35,238 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,238 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 3
+2025-01-30 19:47:35,239 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,239 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-01-30 19:47:35,239 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 4
+2025-01-30 19:47:35,239 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,239 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 4
+2025-01-30 19:47:35,239 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,239 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-01-30 19:47:35,239 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 5
+2025-01-30 19:47:35,239 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,240 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 5
+2025-01-30 19:47:35,240 DEBUG   SenderThread:3302999 [sender.py:send():379] send: summary
+2025-01-30 19:47:35,241 INFO    SenderThread:3302999 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-30 19:47:35,242 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,242 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-01-30 19:47:35,242 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 6
+2025-01-30 19:47:35,242 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,242 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 6
+2025-01-30 19:47:35,242 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,242 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-01-30 19:47:35,245 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 19:47:35,458 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 7
+2025-01-30 19:47:35,458 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:35,458 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 7
+2025-01-30 19:47:35,458 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:35,459 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-01-30 19:47:35,608 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/config.yaml
+2025-01-30 19:47:35,609 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:35,609 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/wandb-summary.json
+2025-01-30 19:47:36,024 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 19:47:36,609 INFO    Thread-12 :3302999 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:36,776 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 8
+2025-01-30 19:47:36,776 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 19:47:36,776 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:36,776 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 8
+2025-01-30 19:47:36,776 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:36,776 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-01-30 19:47:36,776 INFO    SenderThread:3302999 [job_builder.py:build():440] Attempting to build job artifact
+2025-01-30 19:47:36,777 INFO    SenderThread:3302999 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-01-30 19:47:36,804 INFO    SenderThread:3302999 [job_builder.py:build():545] adding wandb-job metadata file
+2025-01-30 19:47:36,821 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 9
+2025-01-30 19:47:36,821 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:36,821 DEBUG   SenderThread:3302999 [sender.py:send():379] send: artifact
+2025-01-30 19:47:36,821 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 9
+2025-01-30 19:47:37,024 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 19:47:38,058 INFO    wandb-upload_1:3302999 [upload_job.py:push():88] Uploaded file /tmp/tmpeodpv0sx/wandb-job.json
+2025-01-30 19:47:38,075 INFO    wandb-upload_0:3302999 [upload_job.py:push():88] Uploaded file /groups/icecube/cyan/.local/share/wandb/artifacts/staging/tmp6r45s7wr
+2025-01-30 19:47:39,078 INFO    SenderThread:3302999 [sender.py:send_artifact():1530] sent artifact job-https___github.com_KUcyans_IceCubeTransformer.git_TrainingDebuggingYard.py - {'id': 'QXJ0aWZhY3Q6MTQ3OTE1MDkxNg==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU1NDQ2MzQ4MQ==', 'latestArtifact': None}}
+2025-01-30 19:47:39,078 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:39,078 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-01-30 19:47:39,078 INFO    SenderThread:3302999 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-01-30 19:47:39,609 INFO    SenderThread:3302999 [dir_watcher.py:finish():388] scan: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files
+2025-01-30 19:47:39,610 INFO    SenderThread:3302999 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/wandb-metadata.json wandb-metadata.json
+2025-01-30 19:47:39,610 INFO    SenderThread:3302999 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/wandb-summary.json wandb-summary.json
+2025-01-30 19:47:39,610 INFO    SenderThread:3302999 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log output.log
+2025-01-30 19:47:39,610 INFO    SenderThread:3302999 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/config.yaml config.yaml
+2025-01-30 19:47:39,613 INFO    SenderThread:3302999 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/requirements.txt requirements.txt
+2025-01-30 19:47:39,616 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 10
+2025-01-30 19:47:39,616 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 19:47:39,616 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:39,618 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 10
+2025-01-30 19:47:39,618 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:39,618 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-01-30 19:47:39,618 INFO    SenderThread:3302999 [file_pusher.py:finish():169] shutting down file pusher
+2025-01-30 19:47:40,024 INFO    wandb-upload_0:3302999 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/output.log
+2025-01-30 19:47:40,024 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 19:47:40,025 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 19:47:40,036 INFO    wandb-upload_1:3302999 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/wandb-summary.json
+2025-01-30 19:47:40,096 INFO    wandb-upload_2:3302999 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/config.yaml
+2025-01-30 19:47:40,111 INFO    wandb-upload_3:3302999 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/files/requirements.txt
+2025-01-30 19:47:40,311 INFO    Thread-11 :3302999 [sender.py:transition_state():614] send defer: 11
+2025-01-30 19:47:40,311 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:40,312 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 11
+2025-01-30 19:47:40,312 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:40,312 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-01-30 19:47:40,312 INFO    SenderThread:3302999 [file_pusher.py:join():175] waiting for file pusher
+2025-01-30 19:47:40,312 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 12
+2025-01-30 19:47:40,312 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:40,312 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 12
+2025-01-30 19:47:40,312 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:40,312 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-01-30 19:47:40,312 INFO    SenderThread:3302999 [file_stream.py:finish():601] file stream finish called
+2025-01-30 19:47:40,803 INFO    SenderThread:3302999 [file_stream.py:finish():605] file stream finish is done
+2025-01-30 19:47:40,803 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 13
+2025-01-30 19:47:40,803 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:40,803 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 13
+2025-01-30 19:47:40,803 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:40,803 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-01-30 19:47:40,803 INFO    SenderThread:3302999 [sender.py:transition_state():614] send defer: 14
+2025-01-30 19:47:40,804 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 19:47:40,804 DEBUG   SenderThread:3302999 [sender.py:send():379] send: final
+2025-01-30 19:47:40,804 INFO    HandlerThread:3302999 [handler.py:handle_request_defer():184] handle defer: 14
+2025-01-30 19:47:40,804 DEBUG   SenderThread:3302999 [sender.py:send():379] send: footer
+2025-01-30 19:47:40,804 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: defer
+2025-01-30 19:47:40,804 INFO    SenderThread:3302999 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-01-30 19:47:40,805 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 19:47:40,805 DEBUG   SenderThread:3302999 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 19:47:40,805 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 19:47:40,806 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: get_summary
+2025-01-30 19:47:40,806 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: sampled_history
+2025-01-30 19:47:40,806 DEBUG   HandlerThread:3302999 [handler.py:handle_request():158] handle_request: shutdown
+2025-01-30 19:47:40,806 INFO    HandlerThread:3302999 [handler.py:finish():882] shutting down handler
+2025-01-30 19:47:41,805 INFO    WriterThread:3302999 [datastore.py:close():296] close: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_194103-ebp8ubsy/run-ebp8ubsy.wandb
+2025-01-30 19:47:41,805 INFO    SenderThread:3302999 [sender.py:finish():1608] shutting down sender
+2025-01-30 19:47:41,805 INFO    SenderThread:3302999 [file_pusher.py:finish():169] shutting down file pusher
+2025-01-30 19:47:41,805 INFO    SenderThread:3302999 [file_pusher.py:join():175] waiting for file pusher

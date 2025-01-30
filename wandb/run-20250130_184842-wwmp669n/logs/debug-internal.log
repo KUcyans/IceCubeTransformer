@@ -1,0 +1,904 @@
+2025-01-30 18:48:42,951 INFO    StreamThr :3292839 [internal.py:wandb_internal():85] W&B internal server running at pid: 3292839, started at: 2025-01-30 18:48:42.950057
+2025-01-30 18:48:42,952 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status
+2025-01-30 18:48:42,953 INFO    WriterThread:3292839 [datastore.py:open_for_write():87] open: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/run-wwmp669n.wandb
+2025-01-30 18:48:42,955 DEBUG   SenderThread:3292839 [sender.py:send():379] send: header
+2025-01-30 18:48:42,992 DEBUG   SenderThread:3292839 [sender.py:send():379] send: run
+2025-01-30 18:48:43,450 INFO    SenderThread:3292839 [dir_watcher.py:__init__():211] watching files in: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files
+2025-01-30 18:48:43,451 INFO    SenderThread:3292839 [sender.py:_start_run_threads():1188] run started: wwmp669n with start time 1738259322.950991
+2025-01-30 18:48:43,457 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: check_version
+2025-01-30 18:48:43,457 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: check_version
+2025-01-30 18:48:43,535 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: run_start
+2025-01-30 18:48:43,552 DEBUG   HandlerThread:3292839 [system_info.py:__init__():26] System info init
+2025-01-30 18:48:43,553 DEBUG   HandlerThread:3292839 [system_info.py:__init__():41] System info init done
+2025-01-30 18:48:43,553 INFO    HandlerThread:3292839 [system_monitor.py:start():194] Starting system monitor
+2025-01-30 18:48:43,553 INFO    SystemMonitor:3292839 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-01-30 18:48:43,553 INFO    HandlerThread:3292839 [system_monitor.py:probe():214] Collecting system info
+2025-01-30 18:48:43,553 INFO    SystemMonitor:3292839 [interfaces.py:start():188] Started cpu monitoring
+2025-01-30 18:48:43,553 INFO    SystemMonitor:3292839 [interfaces.py:start():188] Started disk monitoring
+2025-01-30 18:48:43,554 INFO    SystemMonitor:3292839 [interfaces.py:start():188] Started gpu monitoring
+2025-01-30 18:48:43,555 INFO    SystemMonitor:3292839 [interfaces.py:start():188] Started memory monitoring
+2025-01-30 18:48:43,555 INFO    SystemMonitor:3292839 [interfaces.py:start():188] Started network monitoring
+2025-01-30 18:48:43,575 DEBUG   HandlerThread:3292839 [system_info.py:probe():152] Probing system
+2025-01-30 18:48:43,582 DEBUG   HandlerThread:3292839 [system_info.py:_probe_git():137] Probing git
+2025-01-30 18:48:43,599 DEBUG   HandlerThread:3292839 [system_info.py:_probe_git():145] Probing git done
+2025-01-30 18:48:43,599 DEBUG   HandlerThread:3292839 [system_info.py:probe():200] Probing system done
+2025-01-30 18:48:43,599 DEBUG   HandlerThread:3292839 [system_monitor.py:probe():223] {'os': 'Linux-5.14.0-427.24.1.el9_4.x86_64-x86_64-with-glibc2.34', 'python': '3.9.18', 'heartbeatAt': '2025-01-30T17:48:43.575813', 'startedAt': '2025-01-30T17:48:42.938454', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py', 'codePathLocal': 'TrainingDebuggingYard.py', 'codePath': 'TrainingDebuggingYard.py', 'git': {'remote': 'https://github.com/KUcyans/IceCubeTransformer.git', 'commit': 'bc3ce97cb283c3d90da52dd627624f5b926e861a'}, 'email': 'bsf873@alumni.ku.dk', 'root': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer', 'host': 'hep04.cluster', 'username': 'cyan', 'executable': '/usr/bin/python3.9', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3715.262609375, 'min': 2200.0, 'max': 3700.0}, 'cpu_freq_per_core': [{'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4329.042, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4131.228, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}], 'disk': {'/': {'total': 948.8187103271484, 'used': 44.417884826660156}}, 'gpu': 'NVIDIA GeForce RTX 3090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}], 'memory': {'total': 125.14518356323242}}
+2025-01-30 18:48:43,599 INFO    HandlerThread:3292839 [system_monitor.py:probe():224] Finished collecting system info
+2025-01-30 18:48:43,599 INFO    HandlerThread:3292839 [system_monitor.py:probe():227] Publishing system info
+2025-01-30 18:48:43,602 INFO    HandlerThread:3292839 [system_monitor.py:probe():229] Finished publishing system info
+2025-01-30 18:48:43,616 DEBUG   SenderThread:3292839 [sender.py:send():379] send: files
+2025-01-30 18:48:43,616 INFO    SenderThread:3292839 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-01-30 18:48:43,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: python_packages
+2025-01-30 18:48:43,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:48:43,822 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: python_packages
+2025-01-30 18:48:43,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:43,825 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:48:44,111 DEBUG   SenderThread:3292839 [sender.py:send():379] send: telemetry
+2025-01-30 18:48:44,283 INFO    wandb-upload_0:3292839 [upload_job.py:push():130] Uploaded file /tmp/tmp51rszwp6wandb/ytkz91ru-wandb-metadata.json
+2025-01-30 18:48:44,453 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:44,453 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/wandb-metadata.json
+2025-01-30 18:48:44,453 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/requirements.txt
+2025-01-30 18:48:44,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:45,865 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:46,453 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:46,840 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:47,318 DEBUG   SenderThread:3292839 [sender.py:send():379] send: telemetry
+2025-01-30 18:48:47,359 DEBUG   SenderThread:3292839 [sender.py:send():379] send: telemetry
+2025-01-30 18:48:47,841 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:48,359 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:48:48,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:49,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:50,455 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:50,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:51,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:52,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:53,431 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:48:53,456 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:53,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:54,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:55,456 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:55,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:56,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:57,457 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:57,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:58,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:48:58,822 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:48:58,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:48:59,064 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:48:59,457 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:48:59,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:00,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:01,458 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:01,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:02,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:03,458 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:03,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:04,832 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:04,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:05,459 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:05,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:06,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:07,459 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:07,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:08,850 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:09,460 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:09,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:10,134 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:10,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:11,460 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:11,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:12,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:13,461 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:13,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:49:13,822 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:49:13,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:14,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:15,462 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:15,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:16,023 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:16,463 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/config.yaml
+2025-01-30 18:49:16,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:17,463 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:17,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:18,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:19,464 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:19,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:20,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:21,464 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:21,851 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:21,909 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:22,872 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:23,465 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:23,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:24,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:25,465 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:25,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:26,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:27,466 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:27,798 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:27,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:28,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:49:28,822 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:49:28,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:29,466 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:29,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:30,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:31,467 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:31,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:32,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:33,467 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:33,689 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:33,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:34,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:35,468 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:35,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:36,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:37,468 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:37,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:38,832 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:38,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:39,469 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:39,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:40,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:41,469 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:41,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:42,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:43,470 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:43,555 DEBUG   SystemMonitor:3292839 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-01-30 18:49:43,557 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:49:43,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:49:43,822 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:49:43,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:43,978 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:44,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:45,471 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:45,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:46,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:47,471 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:47,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:48,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:49,472 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:49,832 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:49,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:50,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:51,472 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:51,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:52,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:53,473 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:53,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:54,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:55,305 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:49:55,473 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:55,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:56,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:57,474 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:57,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:58,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:49:58,822 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:49:58,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:49:59,474 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:49:59,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:00,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:01,213 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:01,475 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:01,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:02,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:03,475 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:03,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:04,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:05,476 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:05,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:06,465 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:06,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:07,476 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:07,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:08,477 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:08,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:09,854 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:10,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:11,477 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:11,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:12,212 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:12,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:13,478 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:13,558 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:50:13,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:50:13,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:50:13,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:14,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:15,478 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:15,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:16,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:17,479 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:17,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:18,120 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:18,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:19,479 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:19,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:20,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:21,480 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:21,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:22,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:23,480 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:23,833 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:23,855 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:24,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:25,481 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:25,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:26,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:27,481 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:27,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:28,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:50:28,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:50:28,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:29,053 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:29,482 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:29,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:30,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:31,482 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:31,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:32,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:33,483 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:33,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:34,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:34,920 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:35,483 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:35,891 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:36,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:37,484 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:37,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:38,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:39,485 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:39,856 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:40,833 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:40,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:41,485 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:41,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:42,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:43,486 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:43,561 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:50:43,822 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:50:43,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:50:43,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:44,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:45,486 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:45,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:46,742 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:46,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:47,487 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:47,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:48,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:49,487 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:49,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:50,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:51,488 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:51,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:52,651 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:52,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:53,488 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:53,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:54,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:55,489 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:55,857 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:56,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:57,489 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:57,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:58,558 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:50:58,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:50:58,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:50:58,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:50:59,490 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:50:59,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:00,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:01,490 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:01,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:02,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:03,491 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:03,833 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:03,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:04,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:05,491 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:05,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:06,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:07,492 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:07,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:08,833 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:08,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:09,492 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:09,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:10,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:11,493 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:11,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:12,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:13,493 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:13,559 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:51:13,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:51:13,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:51:13,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:14,041 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:14,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:15,494 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:15,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:16,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:17,494 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:17,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:18,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:19,182 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:19,495 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:19,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:20,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:21,495 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:21,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:22,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:23,496 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:23,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:24,444 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:24,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:25,496 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:25,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:26,497 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:26,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:27,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:28,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:51:28,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:51:28,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:29,497 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:29,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:30,340 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:30,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:31,498 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:31,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:32,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:33,498 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:33,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:34,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:35,499 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:35,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:36,253 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:36,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:37,499 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:37,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:38,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:39,500 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:39,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:40,860 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:41,501 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:41,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:42,164 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:42,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:43,501 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:43,560 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:51:43,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:51:43,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:51:43,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:44,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:45,502 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:45,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:46,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:47,502 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:47,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:48,074 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:48,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:49,502 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:49,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:50,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:51,503 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:51,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:52,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:53,504 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:53,834 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:53,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:54,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:55,504 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:55,861 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:56,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:57,505 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:51:57,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:58,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:51:58,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:51:58,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:51:59,053 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:51:59,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:00,868 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:01,506 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:01,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:02,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:03,506 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:03,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:04,767 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:04,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:05,507 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:05,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:06,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:07,507 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:07,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:08,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:09,508 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:09,834 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:09,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:10,862 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:11,508 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:11,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:12,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:13,509 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:13,561 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:52:13,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:52:13,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:52:13,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:14,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:15,509 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:15,658 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:15,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:16,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:17,510 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:17,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:18,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:19,510 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:19,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:20,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:21,511 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:21,571 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:21,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:22,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:23,511 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:23,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:24,863 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:25,512 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:25,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:26,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:27,481 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:27,512 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:27,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:28,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:52:28,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:52:28,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:29,513 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:29,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:30,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:31,513 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:31,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:32,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:33,394 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:33,514 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:33,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:34,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:35,514 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:35,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:36,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:37,515 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:37,864 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:38,853 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:38,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:39,515 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:39,875 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:40,875 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:41,516 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:41,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:42,875 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:43,516 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:43,562 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:52:43,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:52:43,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:52:43,875 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:43,995 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:44,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:45,517 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:45,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:46,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:47,517 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:47,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:48,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:49,518 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:49,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:49,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:50,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:51,518 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:51,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:52,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:53,519 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:53,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:54,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:55,375 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:52:55,519 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:55,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:56,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:57,520 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:57,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:58,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:52:58,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:52:58,876 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:52:59,520 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:52:59,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:00,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:01,289 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:01,521 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:01,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:02,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:03,521 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:03,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:04,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:05,522 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:05,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:06,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:07,199 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:07,522 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:07,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:08,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:09,523 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:09,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:10,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:11,523 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:11,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:12,877 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:13,114 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:13,523 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:13,563 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:53:13,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:53:13,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:53:13,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:14,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:15,524 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:15,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:16,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:17,524 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:17,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:18,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:18,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:19,525 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:19,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:20,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:21,526 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:21,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:22,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:23,526 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:23,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:23,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:24,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:25,526 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:25,909 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:26,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:27,527 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:27,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:28,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:53:28,823 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:53:28,878 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:29,066 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:29,527 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:29,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:30,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:31,528 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:31,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:32,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:33,528 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:33,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:34,852 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:34,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:35,529 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:35,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:36,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:37,529 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:37,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:38,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:39,530 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:39,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:40,704 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:40,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:41,530 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:41,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:42,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:43,530 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:43,564 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:53:43,823 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:53:43,824 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:53:43,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:44,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:45,531 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:45,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:46,615 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:46,879 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:47,531 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:47,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:48,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:49,532 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:49,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:50,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:51,532 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:51,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:52,524 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:52,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:53,533 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:53,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:54,880 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:55,533 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:55,921 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:56,899 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:57,534 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:57,788 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:53:57,899 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:58,835 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:53:58,835 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:53:58,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:53:59,534 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:53:59,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:00,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:01,535 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:01,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:02,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:03,517 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:03,535 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:03,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:04,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:05,536 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:05,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:06,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:07,536 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:07,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:08,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:08,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:09,537 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:09,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:10,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:11,537 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:11,904 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:12,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:13,538 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:13,564 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:54:13,834 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:54:13,834 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:54:13,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:14,062 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:14,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:15,539 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:15,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:16,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:17,539 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:17,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:18,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:19,285 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:19,540 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:19,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:20,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:21,540 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:21,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:22,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:23,541 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:23,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:24,858 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:24,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:25,541 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:25,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:26,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:27,542 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:27,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:28,834 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:54:28,834 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:54:28,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:29,542 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:29,905 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:30,178 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:30,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:31,543 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:31,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:32,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:33,543 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:33,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:34,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:35,544 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:35,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:36,090 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:36,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:37,544 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:37,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:38,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:39,545 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:39,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:40,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:41,545 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:41,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:42,001 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:42,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:43,546 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:43,565 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:54:43,834 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:54:43,834 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:54:43,906 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:44,943 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:45,547 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:45,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:46,914 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:47,547 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:47,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:47,914 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:48,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:49,548 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:49,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:50,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:51,548 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:51,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:52,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:53,549 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:53,825 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:53,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:54,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:55,549 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:55,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:56,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:57,550 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:57,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:58,834 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:54:58,835 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:54:58,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:54:59,007 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:54:59,550 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:54:59,907 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:00,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:01,551 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:01,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:02,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:03,552 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:03,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:04,606 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:55:04,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:05,552 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:05,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:06,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:07,553 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:07,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:08,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:09,553 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:09,859 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:55:09,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:10,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:11,554 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:11,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:12,908 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:13,554 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:13,566 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:55:13,835 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: stop_status
+2025-01-30 18:55:13,835 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: stop_status
+2025-01-30 18:55:13,909 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:14,909 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:15,402 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:55:15,555 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:15,909 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:15,994 DEBUG   SenderThread:3292839 [sender.py:send():379] send: telemetry
+2025-01-30 18:55:16,034 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: server_info
+2025-01-30 18:55:16,034 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: server_info
+2025-01-30 18:55:16,176 DEBUG   SenderThread:3292839 [sender.py:send():379] send: exit
+2025-01-30 18:55:16,176 INFO    SenderThread:3292839 [sender.py:send_exit():586] handling exit code: 0
+2025-01-30 18:55:16,177 INFO    SenderThread:3292839 [sender.py:send_exit():588] handling runtime: 392
+2025-01-30 18:55:16,178 INFO    SenderThread:3292839 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-30 18:55:16,178 INFO    SenderThread:3292839 [sender.py:send_exit():594] send defer
+2025-01-30 18:55:16,179 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,179 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 0
+2025-01-30 18:55:16,179 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,179 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-01-30 18:55:16,179 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 1
+2025-01-30 18:55:16,179 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,179 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 1
+2025-01-30 18:55:16,179 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,179 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-01-30 18:55:16,180 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 2
+2025-01-30 18:55:16,180 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,180 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 2
+2025-01-30 18:55:16,180 INFO    HandlerThread:3292839 [system_monitor.py:finish():203] Stopping system monitor
+2025-01-30 18:55:16,180 DEBUG   SystemMonitor:3292839 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-01-30 18:55:16,180 DEBUG   SystemMonitor:3292839 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-01-30 18:55:16,180 INFO    HandlerThread:3292839 [interfaces.py:finish():200] Joined cpu monitor
+2025-01-30 18:55:16,181 INFO    HandlerThread:3292839 [interfaces.py:finish():200] Joined disk monitor
+2025-01-30 18:55:16,399 INFO    HandlerThread:3292839 [interfaces.py:finish():200] Joined gpu monitor
+2025-01-30 18:55:16,399 INFO    HandlerThread:3292839 [interfaces.py:finish():200] Joined memory monitor
+2025-01-30 18:55:16,399 INFO    HandlerThread:3292839 [interfaces.py:finish():200] Joined network monitor
+2025-01-30 18:55:16,399 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,399 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-01-30 18:55:16,399 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 3
+2025-01-30 18:55:16,399 DEBUG   SenderThread:3292839 [sender.py:send():379] send: stats
+2025-01-30 18:55:16,399 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,400 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 3
+2025-01-30 18:55:16,400 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,400 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-01-30 18:55:16,400 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 4
+2025-01-30 18:55:16,400 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,400 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 4
+2025-01-30 18:55:16,400 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,400 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-01-30 18:55:16,401 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 5
+2025-01-30 18:55:16,401 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,401 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 5
+2025-01-30 18:55:16,401 DEBUG   SenderThread:3292839 [sender.py:send():379] send: summary
+2025-01-30 18:55:16,402 INFO    SenderThread:3292839 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-01-30 18:55:16,403 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,403 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-01-30 18:55:16,403 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 6
+2025-01-30 18:55:16,403 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,403 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 6
+2025-01-30 18:55:16,403 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,403 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-01-30 18:55:16,406 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:55:16,556 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:16,556 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/wandb-summary.json
+2025-01-30 18:55:16,568 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 7
+2025-01-30 18:55:16,568 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:16,568 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 7
+2025-01-30 18:55:16,568 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:16,568 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-01-30 18:55:17,176 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 18:55:17,558 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:17,558 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/config.yaml
+2025-01-30 18:55:19,246 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 8
+2025-01-30 18:55:19,246 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 18:55:19,246 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:19,246 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 8
+2025-01-30 18:55:19,246 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:19,247 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-01-30 18:55:19,247 INFO    SenderThread:3292839 [job_builder.py:build():440] Attempting to build job artifact
+2025-01-30 18:55:19,247 INFO    SenderThread:3292839 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-01-30 18:55:19,275 INFO    SenderThread:3292839 [job_builder.py:build():545] adding wandb-job metadata file
+2025-01-30 18:55:19,292 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 9
+2025-01-30 18:55:19,292 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:19,293 DEBUG   SenderThread:3292839 [sender.py:send():379] send: artifact
+2025-01-30 18:55:19,293 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 9
+2025-01-30 18:55:19,559 INFO    Thread-12 :3292839 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:20,177 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 18:55:20,577 INFO    wandb-upload_1:3292839 [upload_job.py:push():88] Uploaded file /groups/icecube/cyan/.local/share/wandb/artifacts/staging/tmp5ve6bsd9
+2025-01-30 18:55:20,675 INFO    wandb-upload_0:3292839 [upload_job.py:push():88] Uploaded file /tmp/tmp1gpgvdao/wandb-job.json
+2025-01-30 18:55:21,684 INFO    SenderThread:3292839 [sender.py:send_artifact():1530] sent artifact job-https___github.com_KUcyans_IceCubeTransformer.git_TrainingDebuggingYard.py - {'id': 'QXJ0aWZhY3Q6MTQ3ODkzMjk4OA==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU1NDMyMTU1Nw==', 'latestArtifact': None}}
+2025-01-30 18:55:21,685 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:21,685 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 18:55:21,685 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-01-30 18:55:21,685 INFO    SenderThread:3292839 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-01-30 18:55:22,559 INFO    SenderThread:3292839 [dir_watcher.py:finish():388] scan: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files
+2025-01-30 18:55:22,560 INFO    SenderThread:3292839 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/config.yaml config.yaml
+2025-01-30 18:55:22,560 INFO    SenderThread:3292839 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log output.log
+2025-01-30 18:55:22,562 INFO    SenderThread:3292839 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/requirements.txt requirements.txt
+2025-01-30 18:55:22,563 INFO    SenderThread:3292839 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/wandb-summary.json wandb-summary.json
+2025-01-30 18:55:22,565 INFO    SenderThread:3292839 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/wandb-metadata.json wandb-metadata.json
+2025-01-30 18:55:22,565 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 10
+2025-01-30 18:55:22,565 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 18:55:22,567 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:22,567 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 10
+2025-01-30 18:55:22,568 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:22,568 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-01-30 18:55:22,568 INFO    SenderThread:3292839 [file_pusher.py:finish():169] shutting down file pusher
+2025-01-30 18:55:22,952 INFO    wandb-upload_0:3292839 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/output.log
+2025-01-30 18:55:22,954 INFO    wandb-upload_1:3292839 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/config.yaml
+2025-01-30 18:55:23,039 INFO    wandb-upload_3:3292839 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/wandb-summary.json
+2025-01-30 18:55:23,084 INFO    wandb-upload_2:3292839 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/files/requirements.txt
+2025-01-30 18:55:23,178 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 18:55:23,178 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 18:55:23,284 INFO    Thread-11 :3292839 [sender.py:transition_state():614] send defer: 11
+2025-01-30 18:55:23,284 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:23,285 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 11
+2025-01-30 18:55:23,285 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:23,285 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-01-30 18:55:23,285 INFO    SenderThread:3292839 [file_pusher.py:join():175] waiting for file pusher
+2025-01-30 18:55:23,285 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 12
+2025-01-30 18:55:23,285 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:23,285 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 12
+2025-01-30 18:55:23,285 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:23,285 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-01-30 18:55:23,285 INFO    SenderThread:3292839 [file_stream.py:finish():601] file stream finish called
+2025-01-30 18:55:24,027 INFO    SenderThread:3292839 [file_stream.py:finish():605] file stream finish is done
+2025-01-30 18:55:24,027 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 13
+2025-01-30 18:55:24,027 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:24,027 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 13
+2025-01-30 18:55:24,027 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:24,027 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-01-30 18:55:24,027 INFO    SenderThread:3292839 [sender.py:transition_state():614] send defer: 14
+2025-01-30 18:55:24,028 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: defer
+2025-01-30 18:55:24,028 DEBUG   SenderThread:3292839 [sender.py:send():379] send: final
+2025-01-30 18:55:24,028 INFO    HandlerThread:3292839 [handler.py:handle_request_defer():184] handle defer: 14
+2025-01-30 18:55:24,028 DEBUG   SenderThread:3292839 [sender.py:send():379] send: footer
+2025-01-30 18:55:24,028 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: defer
+2025-01-30 18:55:24,028 INFO    SenderThread:3292839 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-01-30 18:55:24,029 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: poll_exit
+2025-01-30 18:55:24,029 DEBUG   SenderThread:3292839 [sender.py:send_request():406] send_request: poll_exit
+2025-01-30 18:55:24,029 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: internal_messages
+2025-01-30 18:55:24,029 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: get_summary
+2025-01-30 18:55:24,030 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: sampled_history
+2025-01-30 18:55:24,030 DEBUG   HandlerThread:3292839 [handler.py:handle_request():158] handle_request: shutdown
+2025-01-30 18:55:24,030 INFO    HandlerThread:3292839 [handler.py:finish():882] shutting down handler
+2025-01-30 18:55:25,029 INFO    WriterThread:3292839 [datastore.py:close():296] close: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_184842-wwmp669n/run-wwmp669n.wandb
+2025-01-30 18:55:25,029 INFO    SenderThread:3292839 [sender.py:finish():1608] shutting down sender
+2025-01-30 18:55:25,029 INFO    SenderThread:3292839 [file_pusher.py:finish():169] shutting down file pusher
+2025-01-30 18:55:25,029 INFO    SenderThread:3292839 [file_pusher.py:join():175] waiting for file pusher

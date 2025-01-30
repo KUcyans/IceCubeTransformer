@@ -1,0 +1,220 @@
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+Missing logger folder: /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/logs/20250130/163745
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250130 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+  | Name                        | Type       | Params | Mode
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 397 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+402 K     Trainable params
+0         Non-trainable params
+402 K     Total params
+1.608     Total estimated model params size (MB)
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Dataset split: Train=4800, Val=600, Test=600
+Class weights: tensor([6.3492e-04, 6.2461e-04, 6.1576e-04, 1.0000e+00])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.81it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2: 100%|██████████| 38/38 [01:13<00:00,  0.51it/s, v_num=0]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.81it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 3: 100%|██████████| 38/38 [01:13<00:00,  0.51it/s, v_num=0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 4: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.81it/s]
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 1.106
+
+`Trainer.fit` stopped: `max_epochs=5` reached.

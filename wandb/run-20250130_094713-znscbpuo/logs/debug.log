@@ -1,0 +1,41 @@
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Configure stats pid to 2782819
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Loading settings from /groups/icecube/cyan/.config/wandb/settings
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Loading settings from /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/settings
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_setup.py:_flush():76] Applying login settings: {}
+2025-01-30 09:47:13,180 INFO    MainThread:2782819 [wandb_init.py:_log_setup():520] Logging user logs to /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_094713-znscbpuo/logs/debug.log
+2025-01-30 09:47:13,181 INFO    MainThread:2782819 [wandb_init.py:_log_setup():521] Logging internal logs to /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_094713-znscbpuo/logs/debug-internal.log
+2025-01-30 09:47:13,181 INFO    MainThread:2782819 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x7ff7f1485460>
+2025-01-30 09:47:13,181 INFO    MainThread:2782819 [wandb_init.py:init():560] calling init triggers
+2025-01-30 09:47:13,181 INFO    MainThread:2782819 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {'d_model': 128, 'n_heads': 8, 'd_f': 256, 'num_layers': 3, 'd_input': 32, 'num_classes': 3, 'dropout': 0.1, 'learning_rate': 1e-05, 'epochs': 5, 'attention': 'Scaled Dot-Product'}
+2025-01-30 09:47:13,181 INFO    MainThread:2782819 [wandb_init.py:init():610] starting backend
+2025-01-30 09:47:13,181 INFO    MainThread:2782819 [wandb_init.py:init():614] setting up manager
+2025-01-30 09:47:13,184 INFO    MainThread:2782819 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-01-30 09:47:13,214 INFO    MainThread:2782819 [wandb_init.py:init():622] backend started and connected
+2025-01-30 09:47:13,221 INFO    MainThread:2782819 [wandb_run.py:_label_probe_notebook():1334] probe notebook
+2025-01-30 09:47:13,222 INFO    MainThread:2782819 [wandb_run.py:_label_probe_notebook():1344] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2025-01-30 09:47:13,222 INFO    MainThread:2782819 [wandb_init.py:init():711] updated telemetry
+2025-01-30 09:47:13,320 INFO    MainThread:2782819 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2025-01-30 09:47:13,969 INFO    MainThread:2782819 [wandb_run.py:_on_init():2402] communicating current version
+2025-01-30 09:47:14,044 INFO    MainThread:2782819 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.19.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-01-30 09:47:14,044 INFO    MainThread:2782819 [wandb_init.py:init():795] starting run threads in backend
+2025-01-30 09:47:16,776 INFO    MainThread:2782819 [wandb_run.py:_console_start():2380] atexit reg
+2025-01-30 09:47:16,776 INFO    MainThread:2782819 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-01-30 09:47:16,776 INFO    MainThread:2782819 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-01-30 09:47:16,776 INFO    MainThread:2782819 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-01-30 09:47:16,814 INFO    MainThread:2782819 [wandb_init.py:init():838] run started, returning control to user process
+2025-01-30 09:48:14,114 INFO    MainThread:2782819 [wandb_run.py:_finish():2109] finishing run cyans-k-benhavns-universitet/[20250130_094708]Neutrino Flavour Classification/znscbpuo
+2025-01-30 09:48:14,115 INFO    MainThread:2782819 [jupyter.py:save_history():444] not saving jupyter history
+2025-01-30 09:48:14,115 INFO    MainThread:2782819 [jupyter.py:save_ipynb():372] not saving jupyter notebook
+2025-01-30 09:48:14,115 INFO    MainThread:2782819 [wandb_init.py:_jupyter_teardown():448] cleaning up jupyter logic
+2025-01-30 09:48:14,115 INFO    MainThread:2782819 [wandb_run.py:_atexit_cleanup():2349] got exitcode: 0
+2025-01-30 09:48:14,115 INFO    MainThread:2782819 [wandb_run.py:_restore():2332] restore
+2025-01-30 09:48:14,115 INFO    MainThread:2782819 [wandb_run.py:_restore():2338] restore done
+2025-01-30 09:48:18,218 INFO    MainThread:2782819 [wandb_run.py:_footer_history_summary_info():3988] rendering history
+2025-01-30 09:48:18,218 INFO    MainThread:2782819 [wandb_run.py:_footer_history_summary_info():4020] rendering summary
+2025-01-30 09:48:18,222 INFO    MainThread:2782819 [wandb_run.py:_footer_sync_info():3947] logging synced files

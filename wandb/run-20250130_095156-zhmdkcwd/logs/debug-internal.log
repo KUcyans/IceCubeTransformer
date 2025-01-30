@@ -1,0 +1,52 @@
+2025-01-30 09:51:56,303 INFO    StreamThr :2817747 [internal.py:wandb_internal():85] W&B internal server running at pid: 2817747, started at: 2025-01-30 09:51:56.301810
+2025-01-30 09:51:56,304 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status
+2025-01-30 09:51:56,306 INFO    WriterThread:2817747 [datastore.py:open_for_write():87] open: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_095156-zhmdkcwd/run-zhmdkcwd.wandb
+2025-01-30 09:51:56,307 DEBUG   SenderThread:2817747 [sender.py:send():379] send: header
+2025-01-30 09:51:56,369 DEBUG   SenderThread:2817747 [sender.py:send():379] send: run
+2025-01-30 09:51:56,829 INFO    SenderThread:2817747 [dir_watcher.py:__init__():211] watching files in: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_095156-zhmdkcwd/files
+2025-01-30 09:51:56,829 INFO    SenderThread:2817747 [sender.py:_start_run_threads():1188] run started: zhmdkcwd with start time 1738227116.302867
+2025-01-30 09:51:56,837 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: check_version
+2025-01-30 09:51:56,838 DEBUG   SenderThread:2817747 [sender.py:send_request():406] send_request: check_version
+2025-01-30 09:51:56,913 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: run_start
+2025-01-30 09:51:58,926 DEBUG   HandlerThread:2817747 [system_info.py:__init__():26] System info init
+2025-01-30 09:51:58,926 DEBUG   HandlerThread:2817747 [system_info.py:__init__():41] System info init done
+2025-01-30 09:51:58,927 INFO    HandlerThread:2817747 [system_monitor.py:start():194] Starting system monitor
+2025-01-30 09:51:58,927 INFO    SystemMonitor:2817747 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-01-30 09:51:58,927 INFO    HandlerThread:2817747 [system_monitor.py:probe():214] Collecting system info
+2025-01-30 09:51:58,927 INFO    SystemMonitor:2817747 [interfaces.py:start():188] Started cpu monitoring
+2025-01-30 09:51:58,928 INFO    SystemMonitor:2817747 [interfaces.py:start():188] Started disk monitoring
+2025-01-30 09:51:58,928 INFO    SystemMonitor:2817747 [interfaces.py:start():188] Started gpu monitoring
+2025-01-30 09:51:58,929 INFO    SystemMonitor:2817747 [interfaces.py:start():188] Started memory monitoring
+2025-01-30 09:51:58,931 INFO    SystemMonitor:2817747 [interfaces.py:start():188] Started network monitoring
+2025-01-30 09:51:58,960 DEBUG   HandlerThread:2817747 [system_info.py:probe():152] Probing system
+2025-01-30 09:51:58,966 DEBUG   HandlerThread:2817747 [system_info.py:_probe_git():137] Probing git
+2025-01-30 09:51:58,982 DEBUG   HandlerThread:2817747 [system_info.py:_probe_git():145] Probing git done
+2025-01-30 09:51:58,982 DEBUG   HandlerThread:2817747 [system_info.py:probe():200] Probing system done
+2025-01-30 09:51:58,982 DEBUG   HandlerThread:2817747 [system_monitor.py:probe():223] {'os': 'Linux-5.14.0-427.24.1.el9_4.x86_64-x86_64-with-glibc2.34', 'python': '3.9.18', 'heartbeatAt': '2025-01-30T08:51:58.960500', 'startedAt': '2025-01-30T08:51:56.288529', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'codePathLocal': None, 'git': {'remote': 'https://github.com/KUcyans/IceCubeTransformer.git', 'commit': 'bc3ce97cb283c3d90da52dd627624f5b926e861a'}, 'email': 'bsf873@alumni.ku.dk', 'root': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer', 'host': 'hep04.cluster', 'username': 'cyan', 'executable': '/usr/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3707.9663281250005, 'min': 2200.0, 'max': 3700.0}, 'cpu_freq_per_core': [{'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4299.441, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}], 'disk': {'/': {'total': 948.8187103271484, 'used': 44.257774353027344}}, 'gpu': 'NVIDIA GeForce RTX 3090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}], 'memory': {'total': 125.14518356323242}}
+2025-01-30 09:51:58,982 INFO    HandlerThread:2817747 [system_monitor.py:probe():224] Finished collecting system info
+2025-01-30 09:51:58,982 INFO    HandlerThread:2817747 [system_monitor.py:probe():227] Publishing system info
+2025-01-30 09:51:58,984 INFO    HandlerThread:2817747 [system_monitor.py:probe():229] Finished publishing system info
+2025-01-30 09:51:58,998 DEBUG   SenderThread:2817747 [sender.py:send():379] send: files
+2025-01-30 09:51:58,998 INFO    SenderThread:2817747 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-01-30 09:51:59,584 INFO    wandb-upload_0:2817747 [upload_job.py:push():130] Uploaded file /tmp/tmpxxw9xw8vwandb/glvi4vzj-wandb-metadata.json
+2025-01-30 09:51:59,833 INFO    Thread-12 :2817747 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_095156-zhmdkcwd/files/wandb-metadata.json
+2025-01-30 09:52:01,999 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:06,999 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:11,999 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:17,000 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:22,000 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:27,001 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:32,001 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:37,001 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:42,002 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:47,002 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:52,003 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:57,003 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:52:58,931 DEBUG   SystemMonitor:2817747 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-01-30 09:52:58,932 DEBUG   SenderThread:2817747 [sender.py:send():379] send: stats
+2025-01-30 09:53:02,933 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:53:07,933 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:53:12,934 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:53:17,934 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:53:22,934 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report
+2025-01-30 09:53:27,935 DEBUG   HandlerThread:2817747 [handler.py:handle_request():158] handle_request: status_report

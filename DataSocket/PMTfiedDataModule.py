@@ -8,7 +8,7 @@ class PMTfiedDataModule(LightningDataModule):
                  energy_band: EnergyRange, 
                  dataset: Dataset, 
                  batch_size: int = 32, 
-                 num_workers: int = 4, 
+                 num_workers: int = 8, 
                  split_ratios=(0.8, 0.1, 0.1), verbosity=0):
         super().__init__()
         self.root_dir = root_dir
@@ -33,7 +33,8 @@ class PMTfiedDataModule(LightningDataModule):
 
         # Compute class weights based on targets in train dataset
         targets = [sample["target"].item() for sample in self.train_dataset]
-        class_counts = torch.bincount(torch.tensor(targets), minlength=4)  # Assuming 4 classes (0, 1, 2, 3)
+        N_FLAVOURS = 3
+        class_counts = torch.bincount(torch.tensor(targets), minlength=N_FLAVOURS)
         self.class_weights = 1.0 / class_counts.float()
 
         if self.verbosity > 0:
@@ -83,6 +84,6 @@ class PMTfiedDataModule(LightningDataModule):
         return DataLoader(self.test_dataset, 
                           batch_size=self.batch_size, 
                           num_workers=self.num_workers, 
-                          shuffle=True, 
+                          shuffle=False, 
                         #   collate_fn=self._collate_fn, 
                           pin_memory=True)

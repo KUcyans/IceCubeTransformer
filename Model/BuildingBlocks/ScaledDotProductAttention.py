@@ -27,7 +27,6 @@ class ScaledDotProductAttention(nn.Module):
 
     def forward(self, x, mask=None):
         batch_size, seq_length, embed_dim = x.size()
-        print(f"x shape: {x.shape}")
 
         # Compute Q, K, V
         Q = self.q_proj(x).view(batch_size, seq_length, self.n_heads, self.head_dim_qk).transpose(1, 2)

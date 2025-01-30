@@ -2,11 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import logging
+
 from pytorch_lightning import LightningModule
 
-import .EncoderBlock import EncoderBlock
+from Model.EncoderBlock import EncoderBlock
 
-class FlavourClassifierTransformer(LightningModule):
+class FlavourClassificationTransformerEncoder(LightningModule):
     def __init__(self, 
                  d_model, 
                  n_heads, 
@@ -35,7 +36,13 @@ class FlavourClassifierTransformer(LightningModule):
 
         # Stacked encoder blocks
         self.encoder_blocks = nn.ModuleList(
-            [EncoderBlock(self.d_model, self.n_heads, self.d_f, self.dropout, layer_idx=i, nan_logger = self.nan_logger) for i in range(self.num_layers)]
+            [EncoderBlock(
+                d_model = self.d_model, 
+                n_heads = self.n_heads, 
+                d_f = self.d_f, 
+                dropout = self.dropout, 
+                nan_logger = self.nan_logger,
+                layer_idx=i) for i in range(self.num_layers)]
         )
 
         # Classification head
@@ -56,9 +63,25 @@ class FlavourClassifierTransformer(LightningModule):
         self.nan_logger.info(f"logits hasn't nan: {not torch.isnan(logits).any()}")
         return logits
 
+    # def configure_optimizers(self):
+    #     optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
+    #     return optimizer
+    
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
-        return optimizer
+        
+        # Reduce LR if validation loss stops improving
+        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+            optimizer, mode="min", factor=0.5, patience=5, verbose=True
+        )
+
+        return {
+            "optimizer": optimizer,
+            "lr_scheduler": {
+                "scheduler": scheduler,
+                "monitor": "val_loss",  # Reduce LR when validation loss stops improving
+            }
+        }
 
     def training_step(self, batch, batch_idx):
         x = batch["features"]

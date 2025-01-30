@@ -1,0 +1,44 @@
+nohup: ignoring input
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.2
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_202832-h66foqq9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run winter-water-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_202831%5DNeutrino%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_202831%5DNeutrino%20Flavour%20Classification/runs/h66foqq9
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Missing logger folder: /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/logs/20250130/202831
+2025-01-30 20:28:34.537187: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-01-30 20:28:34.552969: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-01-30 20:28:34.557871: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-01-30 20:28:34.570866: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-01-30 20:28:35.914611: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250130 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 397 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+402 K     Trainable params
+0         Non-trainable params
+402 K     Total params
+1.608     Total estimated model params size (MB)
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Dataset split into train (4800), val (600), and test (600)
+Class weights: tensor([0.0006, 0.0006, 0.0006])
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:01<00:01,  0.72it/s]Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:02<00:00,  0.78it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/38 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/38 [00:00<?, ?it/s] Epoch 0:   3%|▎         | 1/38 [00:04<02:44,  0.22it/s]Epoch 0:   3%|▎         | 1/38 [00:04<02:44,  0.22it/s, v_num=0]Epoch 0:   5%|▌         | 2/38 [00:05<01:41,  0.36it/s, v_num=0]Epoch 0:   5%|▌         | 2/38 [00:05<01:41,  0.36it/s, v_num=0]Epoch 0:   8%|▊         | 3/38 [00:09<01:54,  0.31it/s, v_num=0]Epoch 0:   8%|▊         | 3/38 [00:09<01:54,  0.31it/s, v_num=0]
