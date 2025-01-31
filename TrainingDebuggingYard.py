@@ -200,11 +200,35 @@ def execute():
         max_n_doms=maxNDOMFinder_PeV_1_1(),
         verbosity=1,
         )
-
+    
+    
     dm_PeV_1_1 = PMTfiedDataModule(
         root_dir=root_dir,
         energy_band=EnergyRange.ER_1_PEV_100_PEV,
         dataset = ds_PeV_1_1,
+        batch_size=128,
+        num_workers=8,
+        verbosity=1,
+        )
+    
+    maxNDOMFinder_PeV_1 = MaxNDOMFinder(
+        root_dir=root_dir,
+        energy_band=EnergyRange.ER_1_PEV_100_PEV,
+        part=1,
+        )
+    
+    ds_PeV_1 = DatasetMultiFlavourPart(
+        root_dir=root_dir,
+        energy_band=EnergyRange.ER_1_PEV_100_PEV,
+        part=1,
+        max_n_doms=maxNDOMFinder_PeV_1(),
+        verbosity=1,
+        )
+    
+    dm_PeV_1 = PMTfiedDataModule(
+        root_dir=root_dir,
+        energy_band=EnergyRange.ER_1_PEV_100_PEV,
+        dataset=ds_PeV_1,
         batch_size=128,
         num_workers=8,
         verbosity=1,
@@ -219,7 +243,6 @@ def main():
     elapsed_hours = int(elapsed_time // 3600)
     elapsed_minutes = int((elapsed_time % 3600) // 60)
     elapsed_seconds = int(elapsed_time % 60)
-
     print(f"######## Execution time: {elapsed_hours:02d}:{elapsed_minutes:02d}:{elapsed_seconds:02d} ########")
 
 if __name__ == "__main__":

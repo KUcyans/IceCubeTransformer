@@ -26,3 +26,10 @@ config: {'d_model': 128, 'n_heads': 8, 'd_f': 256, 'num_layers': 3, 'd_input': 3
 2025-01-30 20:28:33,968 INFO    MainThread:3318941 [wandb_run.py:_redirect():2300] Wrapping output streams.
 2025-01-30 20:28:33,968 INFO    MainThread:3318941 [wandb_run.py:_redirect():2325] Redirects installed.
 2025-01-30 20:28:33,970 INFO    MainThread:3318941 [wandb_init.py:init():838] run started, returning control to user process
+2025-01-30 20:50:07,087 INFO    MainThread:3318941 [wandb_run.py:_finish():2109] finishing run cyans-k-benhavns-universitet/[20250130_202831]Neutrino Flavour Classification/h66foqq9
+2025-01-30 20:50:07,087 INFO    MainThread:3318941 [wandb_run.py:_atexit_cleanup():2349] got exitcode: 0
+2025-01-30 20:50:07,087 INFO    MainThread:3318941 [wandb_run.py:_restore():2332] restore
+2025-01-30 20:50:07,087 INFO    MainThread:3318941 [wandb_run.py:_restore():2338] restore done
+2025-01-30 20:50:14,889 INFO    MainThread:3318941 [wandb_run.py:_footer_history_summary_info():3988] rendering history
+2025-01-30 20:50:14,889 INFO    MainThread:3318941 [wandb_run.py:_footer_history_summary_info():4020] rendering summary
+2025-01-30 20:50:14,893 INFO    MainThread:3318941 [wandb_run.py:_footer_sync_info():3947] logging synced files

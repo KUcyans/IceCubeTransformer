@@ -2,8 +2,7 @@
 GPU available: True (cuda), used: True
 TPU available: False, using: 0 TPU cores
 HPU available: False, using: 0 HPUs
-Missing logger folder: /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/logs/20250130/202126
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250130 exists and is not empty.
+Missing logger folder: /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/logs/20250131/100522
 LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
 /groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
   warnings.warn(
@@ -56,12 +55,10 @@ Class weights: tensor([0.0006, 0.0006, 0.0006])
 
 
 
-Epoch 0: 100%|██████████| 38/38 [01:12<00:00,  0.53it/s, v_num=0]
 
-Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.91it/s]
+Epoch 0: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
 
-
-
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.90it/s]
 
 
 
@@ -95,7 +92,12 @@ Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.91it/s]
 
 
 
-Epoch 1: 100%|██████████| 38/38 [01:12<00:00,  0.53it/s, v_num=0]
+
+
+
+Epoch 1: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.89it/s]
 
 
 
@@ -171,7 +173,8 @@ Epoch 2: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_n
 
 
 
-Epoch 3: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
+Epoch 3: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+
 
 
 
@@ -247,8 +250,8 @@ Epoch 4: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_n
 
 
 
+Epoch 5: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
 
-Epoch 5: 100%|██████████| 38/38 [01:45<00:00,  0.36it/s, v_num=0]
 
 
 
@@ -286,10 +289,10 @@ Epoch 5: 100%|██████████| 38/38 [01:45<00:00,  0.36it/s, v_n
 
 
 
+Epoch 6: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
 
 
 
-Epoch 6: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_num=0]
 
 
 
@@ -324,13 +327,13 @@ Epoch 6: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_n
 
 
 
+Epoch 7: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
 
 
 
 
 
 
-Epoch 7: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_num=0]
 
 
 
@@ -363,6 +366,7 @@ Epoch 7: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_n
 
 
 
+Epoch 8: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
 
 
 
@@ -371,7 +375,6 @@ Epoch 7: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_n
 
 
 
-Epoch 8: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_num=0]
 
 
 
@@ -401,6 +404,7 @@ Epoch 8: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_n
 
 
 
+Epoch 9: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
 
 
 
@@ -412,10 +416,72 @@ Epoch 8: 100%|██████████| 38/38 [02:33<00:00,  0.25it/s, v_n
 
 
 
-Epoch 9: 100%|██████████| 38/38 [02:32<00:00,  0.25it/s, v_num=0]
 
 
-Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.86it/s]
-Metric val_acc improved by 0.007 >= min_delta = 0.0. New best score: 0.298
 
-`Trainer.fit` stopped: `max_epochs=10` reached.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 10: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 11: 100%|██████████| 38/38 [01:12<00:00,  0.52it/s, v_num=0]
+
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.91it/s]
+Monitored metric val_acc did not improve in the last 10 records. Best score: 0.293. Signaling Trainer to stop.
