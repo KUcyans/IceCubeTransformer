@@ -11,7 +11,9 @@ class DatasetMultiFlavourShard(Dataset):
                  part: int, 
                  shard: int = None,
                  max_n_doms: int = None,
-                 verbosity: int = 0):
+                 verbosity: int = 0,
+                 n_classes: int = 3,
+                 ):
         """
         Args:
             root_dir (str): The root directory of the dataset.
@@ -26,6 +28,7 @@ class DatasetMultiFlavourShard(Dataset):
         self.part = part
         self.shard = shard
         self.verbosity = verbosity
+        self.num_classes = n_classes
         
         if max_n_doms is None:
             max_n_doms_finder = MaxNDOMFinder(root_dir, energy_band, part, shard, verbosity=self.verbosity)
@@ -56,7 +59,8 @@ class DatasetMultiFlavourShard(Dataset):
                 part = self.part,
                 shard = self.shard,
                 max_n_doms = self.max_n_doms,
-                verbosity = self.verbosity - 1
+                verbosity = self.verbosity - 1,
+                n_classes = self.num_classes
             )
             datasets.append(dataset)
             

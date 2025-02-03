@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 
 from Model.BuildingBlocks.InnocentAttention import InnocentAttention
+from Model.BuildingBlocks.ALiBiAttention import ALiBiAttention
 from Model.BuildingBlocks.ScaledDotProductAttention import ScaledDotProductAttention
 from Model.BuildingBlocks.LayerNormalisation import LayerNormalisation
 from Model.BuildingBlocks.FFN import FFN
@@ -17,12 +18,24 @@ class EncoderBlock(nn.Module):
         
         self.nan_logger = nan_logger
         
-        # self.attention = InnocentAttention(self.d_model, self.n_heads, dropout)
+        # self.attention = InnocentAttention(
+        #     d_model = self.d_model, 
+        #     n_heads = self.n_heads, 
+        #     dropout = dropout, 
+        #     nan_logger = self.nan_logger)
+        
+        # self.attention = ALiBiAttention(
+        #     d_model = self.d_model, 
+        #     n_heads = self.n_heads, 
+        #     dropout = dropout, 
+        #     nan_logger = self.nan_logger)
+        
         self.attention = ScaledDotProductAttention(
             d_model = self.d_model, 
             n_heads = self.n_heads, 
             dropout = dropout, 
             nan_logger = self.nan_logger)
+        
         self.norm_attention = LayerNormalisation(d_n = self.d_model, 
                                                  nan_logger = self.nan_logger)
         
@@ -30,6 +43,7 @@ class EncoderBlock(nn.Module):
                        d_f = self.d_f, 
                        dropout = dropout, 
                        nan_logger = self.nan_logger)
+        
         self.norm_ffn = LayerNormalisation(d_n = self.d_model, 
                                            nan_logger = self.nan_logger)
         

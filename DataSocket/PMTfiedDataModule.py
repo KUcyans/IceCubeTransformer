@@ -9,7 +9,9 @@ class PMTfiedDataModule(LightningDataModule):
                  dataset: Dataset, 
                  batch_size: int = 32, 
                  num_workers: int = 8, 
-                 split_ratios=(0.8, 0.1, 0.1), verbosity=0):
+                 split_ratios=(0.8, 0.1, 0.1), 
+                 n_classes: int = 3,
+                 verbosity=0):
         super().__init__()
         self.root_dir = root_dir
         self.energy_band = energy_band
@@ -17,6 +19,7 @@ class PMTfiedDataModule(LightningDataModule):
         self.batch_size = batch_size
         self.num_workers = num_workers
         self.split_ratios = split_ratios
+        self.n_classes = n_classes
         self.verbosity = verbosity
 
     def setup(self, stage=None):
@@ -31,10 +34,9 @@ class PMTfiedDataModule(LightningDataModule):
             generator=torch.Generator().manual_seed(42)
         )
 
-        # Compute class weights based on targets in train dataset
-        targets = [sample["target"].item() for sample in self.train_dataset]
-        N_FLAVOURS = 3
-        class_counts = torch.bincount(torch.tensor(targets), minlength=N_FLAVOURS)
+        targets = [torch.argmax(sample["target"]).item() for sample in self.train_dataset]
+        
+        class_counts = torch.bincount(torch.tensor(targets), minlength=self.n_classes)
         self.class_weights = 1.0 / class_counts.float()
 
         if self.verbosity > 0:

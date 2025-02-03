@@ -1,0 +1,902 @@
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+  | Name                        | Type       | Params | Mode
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 298 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+303 K     Trainable params
+0         Non-trainable params
+303 K     Total params
+1.213     Total estimated model params size (MB)
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+
+Epoch 0:   0%|          | 0/3 [00:00<?, ?it/s] Batch 0: train_loss=1.0472
+Metric val_acc improved. New best score: 0.000
+Epoch 0:  33%|███▎      | 1/3 [00:01<00:03,  0.53it/s, v_num=aemp]Batch 1: train_loss=1.1997
+Epoch 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.04it/s, v_num=aemp]Batch 2: train_loss=1.3650
+Epoch 1:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=1.0934
+Epoch 1:  33%|███▎      | 1/3 [00:01<00:02,  0.84it/s, v_num=aemp]Batch 1: train_loss=1.1410
+Epoch 1:  67%|██████▋   | 2/3 [00:01<00:00,  1.46it/s, v_num=aemp]Batch 2: train_loss=1.0590
+
+Epoch 2:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9664
+Epoch 2:  33%|███▎      | 1/3 [00:01<00:02,  0.81it/s, v_num=aemp]Batch 1: train_loss=1.0833
+Epoch 2:  67%|██████▋   | 2/3 [00:01<00:00,  1.42it/s, v_num=aemp]Batch 2: train_loss=1.3473
+Epoch 3:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=1.1039
+Epoch 3:  33%|███▎      | 1/3 [00:01<00:02,  0.79it/s, v_num=aemp]Batch 1: train_loss=0.9620
+Epoch 3:  67%|██████▋   | 2/3 [00:01<00:00,  1.39it/s, v_num=aemp]Batch 2: train_loss=1.1327
+Epoch 4:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=1.1192
+Epoch 4:  33%|███▎      | 1/3 [00:01<00:02,  0.81it/s, v_num=aemp]Batch 1: train_loss=0.9990
+Epoch 4:  67%|██████▋   | 2/3 [00:01<00:00,  1.41it/s, v_num=aemp]Batch 2: train_loss=0.8712
+
+Epoch 5:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=1.0513
+Epoch 5:  33%|███▎      | 1/3 [00:01<00:02,  0.83it/s, v_num=aemp]Batch 1: train_loss=0.9059
+Epoch 5:  67%|██████▋   | 2/3 [00:01<00:00,  1.46it/s, v_num=aemp]Batch 2: train_loss=1.1285
+Epoch 6:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9255
+Epoch 6:  33%|███▎      | 1/3 [00:01<00:02,  0.79it/s, v_num=aemp]Batch 1: train_loss=1.0004
+Epoch 6:  67%|██████▋   | 2/3 [00:01<00:00,  1.39it/s, v_num=aemp]Batch 2: train_loss=1.1159
+Epoch 7:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9573
+Epoch 7:  33%|███▎      | 1/3 [00:01<00:02,  0.88it/s, v_num=aemp]Batch 1: train_loss=0.9786
+Epoch 7:  67%|██████▋   | 2/3 [00:01<00:00,  1.52it/s, v_num=aemp]Batch 2: train_loss=1.0058
+Epoch 8:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9512
+Epoch 8:  33%|███▎      | 1/3 [00:01<00:02,  0.91it/s, v_num=aemp]Batch 1: train_loss=0.9708
+Epoch 8:  67%|██████▋   | 2/3 [00:01<00:00,  1.57it/s, v_num=aemp]Batch 2: train_loss=0.9088
+Epoch 9:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9644
+Epoch 9:  33%|███▎      | 1/3 [00:01<00:02,  0.80it/s, v_num=aemp]Batch 1: train_loss=0.9368
+Epoch 9:  67%|██████▋   | 2/3 [00:01<00:00,  1.41it/s, v_num=aemp]Batch 2: train_loss=0.9376
+Epoch 10:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9227
+Epoch 10:  33%|███▎      | 1/3 [00:01<00:02,  0.84it/s, v_num=aemp]Batch 1: train_loss=0.9604
+Epoch 10:  67%|██████▋   | 2/3 [00:01<00:00,  1.47it/s, v_num=aemp]Batch 2: train_loss=0.9166
+Epoch 11:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8547
+Epoch 11:  33%|███▎      | 1/3 [00:01<00:02,  0.88it/s, v_num=aemp]Batch 1: train_loss=1.0388
+Epoch 11:  67%|██████▋   | 2/3 [00:01<00:00,  1.53it/s, v_num=aemp]Batch 2: train_loss=0.8488
+Epoch 12:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9158
+Epoch 12:  33%|███▎      | 1/3 [00:01<00:02,  0.86it/s, v_num=aemp]Batch 1: train_loss=0.9124
+Epoch 12:  67%|██████▋   | 2/3 [00:01<00:00,  1.50it/s, v_num=aemp]Batch 2: train_loss=0.9755
+Epoch 13:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8421
+Epoch 13:  33%|███▎      | 1/3 [00:01<00:02,  0.88it/s, v_num=aemp]Batch 1: train_loss=0.9465
+Epoch 13:  67%|██████▋   | 2/3 [00:01<00:00,  1.53it/s, v_num=aemp]Batch 2: train_loss=1.0475
+Epoch 14:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8961
+Epoch 14:  33%|███▎      | 1/3 [00:01<00:02,  0.84it/s, v_num=aemp]Batch 1: train_loss=0.8708
+Epoch 14:  67%|██████▋   | 2/3 [00:01<00:00,  1.48it/s, v_num=aemp]Batch 2: train_loss=1.0428
+Epoch 15:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7659
+Epoch 15:  33%|███▎      | 1/3 [00:01<00:02,  0.84it/s, v_num=aemp]Batch 1: train_loss=0.9895
+Epoch 15:  67%|██████▋   | 2/3 [00:01<00:00,  1.46it/s, v_num=aemp]Batch 2: train_loss=1.0423
+Epoch 16:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7933
+Epoch 16:  33%|███▎      | 1/3 [00:01<00:02,  0.81it/s, v_num=aemp]Batch 1: train_loss=0.9647
+Epoch 16:  67%|██████▋   | 2/3 [00:01<00:00,  1.42it/s, v_num=aemp]Batch 2: train_loss=1.0273
+Epoch 17:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8449
+Epoch 17:  33%|███▎      | 1/3 [00:01<00:02,  0.82it/s, v_num=aemp]Batch 1: train_loss=0.9713
+Epoch 17:  67%|██████▋   | 2/3 [00:01<00:00,  1.44it/s, v_num=aemp]Batch 2: train_loss=0.8620
+Epoch 18:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9096
+Epoch 18:  33%|███▎      | 1/3 [00:01<00:02,  0.83it/s, v_num=aemp]Batch 1: train_loss=0.8325
+Epoch 18:  67%|██████▋   | 2/3 [00:01<00:00,  1.46it/s, v_num=aemp]Batch 2: train_loss=1.0148
+Epoch 19:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8528
+Epoch 19:  33%|███▎      | 1/3 [00:01<00:02,  0.79it/s, v_num=aemp]Batch 1: train_loss=0.9928
+Epoch 19:  67%|██████▋   | 2/3 [00:01<00:00,  1.39it/s, v_num=aemp]Batch 2: train_loss=0.7330
+Epoch 20:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8748
+Epoch 20:  33%|███▎      | 1/3 [00:01<00:02,  0.85it/s, v_num=aemp]Batch 1: train_loss=0.9212
+Epoch 20:  67%|██████▋   | 2/3 [00:01<00:00,  1.48it/s, v_num=aemp]Batch 2: train_loss=0.8225
+Epoch 21:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8046
+Epoch 21:  33%|███▎      | 1/3 [00:01<00:02,  0.86it/s, v_num=aemp]Batch 1: train_loss=0.9478
+Epoch 21:  67%|██████▋   | 2/3 [00:01<00:00,  1.50it/s, v_num=aemp]Batch 2: train_loss=0.9199
+Epoch 22:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=1.0066
+Epoch 22:  33%|███▎      | 1/3 [00:00<00:01,  1.13it/s, v_num=aemp]Batch 1: train_loss=0.7935
+Epoch 22:  67%|██████▋   | 2/3 [00:01<00:00,  1.89it/s, v_num=aemp]Batch 2: train_loss=0.7927
+Epoch 23:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8818
+Epoch 23:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8802
+Epoch 23:  67%|██████▋   | 2/3 [00:00<00:00,  2.42it/s, v_num=aemp]Batch 2: train_loss=0.8629
+Epoch 24:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8806
+Epoch 24:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.8449
+Epoch 24:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9691
+Epoch 25:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8704
+Epoch 25:  33%|███▎      | 1/3 [00:00<00:01,  1.59it/s, v_num=aemp]Batch 1: train_loss=0.9267
+Epoch 25:  67%|██████▋   | 2/3 [00:00<00:00,  2.55it/s, v_num=aemp]Batch 2: train_loss=0.7600
+Epoch 26:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8526
+Epoch 26:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.8312
+Epoch 26:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=1.0340
+Epoch 27:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9353
+Epoch 27:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.9296
+Epoch 27:  67%|██████▋   | 2/3 [00:00<00:00,  2.50it/s, v_num=aemp]Batch 2: train_loss=0.5811
+Epoch 28:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8306
+Epoch 28:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.9517
+Epoch 28:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.7725
+Epoch 29:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9318
+Epoch 29:  33%|███▎      | 1/3 [00:00<00:01,  1.58it/s, v_num=aemp]Batch 1: train_loss=0.7287
+Epoch 29:  67%|██████▋   | 2/3 [00:00<00:00,  2.54it/s, v_num=aemp]Batch 2: train_loss=1.0675
+Epoch 30:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9129
+Epoch 30:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.9390
+Epoch 30:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.5966
+Epoch 31:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8495
+Epoch 31:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.8425
+Epoch 31:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.9930
+Epoch 32:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8026
+Epoch 32:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9052
+Epoch 32:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.9526
+Epoch 33:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8668
+Epoch 33:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9229
+Epoch 33:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.7348
+Epoch 34:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8778
+Epoch 34:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9325
+Epoch 34:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.6792
+Epoch 34: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s, v_num=aemp]
+Epoch 35:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=1.0728
+Epoch 36:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]
+                                                                      ch 2: train_loss=1.0728
+Epoch 37:  33%|███▎      | 1/3 [00:00<00:01,  1.57it/s, v_num=aemp]Batch 1: train_loss=0.8479
+Epoch 39:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9328s=0.8479
+Epoch 40:  67%|██████▋   | 2/3 [00:00<00:00,  2.38it/s, v_num=aemp]Batch 2: train_loss=1.0795
+                                                                      ch 2: train_loss=1.0795
+Epoch 42:  33%|███▎      | 1/3 [00:00<00:01,  1.43it/s, v_num=aemp]Batch 1: train_loss=0.7836
+Epoch 44:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9766s=0.7836
+Epoch 45:  67%|██████▋   | 2/3 [00:00<00:00,  2.36it/s, v_num=aemp]Batch 2: train_loss=0.8152
+                                                                      ch 2: train_loss=0.8152
+Epoch 47:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9475
+Epoch 49:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7803s=0.9475
+Epoch 50:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.9115
+                                                                      ch 2: train_loss=0.9115
+Epoch 52:  33%|███▎      | 1/3 [00:00<00:01,  1.45it/s, v_num=aemp]Batch 1: train_loss=0.9026
+Epoch 54:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9422s=0.9026
+Epoch 55:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.7560
+                                                                      ch 2: train_loss=0.7560
+Epoch 57:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9140
+Epoch 59:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8729s=0.9140
+Epoch 60:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.7912
+                                                                      ch 2: train_loss=0.7912
+Epoch 62:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.7321
+Epoch 64:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8744s=0.7321
+Epoch 65:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.9395
+Epoch 65:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.9395
+Epoch 67:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.8242
+Epoch 69:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7938s=0.8242
+Epoch 70:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8619
+Epoch 70:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8619
+Epoch 72:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.9415
+Epoch 74:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9532s=0.9415
+Epoch 75:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.6456
+Epoch 75:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.6456
+Epoch 77:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8923
+Epoch 79:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8622s=0.8923
+Epoch 80:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.6139
+Epoch 80:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.6139
+Epoch 82:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.7968
+Epoch 84:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.7968
+Epoch 85:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.9781
+Epoch 85:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.9781
+Epoch 87:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9257
+Epoch 89:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.9257
+Epoch 90:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp] train_loss=1.0232s=0.9257
+Epoch 90:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.9737
+Epoch 92:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8679
+Epoch 94:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.8679
+Epoch 95:  67%|██████▋   | 2/3 [00:00<00:00,  2.52it/s, v_num=aemp] train_loss=0.8521s=0.8679
+Epoch 95:  67%|██████▋   | 2/3 [00:00<00:00,  2.52it/s, v_num=aemp]Batch 2: train_loss=0.7343
+Epoch 97:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.7422
+Epoch 99:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.7422
+Epoch 100:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]train_loss=0.8237s=0.7422
+Epoch 100:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9039
+Epoch 102:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.9052
+Epoch 104:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.9052
+Epoch 105:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp] train_loss=0.8020s=0.9052
+Epoch 105:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.6466
+Epoch 107:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8756
+Epoch 109:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.8756
+Epoch 109:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8555s=0.8756
+Epoch 110:  67%|██████▋   | 2/3 [00:00<00:00,  2.54it/s, v_num=aemp]Batch 2: train_loss=0.9215
+Epoch 112:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8659
+Epoch 114:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.8659
+Epoch 115:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp] train_loss=0.9143s=0.8659
+Epoch 115:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.8299
+Epoch 117:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8967
+Epoch 119:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.8967
+Epoch 119:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8299s=0.8967
+Epoch 120:  67%|██████▋   | 2/3 [00:00<00:00,  2.37it/s, v_num=aemp]Batch 2: train_loss=0.8998
+Epoch 122:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.9249
+Epoch 124:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.9249
+Epoch 125:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp] train_loss=0.8532s=0.9249
+Epoch 125:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.7423
+Epoch 127:  33%|███▎      | 1/3 [00:00<00:01,  1.46it/s, v_num=aemp]Batch 1: train_loss=0.9303
+Epoch 129:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.9303
+Epoch 130:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]  tch 1: train_loss=0.9303
+Epoch 131:  67%|██████▋   | 2/3 [00:00<00:00,  2.53it/s, v_num=aemp]Batch 2: train_loss=0.8910
+Epoch 131:  67%|██████▋   | 2/3 [00:00<00:00,  2.53it/s, v_num=aemp]Batch 2: train_loss=0.8910
+                                                                      tch 2: train_loss=0.8910
+Epoch 135:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]  tch 2: train_loss=0.8910
+Epoch 136:  67%|██████▋   | 2/3 [00:00<00:00,  2.34it/s, v_num=aemp]Batch 2: train_loss=0.7579
+Epoch 136:  67%|██████▋   | 2/3 [00:00<00:00,  2.34it/s, v_num=aemp]Batch 2: train_loss=0.7579
+                                                                      tch 2: train_loss=0.7579
+Epoch 140:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 2: train_loss=0.7579
+Epoch 141:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.7857
+Epoch 141:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.7857
+                                                                      tch 2: train_loss=0.7857
+                                                                      tch 2: train_loss=0.7857
+Epoch 146:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.7966
+Epoch 147: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.7966
+                                                                      tch 1: train_loss=0.7966
+                                                                      tch 1: train_loss=0.7966
+Epoch 151:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.9096
+Epoch 152: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.9096
+                                                                      tch 1: train_loss=0.9096
+                                                                      tch 1: train_loss=0.9096
+Epoch 156:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.7892
+Epoch 157: 100%|██████████| 3/3 [00:00<00:00,  3.00it/s, v_num=aemp]Batch 1: train_loss=0.7892
+                                                                      tch 1: train_loss=0.7892
+                                                                      tch 1: train_loss=0.7892
+Epoch 161:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]  tch 1: train_loss=0.7892
+Epoch 162:  67%|██████▋   | 2/3 [00:00<00:00,  2.38it/s, v_num=aemp]Batch 2: train_loss=0.8888
+Epoch 162:  67%|██████▋   | 2/3 [00:00<00:00,  2.38it/s, v_num=aemp]Batch 2: train_loss=0.8888
+                                                                      tch 2: train_loss=0.8888
+Epoch 166:  33%|███▎      | 1/3 [00:00<00:01,  1.58it/s, v_num=aemp]Batch 1: train_loss=0.9098
+Epoch 167: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.9098
+                                                                      tch 1: train_loss=0.9098
+                                                                      tch 1: train_loss=0.9098
+Epoch 171:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]  tch 1: train_loss=0.9098
+Epoch 172:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=1.0538
+Epoch 172:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=1.0538
+                                                                      tch 2: train_loss=1.0538
+                                                                      tch 2: train_loss=1.0538
+Epoch 177:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8223
+Epoch 178: 100%|██████████| 3/3 [00:01<00:00,  2.96it/s, v_num=aemp]Batch 1: train_loss=0.8223
+                                                                      tch 1: train_loss=0.8223
+                                                                      tch 1: train_loss=0.8223
+Epoch 182:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.7912
+Epoch 183: 100%|██████████| 3/3 [00:00<00:00,  3.07it/s, v_num=aemp]Batch 1: train_loss=0.7912
+                                                                      tch 1: train_loss=0.7912
+                                                                      tch 1: train_loss=0.7912
+Epoch 187:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8183
+Epoch 188: 100%|██████████| 3/3 [00:01<00:00,  2.96it/s, v_num=aemp]Batch 1: train_loss=0.8183
+                                                                      tch 1: train_loss=0.8183
+                                                                      tch 1: train_loss=0.8183
+Epoch 192:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9660
+Epoch 193: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.9660
+                                                                      tch 1: train_loss=0.9660
+                                                                      tch 1: train_loss=0.9660
+Epoch 197:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.9616
+Epoch 198: 100%|██████████| 3/3 [00:00<00:00,  3.19it/s, v_num=aemp]Batch 1: train_loss=0.9616
+                                                                      tch 1: train_loss=0.9616
+                                                                      tch 1: train_loss=0.9616
+Epoch 202:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.8207
+Epoch 203: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8207
+Epoch 203: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8207
+                                                                      tch 1: train_loss=0.8207
+Epoch 207:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]  tch 1: train_loss=0.8207
+Epoch 208:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.7830
+Epoch 208:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.7830
+                                                                      tch 2: train_loss=0.7830
+Epoch 212:  33%|███▎      | 1/3 [00:00<00:01,  1.57it/s, v_num=aemp]  tch 2: train_loss=0.7830
+Epoch 213:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.7112
+Epoch 213:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.7112
+                                                                      tch 2: train_loss=0.7112
+Epoch 217:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]  tch 2: train_loss=0.7112
+Epoch 218:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.8649
+Epoch 218:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.8649
+                                                                      tch 2: train_loss=0.8649
+                                                                      tch 2: train_loss=0.8649
+Epoch 223:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9495
+Epoch 224: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.9495
+                                                                      tch 1: train_loss=0.9495
+                                                                      tch 1: train_loss=0.9495
+Epoch 228:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8276
+Epoch 229: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8276
+Epoch 229: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8276
+Epoch 229: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8276
+                                                                      tch 1: train_loss=0.8276
+Epoch 234:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]  tch 1: train_loss=0.8276
+Epoch 235:  67%|██████▋   | 2/3 [00:00<00:00,  2.35it/s, v_num=aemp]Batch 2: train_loss=0.7637
+Epoch 235:  67%|██████▋   | 2/3 [00:00<00:00,  2.35it/s, v_num=aemp]Batch 2: train_loss=0.7637
+                                                                      tch 2: train_loss=0.7637
+                                                                      tch 2: train_loss=0.7637
+Epoch 240:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8037
+Epoch 241: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.8037
+                                                                      tch 1: train_loss=0.8037
+                                                                      tch 1: train_loss=0.8037
+Epoch 245:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.7578
+Epoch 246: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.7578
+                                                                      tch 1: train_loss=0.7578
+                                                                      tch 1: train_loss=0.7578
+Epoch 250:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9993
+Epoch 251: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.9993
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]=aemp]Batch 1: train_loss=0.9993
+                                                                      tch 1: train_loss=0.9993
+Epoch 255:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]  tch 1: train_loss=0.9993
+Epoch 256:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.7393
+Epoch 256:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.7393
+                                                                      tch 2: train_loss=0.7393
+                                                                      tch 2: train_loss=0.7393
+Epoch 261:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.7212
+Epoch 262: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.7212
+                                                                      tch 1: train_loss=0.7212
+                                                                      tch 1: train_loss=0.7212
+Epoch 266:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9053
+Epoch 267: 100%|██████████| 3/3 [00:00<00:00,  3.24it/s, v_num=aemp]Batch 1: train_loss=0.9053
+                                                                      tch 1: train_loss=0.9053
+                                                                      tch 1: train_loss=0.9053
+Epoch 271:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=0.7991
+Epoch 272: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s, v_num=aemp]Batch 1: train_loss=0.7991
+Epoch 272: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s, v_num=aemp]Batch 1: train_loss=0.7991
+                                                                      tch 1: train_loss=0.7991
+Epoch 276:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]  tch 1: train_loss=0.7991
+Epoch 277:  67%|██████▋   | 2/3 [00:00<00:00,  2.37it/s, v_num=aemp]Batch 2: train_loss=0.7778
+Epoch 277:  67%|██████▋   | 2/3 [00:00<00:00,  2.37it/s, v_num=aemp]Batch 2: train_loss=0.7778
+                                                                      tch 2: train_loss=0.7778
+                                                                      tch 2: train_loss=0.7778
+Epoch 282:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9781
+Epoch 283: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.9781
+                                                                      tch 1: train_loss=0.9781
+                                                                      tch 1: train_loss=0.9781
+Epoch 287:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=0.8467
+Epoch 288: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.8467
+                                                                      tch 1: train_loss=0.8467
+                                                                      tch 1: train_loss=0.8467
+Epoch 292:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.8553
+Epoch 293: 100%|██████████| 3/3 [00:00<00:00,  3.09it/s, v_num=aemp]Batch 1: train_loss=0.8553
+                                                                      tch 1: train_loss=0.8553
+                                                                      tch 1: train_loss=0.8553
+Epoch 297:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.8936
+Epoch 298: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8936
+                                                                      tch 1: train_loss=0.8936
+                                                                      tch 1: train_loss=0.8936
+Epoch 302:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=1.0049
+Epoch 303: 100%|██████████| 3/3 [00:00<00:00,  3.19it/s, v_num=aemp]Batch 1: train_loss=1.0049
+                                                                      tch 1: train_loss=1.0049
+                                                                      tch 1: train_loss=1.0049
+Epoch 307:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.9367
+Epoch 308: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.9367
+Epoch 308: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.9367
+                                                                      tch 1: train_loss=0.9367
+Epoch 312:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]  tch 1: train_loss=0.9367
+Epoch 313:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.6185
+Epoch 313:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.6185
+                                                                      tch 2: train_loss=0.6185
+                                                                      tch 2: train_loss=0.6185
+Epoch 318:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.9369
+Epoch 319: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.9369
+                                                                      tch 1: train_loss=0.9369
+                                                                      tch 1: train_loss=0.9369
+Epoch 323:  33%|███▎      | 1/3 [00:00<00:01,  1.58it/s, v_num=aemp]Batch 1: train_loss=1.0130
+Epoch 324: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=1.0130
+                                                                      tch 1: train_loss=1.0130
+                                                                      tch 1: train_loss=1.0130
+Epoch 328:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9749
+Epoch 329: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.9749
+                                                                      tch 1: train_loss=0.9749
+                                                                      tch 1: train_loss=0.9749
+Epoch 333:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.8737
+Epoch 334: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.8737
+                                                                      tch 1: train_loss=0.8737
+                                                                      tch 1: train_loss=0.8737
+Epoch 338:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]  tch 1: train_loss=0.8737
+Epoch 339:  67%|██████▋   | 2/3 [00:00<00:00,  2.50it/s, v_num=aemp]Batch 2: train_loss=0.8717
+Epoch 339:  67%|██████▋   | 2/3 [00:00<00:00,  2.50it/s, v_num=aemp]Batch 2: train_loss=0.8717
+                                                                      tch 2: train_loss=0.8717
+Epoch 343:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]  tch 2: train_loss=0.8717
+Epoch 343:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]  tch 2: train_loss=0.8717
+Epoch 352:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.8880
+Epoch 352:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8986s=0.8880
+Epoch 353:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.7982
+Epoch 355:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8819
+Epoch 357:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]        Batch 1: train_loss=0.8819
+Epoch 357:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9334s=0.8819
+Epoch 358:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.8760
+Epoch 360:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9162
+Epoch 361: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.9162
+Epoch 362:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8080s=0.9162
+Epoch 363:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.7781
+Epoch 365:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8705
+Epoch 366: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s, v_num=aemp]Batch 1: train_loss=0.8705
+Epoch 367:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7540s=0.8705
+Epoch 368:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.6725
+Epoch 370:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8425
+Epoch 371: 100%|██████████| 3/3 [00:00<00:00,  3.19it/s, v_num=aemp]Batch 1: train_loss=0.8425
+                                                                      tch 1: train_loss=0.8425
+Epoch 374:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]  tch 1: train_loss=0.8425
+Epoch 375:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.7421
+Epoch 375:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.7421
+                                                                      tch 2: train_loss=0.7421
+                                                                      tch 2: train_loss=0.7421
+Epoch 380:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9346
+Epoch 381: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.9346
+                                                                      tch 1: train_loss=0.9346
+                                                                      tch 1: train_loss=0.9346
+Epoch 385:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.8443
+Epoch 386: 100%|██████████| 3/3 [00:00<00:00,  3.21it/s, v_num=aemp]Batch 1: train_loss=0.8443
+                                                                      tch 1: train_loss=0.8443
+                                                                      tch 1: train_loss=0.8443
+                                                                      tch 1: train_loss=0.8443
+Epoch 403:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7851s=0.8196
+Epoch 404:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.9473
+Epoch 406:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=0.8944
+Epoch 407: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.8944
+Epoch 408:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8815s=0.8944
+Epoch 409:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9506
+Epoch 411:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9121
+Epoch 412: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.9121
+Epoch 413:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8442s=0.9121
+Epoch 414:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.9655
+Epoch 416:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8256
+Epoch 417: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8256
+Epoch 418:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.8754s=0.8256
+Epoch 419:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.7292
+Epoch 421:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]  tch 2: train_loss=0.7292
+Epoch 422: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.8955
+Epoch 423:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9566s=0.8955
+Epoch 424:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.8574
+                                                                      tch 2: train_loss=0.8574
+Epoch 427: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.7689
+Epoch 428:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.9344s=0.7689
+Epoch 429:  67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s, v_num=aemp]Batch 2: train_loss=0.7034
+                                                                      tch 2: train_loss=0.7034
+Epoch 432: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.9269
+Epoch 433:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7970s=0.9269
+Epoch 434:  67%|██████▋   | 2/3 [00:00<00:00,  2.34it/s, v_num=aemp]Batch 2: train_loss=0.8476
+                                                                      tch 2: train_loss=0.8476
+Epoch 436:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9955
+Epoch 438:   0%|          | 0/3 [00:00<?, ?it/s, v_num=aemp]Batch 0: train_loss=0.7669s=0.9955
+Epoch 439:  67%|██████▋   | 2/3 [00:00<00:00,  2.27it/s, v_num=aemp]Batch 2: train_loss=0.9630
+Epoch 439:  67%|██████▋   | 2/3 [00:00<00:00,  2.27it/s, v_num=aemp]Batch 2: train_loss=0.9630
+                                                                      tch 2: train_loss=0.9630
+Epoch 443:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 2: train_loss=0.9630
+Epoch 444:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.9415
+Epoch 444:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.9415
+                                                                      tch 2: train_loss=0.9415
+Epoch 448:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]  tch 2: train_loss=0.9415
+Epoch 449:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=1.0605
+Epoch 449:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=1.0605
+                                                                      tch 2: train_loss=1.0605
+                                                                      tch 2: train_loss=1.0605
+Epoch 454:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.8654
+Epoch 455: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.8654
+                                                                      tch 1: train_loss=0.8654
+                                                                      tch 1: train_loss=0.8654
+Epoch 459:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8298
+Epoch 460: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s, v_num=aemp]Batch 1: train_loss=0.8298
+                                                                      tch 1: train_loss=0.8298
+                                                                      tch 1: train_loss=0.8298
+Epoch 464:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8148
+Epoch 465: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.8148
+                                                                      tch 1: train_loss=0.8148
+                                                                      tch 1: train_loss=0.8148
+Epoch 469:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8051
+Epoch 470: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8051
+Epoch 470: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8051
+                                                                      tch 1: train_loss=0.8051
+Epoch 474:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 1: train_loss=0.8051
+Epoch 475:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.9027
+Epoch 475:  67%|██████▋   | 2/3 [00:00<00:00,  2.51it/s, v_num=aemp]Batch 2: train_loss=0.9027
+                                                                      tch 2: train_loss=0.9027
+                                                                      tch 2: train_loss=0.9027
+Epoch 480:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9270
+Epoch 481: 100%|██████████| 3/3 [00:00<00:00,  3.06it/s, v_num=aemp]Batch 1: train_loss=0.9270
+                                                                      tch 1: train_loss=0.9270
+                                                                      tch 1: train_loss=0.9270
+Epoch 485:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8757
+Epoch 486: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.8757
+                                                                      tch 1: train_loss=0.8757
+                                                                      tch 1: train_loss=0.8757
+Epoch 490:  33%|███▎      | 1/3 [00:00<00:01,  1.57it/s, v_num=aemp]Batch 1: train_loss=0.9090
+Epoch 491: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.9090
+                                                                      tch 1: train_loss=0.9090
+                                                                      tch 1: train_loss=0.9090
+Epoch 495:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.7347
+Epoch 496: 100%|██████████| 3/3 [00:00<00:00,  3.22it/s, v_num=aemp]Batch 1: train_loss=0.7347
+                                                                      tch 1: train_loss=0.7347
+                                                                      tch 1: train_loss=0.7347
+Epoch 500:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8363
+Epoch 501: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.8363
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]=aemp]Batch 1: train_loss=0.8363
+                                                                      tch 1: train_loss=0.8363
+Epoch 505:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]  tch 1: train_loss=0.8363
+Epoch 506:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.8708
+Epoch 506:  67%|██████▋   | 2/3 [00:00<00:00,  2.44it/s, v_num=aemp]Batch 2: train_loss=0.8708
+                                                                      tch 2: train_loss=0.8708
+                                                                      tch 2: train_loss=0.8708
+Epoch 511:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]Batch 1: train_loss=0.7297
+Epoch 512: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s, v_num=aemp]Batch 1: train_loss=0.7297
+                                                                      tch 1: train_loss=0.7297
+                                                                      tch 1: train_loss=0.7297
+Epoch 516:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9766
+Epoch 517: 100%|██████████| 3/3 [00:00<00:00,  3.19it/s, v_num=aemp]Batch 1: train_loss=0.9766
+                                                                      tch 1: train_loss=0.9766
+                                                                      tch 1: train_loss=0.9766
+Epoch 521:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9412
+Epoch 522: 100%|██████████| 3/3 [00:00<00:00,  3.26it/s, v_num=aemp]Batch 1: train_loss=0.9412
+                                                                      tch 1: train_loss=0.9412
+                                                                      tch 1: train_loss=0.9412
+Epoch 526:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]  tch 1: train_loss=0.9412
+Epoch 527:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8902
+Epoch 527:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8902
+                                                                      tch 2: train_loss=0.8902
+Epoch 531:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]  tch 2: train_loss=0.8902
+Epoch 532:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=1.0296
+Epoch 532:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=1.0296
+                                                                      tch 2: train_loss=1.0296
+                                                                      tch 2: train_loss=1.0296
+Epoch 537:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8538
+Epoch 538: 100%|██████████| 3/3 [00:00<00:00,  3.03it/s, v_num=aemp]Batch 1: train_loss=0.8538
+                                                                      tch 1: train_loss=0.8538
+                                                                      tch 1: train_loss=0.8538
+Epoch 542:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8544
+Epoch 543: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.8544
+                                                                      tch 1: train_loss=0.8544
+                                                                      tch 1: train_loss=0.8544
+Epoch 547:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8324
+Epoch 548: 100%|██████████| 3/3 [00:00<00:00,  3.10it/s, v_num=aemp]Batch 1: train_loss=0.8324
+                                                                      tch 1: train_loss=0.8324
+                                                                      tch 1: train_loss=0.8324
+Epoch 552:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9272
+Epoch 553: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.9272
+Epoch 553: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.9272
+                                                                      tch 1: train_loss=0.9272
+Epoch 557:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 1: train_loss=0.9272
+Epoch 558:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8808
+Epoch 558:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8808
+                                                                      tch 2: train_loss=0.8808
+                                                                      tch 2: train_loss=0.8808
+Epoch 563:  33%|███▎      | 1/3 [00:00<00:01,  1.58it/s, v_num=aemp]Batch 1: train_loss=0.7796
+Epoch 564: 100%|██████████| 3/3 [00:01<00:00,  2.99it/s, v_num=aemp]Batch 1: train_loss=0.7796
+                                                                      tch 1: train_loss=0.7796
+                                                                      tch 1: train_loss=0.7796
+Epoch 568:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.8841
+Epoch 569: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s, v_num=aemp]Batch 1: train_loss=0.8841
+Epoch 569: 100%|██████████| 3/3 [00:01<00:00,  2.97it/s, v_num=aemp]Batch 1: train_loss=0.8841
+                                                                      tch 1: train_loss=0.8841
+Epoch 573:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.8465
+Epoch 574: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.8465
+Epoch 574: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.8465
+                                                                      tch 1: train_loss=0.8465
+Epoch 578:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]  tch 1: train_loss=0.8465
+Epoch 579:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9855
+Epoch 579:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9855
+                                                                      tch 2: train_loss=0.9855
+Epoch 583:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 2: train_loss=0.9855
+Epoch 584:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8614
+Epoch 584:  67%|██████▋   | 2/3 [00:00<00:00,  2.45it/s, v_num=aemp]Batch 2: train_loss=0.8614
+                                                                      tch 2: train_loss=0.8614
+Epoch 588:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 2: train_loss=0.8614
+Epoch 589:  67%|██████▋   | 2/3 [00:00<00:00,  2.50it/s, v_num=aemp]Batch 2: train_loss=0.9149
+Epoch 589:  67%|██████▋   | 2/3 [00:00<00:00,  2.50it/s, v_num=aemp]Batch 2: train_loss=0.9149
+                                                                      tch 2: train_loss=0.9149
+                                                                      tch 2: train_loss=0.9149
+Epoch 594:  33%|███▎      | 1/3 [00:00<00:01,  1.57it/s, v_num=aemp]Batch 1: train_loss=0.9034
+Epoch 595: 100%|██████████| 3/3 [00:00<00:00,  3.05it/s, v_num=aemp]Batch 1: train_loss=0.9034
+                                                                      tch 1: train_loss=0.9034
+                                                                      tch 1: train_loss=0.9034
+Epoch 599:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=0.8569
+Epoch 600: 100%|██████████| 3/3 [00:00<00:00,  3.02it/s, v_num=aemp]Batch 1: train_loss=0.8569
+                                                                      tch 1: train_loss=0.8569
+                                                                      tch 1: train_loss=0.8569
+Epoch 604:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8825
+Epoch 605: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.8825
+Epoch 605: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.8825
+                                                                      tch 1: train_loss=0.8825
+Epoch 609:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]  tch 1: train_loss=0.8825
+Epoch 610:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.8734
+Epoch 610:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.8734
+                                                                      tch 2: train_loss=0.8734
+                                                                      tch 2: train_loss=0.8734
+Epoch 615:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.7511
+Epoch 616: 100%|██████████| 3/3 [00:00<00:00,  3.20it/s, v_num=aemp]Batch 1: train_loss=0.7511
+                                                                      tch 1: train_loss=0.7511
+                                                                      tch 1: train_loss=0.7511
+Epoch 620:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.8229
+Epoch 621: 100%|██████████| 3/3 [00:00<00:00,  3.03it/s, v_num=aemp]Batch 1: train_loss=0.8229
+Epoch 621: 100%|██████████| 3/3 [00:00<00:00,  3.03it/s, v_num=aemp]Batch 1: train_loss=0.8229
+                                                                      tch 1: train_loss=0.8229
+                                                                      tch 1: train_loss=0.8229
+Epoch 626:  33%|███▎      | 1/3 [00:00<00:01,  1.42it/s, v_num=aemp]Batch 1: train_loss=0.8197
+Epoch 627: 100%|██████████| 3/3 [00:00<00:00,  3.10it/s, v_num=aemp]Batch 1: train_loss=0.8197
+                                                                      tch 1: train_loss=0.8197
+                                                                      tch 1: train_loss=0.8197
+Epoch 631:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.7739
+Epoch 632: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.7739
+                                                                      tch 1: train_loss=0.7739
+                                                                      tch 1: train_loss=0.7739
+Epoch 636:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9097
+Epoch 637: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.9097
+                                                                      tch 1: train_loss=0.9097
+                                                                      tch 1: train_loss=0.9097
+Epoch 641:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8943
+Epoch 642:  67%|██████▋   | 2/3 [00:00<00:00,  2.40it/s, v_num=aemp]Batch 2: train_loss=0.9458
+Epoch 642:  67%|██████▋   | 2/3 [00:00<00:00,  2.40it/s, v_num=aemp]Batch 2: train_loss=0.9458
+                                                                      tch 2: train_loss=0.9458
+                                                                      tch 2: train_loss=0.9458
+                                                                      tch 2: train_loss=0.9458
+Epoch 648:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.8918
+Epoch 649: 100%|██████████| 3/3 [00:00<00:00,  3.06it/s, v_num=aemp]Batch 1: train_loss=0.8918
+Epoch 649: 100%|██████████| 3/3 [00:00<00:00,  3.06it/s, v_num=aemp]Batch 1: train_loss=0.8918
+                                                                      tch 1: train_loss=0.8918
+                                                                      tch 1: train_loss=0.8918
+Epoch 654:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=0.7149
+Epoch 655: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.7149
+                                                                      tch 1: train_loss=0.7149
+                                                                      tch 1: train_loss=0.7149
+Epoch 659:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.8217
+Epoch 660: 100%|██████████| 3/3 [00:00<00:00,  3.08it/s, v_num=aemp]Batch 1: train_loss=0.8217
+                                                                      tch 1: train_loss=0.8217
+                                                                      tch 1: train_loss=0.8217
+Epoch 664:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9693
+Epoch 665:  67%|██████▋   | 2/3 [00:00<00:00,  2.42it/s, v_num=aemp]Batch 2: train_loss=0.9624
+                                                                      tch 2: train_loss=0.9624
+                                                                      tch 2: train_loss=0.9624
+Epoch 669:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]  tch 2: train_loss=0.9624
+Epoch 670:  67%|██████▋   | 2/3 [00:00<00:00,  2.36it/s, v_num=aemp]Batch 2: train_loss=0.9524
+Epoch 670:  67%|██████▋   | 2/3 [00:00<00:00,  2.36it/s, v_num=aemp]Batch 2: train_loss=0.9524
+                                                                      tch 2: train_loss=0.9524
+                                                                      tch 2: train_loss=0.9524
+Epoch 675:  33%|███▎      | 1/3 [00:00<00:01,  1.47it/s, v_num=aemp]Batch 1: train_loss=0.8507
+Epoch 676: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.8507
+                                                                      tch 1: train_loss=0.8507
+                                                                      tch 1: train_loss=0.8507
+Epoch 680:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.8141
+Epoch 681: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.8141
+                                                                      tch 1: train_loss=0.8141
+                                                                      tch 1: train_loss=0.8141
+Epoch 685:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 1: train_loss=0.8141
+Epoch 686:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9207
+Epoch 686:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.9207
+                                                                      tch 2: train_loss=0.9207
+                                                                      tch 2: train_loss=0.9207
+Epoch 691:  33%|███▎      | 1/3 [00:00<00:01,  1.44it/s, v_num=aemp]Batch 1: train_loss=0.8862
+Epoch 692: 100%|██████████| 3/3 [00:00<00:00,  3.23it/s, v_num=aemp]Batch 1: train_loss=0.8862
+                                                                      tch 1: train_loss=0.8862
+                                                                      tch 1: train_loss=0.8862
+Epoch 696:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.8323
+Epoch 697: 100%|██████████| 3/3 [00:00<00:00,  3.14it/s, v_num=aemp]Batch 1: train_loss=0.8323
+                                                                      tch 1: train_loss=0.8323
+                                                                      tch 1: train_loss=0.8323
+Epoch 701:  33%|███▎      | 1/3 [00:00<00:01,  1.57it/s, v_num=aemp]Batch 1: train_loss=0.8283
+Epoch 702: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s, v_num=aemp]Batch 1: train_loss=0.8283
+                                                                      tch 1: train_loss=0.8283
+                                                                      tch 1: train_loss=0.8283
+Epoch 706:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.8836
+Epoch 707: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.8836
+                                                                      tch 1: train_loss=0.8836
+                                                                      tch 1: train_loss=0.8836
+Epoch 711:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]  tch 1: train_loss=0.8836
+Epoch 712:  67%|██████▋   | 2/3 [00:00<00:00,  2.37it/s, v_num=aemp]Batch 2: train_loss=0.8859
+Epoch 712:  67%|██████▋   | 2/3 [00:00<00:00,  2.37it/s, v_num=aemp]Batch 2: train_loss=0.8859
+                                                                      tch 2: train_loss=0.8859
+                                                                      tch 2: train_loss=0.8859
+Epoch 717:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.9878
+Epoch 718: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.9878
+                                                                      tch 1: train_loss=0.9878
+                                                                      tch 1: train_loss=0.9878
+Epoch 722:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.9383
+Epoch 723: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.9383
+                                                                      tch 1: train_loss=0.9383
+                                                                      tch 1: train_loss=0.9383
+Epoch 727:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.8637
+Epoch 728: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.8637
+                                                                      tch 1: train_loss=0.8637
+                                                                      tch 1: train_loss=0.8637
+Epoch 732:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]  tch 1: train_loss=0.8637
+Epoch 733:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.8832
+Epoch 733:  67%|██████▋   | 2/3 [00:00<00:00,  2.48it/s, v_num=aemp]Batch 2: train_loss=0.8832
+                                                                      tch 2: train_loss=0.8832
+                                                                      tch 2: train_loss=0.8832
+Epoch 738:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9291
+Epoch 739: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.9291
+                                                                      tch 1: train_loss=0.9291
+                                                                      tch 1: train_loss=0.9291
+Epoch 743:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]Batch 1: train_loss=0.8358
+Epoch 744: 100%|██████████| 3/3 [00:00<00:00,  3.12it/s, v_num=aemp]Batch 1: train_loss=0.8358
+                                                                      tch 1: train_loss=0.8358
+                                                                      tch 1: train_loss=0.8358
+Epoch 748:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8487
+Epoch 749: 100%|██████████| 3/3 [00:00<00:00,  3.20it/s, v_num=aemp]Batch 1: train_loss=0.8487
+                                                                      tch 1: train_loss=0.8487
+                                                                      tch 1: train_loss=0.8487
+Epoch 753:  33%|███▎      | 1/3 [00:00<00:01,  1.45it/s, v_num=aemp]  tch 1: train_loss=0.8487
+Epoch 754:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.7619
+Epoch 754:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.7619
+                                                                      tch 2: train_loss=0.7619
+                                                                      tch 2: train_loss=0.7619
+Epoch 759:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.7394
+Epoch 760: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s, v_num=aemp]Batch 1: train_loss=0.7394
+                                                                      tch 1: train_loss=0.7394
+                                                                      tch 1: train_loss=0.7394
+Epoch 764:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.8718
+Epoch 765: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.8718
+                                                                      tch 1: train_loss=0.8718
+                                                                      tch 1: train_loss=0.8718
+Epoch 769:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.6876
+Epoch 770: 100%|██████████| 3/3 [00:00<00:00,  3.20it/s, v_num=aemp]Batch 1: train_loss=0.6876
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 49.80it/s]tch 1: train_loss=0.6876
+                                                                      tch 1: train_loss=0.6876
+Epoch 774:  33%|███▎      | 1/3 [00:00<00:01,  1.44it/s, v_num=aemp]  tch 1: train_loss=0.6876
+Epoch 775:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.9157
+Epoch 775:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.9157
+                                                                      tch 2: train_loss=0.9157
+                                                                      tch 2: train_loss=0.9157
+Epoch 780:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8154
+Epoch 781: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.8154
+                                                                      tch 1: train_loss=0.8154
+                                                                      tch 1: train_loss=0.8154
+Epoch 785:  33%|███▎      | 1/3 [00:00<00:01,  1.38it/s, v_num=aemp]Batch 1: train_loss=0.8097
+Epoch 786: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.8097
+Epoch 786: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.8097
+                                                                      tch 1: train_loss=0.8097
+                                                                      tch 1: train_loss=0.8097
+Epoch 791:  33%|███▎      | 1/3 [00:00<00:01,  1.41it/s, v_num=aemp]Batch 1: train_loss=0.8664
+Epoch 792: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s, v_num=aemp]Batch 1: train_loss=0.8664
+                                                                      tch 1: train_loss=0.8664
+                                                                      tch 1: train_loss=0.8664
+Epoch 796:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9305
+Epoch 797: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.9305
+Epoch 797: 100%|██████████| 3/3 [00:00<00:00,  3.13it/s, v_num=aemp]Batch 1: train_loss=0.9305
+                                                                      tch 1: train_loss=0.9305
+                                                                      tch 1: train_loss=0.9305
+Epoch 802:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=0.9118
+Epoch 803: 100%|██████████| 3/3 [00:00<00:00,  3.20it/s, v_num=aemp]Batch 1: train_loss=0.9118
+                                                                      tch 1: train_loss=0.9118
+                                                                      tch 1: train_loss=0.9118
+Epoch 807:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]  tch 1: train_loss=0.9118
+Epoch 808:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=1.1067
+Epoch 808:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=1.1067
+                                                                      tch 2: train_loss=1.1067
+                                                                      tch 2: train_loss=1.1067
+Epoch 813:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9945
+Epoch 814: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.9945
+Epoch 814: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.9945
+                                                                      tch 1: train_loss=0.9945
+                                                                      tch 1: train_loss=0.9945
+Epoch 819:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.9737
+Epoch 820: 100%|██████████| 3/3 [00:00<00:00,  3.09it/s, v_num=aemp]Batch 1: train_loss=0.9737
+                                                                      tch 1: train_loss=0.9737
+                                                                      tch 1: train_loss=0.9737
+Epoch 824:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]  tch 1: train_loss=0.9737
+Epoch 825:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.9651
+Epoch 825:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.9651
+                                                                      tch 2: train_loss=0.9651
+Epoch 829:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]  tch 2: train_loss=0.9651
+Epoch 830:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=1.0581
+Epoch 830:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=1.0581
+                                                                      tch 2: train_loss=1.0581
+                                                                      tch 2: train_loss=1.0581
+Epoch 835:  33%|███▎      | 1/3 [00:00<00:01,  1.53it/s, v_num=aemp]Batch 1: train_loss=0.9604
+Epoch 836: 100%|██████████| 3/3 [00:00<00:00,  3.04it/s, v_num=aemp]Batch 1: train_loss=0.9604
+                                                                      tch 1: train_loss=0.9604
+                                                                      tch 1: train_loss=0.9604
+Epoch 840:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]  tch 1: train_loss=0.9604
+Epoch 841:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.8341
+Epoch 841:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.8341
+                                                                      tch 2: train_loss=0.8341
+                                                                      tch 2: train_loss=0.8341
+Epoch 846:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.7911
+Epoch 847: 100%|██████████| 3/3 [00:00<00:00,  3.10it/s, v_num=aemp]Batch 1: train_loss=0.7911
+Epoch 847: 100%|██████████| 3/3 [00:00<00:00,  3.10it/s, v_num=aemp]Batch 1: train_loss=0.7911
+                                                                      tch 1: train_loss=0.7911
+                                                                      tch 1: train_loss=0.7911
+Epoch 852:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.9103
+Epoch 853: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.9103
+Epoch 853: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.9103
+                                                                      tch 1: train_loss=0.9103
+                                                                      tch 1: train_loss=0.9103
+Epoch 858:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.9354
+Epoch 859: 100%|██████████| 3/3 [00:00<00:00,  3.05it/s, v_num=aemp]Batch 1: train_loss=0.9354
+                                                                      tch 1: train_loss=0.9354
+                                                                      tch 1: train_loss=0.9354
+Epoch 863:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]Batch 1: train_loss=0.8837
+Epoch 864: 100%|██████████| 3/3 [00:00<00:00,  3.01it/s, v_num=aemp]Batch 1: train_loss=0.8837
+                                                                      tch 1: train_loss=0.8837
+                                                                      tch 1: train_loss=0.8837
+Epoch 868:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]  tch 1: train_loss=0.8837
+Epoch 869:  67%|██████▋   | 2/3 [00:00<00:00,  2.40it/s, v_num=aemp]Batch 2: train_loss=1.0692
+Epoch 869:  67%|██████▋   | 2/3 [00:00<00:00,  2.40it/s, v_num=aemp]Batch 2: train_loss=1.0692
+                                                                      tch 2: train_loss=1.0692
+                                                                      tch 2: train_loss=1.0692
+Epoch 874:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=1.0272
+Epoch 875: 100%|██████████| 3/3 [00:00<00:00,  3.22it/s, v_num=aemp]Batch 1: train_loss=1.0272
+                                                                      tch 1: train_loss=1.0272
+                                                                      tch 1: train_loss=1.0272
+Epoch 879:  33%|███▎      | 1/3 [00:00<00:01,  1.49it/s, v_num=aemp]Batch 1: train_loss=0.8456
+Epoch 880: 100%|██████████| 3/3 [00:00<00:00,  3.17it/s, v_num=aemp]Batch 1: train_loss=0.8456
+                                                                      tch 1: train_loss=0.8456
+                                                                      tch 1: train_loss=0.8456
+Epoch 884:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]Batch 1: train_loss=0.8885
+Epoch 885: 100%|██████████| 3/3 [00:01<00:00,  2.98it/s, v_num=aemp]Batch 1: train_loss=0.8885
+Epoch 885: 100%|██████████| 3/3 [00:01<00:00,  2.98it/s, v_num=aemp]Batch 1: train_loss=0.8885
+                                                                      tch 1: train_loss=0.8885
+Epoch 889:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]  tch 1: train_loss=0.8885
+Epoch 890:  67%|██████▋   | 2/3 [00:00<00:00,  2.34it/s, v_num=aemp]Batch 2: train_loss=1.0030
+Epoch 890:  67%|██████▋   | 2/3 [00:00<00:00,  2.34it/s, v_num=aemp]Batch 2: train_loss=1.0030
+                                                                      tch 2: train_loss=1.0030
+                                                                      tch 2: train_loss=1.0030
+Epoch 895:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]Batch 1: train_loss=0.9100
+Epoch 896: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.9100
+                                                                      tch 1: train_loss=0.9100
+                                                                      tch 1: train_loss=0.9100
+Epoch 900:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]  tch 1: train_loss=0.9100
+Epoch 901:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.9629
+Epoch 901:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.9629
+                                                                      tch 2: train_loss=0.9629
+Epoch 905:  33%|███▎      | 1/3 [00:00<00:01,  1.52it/s, v_num=aemp]  tch 2: train_loss=0.9629
+Epoch 906:  67%|██████▋   | 2/3 [00:00<00:00,  2.42it/s, v_num=aemp]Batch 2: train_loss=0.6874
+Epoch 906:  67%|██████▋   | 2/3 [00:00<00:00,  2.42it/s, v_num=aemp]Batch 2: train_loss=0.6874
+                                                                      tch 2: train_loss=0.6874
+                                                                      tch 2: train_loss=0.6874
+Epoch 911:  33%|███▎      | 1/3 [00:00<00:01,  1.44it/s, v_num=aemp]Batch 1: train_loss=0.7582
+Epoch 912: 100%|██████████| 3/3 [00:00<00:00,  3.18it/s, v_num=aemp]Batch 1: train_loss=0.7582
+                                                                      tch 1: train_loss=0.7582
+                                                                      tch 1: train_loss=0.7582
+Epoch 916:  33%|███▎      | 1/3 [00:00<00:01,  1.40it/s, v_num=aemp]  tch 1: train_loss=0.7582
+Epoch 917:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.8288
+Epoch 917:  67%|██████▋   | 2/3 [00:00<00:00,  2.46it/s, v_num=aemp]Batch 2: train_loss=0.8288
+                                                                      tch 2: train_loss=0.8288
+                                                                      tch 2: train_loss=0.8288
+Epoch 922:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]Batch 1: train_loss=1.0078
+Epoch 923: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=1.0078
+                                                                      tch 1: train_loss=1.0078
+                                                                      tch 1: train_loss=1.0078
+Epoch 927:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]  tch 1: train_loss=1.0078
+Epoch 928:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.8085
+Epoch 928:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.8085
+                                                                      tch 2: train_loss=0.8085
+                                                                      tch 2: train_loss=0.8085
+Epoch 933:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]Batch 1: train_loss=0.8144
+Epoch 934: 100%|██████████| 3/3 [00:00<00:00,  3.21it/s, v_num=aemp]Batch 1: train_loss=0.8144
+                                                                      tch 1: train_loss=0.8144
+                                                                      tch 1: train_loss=0.8144
+Epoch 938:  33%|███▎      | 1/3 [00:00<00:01,  1.57it/s, v_num=aemp]Batch 1: train_loss=0.8222
+Epoch 939: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.8222
+                                                                      tch 1: train_loss=0.8222
+                                                                      tch 1: train_loss=0.8222
+Epoch 943:  33%|███▎      | 1/3 [00:00<00:01,  1.50it/s, v_num=aemp]  tch 1: train_loss=0.8222
+Epoch 944:  67%|██████▋   | 2/3 [00:00<00:00,  2.49it/s, v_num=aemp]Batch 2: train_loss=0.8989
+                                                                      tch 2: train_loss=0.8989
+                                                                      tch 2: train_loss=0.8989
+Epoch 948:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s, v_num=aemp]  tch 2: train_loss=0.8989
+Epoch 949:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.6123
+Epoch 949:  67%|██████▋   | 2/3 [00:00<00:00,  2.41it/s, v_num=aemp]Batch 2: train_loss=0.6123
+                                                                      tch 2: train_loss=0.6123
+                                                                      tch 2: train_loss=0.6123
+Epoch 954:  33%|███▎      | 1/3 [00:00<00:01,  1.56it/s, v_num=aemp]Batch 1: train_loss=0.9023
+Epoch 955: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.9023
+                                                                      tch 1: train_loss=0.9023
+                                                                      tch 1: train_loss=0.9023
+Epoch 959:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8615
+Epoch 960: 100%|██████████| 3/3 [00:00<00:00,  3.07it/s, v_num=aemp]Batch 1: train_loss=0.8615
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 49.70it/s]tch 1: train_loss=0.8615
+                                                                      tch 1: train_loss=0.8615
+Epoch 964:  33%|███▎      | 1/3 [00:00<00:01,  1.55it/s, v_num=aemp]  tch 1: train_loss=0.8615
+Epoch 965:  67%|██████▋   | 2/3 [00:00<00:00,  2.42it/s, v_num=aemp]Batch 2: train_loss=0.7758
+Epoch 965:  67%|██████▋   | 2/3 [00:00<00:00,  2.42it/s, v_num=aemp]Batch 2: train_loss=0.7758
+                                                                      tch 2: train_loss=0.7758
+                                                                      tch 2: train_loss=0.7758
+Epoch 970:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8925
+Epoch 971: 100%|██████████| 3/3 [00:00<00:00,  3.11it/s, v_num=aemp]Batch 1: train_loss=0.8925
+                                                                      tch 1: train_loss=0.8925
+                                                                      tch 1: train_loss=0.8925
+Epoch 975:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.8347
+Epoch 976: 100%|██████████| 3/3 [00:00<00:00,  3.21it/s, v_num=aemp]Batch 1: train_loss=0.8347
+Epoch 976: 100%|██████████| 3/3 [00:00<00:00,  3.21it/s, v_num=aemp]Batch 1: train_loss=0.8347
+                                                                      tch 1: train_loss=0.8347
+Epoch 980:  33%|███▎      | 1/3 [00:00<00:01,  1.47it/s, v_num=aemp]  tch 1: train_loss=0.8347
+Epoch 981:  67%|██████▋   | 2/3 [00:00<00:00,  2.33it/s, v_num=aemp]Batch 2: train_loss=0.9323
+Epoch 981:  67%|██████▋   | 2/3 [00:00<00:00,  2.33it/s, v_num=aemp]Batch 2: train_loss=0.9323
+                                                                      tch 2: train_loss=0.9323
+                                                                      tch 2: train_loss=0.9323
+Epoch 986:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.6860
+Epoch 987: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.6860
+Epoch 987: 100%|██████████| 3/3 [00:00<00:00,  3.16it/s, v_num=aemp]Batch 1: train_loss=0.6860
+                                                                      tch 1: train_loss=0.6860
+Epoch 991:  33%|███▎      | 1/3 [00:00<00:01,  1.54it/s, v_num=aemp]  tch 1: train_loss=0.6860
+Epoch 992:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.8583
+Epoch 992:  67%|██████▋   | 2/3 [00:00<00:00,  2.43it/s, v_num=aemp]Batch 2: train_loss=0.8583
+                                                                      tch 2: train_loss=0.8583
+                                                                      tch 2: train_loss=0.8583
+Epoch 997:  33%|███▎      | 1/3 [00:00<00:01,  1.51it/s, v_num=aemp]Batch 1: train_loss=0.7614
+Epoch 998: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.7614
+Epoch 998: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.7614
+Epoch 998: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.7614
+`Trainer.fit` stopped: `max_epochs=1000` reached.
+Epoch 998: 100%|██████████| 3/3 [00:00<00:00,  3.15it/s, v_num=aemp]Batch 1: train_loss=0.7614

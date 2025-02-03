@@ -1,0 +1,16 @@
+{"time":"2025-02-03T17:55:12.556124052+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250203_175512-40siyqoz/logs/debug-core.log"}
+{"time":"2025-02-03T17:55:12.661017855+01:00","level":"INFO","msg":"created new stream","id":"40siyqoz"}
+{"time":"2025-02-03T17:55:12.661060176+01:00","level":"INFO","msg":"stream: started","id":"40siyqoz"}
+{"time":"2025-02-03T17:55:12.661074526+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"40siyqoz"}
+{"time":"2025-02-03T17:55:12.661100287+01:00","level":"INFO","msg":"sender: started","stream_id":"40siyqoz"}
+{"time":"2025-02-03T17:55:12.661088386+01:00","level":"INFO","msg":"handler: started","stream_id":"40siyqoz"}
+{"time":"2025-02-03T17:55:12.965671639+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-03T18:09:55.521300201+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-03T18:09:55.52182994+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-03T18:09:56.521745292+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.583412751,"progress":"558.5KB/558.5KB"}],"total_operations":1}}
+{"time":"2025-02-03T18:09:57.002684145+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-03T18:09:58.349856527+01:00","level":"INFO","msg":"stream: closing","id":"40siyqoz"}
+{"time":"2025-02-03T18:09:58.349892168+01:00","level":"INFO","msg":"handler: closed","stream_id":"40siyqoz"}
+{"time":"2025-02-03T18:09:58.349926718+01:00","level":"INFO","msg":"sender: closed","stream_id":"40siyqoz"}
+{"time":"2025-02-03T18:09:58.349913568+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"40siyqoz"}
+{"time":"2025-02-03T18:09:58.350217923+01:00","level":"INFO","msg":"stream: closed","id":"40siyqoz"}

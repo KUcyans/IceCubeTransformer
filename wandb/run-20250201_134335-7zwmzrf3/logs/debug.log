@@ -1,0 +1,29 @@
+2025-02-01 13:43:35,377 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Current SDK version is 0.17.2
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Configure stats pid to 3723808
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Loading settings from /groups/icecube/cyan/.config/wandb/settings
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Loading settings from /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/settings
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'TrainingDebuggingYard.py', 'program_abspath': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py', 'program': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py'}
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_setup.py:_flush():76] Applying login settings: {}
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_init.py:_log_setup():520] Logging user logs to /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_134335-7zwmzrf3/logs/debug.log
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_init.py:_log_setup():521] Logging internal logs to /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_134335-7zwmzrf3/logs/debug-internal.log
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_init.py:init():560] calling init triggers
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_init.py:init():567] wandb.init called with sweep_config: {}
+config: {'d_model': 128, 'n_heads': 8, 'd_f': 256, 'num_layers': 3, 'd_input': 32, 'num_classes': 3, 'dropout': 0.1, 'learning_rate': 0.0001, 'epochs': 50, 'attention': 'Scaled Dot-Product'}
+2025-02-01 13:43:35,378 INFO    MainThread:3723808 [wandb_init.py:init():610] starting backend
+2025-02-01 13:43:35,379 INFO    MainThread:3723808 [wandb_init.py:init():614] setting up manager
+2025-02-01 13:43:35,380 INFO    MainThread:3723808 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-02-01 13:43:35,382 INFO    MainThread:3723808 [wandb_init.py:init():622] backend started and connected
+2025-02-01 13:43:35,386 INFO    MainThread:3723808 [wandb_init.py:init():711] updated telemetry
+2025-02-01 13:43:35,424 INFO    MainThread:3723808 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2025-02-01 13:43:35,835 INFO    MainThread:3723808 [wandb_run.py:_on_init():2402] communicating current version
+2025-02-01 13:43:35,909 INFO    MainThread:3723808 [wandb_run.py:_on_init():2411] got version response upgrade_message: "wandb version 0.19.5 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-02-01 13:43:35,909 INFO    MainThread:3723808 [wandb_init.py:init():795] starting run threads in backend
+2025-02-01 13:43:36,384 INFO    MainThread:3723808 [wandb_run.py:_console_start():2380] atexit reg
+2025-02-01 13:43:36,385 INFO    MainThread:3723808 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-02-01 13:43:36,385 INFO    MainThread:3723808 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-02-01 13:43:36,385 INFO    MainThread:3723808 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-02-01 13:43:36,387 INFO    MainThread:3723808 [wandb_init.py:init():838] run started, returning control to user process
+2025-02-01 14:08:14,858 WARNING MsgRouterThr:3723808 [router.py:message_loop():77] message_loop has been closed

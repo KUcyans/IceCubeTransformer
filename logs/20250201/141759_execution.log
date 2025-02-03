@@ -1,0 +1,8 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 15, in <module>
+    from DataSocket.DatasetMultiFlavourShard_Micro import DatasetMultiFlavourShard_Micro
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/DataSocket/DatasetMultiFlavourShard_Micro.py", line 63
+    first_n_events = self.first_n_events,
+    ^
+SyntaxError: invalid syntax

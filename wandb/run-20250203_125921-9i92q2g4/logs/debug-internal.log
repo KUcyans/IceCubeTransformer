@@ -1,0 +1,7 @@
+{"time":"2025-02-03T12:59:23.038495205+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250203_125921-9i92q2g4/logs/debug-core.log"}
+{"time":"2025-02-03T12:59:23.264306908+01:00","level":"INFO","msg":"created new stream","id":"9i92q2g4"}
+{"time":"2025-02-03T12:59:23.26437079+01:00","level":"INFO","msg":"stream: started","id":"9i92q2g4"}
+{"time":"2025-02-03T12:59:23.26440646+01:00","level":"INFO","msg":"handler: started","stream_id":"9i92q2g4"}
+{"time":"2025-02-03T12:59:23.26440655+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"9i92q2g4"}
+{"time":"2025-02-03T12:59:23.2644226+01:00","level":"INFO","msg":"sender: started","stream_id":"9i92q2g4"}
+{"time":"2025-02-03T12:59:23.958812446+01:00","level":"INFO","msg":"Starting system monitor"}

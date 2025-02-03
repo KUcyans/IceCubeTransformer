@@ -1,0 +1,17 @@
+{"time":"2025-02-03T13:01:33.731413956+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250203_130132-2su6zyfm/logs/debug-core.log"}
+{"time":"2025-02-03T13:01:33.840343438+01:00","level":"INFO","msg":"created new stream","id":"2su6zyfm"}
+{"time":"2025-02-03T13:01:33.840429749+01:00","level":"INFO","msg":"stream: started","id":"2su6zyfm"}
+{"time":"2025-02-03T13:01:33.840448209+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"2su6zyfm"}
+{"time":"2025-02-03T13:01:33.8404539+01:00","level":"INFO","msg":"handler: started","stream_id":"2su6zyfm"}
+{"time":"2025-02-03T13:01:33.84050201+01:00","level":"INFO","msg":"sender: started","stream_id":"2su6zyfm"}
+{"time":"2025-02-03T13:01:34.523778265+01:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"An internal error occurred. Please contact support.\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-03T13:01:37.088981656+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-03T13:08:18.033633389+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-03T13:08:18.034196198+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-03T13:08:19.034008909+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.58212547,"progress":"433.7KB/433.7KB"},{"desc":"uploading config.yaml","runtime_seconds":0.440543614,"progress":"805B/805B"}],"total_operations":2}}
+{"time":"2025-02-03T13:08:19.432610208+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-03T13:08:20.764717904+01:00","level":"INFO","msg":"stream: closing","id":"2su6zyfm"}
+{"time":"2025-02-03T13:08:20.764764244+01:00","level":"INFO","msg":"handler: closed","stream_id":"2su6zyfm"}
+{"time":"2025-02-03T13:08:20.764798735+01:00","level":"INFO","msg":"sender: closed","stream_id":"2su6zyfm"}
+{"time":"2025-02-03T13:08:20.764784075+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"2su6zyfm"}
+{"time":"2025-02-03T13:08:20.765171461+01:00","level":"INFO","msg":"stream: closed","id":"2su6zyfm"}

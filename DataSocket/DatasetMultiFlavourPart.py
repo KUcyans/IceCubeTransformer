@@ -12,7 +12,9 @@ class DatasetMultiFlavourPart(Dataset):
                  energy_band: EnergyRange, 
                  part: int, 
                  max_n_doms: int = None,
-                 verbosity: int = 0):
+                 verbosity: int = 0,
+                 n_classes: int = 3,
+                 ):
         """
         Args:
             root_dir (str): The root directory of the dataset.
@@ -30,7 +32,8 @@ class DatasetMultiFlavourPart(Dataset):
             self.max_n_doms = max_n_doms_finder()
         else:
             self.max_n_doms = max_n_doms
-
+        self.n_classes = n_classes
+        
         # Collect all shards for the part from each flavour
         self.datasets = self._collect_shards()
 
@@ -54,7 +57,8 @@ class DatasetMultiFlavourPart(Dataset):
                         part=self.part,
                         shard=shard,
                         max_n_doms=self.max_n_doms,
-                        verbosity=self.verbosity - 1
+                        verbosity=self.verbosity - 1,
+                        n_classes=self.n_classes
                     )
                 )
             for shard in unique_shards[subdir]:

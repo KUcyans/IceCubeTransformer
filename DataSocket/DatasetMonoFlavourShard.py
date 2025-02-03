@@ -16,6 +16,7 @@ class DatasetMonoFlavourShard(Dataset):
                  shard: int, 
                  max_n_doms: int,
                  verbosity: int = 0,
+                 n_classes: int = 3,
                  ):
         """
         Args:
@@ -31,6 +32,7 @@ class DatasetMonoFlavourShard(Dataset):
         self.verbosity = verbosity
         self.max_n_doms = max_n_doms
         self.transform = PseudoNormaliser()
+        self.num_classes = n_classes
  
         self.feature_file = os.path.join(self.root_dir, f"{self.subdirectory_no}", f"{self.part}", f"PMTfied_{self.shard}.parquet")
         self.truth_file = os.path.join(self.root_dir, f"{self.subdirectory_no}", f"truth_{self.part}.parquet")
@@ -54,7 +56,13 @@ class DatasetMonoFlavourShard(Dataset):
         original_event_no = truth_row.column("original_event_no").to_pylist()[0]
         offset = truth_row.column("offset").to_pylist()[0]
         n_doms = truth_row.column("N_doms").to_pylist()[0]
-        flavour = truth_row.column("flavour").to_pylist()[0]
+        flavour = torch.tensor(truth_row.column("flavour").to_numpy()[0], dtype=torch.float32) # [1, 0, 0], [0, 1, 0] or [0, 0, 1]
+        """
+        the flavour is a one-hot encoded tensor, where the index of the non-zero element corresponds to the flavour of the event
+        NuE: [1, 0, 0]
+        NuMu: [0, 1, 0]
+        NuTau: [0, 0, 1]
+        """
 
         # Extract and pad features
         features = self._extract_features(offset, n_doms)
@@ -68,7 +76,9 @@ class DatasetMonoFlavourShard(Dataset):
         # Convert to tensors
         event_no_tensor = torch.tensor([event_no, original_event_no], dtype=torch.int64)
         features_tensor = torch.tensor(features_padded, dtype=torch.float32)
-        target_tensor = torch.tensor(flavour, dtype=torch.int64)
+        flavour = torch.tensor(truth_row.column("flavour").to_numpy()[0], dtype=torch.float32)
+        target_tensor = flavour
+
         mask_tensor = torch.tensor(mask, dtype=torch.float32)
 
         return {
@@ -102,30 +112,28 @@ class DatasetMonoFlavourShard(Dataset):
 
             # Define PID to flavour mapping
             UNKNOWN_FLAVOUR = -1
-            pid_to_class = {
-                12: 0,   # NuE
-                -12: 0,  # NuE
-                14: 1,   # NuMu
-                -14: 1,  # NuMu
-                16: 2,   # NuTau
-                -16: 2,  # NuTau
+            
+            pid_to_one_hot = {
+                12: [1, 0, 0],  # NuE
+                -12: [1, 0, 0],  # NuE
+                14: [0, 1, 0],  # NuMu
+                -14: [0, 1, 0],  # NuMu
+                16: [0, 0, 1],  # NuTau
+                -16: [0, 0, 1],  # NuTau
             }
 
             # Create 'flavour' column based on 'pid'
             pid_column = shard_filter.column("pid").combine_chunks().to_numpy()
             flavour_array = [
-                pid_to_class.get(pid, UNKNOWN_FLAVOUR) 
+                pid_to_one_hot.get(pid, UNKNOWN_FLAVOUR) 
                 for pid in pid_column
             ]
 
             # Convert to PyArrow Array and append as 'flavour'
-            flavour_arrow_array = pa.array(flavour_array, type=pa.int64())
-            shard_filter = shard_filter.append_column("flavour", flavour_arrow_array)
+            # flavour_arrow_array = pa.array(flavour_array, type=pa.int64())
+            flavour_arrow_array = pa.array(flavour_array, type=pa.list_(pa.int64()))
 
-        # Validate 'flavour' values
-        flavour_column = shard_filter.column("flavour").combine_chunks().to_numpy()
-        if not np.all(np.isin(flavour_column, [0, 1, 2])):
-            raise ValueError("The 'flavour' column contains invalid values. Expected 0, 1, or 2.")
+            shard_filter = shard_filter.append_column("flavour", flavour_arrow_array)
 
         return shard_filter
 

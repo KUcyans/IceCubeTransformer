@@ -1,0 +1,16 @@
+{"time":"2025-02-02T17:50:34.665072217+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250202_175033-dkggy6gy/logs/debug-core.log"}
+{"time":"2025-02-02T17:50:34.770399275+01:00","level":"INFO","msg":"created new stream","id":"dkggy6gy"}
+{"time":"2025-02-02T17:50:34.770451086+01:00","level":"INFO","msg":"stream: started","id":"dkggy6gy"}
+{"time":"2025-02-02T17:50:34.770485106+01:00","level":"INFO","msg":"handler: started","stream_id":"dkggy6gy"}
+{"time":"2025-02-02T17:50:34.770485286+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"dkggy6gy"}
+{"time":"2025-02-02T17:50:34.770500837+01:00","level":"INFO","msg":"sender: started","stream_id":"dkggy6gy"}
+{"time":"2025-02-02T17:50:40.350345139+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-02T17:53:55.541274086+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-02T17:53:55.541772934+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-02T17:53:56.330713177+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-02T17:53:56.541518515+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading data","runtime_seconds":0.210713167}],"total_operations":1}}
+{"time":"2025-02-02T17:53:57.5478576+01:00","level":"INFO","msg":"stream: closing","id":"dkggy6gy"}
+{"time":"2025-02-02T17:53:57.547881351+01:00","level":"INFO","msg":"handler: closed","stream_id":"dkggy6gy"}
+{"time":"2025-02-02T17:53:57.547898091+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"dkggy6gy"}
+{"time":"2025-02-02T17:53:57.547923392+01:00","level":"INFO","msg":"sender: closed","stream_id":"dkggy6gy"}
+{"time":"2025-02-02T17:53:57.548154275+01:00","level":"INFO","msg":"stream: closed","id":"dkggy6gy"}

@@ -1,0 +1,15 @@
+{"time":"2025-02-03T17:24:18.867784946+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250203_172418-hhbra3ue/logs/debug-core.log"}
+{"time":"2025-02-03T17:24:18.975992343+01:00","level":"INFO","msg":"created new stream","id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:18.976080915+01:00","level":"INFO","msg":"stream: started","id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:18.976122135+01:00","level":"INFO","msg":"handler: started","stream_id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:18.976167366+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:18.976360779+01:00","level":"INFO","msg":"sender: started","stream_id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:19.278485091+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-03T17:24:22.195239672+01:00","level":"INFO","msg":"stream: closing","id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:22.195287843+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-03T17:24:22.195799051+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-03T17:24:22.856679708+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-03T17:24:23.088858854+01:00","level":"INFO","msg":"handler: closed","stream_id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:23.088893964+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:23.088946115+01:00","level":"INFO","msg":"sender: closed","stream_id":"hhbra3ue"}
+{"time":"2025-02-03T17:24:23.089621636+01:00","level":"INFO","msg":"stream: closed","id":"hhbra3ue"}

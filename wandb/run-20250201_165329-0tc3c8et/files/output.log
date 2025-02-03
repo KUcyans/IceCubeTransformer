@@ -1,0 +1,172 @@
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250201 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+  | Name                        | Type       | Params | Mode
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 298 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+303 K     Trainable params
+0         Non-trainable params
+303 K     Total params
+1.213     Total estimated model params size (MB)
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] Batch 0: train_loss=1.4113
+Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s, v_num=c8et]
+Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=2.7345
+Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=3.4982
+Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]
+Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.7932
+Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.6679
+Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.3164
+Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.1197
+Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.0853
+Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.0886
+Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.1202
+Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.1656
+Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.1956
+Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.2263
+Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.2554
+Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=1.2837
+Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 30:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 31:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 32:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 33:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 34:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 35:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 36:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 37:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 38:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 39:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 40:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 41:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 42:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 43:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 44:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 45:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 46:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 47:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 48:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 49:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 50:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 51:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 52:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 53:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 54:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 55:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 56:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 57:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 58:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 59:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 60:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 61:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 62:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 63:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 64:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 65:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 66:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 67:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 68:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 69:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 70:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 71:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 72:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 73:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 74:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 75:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 76:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 77:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 78:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 79:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 80:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 81:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 82:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 83:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 84:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 85:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 86:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 87:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 88:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 89:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 90:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 91:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 92:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 93:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 94:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 95:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 96:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 97:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 99:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 99:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 100:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+                                                                      rain_loss=nan
+Epoch 102:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 103:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]
+Epoch 104:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 105:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 105: 100%|██████████| 1/1 [00:00<00:00,  3.38it/s, v_num=c8et]
+Epoch 107:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 108:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]
+Epoch 110:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 110: 100%|██████████| 1/1 [00:00<00:00,  3.39it/s, v_num=c8et]
+Epoch 113:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 113: 100%|██████████| 1/1 [00:00<00:00,  3.40it/s, v_num=c8et]
+Epoch 116:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]          rain_loss=nan
+Epoch 118: 100%|██████████| 1/1 [00:00<00:00,  3.41it/s, v_num=c8et]  rain_loss=nan
+Epoch 121: 100%|██████████| 1/1 [00:00<00:00,  3.40it/s, v_num=c8et]  rain_loss=nan
+                                                                      rain_loss=nan
+Epoch 125:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 128:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 131:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 134:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 137:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]          rain_loss=nan
+Epoch 139: 100%|██████████| 1/1 [00:00<00:00,  3.39it/s, v_num=c8et]  rain_loss=nan
+Epoch 142: 100%|██████████| 1/1 [00:00<00:00,  3.40it/s, v_num=c8et]  rain_loss=nan
+                                                                      rain_loss=nan
+Epoch 146:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 149:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 152:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 155:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 158:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 161:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]          rain_loss=nan
+Epoch 163: 100%|██████████| 1/1 [00:00<00:00,  3.42it/s, v_num=c8et]  rain_loss=nan
+                                                                      rain_loss=nan
+Epoch 167:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 170:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 173:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 176:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 179:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 182:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]          rain_loss=nan
+Epoch 184: 100%|██████████| 1/1 [00:00<00:00,  3.42it/s, v_num=c8et]  rain_loss=nan
+Epoch 187: 100%|██████████| 1/1 [00:00<00:00,  3.41it/s, v_num=c8et]  rain_loss=nan
+                                                                      rain_loss=nan
+Epoch 191:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 194:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 197:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 197:   0%|          | 0/1 [00:00<?, ?it/s, v_num=c8et]Batch 0: train_loss=nan
+Epoch 199: 100%|██████████| 1/1 [00:00<00:00,  1.32it/s, v_num=c8et]  rain_loss=nan
+Epoch 199: 100%|██████████| 1/1 [00:00<00:00,  1.32it/s, v_num=c8et]  rain_loss=nan

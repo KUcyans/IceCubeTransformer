@@ -1,0 +1,1176 @@
+2025-02-01 15:49:35,715 INFO    StreamThr :3741616 [internal.py:wandb_internal():85] W&B internal server running at pid: 3741616, started at: 2025-02-01 15:49:35.645465
+2025-02-01 15:49:35,717 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status
+2025-02-01 15:49:35,718 INFO    WriterThread:3741616 [datastore.py:open_for_write():87] open: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/run-ldmtkd9b.wandb
+2025-02-01 15:49:35,745 DEBUG   SenderThread:3741616 [sender.py:send():379] send: header
+2025-02-01 15:49:35,745 DEBUG   SenderThread:3741616 [sender.py:send():379] send: run
+2025-02-01 15:49:36,316 INFO    SenderThread:3741616 [dir_watcher.py:__init__():211] watching files in: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files
+2025-02-01 15:49:36,316 INFO    SenderThread:3741616 [sender.py:_start_run_threads():1188] run started: ldmtkd9b with start time 1738421375.646504
+2025-02-01 15:49:36,322 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: check_version
+2025-02-01 15:49:36,323 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: check_version
+2025-02-01 15:49:36,399 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: run_start
+2025-02-01 15:49:36,416 DEBUG   HandlerThread:3741616 [system_info.py:__init__():26] System info init
+2025-02-01 15:49:36,417 DEBUG   HandlerThread:3741616 [system_info.py:__init__():41] System info init done
+2025-02-01 15:49:36,417 INFO    HandlerThread:3741616 [system_monitor.py:start():194] Starting system monitor
+2025-02-01 15:49:36,417 INFO    SystemMonitor:3741616 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-02-01 15:49:36,417 INFO    HandlerThread:3741616 [system_monitor.py:probe():214] Collecting system info
+2025-02-01 15:49:36,417 INFO    SystemMonitor:3741616 [interfaces.py:start():188] Started cpu monitoring
+2025-02-01 15:49:36,418 INFO    SystemMonitor:3741616 [interfaces.py:start():188] Started disk monitoring
+2025-02-01 15:49:36,419 INFO    SystemMonitor:3741616 [interfaces.py:start():188] Started gpu monitoring
+2025-02-01 15:49:36,420 INFO    SystemMonitor:3741616 [interfaces.py:start():188] Started memory monitoring
+2025-02-01 15:49:36,420 INFO    SystemMonitor:3741616 [interfaces.py:start():188] Started network monitoring
+2025-02-01 15:49:36,458 DEBUG   HandlerThread:3741616 [system_info.py:probe():152] Probing system
+2025-02-01 15:49:36,464 DEBUG   HandlerThread:3741616 [system_info.py:_probe_git():137] Probing git
+2025-02-01 15:49:36,481 DEBUG   HandlerThread:3741616 [system_info.py:_probe_git():145] Probing git done
+2025-02-01 15:49:36,481 DEBUG   HandlerThread:3741616 [system_info.py:probe():200] Probing system done
+2025-02-01 15:49:36,481 DEBUG   HandlerThread:3741616 [system_monitor.py:probe():223] {'os': 'Linux-5.14.0-427.24.1.el9_4.x86_64-x86_64-with-glibc2.34', 'python': '3.9.18', 'heartbeatAt': '2025-02-01T14:49:36.458198', 'startedAt': '2025-02-01T14:49:35.633897', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py', 'codePathLocal': 'TrainingDebuggingYard.py', 'codePath': 'TrainingDebuggingYard.py', 'git': {'remote': 'https://github.com/KUcyans/IceCubeTransformer.git', 'commit': '1d12f12bcc0eaf8a61abe552178489642e22496f'}, 'email': 'bsf873@alumni.ku.dk', 'root': '/lustre/hpc/icecube/cyan/factory/IceCubeTransformer', 'host': 'hep04.cluster', 'username': 'cyan', 'executable': '/usr/bin/python3.9', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3698.913703125, 'min': 2200.0, 'max': 3700.0}, 'cpu_freq_per_core': [{'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4033.912, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 4326.177, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}, {'current': 3700.0, 'min': 2200.0, 'max': 3700.0}], 'disk': {'/': {'total': 948.8187103271484, 'used': 44.433563232421875}}, 'gpu': 'NVIDIA GeForce RTX 3090', 'gpu_count': 2, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}, {'name': 'NVIDIA GeForce RTX 3090', 'memory_total': 25769803776}], 'memory': {'total': 125.14518356323242}}
+2025-02-01 15:49:36,482 INFO    HandlerThread:3741616 [system_monitor.py:probe():224] Finished collecting system info
+2025-02-01 15:49:36,482 INFO    HandlerThread:3741616 [system_monitor.py:probe():227] Publishing system info
+2025-02-01 15:49:36,484 INFO    HandlerThread:3741616 [system_monitor.py:probe():229] Finished publishing system info
+2025-02-01 15:49:36,496 DEBUG   SenderThread:3741616 [sender.py:send():379] send: files
+2025-02-01 15:49:36,496 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-metadata.json with policy now
+2025-02-01 15:49:36,695 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: python_packages
+2025-02-01 15:49:36,696 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: python_packages
+2025-02-01 15:49:36,696 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-01 15:49:36,697 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:36,698 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: stop_status
+2025-02-01 15:49:36,978 DEBUG   SenderThread:3741616 [sender.py:send():379] send: telemetry
+2025-02-01 15:49:37,111 INFO    wandb-upload_0:3741616 [upload_job.py:push():130] Uploaded file /tmp/tmpjj70y2xvwandb/aw3fbssb-wandb-metadata.json
+2025-02-01 15:49:37,318 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-metadata.json
+2025-02-01 15:49:37,319 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/requirements.txt
+2025-02-01 15:49:37,319 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:37,696 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:37,970 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:37,970 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:37,971 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:37,973 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:38,110 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:38,111 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:38,111 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:38,113 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:38,319 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_created():271] file/dir created: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:38,683 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:38,683 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:38,683 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:38,686 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:38,703 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:38,905 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:38,906 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:38,906 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:38,908 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:39,321 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:39,466 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:39,467 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:39,467 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:39,469 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:39,673 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:39,674 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:39,674 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:39,676 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:39,719 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:40,254 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:40,255 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:40,255 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:40,257 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:40,322 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:40,458 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:40,459 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:40,459 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:40,461 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:40,718 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:40,770 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:49:41,038 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:41,038 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:41,038 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:41,040 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:41,243 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:41,244 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:41,244 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:41,246 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:41,324 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:41,324 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:41,718 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:41,799 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:41,800 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:41,800 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:41,802 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:42,005 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:42,006 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:42,006 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:42,008 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:42,325 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:42,562 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:42,563 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:42,563 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:42,565 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:42,719 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:42,785 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:42,786 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:42,786 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:42,788 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:43,326 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:43,382 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:43,382 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:43,382 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:43,384 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:43,587 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:43,587 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:43,587 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:43,589 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:43,726 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:44,171 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:44,171 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:44,171 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:44,173 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:44,328 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:44,371 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:44,372 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:44,372 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:44,374 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:44,725 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:44,927 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:44,928 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:44,928 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:44,930 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:45,128 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:45,128 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:45,129 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:45,131 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:45,329 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:45,329 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:45,684 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:45,685 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:45,685 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:45,687 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:45,739 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:45,864 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:49:45,906 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:45,907 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:45,907 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:45,909 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:46,444 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:46,445 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:46,445 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:46,447 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:46,649 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:46,650 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:46,650 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:46,652 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:46,747 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:47,210 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:47,210 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:47,211 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:47,213 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:47,332 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:47,332 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:47,418 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:47,419 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:47,419 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:47,421 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:47,746 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:47,974 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:47,974 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:47,974 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:47,976 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:48,177 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:48,178 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:48,178 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:48,180 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:48,333 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:48,731 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:48,731 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:48,732 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:48,734 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:48,770 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:48,956 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:48,957 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:48,957 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:48,959 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:49,335 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:49,495 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:49,496 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:49,496 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:49,498 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:49,700 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:49,700 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:49,701 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:49,703 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:49,758 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:50,254 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:50,254 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:50,255 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:50,257 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:50,336 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:50,459 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:50,459 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:50,459 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:50,461 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:50,758 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:51,012 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:51,012 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:51,012 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:51,012 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:49:51,014 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:51,219 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:51,220 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:51,220 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:51,222 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:51,337 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:51,337 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:51,696 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-01 15:49:51,696 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: stop_status
+2025-02-01 15:49:51,758 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:51,773 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:51,880 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:51,880 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:51,882 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:51,980 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:51,981 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:51,981 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:51,983 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:52,534 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:52,534 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:52,534 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:52,536 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:52,738 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:52,738 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:52,739 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:52,741 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:52,761 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:53,296 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:53,296 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:53,297 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:53,298 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:53,340 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:53,340 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:53,506 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:53,506 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:53,507 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:53,508 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:53,760 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:54,061 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:54,062 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:54,062 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:54,064 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:54,268 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:54,268 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:54,269 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:54,270 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:54,341 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:54,760 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:54,822 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:54,823 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:54,823 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:54,825 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:55,027 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:55,028 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:55,028 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:55,031 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:55,342 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:55,342 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:55,583 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:55,583 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:55,584 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:55,585 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:55,760 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:55,806 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:55,807 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:55,807 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:55,809 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:56,080 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:49:56,347 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:56,347 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:56,347 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:56,349 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:56,551 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:56,552 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:56,552 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:56,554 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:56,760 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:57,106 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:57,106 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:57,106 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:57,108 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:57,311 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:57,312 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:57,312 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:57,314 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:57,345 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:57,345 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:57,760 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:57,869 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:57,870 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:57,870 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:57,872 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:58,075 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:58,076 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:58,076 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:58,078 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:58,346 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:49:58,633 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:58,633 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:58,633 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:58,635 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:58,775 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:49:58,855 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:58,856 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:58,856 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:58,858 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:59,347 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:49:59,393 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:59,393 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:59,393 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:59,395 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:59,591 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:49:59,592 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:49:59,592 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:49:59,594 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:49:59,775 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:00,144 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:00,145 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:00,145 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:00,147 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:00,346 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:00,346 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:00,346 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:00,348 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:00,349 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:00,775 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:00,901 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:00,901 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:00,901 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:00,903 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:01,082 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:01,104 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:01,105 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:01,105 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:01,107 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:01,351 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:01,351 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:01,660 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:01,661 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:01,661 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:01,663 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:01,789 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:01,890 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:01,891 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:01,891 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:01,893 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:02,427 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:02,427 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:02,427 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:02,429 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:02,633 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:02,633 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:02,634 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:02,636 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:02,789 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:03,189 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:03,190 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:03,190 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:03,192 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:03,353 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:03,354 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:03,392 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:03,393 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:03,393 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:03,395 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:03,789 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:03,946 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:03,947 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:03,947 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:03,949 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:04,153 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:04,154 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:04,154 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:04,156 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:04,355 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:04,707 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:04,707 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:04,707 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:04,709 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:04,813 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:04,929 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:04,930 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:04,930 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:04,932 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:05,356 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:05,461 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:05,461 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:05,462 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:05,463 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:05,658 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:05,659 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:05,659 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:05,661 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:05,806 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:06,214 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:06,214 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:06,217 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:06,357 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:06,400 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:06,402 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:06,417 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:06,418 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:06,418 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:06,420 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:06,696 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-01 15:50:06,697 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: stop_status
+2025-02-01 15:50:06,805 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:06,969 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:06,970 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:06,970 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:06,972 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:07,170 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:07,171 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:07,171 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:07,173 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:07,359 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:07,359 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/config.yaml
+2025-02-01 15:50:07,359 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:07,722 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:07,723 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:07,723 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:07,725 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:07,812 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:07,945 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:07,946 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:07,946 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:07,948 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:08,481 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:08,481 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:08,481 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:08,483 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:08,685 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:08,685 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:08,686 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:08,687 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:08,814 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:09,240 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:09,241 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:09,241 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:09,243 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:09,365 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:09,365 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:09,445 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:09,445 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:09,446 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:09,448 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:09,814 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:10,001 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:10,001 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:10,001 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:10,003 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:10,319 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:10,319 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:10,320 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:10,321 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:10,366 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:10,814 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:10,872 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:10,872 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:10,872 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:10,874 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:11,079 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:11,080 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:11,080 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:11,082 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:11,368 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:11,368 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:11,635 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:11,636 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:11,636 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:11,636 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:11,638 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:11,814 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:11,861 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:11,862 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:11,862 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:11,864 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:12,401 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:12,402 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:12,402 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:12,404 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:12,607 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:12,607 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:12,608 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:12,610 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:12,814 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:13,164 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:13,164 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:13,164 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:13,166 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:13,370 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:13,370 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:13,371 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:13,371 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:13,372 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:13,373 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:13,814 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:13,927 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:13,928 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:13,928 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:13,930 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:14,134 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:14,134 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:14,135 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:14,136 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:14,372 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:14,689 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:14,690 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:14,690 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:14,692 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:14,815 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:14,912 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:14,913 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:14,913 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:14,915 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:15,373 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:15,451 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:15,451 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:15,451 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:15,453 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:15,656 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:15,657 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:15,657 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:15,659 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:15,815 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:16,213 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:16,213 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:16,213 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:16,215 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:16,374 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:16,419 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:16,422 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:16,422 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:16,424 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:16,707 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:16,815 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:16,975 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:16,975 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:16,975 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:16,977 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:17,179 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:17,179 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:17,180 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:17,181 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:17,375 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:17,376 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:17,732 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:17,733 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:17,733 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:17,735 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:17,825 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:17,958 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:17,959 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:17,959 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:17,961 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:18,496 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:18,497 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:18,497 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:18,499 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:18,702 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:18,703 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:18,703 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:18,705 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:18,834 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:19,263 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:19,263 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:19,264 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:19,265 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:19,378 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:19,378 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:19,468 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:19,469 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:19,469 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:19,471 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:19,833 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:20,025 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:20,025 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:20,026 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:20,028 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:20,230 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:20,231 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:20,231 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:20,233 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:20,379 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:20,784 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:20,785 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:20,785 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:20,787 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:20,841 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:21,010 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:21,011 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:21,011 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:21,013 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:21,381 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:21,381 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:21,546 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:21,547 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:21,547 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:21,549 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:21,697 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-01 15:50:21,697 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: stop_status
+2025-02-01 15:50:21,752 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:21,846 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:21,915 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:21,915 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:21,915 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:21,918 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:22,308 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:22,309 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:22,309 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:22,311 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:22,382 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:22,515 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:22,516 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:22,517 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:22,518 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:22,845 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:23,069 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:23,070 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:23,070 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:23,072 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:23,274 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:23,274 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:23,275 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:23,277 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:23,383 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:23,383 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:23,830 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:23,830 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:23,831 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:23,832 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:23,851 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:24,055 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:24,056 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:24,056 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:24,058 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:24,385 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:24,594 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:24,594 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:24,595 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:24,596 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:24,798 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:24,799 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:24,799 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:24,801 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:24,858 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:25,356 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:25,357 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:25,357 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:25,359 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:25,386 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:25,386 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:25,563 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:25,564 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:25,564 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:25,566 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:25,857 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:26,118 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:26,119 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:26,119 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:26,121 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:26,321 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:26,322 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:26,322 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:26,324 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:26,387 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:26,857 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:26,877 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:26,877 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:26,877 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:26,879 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:27,058 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:27,080 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:27,081 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:27,081 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:27,083 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:27,388 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:27,389 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:27,636 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:27,637 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:27,637 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:27,639 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:27,841 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:27,842 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:27,842 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:27,844 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:27,882 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:28,398 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:28,399 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:28,399 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:28,401 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:28,604 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:28,605 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:28,605 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:28,607 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:28,864 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:29,160 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:29,160 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:29,161 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:29,162 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:29,363 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:29,364 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:29,364 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:29,366 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:29,391 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:29,391 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:29,863 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:29,922 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:29,922 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:29,922 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:29,924 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:30,125 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:30,126 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:30,126 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:30,128 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:30,392 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:30,681 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:30,682 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:30,682 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:30,684 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:30,866 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:30,908 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:30,909 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:30,909 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:30,911 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:31,394 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:31,444 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:31,445 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:31,445 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:31,447 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:31,648 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:31,649 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:31,649 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:31,651 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:31,866 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:32,206 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:32,206 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:32,207 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:32,207 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:32,208 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:32,395 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:32,409 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:32,411 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:32,411 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:32,413 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:32,866 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:32,964 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:32,965 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:32,965 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:32,967 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:33,169 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:33,170 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:33,170 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:33,172 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:33,396 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:33,397 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:33,726 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:33,727 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:33,727 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:33,729 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:33,870 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:33,949 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:33,950 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:33,950 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:33,952 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:34,486 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:34,487 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:34,487 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:34,489 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:34,682 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:34,683 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:34,683 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:34,685 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:34,870 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:35,236 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:35,236 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:35,236 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:35,238 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:35,399 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:35,399 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:35,436 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:35,437 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:35,437 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:35,439 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:35,870 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:35,992 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:35,992 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:35,992 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:35,994 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:36,198 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:36,198 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:36,199 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:36,201 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:36,401 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:36,421 DEBUG   SystemMonitor:3741616 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-02-01 15:50:36,422 DEBUG   SenderThread:3741616 [sender.py:send():379] send: stats
+2025-02-01 15:50:36,696 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-01 15:50:36,697 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: stop_status
+2025-02-01 15:50:36,752 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:36,859 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:36,860 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:36,861 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:36,880 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:36,977 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:36,978 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:36,978 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:36,980 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:37,250 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:37,402 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:37,517 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:37,518 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:37,518 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:37,520 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:37,723 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:37,724 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:37,724 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:37,726 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:37,879 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:38,278 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:38,279 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:38,279 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:38,281 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:38,403 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:38,485 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:38,486 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:38,486 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:38,488 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:38,879 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:39,041 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:39,041 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:39,042 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:39,043 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:39,247 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:39,247 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:39,248 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:39,250 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:39,404 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:39,405 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:39,804 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:39,805 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:39,805 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:39,806 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:39,897 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:40,029 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:40,030 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:40,030 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:40,032 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:40,406 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:40,570 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:40,570 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:40,571 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:40,572 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:40,774 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:40,775 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:40,775 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:40,776 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:40,905 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:41,337 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:41,337 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:41,338 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:41,339 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:41,407 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:41,407 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:41,538 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:41,538 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:41,539 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:41,540 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:41,905 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:42,095 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:42,095 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:42,096 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:42,098 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:42,276 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:42,298 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:42,299 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:42,299 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:42,301 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:42,408 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:42,855 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:42,856 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:42,856 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:42,858 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:42,928 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:43,079 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:43,080 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:43,080 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:43,082 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:43,410 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:43,410 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:43,617 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:43,617 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:43,618 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:43,619 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:43,822 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:43,823 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:43,823 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:43,825 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:43,917 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:44,383 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:44,383 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:44,383 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:44,385 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:44,411 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:44,589 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:44,590 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:44,590 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:44,592 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:44,916 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:45,148 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:45,148 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:45,149 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:45,150 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:45,356 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:45,356 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:45,357 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:45,358 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:45,412 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:45,412 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:45,912 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:45,912 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:45,912 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:45,914 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:45,933 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:46,137 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:46,138 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:46,138 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:46,140 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:46,413 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:46,676 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:46,677 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:46,677 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:46,679 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:46,902 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:46,903 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:46,903 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:46,905 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:46,942 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:47,415 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:47,440 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:47,441 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:47,441 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:47,441 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:47,443 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:47,636 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:47,639 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:47,640 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:47,641 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:47,941 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:48,188 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:48,189 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:48,189 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:48,191 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:48,388 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:48,388 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:48,388 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:48,390 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:48,416 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:48,942 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:48,943 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:48,944 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:48,944 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:48,946 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:49,143 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:49,144 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:49,144 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:49,146 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:49,417 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:49,417 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:49,700 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:49,700 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:49,701 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:49,702 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:49,904 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:49,905 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:49,905 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:49,907 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:49,945 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:50,463 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:50,463 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:50,464 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:50,466 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:50,662 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:50,662 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:50,663 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:50,664 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:50,944 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:51,217 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:51,218 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:51,218 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:51,219 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:51,420 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:51,420 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:51,423 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:51,424 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:51,424 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:51,426 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:51,697 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: stop_status
+2025-02-01 15:50:51,697 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: stop_status
+2025-02-01 15:50:51,944 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:51,982 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:51,982 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:51,982 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:51,984 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:52,186 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:52,186 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:52,186 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:52,188 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:52,421 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:52,478 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:52,746 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:52,747 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:52,747 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:52,749 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:52,940 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:52,941 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:52,941 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:52,943 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:52,963 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:53,422 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:53,497 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:53,497 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:53,498 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:53,499 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:53,699 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: partial_history
+2025-02-01 15:50:53,699 DEBUG   SenderThread:3741616 [sender.py:send():379] send: history
+2025-02-01 15:50:53,700 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: summary_record
+2025-02-01 15:50:53,702 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:53,834 DEBUG   SenderThread:3741616 [sender.py:send():379] send: telemetry
+2025-02-01 15:50:53,834 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: server_info
+2025-02-01 15:50:53,834 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: server_info
+2025-02-01 15:50:53,980 DEBUG   SenderThread:3741616 [sender.py:send():379] send: exit
+2025-02-01 15:50:53,980 INFO    SenderThread:3741616 [sender.py:send_exit():586] handling exit code: 0
+2025-02-01 15:50:53,980 INFO    SenderThread:3741616 [sender.py:send_exit():588] handling runtime: 77
+2025-02-01 15:50:53,981 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:53,982 INFO    SenderThread:3741616 [sender.py:send_exit():594] send defer
+2025-02-01 15:50:53,982 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:53,982 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 0
+2025-02-01 15:50:53,982 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:53,982 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 0
+2025-02-01 15:50:53,982 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 1
+2025-02-01 15:50:53,982 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:53,982 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 1
+2025-02-01 15:50:53,982 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:53,982 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 1
+2025-02-01 15:50:53,982 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 2
+2025-02-01 15:50:53,982 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:53,983 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 2
+2025-02-01 15:50:53,983 INFO    HandlerThread:3741616 [system_monitor.py:finish():203] Stopping system monitor
+2025-02-01 15:50:53,983 DEBUG   SystemMonitor:3741616 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2025-02-01 15:50:53,983 INFO    HandlerThread:3741616 [interfaces.py:finish():200] Joined cpu monitor
+2025-02-01 15:50:53,983 DEBUG   SystemMonitor:3741616 [system_monitor.py:_start():183] Publishing last batch of metrics
+2025-02-01 15:50:53,984 INFO    HandlerThread:3741616 [interfaces.py:finish():200] Joined disk monitor
+2025-02-01 15:50:54,193 INFO    HandlerThread:3741616 [interfaces.py:finish():200] Joined gpu monitor
+2025-02-01 15:50:54,193 INFO    HandlerThread:3741616 [interfaces.py:finish():200] Joined memory monitor
+2025-02-01 15:50:54,193 INFO    HandlerThread:3741616 [interfaces.py:finish():200] Joined network monitor
+2025-02-01 15:50:54,193 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:54,193 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 2
+2025-02-01 15:50:54,193 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 3
+2025-02-01 15:50:54,193 DEBUG   SenderThread:3741616 [sender.py:send():379] send: stats
+2025-02-01 15:50:54,194 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:54,194 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 3
+2025-02-01 15:50:54,194 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:54,194 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 3
+2025-02-01 15:50:54,194 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 4
+2025-02-01 15:50:54,194 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:54,194 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 4
+2025-02-01 15:50:54,194 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:54,195 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 4
+2025-02-01 15:50:54,195 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 5
+2025-02-01 15:50:54,195 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:54,195 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 5
+2025-02-01 15:50:54,195 DEBUG   SenderThread:3741616 [sender.py:send():379] send: summary
+2025-02-01 15:50:54,196 INFO    SenderThread:3741616 [sender.py:_save_file():1454] saving file wandb-summary.json with policy end
+2025-02-01 15:50:54,197 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:54,197 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 5
+2025-02-01 15:50:54,197 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 6
+2025-02-01 15:50:54,197 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:54,197 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 6
+2025-02-01 15:50:54,197 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:54,197 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 6
+2025-02-01 15:50:54,200 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: status_report
+2025-02-01 15:50:54,368 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 7
+2025-02-01 15:50:54,369 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:54,369 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 7
+2025-02-01 15:50:54,369 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:54,369 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 7
+2025-02-01 15:50:54,424 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:54,424 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/config.yaml
+2025-02-01 15:50:54,980 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-01 15:50:55,276 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 8
+2025-02-01 15:50:55,276 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: poll_exit
+2025-02-01 15:50:55,276 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:55,276 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 8
+2025-02-01 15:50:55,276 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:55,276 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 8
+2025-02-01 15:50:55,276 INFO    SenderThread:3741616 [job_builder.py:build():440] Attempting to build job artifact
+2025-02-01 15:50:55,277 INFO    SenderThread:3741616 [job_builder.py:_get_source_type():569] is repo sourced job
+2025-02-01 15:50:55,306 INFO    SenderThread:3741616 [job_builder.py:build():545] adding wandb-job metadata file
+2025-02-01 15:50:55,323 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 9
+2025-02-01 15:50:55,323 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:55,323 DEBUG   SenderThread:3741616 [sender.py:send():379] send: artifact
+2025-02-01 15:50:55,323 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 9
+2025-02-01 15:50:55,424 INFO    Thread-12 :3741616 [dir_watcher.py:_on_file_modified():288] file/dir modified: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:55,980 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-01 15:50:56,491 INFO    wandb-upload_1:3741616 [upload_job.py:push():88] Uploaded file /tmp/tmp3gfpenuq/wandb-job.json
+2025-02-01 15:50:56,563 INFO    wandb-upload_0:3741616 [upload_job.py:push():88] Uploaded file /groups/icecube/cyan/.local/share/wandb/artifacts/staging/tmpmw9ug0cr
+2025-02-01 15:50:57,560 INFO    SenderThread:3741616 [sender.py:send_artifact():1530] sent artifact job-https___github.com_KUcyans_IceCubeTransformer.git_TrainingDebuggingYard.py - {'id': 'QXJ0aWZhY3Q6MTQ4MjM5NDY1Nw==', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU1NTI0NjI3NA==', 'latestArtifact': None}}
+2025-02-01 15:50:57,560 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:57,560 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 9
+2025-02-01 15:50:57,560 INFO    SenderThread:3741616 [dir_watcher.py:finish():358] shutting down directory watcher
+2025-02-01 15:50:58,425 INFO    SenderThread:3741616 [dir_watcher.py:finish():388] scan: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files
+2025-02-01 15:50:58,425 INFO    SenderThread:3741616 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/requirements.txt requirements.txt
+2025-02-01 15:50:58,425 INFO    SenderThread:3741616 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/config.yaml config.yaml
+2025-02-01 15:50:58,427 INFO    SenderThread:3741616 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log output.log
+2025-02-01 15:50:58,428 INFO    SenderThread:3741616 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json wandb-summary.json
+2025-02-01 15:50:58,430 INFO    SenderThread:3741616 [dir_watcher.py:finish():402] scan save: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-metadata.json wandb-metadata.json
+2025-02-01 15:50:58,430 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 10
+2025-02-01 15:50:58,431 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: poll_exit
+2025-02-01 15:50:58,432 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:58,432 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 10
+2025-02-01 15:50:58,433 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:58,433 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 10
+2025-02-01 15:50:58,433 INFO    SenderThread:3741616 [file_pusher.py:finish():169] shutting down file pusher
+2025-02-01 15:50:58,830 INFO    wandb-upload_1:3741616 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/requirements.txt
+2025-02-01 15:50:58,831 INFO    wandb-upload_0:3741616 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/config.yaml
+2025-02-01 15:50:58,981 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-01 15:50:58,981 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: poll_exit
+2025-02-01 15:50:59,048 INFO    wandb-upload_3:3741616 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/wandb-summary.json
+2025-02-01 15:50:59,077 INFO    wandb-upload_2:3741616 [upload_job.py:push():130] Uploaded file /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/files/output.log
+2025-02-01 15:50:59,278 INFO    Thread-11 :3741616 [sender.py:transition_state():614] send defer: 11
+2025-02-01 15:50:59,278 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:59,278 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 11
+2025-02-01 15:50:59,278 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:59,278 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 11
+2025-02-01 15:50:59,278 INFO    SenderThread:3741616 [file_pusher.py:join():175] waiting for file pusher
+2025-02-01 15:50:59,278 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 12
+2025-02-01 15:50:59,278 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:59,278 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 12
+2025-02-01 15:50:59,279 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:59,279 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 12
+2025-02-01 15:50:59,279 INFO    SenderThread:3741616 [file_stream.py:finish():601] file stream finish called
+2025-02-01 15:50:59,442 INFO    SenderThread:3741616 [file_stream.py:finish():605] file stream finish is done
+2025-02-01 15:50:59,442 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 13
+2025-02-01 15:50:59,442 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:59,442 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 13
+2025-02-01 15:50:59,442 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:59,442 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 13
+2025-02-01 15:50:59,443 INFO    SenderThread:3741616 [sender.py:transition_state():614] send defer: 14
+2025-02-01 15:50:59,443 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: defer
+2025-02-01 15:50:59,443 DEBUG   SenderThread:3741616 [sender.py:send():379] send: final
+2025-02-01 15:50:59,443 INFO    HandlerThread:3741616 [handler.py:handle_request_defer():184] handle defer: 14
+2025-02-01 15:50:59,443 DEBUG   SenderThread:3741616 [sender.py:send():379] send: footer
+2025-02-01 15:50:59,443 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: defer
+2025-02-01 15:50:59,443 INFO    SenderThread:3741616 [sender.py:send_request_defer():610] handle sender defer: 14
+2025-02-01 15:50:59,444 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: poll_exit
+2025-02-01 15:50:59,444 DEBUG   SenderThread:3741616 [sender.py:send_request():406] send_request: poll_exit
+2025-02-01 15:50:59,444 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: internal_messages
+2025-02-01 15:50:59,444 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: get_summary
+2025-02-01 15:50:59,445 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: sampled_history
+2025-02-01 15:50:59,446 DEBUG   HandlerThread:3741616 [handler.py:handle_request():158] handle_request: shutdown
+2025-02-01 15:50:59,446 INFO    HandlerThread:3741616 [handler.py:finish():882] shutting down handler
+2025-02-01 15:51:00,444 INFO    WriterThread:3741616 [datastore.py:close():296] close: /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_154935-ldmtkd9b/run-ldmtkd9b.wandb
+2025-02-01 15:51:00,444 INFO    SenderThread:3741616 [sender.py:finish():1608] shutting down sender
+2025-02-01 15:51:00,444 INFO    SenderThread:3741616 [file_pusher.py:finish():169] shutting down file pusher
+2025-02-01 15:51:00,444 INFO    SenderThread:3741616 [file_pusher.py:join():175] waiting for file pusher

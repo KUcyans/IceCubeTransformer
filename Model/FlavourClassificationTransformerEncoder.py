@@ -18,7 +18,9 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  dropout=0.1, 
                  nan_logger=None,
                  train_logger=None,
-                 learning_rate=1e-4):
+                 learning_rate=1e-4,
+                 profiler=None
+                 ):
         super().__init__()
         self.d_model = d_model
         self.n_heads = n_heads
@@ -33,6 +35,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.input_projection = nn.Linear(self.d_input, self.d_model)
         self.nan_logger = nan_logger
         self.train_logger = train_logger
+        self.profiler = profiler
 
         # Stacked encoder blocks
         self.encoder_blocks = nn.ModuleList(
@@ -47,26 +50,19 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         # Classification head
         self.classification_output_layer = nn.Linear(self.d_model, self.num_classes)
+        self.training_losses = []
 
     def forward(self, x, mask=None):
-        # Input projection
-        x = self.input_projection(x)
-
-        # Encoder blocks
-        for encoder in self.encoder_blocks:
-            x = encoder(x, mask)
-
-        # Classification head: Mean pooling across sequence and output logits
-        x = x.mean(dim=1)
-        logits = self.classification_output_layer(x)
+        with torch.profiler.record_function("Forward Pass"):  # 🔥 Profile Forward Pass
+            x = self.input_projection(x)
+            for encoder in self.encoder_blocks:
+                x = encoder(x, mask)
+            x = x.mean(dim=1)  # Mean pooling
+            logits = self.classification_output_layer(x)
         self.nan_logger.info(f"---------Classification Head-----------")
         self.nan_logger.info(f"logits hasn't nan: {not torch.isnan(logits).any()}")
         return logits
 
-    # def configure_optimizers(self):
-    #     optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
-    #     return optimizer
-    
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
         
@@ -89,10 +85,14 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         mask = batch["mask"]
 
         logits = self(x, mask)
-        loss = F.cross_entropy(logits, y)
+        loss = F.cross_entropy(logits, torch.argmax(y, dim=-1))
 
+        print(f"Batch {batch_idx}: train_loss={loss.item():.4f}")
         self.train_logger.info(f"Epoch {self.current_epoch}: train_loss={loss.item():.4f}")
         self.log("train_loss", loss)
+        if self.profiler:
+            self.profiler.step()
+        self.training_losses.append(loss)
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -101,26 +101,30 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         mask = batch["mask"]
 
         logits = self(x, mask)
-        loss = F.cross_entropy(logits, y)
+        loss = F.cross_entropy(logits, torch.argmax(y, dim=-1))
 
-        preds = torch.argmax(logits, dim=1)
-        acc = (preds == y).float().mean()
+        probs = F.softmax(logits, dim=-1)
+        preds = torch.argmax(probs, dim=1)
+        acc = (preds == torch.argmax(y, dim=-1)).float().mean()  # Compare indices
 
         self.train_logger.info(f"Epoch {self.current_epoch}: val_loss={loss.item():.4f}, val_acc={acc.item() * 100:.2f}%")
         self.log("val_loss", loss)
         self.log("val_acc", acc)
+        if self.profiler:
+            self.profiler.step()
         return loss
 
     def test_step(self, batch, batch_idx):
         x = batch["features"]
         y = batch["target"]
         mask = batch["mask"]
-
-        logits = self(x, mask)
-        loss = F.cross_entropy(logits, y)
-
-        preds = torch.argmax(logits, dim=1)
-        acc = (preds == y).float().mean()
+        
+        logits = self(x, mask)  # Get raw logit s
+        loss = F.cross_entropy(logits, torch.argmax(y, dim=-1))
+        
+        probs = F.softmax(logits, dim=-1)  # Convert logits to probabilities for evaluation
+        preds = torch.argmax(probs, dim=1)
+        acc = (preds == torch.argmax(y, dim=-1)).float().mean()  # Compare indices
 
         self.train_logger.info(f"Epoch {self.current_epoch}: test_loss={loss.item():.4f}, test_acc={acc.item() * 100:.2f}%")
         self.log("test_loss", loss)
@@ -130,3 +134,10 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def on_train_epoch_start(self):
         self.nan_logger.info(f"####################Training epoch {self.current_epoch}####################")
         self.train_logger.info(f"####################Training epoch {self.current_epoch}####################")
+
+    def on_train_epoch_end(self):
+        if self.training_losses:
+            epoch_loss = torch.stack(self.training_losses).mean()
+            self.train_logger.info(f"Epoch {self.current_epoch}: EPOCH_AVG_TRAIN_LOSS={epoch_loss.item():.4f}")
+            self.log("epoch_avg_train_loss", epoch_loss, prog_bar=True, on_epoch=True)
+            self.training_losses.clear()

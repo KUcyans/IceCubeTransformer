@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 class ALiBiAttention(nn.Module):
     def __init__(self, 
                  d_model: int, # the size of an embedded vector

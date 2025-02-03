@@ -1,0 +1,142 @@
+2025-02-03 18:26:46,294 - INFO - Starting training with the following parameters:
+2025-02-03 18:26:46,295 - INFO - | Parameter       | Value               |
+|-----------------|---------------------|
+| attention       | Scaled Dot-Product|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 128            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 0.001          |
+| epochs          | 300            |
+| batch_size      | 128            |
+
+2025-02-03 18:26:49,333 - INFO - Epoch 0: val_loss=1.1522, val_acc=37.50%
+2025-02-03 18:26:49,857 - INFO - Epoch 0: val_loss=1.2280, val_acc=33.59%
+2025-02-03 18:26:49,997 - INFO - ####################Training epoch 0####################
+2025-02-03 18:26:50,773 - INFO - Epoch 0: train_loss=1.2741
+2025-02-03 18:26:52,790 - INFO - Epoch 0: train_loss=1.6157
+2025-02-03 18:26:54,707 - INFO - Epoch 0: train_loss=1.3802
+2025-02-03 18:26:56,630 - INFO - Epoch 0: train_loss=1.5076
+2025-02-03 18:26:58,552 - INFO - Epoch 0: train_loss=1.5002
+2025-02-03 18:27:00,474 - INFO - Epoch 0: train_loss=1.1797
+2025-02-03 18:27:02,397 - INFO - Epoch 0: train_loss=1.1152
+2025-02-03 18:27:04,316 - INFO - Epoch 0: train_loss=1.2576
+2025-02-03 18:27:06,229 - INFO - Epoch 0: train_loss=1.0996
+2025-02-03 18:27:08,142 - INFO - Epoch 0: train_loss=1.2470
+2025-02-03 18:27:10,056 - INFO - Epoch 0: train_loss=1.2365
+2025-02-03 18:27:11,974 - INFO - Epoch 0: train_loss=1.2585
+2025-02-03 18:27:13,889 - INFO - Epoch 0: train_loss=1.1273
+2025-02-03 18:27:15,804 - INFO - Epoch 0: train_loss=1.2274
+2025-02-03 18:27:17,721 - INFO - Epoch 0: train_loss=1.1045
+2025-02-03 18:27:19,640 - INFO - Epoch 0: train_loss=1.0855
+2025-02-03 18:27:21,561 - INFO - Epoch 0: train_loss=1.2547
+2025-02-03 18:27:23,482 - INFO - Epoch 0: train_loss=1.2185
+2025-02-03 18:27:25,404 - INFO - Epoch 0: train_loss=1.1795
+2025-02-03 18:27:27,324 - INFO - Epoch 0: train_loss=1.1259
+2025-02-03 18:27:29,246 - INFO - Epoch 0: train_loss=1.0967
+2025-02-03 18:27:31,168 - INFO - Epoch 0: train_loss=1.1023
+2025-02-03 18:27:33,091 - INFO - Epoch 0: train_loss=1.1235
+2025-02-03 18:27:35,014 - INFO - Epoch 0: train_loss=1.1385
+2025-02-03 18:27:36,942 - INFO - Epoch 0: train_loss=1.1050
+2025-02-03 18:27:38,864 - INFO - Epoch 0: train_loss=1.2272
+2025-02-03 18:27:40,786 - INFO - Epoch 0: train_loss=1.1632
+2025-02-03 18:27:42,709 - INFO - Epoch 0: train_loss=1.1713
+2025-02-03 18:27:44,633 - INFO - Epoch 0: train_loss=1.2261
+2025-02-03 18:27:46,557 - INFO - Epoch 0: train_loss=1.1474
+2025-02-03 18:27:48,480 - INFO - Epoch 0: train_loss=1.1350
+2025-02-03 18:27:50,402 - INFO - Epoch 0: train_loss=1.1100
+2025-02-03 18:27:52,330 - INFO - Epoch 0: train_loss=1.1023
+2025-02-03 18:27:54,258 - INFO - Epoch 0: train_loss=1.0941
+2025-02-03 18:27:56,186 - INFO - Epoch 0: train_loss=1.1096
+2025-02-03 18:27:58,114 - INFO - Epoch 0: train_loss=1.1351
+2025-02-03 18:28:00,042 - INFO - Epoch 0: train_loss=1.1526
+2025-02-03 18:28:01,718 - INFO - Epoch 0: train_loss=1.1145
+2025-02-03 18:28:03,192 - INFO - Epoch 0: val_loss=1.1023, val_acc=34.38%
+2025-02-03 18:28:03,716 - INFO - Epoch 0: val_loss=1.0987, val_acc=34.38%
+2025-02-03 18:28:04,238 - INFO - Epoch 0: val_loss=1.0916, val_acc=42.19%
+2025-02-03 18:28:04,762 - INFO - Epoch 0: val_loss=1.0999, val_acc=34.38%
+2025-02-03 18:28:05,122 - INFO - Epoch 0: val_loss=1.1057, val_acc=32.95%
+2025-02-03 18:28:05,125 - INFO - Epoch 0: EPOCH_AVG_TRAIN_LOSS=1.1960
+2025-02-03 18:28:05,185 - INFO - ####################Training epoch 1####################
+2025-02-03 18:28:05,976 - INFO - Epoch 1: train_loss=1.0966
+2025-02-03 18:28:07,904 - INFO - Epoch 1: train_loss=1.1145
+2025-02-03 18:28:09,833 - INFO - Epoch 1: train_loss=1.1490
+2025-02-03 18:28:11,761 - INFO - Epoch 1: train_loss=1.2488
+2025-02-03 18:28:13,690 - INFO - Epoch 1: train_loss=1.4391
+2025-02-03 18:28:15,618 - INFO - Epoch 1: train_loss=1.5157
+2025-02-03 18:28:17,547 - INFO - Epoch 1: train_loss=1.5643
+2025-02-03 18:28:19,475 - INFO - Epoch 1: train_loss=1.7454
+2025-02-03 18:28:21,404 - INFO - Epoch 1: train_loss=1.8184
+2025-02-03 18:28:23,333 - INFO - Epoch 1: train_loss=1.6164
+2025-02-03 18:28:25,262 - INFO - Epoch 1: train_loss=1.9332
+2025-02-03 18:28:27,198 - INFO - Epoch 1: train_loss=2.3162
+2025-02-03 18:28:29,127 - INFO - Epoch 1: train_loss=2.1853
+2025-02-03 18:28:31,056 - INFO - Epoch 1: train_loss=2.1094
+2025-02-03 18:28:32,986 - INFO - Epoch 1: train_loss=2.0645
+2025-02-03 18:28:34,919 - INFO - Epoch 1: train_loss=2.0320
+2025-02-03 18:28:36,847 - INFO - Epoch 1: train_loss=1.8863
+2025-02-03 18:28:38,776 - INFO - Epoch 1: train_loss=1.6640
+2025-02-03 18:28:40,704 - INFO - Epoch 1: train_loss=1.4359
+2025-02-03 18:28:42,633 - INFO - Epoch 1: train_loss=1.3372
+2025-02-03 18:28:44,563 - INFO - Epoch 1: train_loss=1.6428
+2025-02-03 18:28:46,493 - INFO - Epoch 1: train_loss=1.5850
+2025-02-03 18:28:48,424 - INFO - Epoch 1: train_loss=1.6431
+2025-02-03 18:28:50,354 - INFO - Epoch 1: train_loss=1.5540
+2025-02-03 18:28:52,283 - INFO - Epoch 1: train_loss=1.4389
+2025-02-03 18:28:54,211 - INFO - Epoch 1: train_loss=1.5959
+2025-02-03 18:28:56,139 - INFO - Epoch 1: train_loss=1.5379
+2025-02-03 18:28:58,068 - INFO - Epoch 1: train_loss=1.7225
+2025-02-03 18:29:00,005 - INFO - Epoch 1: train_loss=1.5122
+2025-02-03 18:29:01,935 - INFO - Epoch 1: train_loss=1.6827
+2025-02-03 18:29:03,865 - INFO - Epoch 1: train_loss=1.5451
+2025-02-03 18:29:05,794 - INFO - Epoch 1: train_loss=1.6762
+2025-02-03 18:29:07,724 - INFO - Epoch 1: train_loss=1.8100
+2025-02-03 18:29:09,654 - INFO - Epoch 1: train_loss=1.6855
+2025-02-03 18:29:11,584 - INFO - Epoch 1: train_loss=1.7233
+2025-02-03 18:29:13,513 - INFO - Epoch 1: train_loss=1.6852
+2025-02-03 18:29:15,442 - INFO - Epoch 1: train_loss=1.5452
+2025-02-03 18:29:17,119 - INFO - Epoch 1: train_loss=1.5189
+2025-02-03 18:29:18,600 - INFO - Epoch 1: val_loss=1.7896, val_acc=31.25%
+2025-02-03 18:29:19,125 - INFO - Epoch 1: val_loss=1.5572, val_acc=41.41%
+2025-02-03 18:29:19,647 - INFO - Epoch 1: val_loss=1.6971, val_acc=34.38%
+2025-02-03 18:29:20,172 - INFO - Epoch 1: val_loss=1.7087, val_acc=32.81%
+2025-02-03 18:29:20,533 - INFO - Epoch 1: val_loss=1.6057, val_acc=37.50%
+2025-02-03 18:29:20,537 - INFO - Epoch 1: EPOCH_AVG_TRAIN_LOSS=1.6415
+2025-02-03 18:29:20,566 - INFO - ####################Training epoch 2####################
+2025-02-03 18:29:21,413 - INFO - Epoch 2: train_loss=1.8086
+2025-02-03 18:29:23,344 - INFO - Epoch 2: train_loss=1.6545
+2025-02-03 18:29:25,274 - INFO - Epoch 2: train_loss=1.6783
+2025-02-03 18:29:27,204 - INFO - Epoch 2: train_loss=1.6475
+2025-02-03 18:29:29,135 - INFO - Epoch 2: train_loss=1.5053
+2025-02-03 18:29:31,065 - INFO - Epoch 2: train_loss=1.5509
+2025-02-03 18:29:32,995 - INFO - Epoch 2: train_loss=1.6262
+2025-02-03 18:29:34,921 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:36,838 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:38,755 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:40,671 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:42,588 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:44,503 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:46,419 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:48,336 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:50,253 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:52,169 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:54,086 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:56,002 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:57,918 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:29:59,834 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:01,752 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:03,669 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:05,585 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:07,501 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:09,418 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:11,334 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:13,249 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:15,165 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:17,086 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:19,003 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:20,919 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:22,836 - INFO - Epoch 2: train_loss=nan
+2025-02-03 18:30:24,752 - INFO - Epoch 2: train_loss=nan
