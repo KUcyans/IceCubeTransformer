@@ -1,0 +1,111 @@
+nohup: ignoring input
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_144625-ojzen7r1
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run smooth-blaze-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_144614%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_144614%5D%20Flavour%20Classification/runs/ojzen7r1
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py --date 20250204 --time 1 ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250204 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 297 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+301 K     Trainable params
+0         Non-trainable params
+301 K     Total params
+1.207     Total estimated model params size (MB)
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Config validation passed.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s] mask shape should be [batch_size, 1, seq_length, seq_length]
+ batch_size: 3, 1, seq_length: 2421, embed_dim: 128
+ the shape of the mask is torch.Size([3, 2421])
+ attn_bias shape: torch.Size([3, 1, 2421, 2421])
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 303, in run_training
+    trainer.fit(model, datamodule=datamodule)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
+    call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1028, in _run_stage
+    self._run_sanity_check()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1057, in _run_sanity_check
+    val_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/utilities.py", line 182, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 135, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 396, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 311, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 411, in validation_step
+    return self.lightning_module.validation_step(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 102, in validation_step
+    logits = self(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 59, in forward
+    x = encoder(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/EncoderBlock.py", line 61, in forward
+    attn_output = self.attention(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/BuildingBlocks/XFormersAttention.py", line 52, in forward
+    attn_output = xops.memory_efficient_attention(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/xformers/ops/fmha/__init__.py", line 301, in memory_efficient_attention
+    return _memory_efficient_attention(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/xformers/ops/fmha/__init__.py", line 462, in _memory_efficient_attention
+    return _memory_efficient_attention_forward(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/xformers/ops/fmha/__init__.py", line 478, in _memory_efficient_attention_forward
+    inp.validate_inputs()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/xformers/ops/fmha/common.py", line 185, in validate_inputs
+    raise ValueError(
+ValueError: Invalid shape for attention bias: torch.Size([3, 1, 2421, 2421]) (expected (3, 2421, 8, 8))
+  query.shape: torch.Size([3, 8, 2421, 16])
+  key.shape  : torch.Size([3, 8, 2421, 16])
+  value.shape: torch.Size([3, 8, 2421, 16])
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33msmooth-blaze-1[0m at: [34mhttps://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_144614%5D%20Flavour%20Classification/runs/ojzen7r1[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../../../lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_144625-ojzen7r1/logs[0m

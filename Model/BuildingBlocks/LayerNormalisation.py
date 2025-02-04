@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class LayerNormalisation(nn.Module):
-    def __init__(self, d_n, eps=1e-10, nan_logger = None):
+    def __init__(self, d_n, eps=1e-6, nan_logger = None):
         # d_n (int): dimension of the normalisation layer, 
         # here d_n = d_model = embed_dim
         # eps: epsilon, a small number to avoid division by zero

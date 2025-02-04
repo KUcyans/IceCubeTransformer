@@ -1,0 +1,15 @@
+{"time":"2025-02-04T14:46:26.178463895+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_144625-ojzen7r1/logs/debug-core.log"}
+{"time":"2025-02-04T14:46:26.284507085+01:00","level":"INFO","msg":"created new stream","id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:26.284559896+01:00","level":"INFO","msg":"stream: started","id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:26.284588497+01:00","level":"INFO","msg":"handler: started","stream_id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:26.284594337+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:26.284615947+01:00","level":"INFO","msg":"sender: started","stream_id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:26.62775705+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-04T14:46:27.629068246+01:00","level":"INFO","msg":"stream: closing","id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:27.629109307+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-04T14:46:27.629615225+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-04T14:46:28.300348394+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-04T14:46:28.564745449+01:00","level":"INFO","msg":"handler: closed","stream_id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:28.564776109+01:00","level":"INFO","msg":"sender: closed","stream_id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:28.564765799+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ojzen7r1"}
+{"time":"2025-02-04T14:46:28.56545692+01:00","level":"INFO","msg":"stream: closed","id":"ojzen7r1"}

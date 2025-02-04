@@ -1,0 +1,15 @@
+{"time":"2025-02-04T14:13:11.756841436+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_141311-lh91mg5n/logs/debug-core.log"}
+{"time":"2025-02-04T14:13:11.861959706+01:00","level":"INFO","msg":"created new stream","id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:11.862024217+01:00","level":"INFO","msg":"stream: started","id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:11.862048907+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:11.862058207+01:00","level":"INFO","msg":"handler: started","stream_id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:11.862084288+01:00","level":"INFO","msg":"sender: started","stream_id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:12.142708709+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-04T14:13:13.013245403+01:00","level":"INFO","msg":"stream: closing","id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:13.013316244+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-04T14:13:13.013793932+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-04T14:13:13.666154972+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-04T14:13:13.973771688+01:00","level":"INFO","msg":"handler: closed","stream_id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:13.973794819+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:13.973811619+01:00","level":"INFO","msg":"sender: closed","stream_id":"lh91mg5n"}
+{"time":"2025-02-04T14:13:13.974578391+01:00","level":"INFO","msg":"stream: closed","id":"lh91mg5n"}

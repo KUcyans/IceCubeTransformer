@@ -1,0 +1,171 @@
+nohup: ignoring input
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_172408-jvqtfjk4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run upbeat-dawn-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_172346%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_172346%5D%20Flavour%20Classification/runs/jvqtfjk4
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py --date 20250204 --time 1 ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250204 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 298 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+303 K     Trainable params
+0         Non-trainable params
+303 K     Total params
+1.213     Total estimated model params size (MB)
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Config validation passed.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:01<00:00,  0.67it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/2 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s]  learning rate0: 1.000000e-03
+Batch 0: train_loss=1.2075
+Step 0: input_projection.weight | Grad Norm: 1.459323
+Step 0: input_projection.bias | Grad Norm: 0.257682
+Step 0: encoder_blocks.0.attention.q_proj.weight | Grad Norm: 0.308630
+Step 0: encoder_blocks.0.attention.q_proj.bias | Grad Norm: 0.045495
+Step 0: encoder_blocks.0.attention.k_proj.weight | Grad Norm: 0.339700
+Step 0: encoder_blocks.0.attention.k_proj.bias | Grad Norm: 0.000001
+Step 0: encoder_blocks.0.attention.v_proj.weight | Grad Norm: 2.856688
+Step 0: encoder_blocks.0.attention.v_proj.bias | Grad Norm: 0.127431
+Step 0: encoder_blocks.0.attention.out_proj.weight | Grad Norm: 2.589533
+Step 0: encoder_blocks.0.attention.out_proj.bias | Grad Norm: 0.238706
+Step 0: encoder_blocks.0.norm_attention.g | Grad Norm: 0.139219
+Step 0: encoder_blocks.0.norm_attention.b | Grad Norm: 0.117640
+Step 0: encoder_blocks.0.ffn.W_h.weight | Grad Norm: 0.599713
+Step 0: encoder_blocks.0.ffn.W_h.bias | Grad Norm: 0.049704
+Step 0: encoder_blocks.0.ffn.W_f.weight | Grad Norm: 0.517433
+Step 0: encoder_blocks.0.ffn.W_f.bias | Grad Norm: 0.111555
+Step 0: encoder_blocks.0.norm_ffn.g | Grad Norm: 0.138858
+Step 0: encoder_blocks.0.norm_ffn.b | Grad Norm: 0.118141
+Step 0: encoder_blocks.1.attention.q_proj.weight | Grad Norm: 0.028242
+Step 0: encoder_blocks.1.attention.q_proj.bias | Grad Norm: 0.002710
+Step 0: encoder_blocks.1.attention.k_proj.weight | Grad Norm: 0.030201
+Step 0: encoder_blocks.1.attention.k_proj.bias | Grad Norm: 0.000000
+Step 0: encoder_blocks.1.attention.v_proj.weight | Grad Norm: 0.836858
+Step 0: encoder_blocks.1.attention.v_proj.bias | Grad Norm: 0.068813
+Step 0: encoder_blocks.1.attention.out_proj.weight | Grad Norm: 0.898884
+Step 0: encoder_blocks.1.attention.out_proj.bias | Grad Norm: 0.114889
+Step 0: encoder_blocks.1.norm_attention.g | Grad Norm: 0.145887
+Step 0: encoder_blocks.1.norm_attention.b | Grad Norm: 0.126555
+Step 0: encoder_blocks.1.ffn.W_h.weight | Grad Norm: 0.548739
+Step 0: encoder_blocks.1.ffn.W_h.bias | Grad Norm: 0.044663
+Step 0: encoder_blocks.1.ffn.W_f.weight | Grad Norm: 0.685114
+Step 0: encoder_blocks.1.ffn.W_f.bias | Grad Norm: 0.125175
+Step 0: encoder_blocks.1.norm_ffn.g | Grad Norm: 0.148797
+Step 0: encoder_blocks.1.norm_ffn.b | Grad Norm: 0.132147
+Step 0: encoder_blocks.2.attention.q_proj.weight | Grad Norm: 0.029684
+Step 0: encoder_blocks.2.attention.q_proj.bias | Grad Norm: 0.002890
+Step 0: encoder_blocks.2.attention.k_proj.weight | Grad Norm: 0.033866
+Step 0: encoder_blocks.2.attention.k_proj.bias | Grad Norm: 0.000000
+Step 0: encoder_blocks.2.attention.v_proj.weight | Grad Norm: 0.843351
+Step 0: encoder_blocks.2.attention.v_proj.bias | Grad Norm: 0.070750
+Step 0: encoder_blocks.2.attention.out_proj.weight | Grad Norm: 0.908333
+Step 0: encoder_blocks.2.attention.out_proj.bias | Grad Norm: 0.123807
+Step 0: encoder_blocks.2.norm_attention.g | Grad Norm: 0.153680
+Step 0: encoder_blocks.2.norm_attention.b | Grad Norm: 0.133345
+Step 0: encoder_blocks.2.ffn.W_h.weight | Grad Norm: 0.707020
+Step 0: encoder_blocks.2.ffn.W_h.bias | Grad Norm: 0.060573
+Step 0: encoder_blocks.2.ffn.W_f.weight | Grad Norm: 0.729389
+Step 0: encoder_blocks.2.ffn.W_f.bias | Grad Norm: 0.124261
+Step 0: encoder_blocks.2.norm_ffn.g | Grad Norm: 0.155345
+Step 0: encoder_blocks.2.norm_ffn.b | Grad Norm: 0.129709
+Step 0: classification_output_layer.weight | Grad Norm: 2.994620
+Step 0: classification_output_layer.bias | Grad Norm: 0.237803
+Step 0: Max Grad Norm: 2.994620
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 303, in run_training
+    trainer.fit(model, datamodule=datamodule)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
+    call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_stage
+    self.fit_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 159, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/core/module.py", line 1308, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/core/optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/optimizer.py", line 484, in wrapper
+    out = func(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/optimizer.py", line 89, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/adam.py", line 205, in step
+    loss = closure()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 138, in closure
+    self._backward_fn(step_output.closure_loss)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/optimization/automatic.py", line 239, in backward_fn
+    call._call_strategy_hook(self.trainer, "backward", loss, optimizer)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 311, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 212, in backward
+    self.precision_plugin.backward(closure_loss, self.lightning_module, optimizer, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/plugins/precision/precision.py", line 72, in backward
+    model.backward(tensor, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/core/module.py", line 1103, in backward
+    loss.backward(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/autograd/graph.py", line 769, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: Trying to backward through the graph a second time (or directly access saved tensors after they have already been freed). Saved intermediate values of the graph are freed when you call .backward() or autograd.grad(). Specify retain_graph=True if you need to backward through the graph a second time or if you need to access saved tensors after calling backward.
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mupbeat-dawn-1[0m at: [34mhttps://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_172346%5D%20Flavour%20Classification/runs/jvqtfjk4[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../../../lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_172408-jvqtfjk4/logs[0m

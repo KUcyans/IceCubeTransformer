@@ -1,0 +1,192 @@
+nohup: ignoring input
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_173851-07y486bg
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lunar-pond-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_173842%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_173842%5D%20Flavour%20Classification/runs/07y486bg
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py --date 20250204 --time 1 ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250204 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 298 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+303 K     Trainable params
+0         Non-trainable params
+303 K     Total params
+1.213     Total estimated model params size (MB)
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Config validation passed.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.12it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/2 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s]  learning rate0: 1.000000e-03
+Batch 0: train_loss=1.0596
+Step 0: input_projection.weight | Grad Norm: 1.674261
+Step 0: input_projection.bias | Grad Norm: 1.558376
+Step 0: encoder_blocks.0.attention.q_proj.weight | Grad Norm: 2.913798
+Step 0: encoder_blocks.0.attention.q_proj.bias | Grad Norm: 2.537361
+Step 0: encoder_blocks.0.attention.k_proj.weight | Grad Norm: 3.141540
+Step 0: encoder_blocks.0.attention.k_proj.bias | Grad Norm: 0.000000
+Step 0: encoder_blocks.0.attention.v_proj.weight | Grad Norm: 1.463124
+Step 0: encoder_blocks.0.attention.v_proj.bias | Grad Norm: 0.076751
+Step 0: encoder_blocks.0.attention.out_proj.weight | Grad Norm: 1.850724
+Step 0: encoder_blocks.0.attention.out_proj.bias | Grad Norm: 0.147883
+Step 0: encoder_blocks.0.norm_attention.g | Grad Norm: 0.094791
+Step 0: encoder_blocks.0.norm_attention.b | Grad Norm: 0.115039
+Step 0: encoder_blocks.0.ffn.W_h.weight | Grad Norm: 0.366148
+Step 0: encoder_blocks.0.ffn.W_h.bias | Grad Norm: 0.035868
+Step 0: encoder_blocks.0.ffn.W_f.weight | Grad Norm: 0.422950
+Step 0: encoder_blocks.0.ffn.W_f.bias | Grad Norm: 0.110744
+Step 0: encoder_blocks.0.norm_ffn.g | Grad Norm: 0.100241
+Step 0: encoder_blocks.0.norm_ffn.b | Grad Norm: 0.113712
+Step 0: encoder_blocks.1.attention.q_proj.weight | Grad Norm: 0.027315
+Step 0: encoder_blocks.1.attention.q_proj.bias | Grad Norm: 0.002838
+Step 0: encoder_blocks.1.attention.k_proj.weight | Grad Norm: 0.029221
+Step 0: encoder_blocks.1.attention.k_proj.bias | Grad Norm: 0.000000
+Step 0: encoder_blocks.1.attention.v_proj.weight | Grad Norm: 0.570948
+Step 0: encoder_blocks.1.attention.v_proj.bias | Grad Norm: 0.066325
+Step 0: encoder_blocks.1.attention.out_proj.weight | Grad Norm: 0.573042
+Step 0: encoder_blocks.1.attention.out_proj.bias | Grad Norm: 0.107285
+Step 0: encoder_blocks.1.norm_attention.g | Grad Norm: 0.084937
+Step 0: encoder_blocks.1.norm_attention.b | Grad Norm: 0.107907
+Step 0: encoder_blocks.1.ffn.W_h.weight | Grad Norm: 0.406754
+Step 0: encoder_blocks.1.ffn.W_h.bias | Grad Norm: 0.041575
+Step 0: encoder_blocks.1.ffn.W_f.weight | Grad Norm: 0.436357
+Step 0: encoder_blocks.1.ffn.W_f.bias | Grad Norm: 0.108930
+Step 0: encoder_blocks.1.norm_ffn.g | Grad Norm: 0.092225
+Step 0: encoder_blocks.1.norm_ffn.b | Grad Norm: 0.114813
+Step 0: encoder_blocks.2.attention.q_proj.weight | Grad Norm: 0.023871
+Step 0: encoder_blocks.2.attention.q_proj.bias | Grad Norm: 0.002488
+Step 0: encoder_blocks.2.attention.k_proj.weight | Grad Norm: 0.022289
+Step 0: encoder_blocks.2.attention.k_proj.bias | Grad Norm: 0.000000
+Step 0: encoder_blocks.2.attention.v_proj.weight | Grad Norm: 0.528872
+Step 0: encoder_blocks.2.attention.v_proj.bias | Grad Norm: 0.059580
+Step 0: encoder_blocks.2.attention.out_proj.weight | Grad Norm: 0.581029
+Step 0: encoder_blocks.2.attention.out_proj.bias | Grad Norm: 0.107366
+Step 0: encoder_blocks.2.norm_attention.g | Grad Norm: 0.091395
+Step 0: encoder_blocks.2.norm_attention.b | Grad Norm: 0.111766
+Step 0: encoder_blocks.2.ffn.W_h.weight | Grad Norm: 0.387881
+Step 0: encoder_blocks.2.ffn.W_h.bias | Grad Norm: 0.039739
+Step 0: encoder_blocks.2.ffn.W_f.weight | Grad Norm: 0.430294
+Step 0: encoder_blocks.2.ffn.W_f.bias | Grad Norm: 0.108790
+Step 0: encoder_blocks.2.norm_ffn.g | Grad Norm: 0.100448
+Step 0: encoder_blocks.2.norm_ffn.b | Grad Norm: 0.113804
+Step 0: classification_output_layer.weight | Grad Norm: 1.775314
+Step 0: classification_output_layer.bias | Grad Norm: 0.189404
+Step 0: Max Grad Norm: 3.141540
+Epoch 0:  50%|█████     | 1/2 [00:00<00:00,  1.61it/s]Epoch 0:  50%|█████     | 1/2 [00:00<00:00,  1.61it/s, v_num=86bg]Batch 1: train_loss=1.6170
+Step 1: input_projection.weight | Grad Norm: 1.238848
+Step 1: input_projection.bias | Grad Norm: 0.765270
+Step 1: encoder_blocks.0.attention.q_proj.weight | Grad Norm: 0.926898
+Step 1: encoder_blocks.0.attention.q_proj.bias | Grad Norm: 0.591298
+Step 1: encoder_blocks.0.attention.k_proj.weight | Grad Norm: 1.172309
+Step 1: encoder_blocks.0.attention.k_proj.bias | Grad Norm: 0.000001
+Step 1: encoder_blocks.0.attention.v_proj.weight | Grad Norm: 2.043199
+Step 1: encoder_blocks.0.attention.v_proj.bias | Grad Norm: 0.327776
+Step 1: encoder_blocks.0.attention.out_proj.weight | Grad Norm: 2.476452
+Step 1: encoder_blocks.0.attention.out_proj.bias | Grad Norm: 0.622053
+Step 1: encoder_blocks.0.norm_attention.g | Grad Norm: 0.140492
+Step 1: encoder_blocks.0.norm_attention.b | Grad Norm: 0.205670
+Step 1: encoder_blocks.0.ffn.W_h.weight | Grad Norm: 0.571969
+Step 1: encoder_blocks.0.ffn.W_h.bias | Grad Norm: 0.063528
+Step 1: encoder_blocks.0.ffn.W_f.weight | Grad Norm: 0.748272
+Step 1: encoder_blocks.0.ffn.W_f.bias | Grad Norm: 0.196466
+Step 1: encoder_blocks.0.norm_ffn.g | Grad Norm: 0.144570
+Step 1: encoder_blocks.0.norm_ffn.b | Grad Norm: 0.204029
+Step 1: encoder_blocks.1.attention.q_proj.weight | Grad Norm: 0.054835
+Step 1: encoder_blocks.1.attention.q_proj.bias | Grad Norm: 0.006577
+Step 1: encoder_blocks.1.attention.k_proj.weight | Grad Norm: 0.050400
+Step 1: encoder_blocks.1.attention.k_proj.bias | Grad Norm: 0.000000
+Step 1: encoder_blocks.1.attention.v_proj.weight | Grad Norm: 0.814374
+Step 1: encoder_blocks.1.attention.v_proj.bias | Grad Norm: 0.111912
+Step 1: encoder_blocks.1.attention.out_proj.weight | Grad Norm: 0.805068
+Step 1: encoder_blocks.1.attention.out_proj.bias | Grad Norm: 0.194888
+Step 1: encoder_blocks.1.norm_attention.g | Grad Norm: 0.127872
+Step 1: encoder_blocks.1.norm_attention.b | Grad Norm: 0.199737
+Step 1: encoder_blocks.1.ffn.W_h.weight | Grad Norm: 0.597147
+Step 1: encoder_blocks.1.ffn.W_h.bias | Grad Norm: 0.071740
+Step 1: encoder_blocks.1.ffn.W_f.weight | Grad Norm: 0.698471
+Step 1: encoder_blocks.1.ffn.W_f.bias | Grad Norm: 0.204614
+Step 1: encoder_blocks.1.norm_ffn.g | Grad Norm: 0.138418
+Step 1: encoder_blocks.1.norm_ffn.b | Grad Norm: 0.216068
+Step 1: encoder_blocks.2.attention.q_proj.weight | Grad Norm: 0.035532
+Step 1: encoder_blocks.2.attention.q_proj.bias | Grad Norm: 0.003831
+Step 1: encoder_blocks.2.attention.k_proj.weight | Grad Norm: 0.035726
+Step 1: encoder_blocks.2.attention.k_proj.bias | Grad Norm: 0.000000
+Step 1: encoder_blocks.2.attention.v_proj.weight | Grad Norm: 0.803442
+Step 1: encoder_blocks.2.attention.v_proj.bias | Grad Norm: 0.108600
+Step 1: encoder_blocks.2.attention.out_proj.weight | Grad Norm: 0.914971
+Step 1: encoder_blocks.2.attention.out_proj.bias | Grad Norm: 0.205073
+Step 1: encoder_blocks.2.norm_attention.g | Grad Norm: 0.138924
+Step 1: encoder_blocks.2.norm_attention.b | Grad Norm: 0.217539
+Step 1: encoder_blocks.2.ffn.W_h.weight | Grad Norm: 0.667296
+Step 1: encoder_blocks.2.ffn.W_h.bias | Grad Norm: 0.079136
+Step 1: encoder_blocks.2.ffn.W_f.weight | Grad Norm: 0.745146
+Step 1: encoder_blocks.2.ffn.W_f.bias | Grad Norm: 0.211536
+Step 1: encoder_blocks.2.norm_ffn.g | Grad Norm: 0.197357
+Step 1: encoder_blocks.2.norm_ffn.b | Grad Norm: 0.238626
+Step 1: classification_output_layer.weight | Grad Norm: 3.177105
+Step 1: classification_output_layer.bias | Grad Norm: 0.391684
+Step 1: Max Grad Norm: 3.177105
+Epoch 0: 100%|██████████| 2/2 [00:00<00:00,  2.54it/s, v_num=86bg]Epoch 0: 100%|██████████| 2/2 [00:00<00:00,  2.54it/s, v_num=86bg]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 32.02it/s][A
+                                                                      [AEpoch 0: 100%|██████████| 2/2 [00:01<00:00,  1.86it/s, v_num=86bg]Epoch 0: 100%|██████████| 2/2 [00:01<00:00,  1.86it/s, v_num=86bg]Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 303, in run_training
+    trainer.fit(model, datamodule=datamodule)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
+    call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_stage
+    self.fit_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 206, in run
+    self.on_advance_end()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 377, in on_advance_end
+    call._call_lightning_module_hook(trainer, "on_train_epoch_end")
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 159, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 150, in on_train_epoch_end
+    epoch_loss.backward(retain_graph=True)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/_tensor.py", line 521, in backward
+    torch.autograd.backward(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/autograd/__init__.py", line 289, in backward
+    _engine_run_backward(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/autograd/graph.py", line 769, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mlunar-pond-1[0m at: [34mhttps://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_173842%5D%20Flavour%20Classification/runs/07y486bg[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../../../lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_173851-07y486bg/logs[0m

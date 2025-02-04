@@ -1,0 +1,16 @@
+{"time":"2025-02-04T16:42:58.582160771+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_164258-ys9snpro/logs/debug-core.log"}
+{"time":"2025-02-04T16:42:58.708368802+01:00","level":"INFO","msg":"created new stream","id":"ys9snpro"}
+{"time":"2025-02-04T16:42:58.708427873+01:00","level":"INFO","msg":"stream: started","id":"ys9snpro"}
+{"time":"2025-02-04T16:42:58.708437643+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"ys9snpro"}
+{"time":"2025-02-04T16:42:58.708469164+01:00","level":"INFO","msg":"handler: started","stream_id":"ys9snpro"}
+{"time":"2025-02-04T16:42:58.708493144+01:00","level":"INFO","msg":"sender: started","stream_id":"ys9snpro"}
+{"time":"2025-02-04T16:42:59.091024063+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-04T16:44:44.298789903+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-04T16:44:44.29930341+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-04T16:44:45.299128414+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.54047945,"progress":"708.1KB/708.1KB"},{"desc":"uploading config.yaml","runtime_seconds":0.238026373,"progress":"804B/804B"}],"total_operations":2}}
+{"time":"2025-02-04T16:44:45.689777462+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-04T16:44:46.920972489+01:00","level":"INFO","msg":"stream: closing","id":"ys9snpro"}
+{"time":"2025-02-04T16:44:46.920998999+01:00","level":"INFO","msg":"handler: closed","stream_id":"ys9snpro"}
+{"time":"2025-02-04T16:44:46.921020029+01:00","level":"INFO","msg":"sender: closed","stream_id":"ys9snpro"}
+{"time":"2025-02-04T16:44:46.921012429+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ys9snpro"}
+{"time":"2025-02-04T16:44:46.921295084+01:00","level":"INFO","msg":"stream: closed","id":"ys9snpro"}

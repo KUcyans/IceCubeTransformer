@@ -1,0 +1,16 @@
+{"time":"2025-02-04T16:37:30.480212492+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_163730-p1l9sz4w/logs/debug-core.log"}
+{"time":"2025-02-04T16:37:30.585307447+01:00","level":"INFO","msg":"created new stream","id":"p1l9sz4w"}
+{"time":"2025-02-04T16:37:30.585371278+01:00","level":"INFO","msg":"stream: started","id":"p1l9sz4w"}
+{"time":"2025-02-04T16:37:30.585395708+01:00","level":"INFO","msg":"handler: started","stream_id":"p1l9sz4w"}
+{"time":"2025-02-04T16:37:30.585395248+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"p1l9sz4w"}
+{"time":"2025-02-04T16:37:30.585450939+01:00","level":"INFO","msg":"sender: started","stream_id":"p1l9sz4w"}
+{"time":"2025-02-04T16:37:30.993648759+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-04T16:38:26.036626522+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-04T16:38:26.037113719+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-04T16:38:27.036957474+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.554859249,"progress":"1018.2KB/1018.2KB"}],"total_operations":1}}
+{"time":"2025-02-04T16:38:27.522845426+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-04T16:38:29.123340252+01:00","level":"INFO","msg":"stream: closing","id":"p1l9sz4w"}
+{"time":"2025-02-04T16:38:29.123368562+01:00","level":"INFO","msg":"handler: closed","stream_id":"p1l9sz4w"}
+{"time":"2025-02-04T16:38:29.123382273+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"p1l9sz4w"}
+{"time":"2025-02-04T16:38:29.123392223+01:00","level":"INFO","msg":"sender: closed","stream_id":"p1l9sz4w"}
+{"time":"2025-02-04T16:38:29.123746668+01:00","level":"INFO","msg":"stream: closed","id":"p1l9sz4w"}

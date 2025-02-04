@@ -41,14 +41,23 @@ class ScaledDotProductAttention(nn.Module):
         
         if mask is not None:
             # [batch_size, 1, 1, seq_length]
-            mask = mask[:, None, None, :]  # Broadcast along heads and query dimensions
+            mask = mask[:, None, None, :]
         
+        attn_logits = torch.matmul(Q, K.transpose(-2, -1)) * self.scale
+        attn_logits = attn_logits.clamp(min=-10, max=10)
         attn_output = F.scaled_dot_product_attention(
             query=Q, key=K, value=V,
             attn_mask=mask,
             scale=self.scale,
             dropout_p=self.dropout
-        )# Q @ K^T
+        )
+
+        # attn_output = F.scaled_dot_product_attention(
+        #     query=Q, key=K, value=V,
+        #     attn_mask=mask,
+        #     scale=self.scale,
+        #     dropout_p=self.dropout
+        # )# Q @ K^T
 
         attn_output = attn_output.transpose(1, 2).reshape(batch_size, seq_length, embed_dim)
 

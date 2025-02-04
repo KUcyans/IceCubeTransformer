@@ -1,0 +1,29 @@
+2025-02-04 16:35:08,183 INFO    MainThread:1012053 [wandb_setup.py:_flush():68] Current SDK version is 0.19.5
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_setup.py:_flush():68] Configure stats pid to 1012053
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_setup.py:_flush():68] Loading settings from /groups/icecube/cyan/.config/wandb/settings
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_setup.py:_flush():68] Loading settings from /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/settings
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_163508-3nidyxib/logs/debug.log
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_163508-3nidyxib/logs/debug-internal.log
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_init.py:init():756] calling init triggers
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'d_model': 128, 'n_heads': 8, 'd_f': 128, 'num_layers': 3, 'd_input': 32, 'num_classes': 3, 'dropout': 0.1, 'learning_rate': 0.001, 'epochs': 100, 'attention': 'Scaled Dot-Product', '_wandb': {}}
+2025-02-04 16:35:08,184 INFO    MainThread:1012053 [wandb_init.py:init():789] starting backend
+2025-02-04 16:35:08,422 INFO    MainThread:1012053 [wandb_init.py:init():793] sending inform_init request
+2025-02-04 16:35:08,453 INFO    MainThread:1012053 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-02-04 16:35:08,453 INFO    MainThread:1012053 [wandb_init.py:init():808] backend started and connected
+2025-02-04 16:35:08,456 INFO    MainThread:1012053 [wandb_init.py:init():901] updated telemetry
+2025-02-04 16:35:08,490 INFO    MainThread:1012053 [wandb_init.py:init():926] communicating run to backend with 90.0 second timeout
+2025-02-04 16:35:08,941 INFO    MainThread:1012053 [wandb_init.py:init():984] starting run threads in backend
+2025-02-04 16:35:09,161 INFO    MainThread:1012053 [wandb_run.py:_console_start():2385] atexit reg
+2025-02-04 16:35:09,161 INFO    MainThread:1012053 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-02-04 16:35:09,161 INFO    MainThread:1012053 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-02-04 16:35:09,162 INFO    MainThread:1012053 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-02-04 16:35:09,164 INFO    MainThread:1012053 [wandb_init.py:init():1026] run started, returning control to user process
+2025-02-04 16:36:07,330 INFO    MainThread:1012053 [wandb_run.py:_finish():2110] finishing run cyans-k-benhavns-universitet/[20250204_163459] Flavour Classification/3nidyxib
+2025-02-04 16:36:07,331 INFO    MainThread:1012053 [wandb_run.py:_atexit_cleanup():2350] got exitcode: 0
+2025-02-04 16:36:07,332 INFO    MainThread:1012053 [wandb_run.py:_restore():2332] restore
+2025-02-04 16:36:07,332 INFO    MainThread:1012053 [wandb_run.py:_restore():2338] restore done
+2025-02-04 16:36:10,720 INFO    MainThread:1012053 [wandb_run.py:_footer_history_summary_info():3963] rendering history
+2025-02-04 16:36:10,721 INFO    MainThread:1012053 [wandb_run.py:_footer_history_summary_info():3995] rendering summary
+2025-02-04 16:36:10,721 INFO    MainThread:1012053 [wandb_run.py:_footer_sync_info():3924] logging synced files

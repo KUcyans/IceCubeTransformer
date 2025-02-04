@@ -20,3 +20,10 @@ config: {'d_model': 128, 'n_heads': 8, 'd_f': 128, 'num_layers': 3, 'd_input': 3
 2025-02-03 18:26:46,246 INFO    MainThread:392832 [wandb_run.py:_redirect():2300] Wrapping output streams.
 2025-02-03 18:26:46,246 INFO    MainThread:392832 [wandb_run.py:_redirect():2325] Redirects installed.
 2025-02-03 18:26:46,249 INFO    MainThread:392832 [wandb_init.py:init():1026] run started, returning control to user process
+2025-02-04 00:41:00,750 INFO    MainThread:392832 [wandb_run.py:_finish():2110] finishing run cyans-k-benhavns-universitet/[20250203_182639]Flavour Classification/skpgv8b9
+2025-02-04 00:41:00,794 INFO    MainThread:392832 [wandb_run.py:_atexit_cleanup():2350] got exitcode: 0
+2025-02-04 00:41:00,795 INFO    MainThread:392832 [wandb_run.py:_restore():2332] restore
+2025-02-04 00:41:00,795 INFO    MainThread:392832 [wandb_run.py:_restore():2338] restore done
+2025-02-04 00:41:04,259 INFO    MainThread:392832 [wandb_run.py:_footer_history_summary_info():3963] rendering history
+2025-02-04 00:41:04,260 INFO    MainThread:392832 [wandb_run.py:_footer_history_summary_info():3995] rendering summary
+2025-02-04 00:41:04,260 INFO    MainThread:392832 [wandb_run.py:_footer_sync_info():3924] logging synced files

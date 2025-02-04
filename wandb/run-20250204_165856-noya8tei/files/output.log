@@ -1,0 +1,471 @@
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py --date 20250204 --time 1 ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250204 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name                        | Type       | Params | Mode
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 298 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+303 K     Trainable params
+0         Non-trainable params
+303 K     Total params
+1.213     Total estimated model params size (MB)
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s]  learning rate0: 1.000000e-02
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Batch 0: train_loss=1.2733
+Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei] learning rate1: 1.000000e-02
+Batch 0: train_loss=2.7928                                            
+Metric val_acc improved. New best score: 0.333
+Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.270] learning rate2: 1.000000e-02
+Batch 0: train_loss=2.8503                                            
+Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=2.790] learning rate3: 1.000000e-02
+Batch 0: train_loss=1.9871                                            
+Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=2.850] learning rate4: 1.000000e-02
+Batch 0: train_loss=1.9533                                            
+Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.990] learning rate5: 5.000000e-03
+Batch 0: train_loss=1.7867                                            
+Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.950] learning rate6: 5.000000e-03
+Batch 0: train_loss=1.7012                                            
+Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.790] learning rate7: 5.000000e-03
+Batch 0: train_loss=1.6226                                            
+Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.700] learning rate8: 5.000000e-03
+Batch 0: train_loss=nan                                               
+Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.620] learning rate9: 2.500000e-03
+Batch 0: train_loss=nan                                               
+Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate10: 2.500000e-03
+Batch 0: train_loss=nan                                               
+Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate11: 2.500000e-03
+Batch 0: train_loss=nan                                               
+Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate12: 2.500000e-03
+Batch 0: train_loss=nan                                               
+Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate13: 1.250000e-03
+Batch 0: train_loss=nan                                               
+Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate14: 1.250000e-03
+Batch 0: train_loss=nan                                               
+Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate15: 1.250000e-03
+Batch 0: train_loss=nan                                               
+Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate16: 1.250000e-03
+Batch 0: train_loss=nan                                               
+Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate17: 6.250000e-04
+Batch 0: train_loss=nan                                               
+Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate18: 6.250000e-04
+Batch 0: train_loss=nan                                               
+Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate19: 6.250000e-04
+Batch 0: train_loss=nan                                               
+Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate20: 6.250000e-04
+Batch 0: train_loss=nan                                               
+Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate21: 3.125000e-04
+Batch 0: train_loss=nan                                               
+Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate22: 3.125000e-04
+Batch 0: train_loss=nan                                               
+Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate23: 3.125000e-04
+Batch 0: train_loss=nan                                               
+Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate24: 3.125000e-04
+Batch 0: train_loss=nan                                               
+Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate25: 1.562500e-04
+Batch 0: train_loss=nan                                               
+Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate26: 1.562500e-04
+Batch 0: train_loss=nan                                               
+Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate27: 1.562500e-04
+Batch 0: train_loss=nan                                               
+Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate28: 1.562500e-04
+Batch 0: train_loss=nan                                               
+Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate29: 7.812500e-05
+Batch 0: train_loss=nan                                               
+Epoch 30:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate30: 7.812500e-05
+Batch 0: train_loss=nan                                               
+Epoch 31:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate31: 7.812500e-05
+Batch 0: train_loss=nan                                               
+Epoch 32:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate32: 7.812500e-05
+Batch 0: train_loss=nan                                               
+Epoch 33:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate33: 3.906250e-05
+Batch 0: train_loss=nan                                               
+Epoch 34:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate34: 3.906250e-05
+Batch 0: train_loss=nan                                               
+Epoch 35:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate35: 3.906250e-05
+Batch 0: train_loss=nan                                               
+Epoch 36:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate36: 3.906250e-05
+Batch 0: train_loss=nan                                               
+Epoch 37:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate37: 1.953125e-05
+Batch 0: train_loss=nan                                               
+Epoch 38:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate38: 1.953125e-05
+Batch 0: train_loss=nan                                               
+Epoch 39:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate39: 1.953125e-05
+Batch 0: train_loss=nan                                               
+Epoch 40:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate40: 1.953125e-05
+Batch 0: train_loss=nan                                               
+Epoch 41:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate41: 9.765625e-06
+Batch 0: train_loss=nan                                               
+Epoch 42:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate42: 9.765625e-06
+Batch 0: train_loss=nan                                               
+Epoch 43:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate43: 9.765625e-06
+Batch 0: train_loss=nan                                               
+Epoch 44:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate44: 9.765625e-06
+Batch 0: train_loss=nan                                               
+Epoch 45:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate45: 4.882813e-06
+Batch 0: train_loss=nan                                               
+Epoch 46:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate46: 4.882813e-06
+Batch 0: train_loss=nan                                               
+Epoch 47:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate47: 4.882813e-06
+Batch 0: train_loss=nan                                               
+Epoch 48:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate48: 4.882813e-06
+Batch 0: train_loss=nan                                               
+Epoch 49:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate49: 2.441406e-06
+Batch 0: train_loss=nan                                               
+Epoch 50:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate50: 2.441406e-06
+Batch 0: train_loss=nan                                               
+Epoch 51:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate51: 2.441406e-06
+Batch 0: train_loss=nan                                               
+Epoch 52:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate52: 2.441406e-06
+Batch 0: train_loss=nan                                               
+Epoch 53:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate53: 1.220703e-06
+Batch 0: train_loss=nan                                               
+Epoch 54:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate54: 1.220703e-06
+Batch 0: train_loss=nan                                               
+Epoch 55:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate55: 1.220703e-06
+Batch 0: train_loss=nan                                               
+Epoch 56:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate56: 1.220703e-06
+Batch 0: train_loss=nan                                               
+Epoch 57:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate57: 6.103516e-07
+Batch 0: train_loss=nan                                               
+Epoch 58:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate58: 6.103516e-07
+Batch 0: train_loss=nan                                               
+Epoch 59:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate59: 6.103516e-07
+Batch 0: train_loss=nan                                               
+Epoch 60:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate60: 6.103516e-07
+Batch 0: train_loss=nan                                               
+Epoch 61:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate61: 3.051758e-07
+Batch 0: train_loss=nan                                               
+Epoch 62:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate62: 3.051758e-07
+Batch 0: train_loss=nan                                               
+Epoch 63:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate63: 3.051758e-07
+Batch 0: train_loss=nan                                               
+Epoch 64:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate64: 3.051758e-07
+Batch 0: train_loss=nan                                               
+Epoch 65:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate65: 1.525879e-07
+Batch 0: train_loss=nan                                               
+Epoch 66:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate66: 1.525879e-07
+Batch 0: train_loss=nan                                               
+Epoch 67:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate67: 1.525879e-07
+Batch 0: train_loss=nan                                               
+Epoch 68:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate68: 1.525879e-07
+Batch 0: train_loss=nan                                               
+Epoch 69:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate69: 7.629395e-08
+Batch 0: train_loss=nan                                               
+Epoch 70:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate70: 7.629395e-08
+Batch 0: train_loss=nan                                               
+Epoch 71:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate71: 7.629395e-08
+Batch 0: train_loss=nan                                               
+Epoch 72:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate72: 7.629395e-08
+Batch 0: train_loss=nan                                               
+Epoch 73:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate73: 3.814697e-08
+Batch 0: train_loss=nan                                               
+Epoch 74:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate74: 3.814697e-08
+Batch 0: train_loss=nan                                               
+Epoch 75:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate75: 3.814697e-08
+Batch 0: train_loss=nan                                               
+Epoch 76:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate76: 3.814697e-08
+Batch 0: train_loss=nan                                               
+Epoch 77:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate77: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 78:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate78: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 79:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate79: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 80:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate80: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 81:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate81: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 82:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate82: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 83:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate83: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 84:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate84: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 85:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate85: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 86:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate86: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 87:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate87: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 88:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate88: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 89:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate89: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 90:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate90: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 91:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate91: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 92:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate92: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 93:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate93: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 94:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate94: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 95:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate95: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 96:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate96: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 97:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate97: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 98:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate98: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 99:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate99: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 100:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate100: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 101:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate101: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 102:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate102: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 103:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate103: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 104:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate104: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 105:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate105: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 106:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate106: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 107:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate107: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 108:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate108: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 109:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate109: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 110:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate110: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 111:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate111: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 112:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate112: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 113:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate113: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 114:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate114: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 115:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate115: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 116:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate116: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 117:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate117: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 118:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate118: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 119:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate119: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 120:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate120: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 121:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate121: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 122:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate122: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 123:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate123: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 124:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate124: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 125:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate125: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 126:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate126: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 127:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate127: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 128:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate128: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 129:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate129: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 130:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate130: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 131:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate131: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 132:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate132: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 133:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate133: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 134:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate134: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 135:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate135: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 136:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate136: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 137:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate137: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 138:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate138: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 139:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate139: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 140:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate140: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 141:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate141: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 142:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate142: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 143:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate143: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 144:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate144: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 145:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate145: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 146:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate146: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 147:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate147: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 148:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate148: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 149:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate149: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 150:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate150: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 151:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate151: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 152:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate152: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 153:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate153: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 154:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate154: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 155:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate155: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 156:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate156: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 157:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate157: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 158:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate158: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 159:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate159: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 160:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate160: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 161:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate161: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 162:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate162: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 163:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate163: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 164:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate164: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 165:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate165: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 166:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate166: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 167:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate167: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 168:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate168: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 169:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate169: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 170:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate170: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 171:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate171: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 172:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate172: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 173:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate173: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 174:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate174: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 175:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate175: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 176:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate176: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 177:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate177: 1.907349e-08
+Batch 0: train_loss=nan                                               
+Epoch 177: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+[rank: 0] Received SIGTERM: 15
+Traceback (most recent call last):
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_stage
+    self.fit_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 141, in run
+    self.on_advance_end(data_fetcher)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 295, in on_advance_end
+    self.val_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/utilities.py", line 182, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 135, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 396, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 311, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 411, in validation_step
+    return self.lightning_module.validation_step(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 102, in validation_step
+    logits = self(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 59, in forward
+    x = encoder(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/EncoderBlock.py", line 62, in forward
+    x = self.norm_attention(x + self.dropout(attn_output))
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/BuildingBlocks/LayerNormalisation.py", line 30, in forward
+    self.nan_logger.info(f"x hasn't nan: {not torch.isnan(x).any()}")
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 67, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 1093474) is killed by signal: Terminated.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 303, in run_training
+    trainer.fit(model, datamodule=datamodule)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
+    call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 60, in _call_and_handle_interrupt
+    trainer._teardown()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1009, in _teardown
+    self.strategy.teardown()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 535, in teardown
+    self.lightning_module.cpu()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/utilities/device_dtype_mixin.py", line 82, in cpu
+    return super().cpu()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 965, in cpu
+    return self._apply(lambda t: t.cpu())
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  [Previous line repeated 1 more time]
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 965, in <lambda>
+    return self._apply(lambda t: t.cpu())
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 67, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 1093568) is killed by signal: Terminated.

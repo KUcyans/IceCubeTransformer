@@ -1,0 +1,1 @@
+{"val_loss":NaN,"_timestamp":1.7386843276824913e+09,"epoch_avg_train_loss":NaN,"train_loss":NaN,"val_acc":0.6666666865348816,"_runtime":95.661240512,"trainer/global_step":199,"_step":599,"epoch":199,"_wandb":{"runtime":95}}

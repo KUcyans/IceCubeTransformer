@@ -43,7 +43,6 @@ def parse_args():
     parser.add_argument("--time", type=str, required=True, help="Execution time in HHMMSS format")
     return parser.parse_args()
 
-
 # ----------------------------------------------
 # Directory Setup
 # ----------------------------------------------
@@ -139,7 +138,7 @@ def create_trainer(max_epochs: int, checkpoint_dir: str, callbacks: list, wandb_
     return Trainer(
         max_epochs=max_epochs,
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
-        devices=[1],
+        devices=[0],
         gradient_clip_val=1.0,
         callbacks=callbacks,
         log_every_n_steps=1,
@@ -237,7 +236,7 @@ def prepare_data(root_dir: str, batch_size: int):
     #     verbosity=1,
     #     )
     
-    return dm_PeV_1_1
+    return dm_PeV_1_1_first10
 
 # ----------------------------------------------
 # Model Setup
@@ -291,7 +290,7 @@ def run_training(base_dir: str, model_config: dict, datamodule: PMTfiedDataModul
     model = build_model(model_config, nan_logger, train_logger, profiler=None)
 
     # Initialise WandB
-    project_name = f"[{current_date}_{current_time}]Flavour Classification"
+    project_name = f"[{current_date}_{current_time}] Flavour Classification"
     init_wandb(project_name, model, model_config["epochs"])
     wandb_logger = WandbLogger(project=project_name)
 
@@ -324,9 +323,9 @@ def execute():
         "num_classes": 3,
         "dropout": 0.1,
         "learning_rate": 1e-3,
-        "epochs": 300,
+        "epochs": 200,
         "attention": "Scaled Dot-Product",
-        "batch_size": 128,
+        "batch_size": 16,
     }
     datamodule = prepare_data(root_dir, config["batch_size"])
     run_training(base_dir, config, datamodule)

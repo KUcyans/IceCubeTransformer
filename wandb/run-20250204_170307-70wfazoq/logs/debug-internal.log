@@ -1,0 +1,16 @@
+{"time":"2025-02-04T17:03:07.761015602+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_170307-70wfazoq/logs/debug-core.log"}
+{"time":"2025-02-04T17:03:07.866565753+01:00","level":"INFO","msg":"created new stream","id":"70wfazoq"}
+{"time":"2025-02-04T17:03:07.866623793+01:00","level":"INFO","msg":"stream: started","id":"70wfazoq"}
+{"time":"2025-02-04T17:03:07.866650604+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"70wfazoq"}
+{"time":"2025-02-04T17:03:07.866702765+01:00","level":"INFO","msg":"handler: started","stream_id":"70wfazoq"}
+{"time":"2025-02-04T17:03:07.866657714+01:00","level":"INFO","msg":"sender: started","stream_id":"70wfazoq"}
+{"time":"2025-02-04T17:03:08.319692175+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-04T17:06:06.121827108+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-04T17:06:06.122555179+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-04T17:06:07.122149481+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.371310318,"progress":"510.2KB/510.2KB"},{"desc":"uploading config.yaml","runtime_seconds":0.184883564,"progress":"804B/804B"}],"total_operations":2}}
+{"time":"2025-02-04T17:06:07.624337384+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-04T17:06:09.498046558+01:00","level":"INFO","msg":"stream: closing","id":"70wfazoq"}
+{"time":"2025-02-04T17:06:09.498086139+01:00","level":"INFO","msg":"handler: closed","stream_id":"70wfazoq"}
+{"time":"2025-02-04T17:06:09.498110189+01:00","level":"INFO","msg":"sender: closed","stream_id":"70wfazoq"}
+{"time":"2025-02-04T17:06:09.498098599+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"70wfazoq"}
+{"time":"2025-02-04T17:06:09.498370233+01:00","level":"INFO","msg":"stream: closed","id":"70wfazoq"}

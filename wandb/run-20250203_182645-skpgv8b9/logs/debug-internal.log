@@ -5,3 +5,15 @@
 {"time":"2025-02-03T18:26:45.68440552+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"skpgv8b9"}
 {"time":"2025-02-03T18:26:45.684445211+01:00","level":"INFO","msg":"handler: started","stream_id":"skpgv8b9"}
 {"time":"2025-02-03T18:26:46.041218939+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-03T23:11:16.401951415+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-02-03T23:42:31.412404136+01:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-02-03T23:45:34.184465382+01:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/cyans-k-benhavns-universitet/%5B20250203_182639%5DFlavour%20Classification/skpgv8b9/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-02-04T00:41:00.816220035+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-04T00:41:00.863577993+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-04T00:41:01.796540945+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.589637935,"progress":"1.2MB/1.9MB"}],"total_operations":1}}
+{"time":"2025-02-04T00:41:02.537479596+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-04T00:41:04.28257008+01:00","level":"INFO","msg":"stream: closing","id":"skpgv8b9"}
+{"time":"2025-02-04T00:41:04.282775833+01:00","level":"INFO","msg":"handler: closed","stream_id":"skpgv8b9"}
+{"time":"2025-02-04T00:41:04.282776213+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"skpgv8b9"}
+{"time":"2025-02-04T00:41:04.283048727+01:00","level":"INFO","msg":"sender: closed","stream_id":"skpgv8b9"}
+{"time":"2025-02-04T00:41:04.283077218+01:00","level":"INFO","msg":"stream: closed","id":"skpgv8b9"}

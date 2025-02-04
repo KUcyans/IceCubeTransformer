@@ -66,16 +66,15 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
         
-        # Reduce LR if validation loss stops improving
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-            optimizer, mode="min", factor=0.5, patience=5, verbose=True
+            optimizer, mode="min", factor=0.5, patience=3, verbose=True
         )
 
         return {
             "optimizer": optimizer,
             "lr_scheduler": {
                 "scheduler": scheduler,
-                "monitor": "val_loss",  # Reduce LR when validation loss stops improving
+                "monitor": "train_loss",
             }
         }
 
@@ -92,7 +91,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.log("train_loss", loss)
         if self.profiler:
             self.profiler.step()
-        self.training_losses.append(loss)
+        self.training_losses.append(loss.detach())  # 🚨 Use .detach() to prevent storing the computation graph
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -132,8 +131,15 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return loss
     
     def on_train_epoch_start(self):
-        self.nan_logger.info(f"####################Training epoch {self.current_epoch}####################")
-        self.train_logger.info(f"####################Training epoch {self.current_epoch}####################")
+        optimizer = self.optimizers()
+        current_lr = optimizer.param_groups[0]["lr"]
+        
+        self.nan_logger.info(f"#################### Training epoch {self.current_epoch} ####################")
+        
+        self.train_logger.info(f"#################### Training epoch {self.current_epoch} ####################")
+        self.train_logger.info(f"Current Learning Rate: {current_lr:.6e}")        
+        print(f" learning rate{self.current_epoch}: {current_lr:.6e}")
+
 
     def on_train_epoch_end(self):
         if self.training_losses:
