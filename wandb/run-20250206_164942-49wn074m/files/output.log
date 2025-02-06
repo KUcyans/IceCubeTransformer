@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 299, in run_training
+    trainer = create_trainer(model_config["epochs"], dirs["checkpoint_dir"], setup_callbacks(dirs["checkpoint_dir"], current_time), wandb_logger)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 138, in create_trainer
+    return Trainer(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 400, in __init__
+    self._accelerator_connector = _AcceleratorConnector(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py", line 146, in __init__
+    self._set_parallel_devices_and_init_accelerator()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py", line 376, in _set_parallel_devices_and_init_accelerator
+    self._devices_flag = accelerator_cls.parse_devices(self._devices_flag)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/accelerators/cpu.py", line 53, in parse_devices
+    return _parse_cpu_cores(devices)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/accelerators/cpu.py", line 94, in _parse_cpu_cores
+    raise TypeError("`devices` selected with `CPUAccelerator` should be an int > 0.")
+TypeError: `devices` selected with `CPUAccelerator` should be an int > 0.

@@ -134,11 +134,11 @@ def log_training_parameters(logger: logging.Logger, config: dict):
 # ----------------------------------------------
 # Trainer Setup
 # ----------------------------------------------
-def create_trainer(max_epochs: int, checkpoint_dir: str, callbacks: list, wandb_logger: WandbLogger):
+def create_trainer(max_epochs: int, checkpoint_dir: str, callbacks: list, wandb_logger: WandbLogger, gpu_no: int):
     return Trainer(
         max_epochs=max_epochs,
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
-        devices=[0],
+        devices=[gpu_no],
         gradient_clip_val=1.0,
         callbacks=callbacks,
         log_every_n_steps=1,
@@ -290,13 +290,13 @@ def run_training(base_dir: str, model_config: dict, datamodule: PMTfiedDataModul
     model = build_model(model_config, nan_logger, train_logger, profiler=None)
 
     # Initialise WandB
-    project_name = f"[{current_date}_{current_time}] Flavour Classification"
+    project_name = f"[{current_date}] Flavour Classification"
     init_wandb(project_name, model, model_config["epochs"])
     wandb_logger = WandbLogger(project=project_name)
 
     # Create Trainer
     params = log_training_parameters(train_logger, model_config)
-    trainer = create_trainer(model_config["epochs"], dirs["checkpoint_dir"], setup_callbacks(dirs["checkpoint_dir"], current_time), wandb_logger)
+    trainer = create_trainer(model_config["epochs"], dirs["checkpoint_dir"], setup_callbacks(dirs["checkpoint_dir"], current_time), wandb_logger, model_config["gpu_no"])
 
     # Torch Profiler
     with profiler:
@@ -326,6 +326,7 @@ def execute():
         "epochs": 200,
         "attention": "Scaled Dot-Product",
         "batch_size": 16,
+        "gpu_no": 1, # 0 or 1
     }
     datamodule = prepare_data(root_dir, config["batch_size"])
     run_training(base_dir, config, datamodule)

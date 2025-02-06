@@ -1,0 +1,16 @@
+{"time":"2025-02-06T18:05:57.492104994+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250206_180557-k8f68rrh/logs/debug-core.log"}
+{"time":"2025-02-06T18:05:57.598118823+01:00","level":"INFO","msg":"created new stream","id":"k8f68rrh"}
+{"time":"2025-02-06T18:05:57.598174064+01:00","level":"INFO","msg":"stream: started","id":"k8f68rrh"}
+{"time":"2025-02-06T18:05:57.598197395+01:00","level":"INFO","msg":"sender: started","stream_id":"k8f68rrh"}
+{"time":"2025-02-06T18:05:57.598193365+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"k8f68rrh"}
+{"time":"2025-02-06T18:05:57.598244885+01:00","level":"INFO","msg":"handler: started","stream_id":"k8f68rrh"}
+{"time":"2025-02-06T18:05:57.920484058+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-06T18:09:28.176025421+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-06T18:09:28.177091236+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-06T18:09:29.17619496+01:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.315721627,"progress":"528.6KB/528.6KB"},{"desc":"uploading config.yaml","runtime_seconds":0.16418293,"progress":"804B/804B"}],"total_operations":2}}
+{"time":"2025-02-06T18:09:29.73583257+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-06T18:09:30.943713995+01:00","level":"INFO","msg":"stream: closing","id":"k8f68rrh"}
+{"time":"2025-02-06T18:09:30.943749876+01:00","level":"INFO","msg":"handler: closed","stream_id":"k8f68rrh"}
+{"time":"2025-02-06T18:09:30.943767266+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"k8f68rrh"}
+{"time":"2025-02-06T18:09:30.943787957+01:00","level":"INFO","msg":"sender: closed","stream_id":"k8f68rrh"}
+{"time":"2025-02-06T18:09:30.944259783+01:00","level":"INFO","msg":"stream: closed","id":"k8f68rrh"}

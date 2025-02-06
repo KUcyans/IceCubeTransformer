@@ -1,0 +1,19 @@
+2025-02-06 17:50:39,360 - INFO - Starting training with the following parameters:
+2025-02-06 17:50:39,360 - INFO - | Parameter       | Value               |
+|-----------------|---------------------|
+| attention       | Scaled Dot-Product|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 128            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 0.001          |
+| epochs          | 200            |
+| batch_size      | 16             |
+
+2025-02-06 17:50:39,964 - INFO - Epoch 0: val_loss=6430180.0000, val_acc=66.67%
+2025-02-06 17:50:40,100 - INFO - #################### Training epoch 0 ####################
+2025-02-06 17:50:40,101 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 17:50:40,348 - INFO - Epoch 0: train_loss=48896856.0000

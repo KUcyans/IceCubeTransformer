@@ -57,11 +57,9 @@ class EncoderBlock(nn.Module):
     def forward(self, x, mask=None):
         self.nan_logger.info(f"==============Entering Encoder Block {self.layer_idx}==============")
         
-        # Attention
         attn_output = self.attention(x, mask)
         x = self.norm_attention(x + self.dropout(attn_output))
         
-        # FFN
         ffn_output = self.ffn(x)
         x = self.norm_ffn(x + self.dropout(ffn_output))
         

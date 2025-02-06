@@ -6,6 +6,8 @@ import logging
 from pytorch_lightning import LightningModule
 
 from Model.EncoderBlock import EncoderBlock
+from Model.BuildingBlocks.Pooling import Pooling
+from Model.BuildingBlocks.OutputProjection import OutputProjection
 
 class FlavourClassificationTransformerEncoder(LightningModule):
     def __init__(self, 
@@ -18,7 +20,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  dropout=0.1, 
                  nan_logger=None,
                  train_logger=None,
-                 learning_rate=1e-4,
+                 learning_rate=1e-5,
                  profiler=None
                  ):
         super().__init__()
@@ -47,9 +49,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 nan_logger = self.nan_logger,
                 layer_idx=i) for i in range(self.num_layers)]
         )
-
+        self.pooling = Pooling(pooling_type="mean")
+        
         # Classification head
-        self.classification_output_layer = nn.Linear(self.d_model, self.num_classes)
+        self.classification_output_layer = OutputProjection(
+            input_dim=self.d_model,  # ✅ Ensure it matches d_model
+            hidden_dim=self.d_model,
+            output_dim=self.num_classes,
+            dropout=self.dropout
+        )   
+
+        # self.classification_output_layer = nn.Linear(self.d_model, self.num_classes)
+        
         self.training_losses = []
 
     def forward(self, x, mask=None):
@@ -57,7 +68,12 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             x = self.input_projection(x)
             for encoder in self.encoder_blocks:
                 x = encoder(x, mask)
-            x = x.mean(dim=1)  # Mean pooling
+                
+            x = self.pooling(x, mask)
+            self.nan_logger.info(f"---------Pooling-----------")
+            self.nan_logger.info(f"x hasn't nan: {not torch.isnan(x).any()}")
+            
+            # x = F.dropout(x, p=self.dropout, training=self.training)
             logits = self.classification_output_layer(x)
         self.nan_logger.info(f"---------Classification Head-----------")
         self.nan_logger.info(f"logits hasn't nan: {not torch.isnan(logits).any()}")
@@ -66,8 +82,12 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
         
-        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-            optimizer, mode="min", factor=0.5, patience=3, verbose=True
+        # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+        #     optimizer, mode="min", factor=0.5, patience=20, verbose=True
+        # )
+        
+        scheduler = torch.optim.lr_scheduler.StepLR(
+            optimizer, step_size=40, gamma=0.7
         )
 
         return {
@@ -77,23 +97,54 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 "monitor": "train_loss",
             }
         }
+        
+    # def on_before_optimizer_step(self, optimizer):
+    #     nn.utils.clip_grad_norm_(self.parameters(), max_norm=1.0)
 
+    # the training step!
     def training_step(self, batch, batch_idx):
-        x = batch["features"]
-        y = batch["target"]  # For classification, this is the class index
-        mask = batch["mask"]
+        x, y, mask = batch["features"], batch["target"], batch["mask"] # y is the class index
+        
+        # 🚨 Skip batch if NaNs detected
+        if torch.isnan(x).any() or torch.isnan(mask).any():
+            print(f"Skipping batch {batch_idx} due to NaNs")
+            return None 
 
         logits = self(x, mask)
         loss = F.cross_entropy(logits, torch.argmax(y, dim=-1))
 
         print(f"Batch {batch_idx}: train_loss={loss.item():.4f}")
         self.train_logger.info(f"Epoch {self.current_epoch}: train_loss={loss.item():.4f}")
-        self.log("train_loss", loss)
         if self.profiler:
             self.profiler.step()
         self.training_losses.append(loss.detach())  # 🚨 Use .detach() to prevent storing the computation graph
+        self.log("train_loss", loss, prog_bar=True, on_step=True)
+        
+        # for gradient norm logging
+        # self._gradient_logging(loss)
+        
+        # for learning rate logging
+        self._learning_rate_logging()
+        
         return loss
+        
+    # def _gradient_logging(self, loss):
+    #     self.manual_backward(loss, retain_graph=False)  # 🚀 Call backward inside
+    #     gradient_norms = [p.grad.norm(2).item() for p in self.parameters() if p.grad is not None]
 
+    #     mean_gradient_norm = sum(gradient_norms) / len(gradient_norms)
+    #     median_gradient_norm = torch.median(torch.tensor(gradient_norms))  # Convert to tensor
+    #     max_gradient_norm = max(gradient_norms)
+
+    #     self.log("mean_gradient_norm", mean_gradient_norm, prog_bar=True, on_step=True)
+    #     self.log("median_gradient_norm", median_gradient_norm, prog_bar=True, on_step=True)
+    #     self.log("max_gradient_norm", max_gradient_norm, prog_bar=True, on_step=True)
+
+    
+    def _learning_rate_logging(self):
+        current_lr = self.optimizers().param_groups[0]["lr"]
+        self.log("learning_rate", current_lr, prog_bar=True, on_step=True)
+        
     def validation_step(self, batch, batch_idx):
         x = batch["features"]
         y = batch["target"]
@@ -140,10 +191,25 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.train_logger.info(f"Current Learning Rate: {current_lr:.6e}")        
         print(f" learning rate{self.current_epoch}: {current_lr:.6e}")
 
+    def predict_step(self, batch, batch_idx):
+        """
+        Handles inference on new data.
+        - Expects a batch with 'features' and optional 'mask'.
+        - Returns raw logits and optionally softmax probabilities.
+        """
+        x, mask = batch["features"], batch.get("mask", None)
+
+        with torch.no_grad():  # 🚀 Disable gradient tracking for inference
+            logits = self(x, mask)  # Forward pass
+
+        probs = F.softmax(logits, dim=-1)  # Convert to probabilities
+
+        return {"logits": logits, "probs": probs}
+
 
     def on_train_epoch_end(self):
         if self.training_losses:
-            epoch_loss = torch.stack(self.training_losses).mean()
-            self.train_logger.info(f"Epoch {self.current_epoch}: EPOCH_AVG_TRAIN_LOSS={epoch_loss.item():.4f}")
-            self.log("epoch_avg_train_loss", epoch_loss, prog_bar=True, on_epoch=True)
+            median_loss = torch.median(torch.stack(self.training_losses))
+            self.train_logger.info(f"Epoch {self.current_epoch}: EPOCH_AVG_TRAIN_LOSS={median_loss.item():.4f}")
+            self.log("median_train_loss", median_loss, prog_bar=True, on_epoch=True)
             self.training_losses.clear()

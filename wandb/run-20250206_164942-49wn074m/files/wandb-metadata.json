@@ -1,0 +1,37 @@
+{
+  "os": "Linux-5.14.0-427.24.1.el9_4.x86_64-x86_64-with-glibc2.34",
+  "python": "CPython 3.9.18",
+  "startedAt": "2025-02-06T15:49:43.714503Z",
+  "args": [
+    "--date",
+    "20250206",
+    "--time",
+    "164750"
+  ],
+  "program": "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py",
+  "codePath": "TrainingDebuggingYard.py",
+  "git": {
+    "remote": "https://github.com/KUcyans/IceCubeTransformer.git",
+    "commit": "b38badafb9f88d975bf1e21cd564bda50680d927"
+  },
+  "email": "bsf873@alumni.ku.dk",
+  "root": "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer",
+  "host": "fend05.cluster",
+  "executable": "/usr/bin/python3.9",
+  "codePathLocal": "TrainingDebuggingYard.py",
+  "cpu_count": 16,
+  "cpu_count_logical": 32,
+  "disk": {
+    "/": {
+      "total": "1995128168448",
+      "used": "27246182400"
+    }
+  },
+  "memory": {
+    "total": "134612131840"
+  },
+  "cpu": {
+    "count": 16,
+    "countLogical": 32
+  }
+}

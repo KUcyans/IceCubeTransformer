@@ -1,0 +1,295 @@
+2025-02-06 18:39:47,296 - INFO - Starting training with the following parameters:
+2025-02-06 18:39:47,297 - INFO - | Parameter       | Value               |
+|-----------------|---------------------|
+| attention       | Scaled Dot-Product|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 128            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 0.001          |
+| epochs          | 200            |
+| batch_size      | 16             |
+
+2025-02-06 18:39:47,910 - INFO - Epoch 0: val_loss=1.2107, val_acc=33.33%
+2025-02-06 18:39:48,057 - INFO - #################### Training epoch 0 ####################
+2025-02-06 18:39:48,057 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:48,303 - INFO - Epoch 0: train_loss=1.1135
+2025-02-06 18:39:48,658 - INFO - Epoch 0: train_loss=1.0564
+2025-02-06 18:39:48,963 - INFO - Epoch 0: val_loss=0.9727, val_acc=66.67%
+2025-02-06 18:39:48,980 - INFO - Epoch 0: EPOCH_AVG_TRAIN_LOSS=1.0564
+2025-02-06 18:39:49,009 - INFO - #################### Training epoch 1 ####################
+2025-02-06 18:39:49,009 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:49,420 - INFO - Epoch 1: train_loss=0.9833
+2025-02-06 18:39:49,710 - INFO - Epoch 1: train_loss=1.4242
+2025-02-06 18:39:50,039 - INFO - Epoch 1: val_loss=0.9143, val_acc=100.00%
+2025-02-06 18:39:50,042 - INFO - Epoch 1: EPOCH_AVG_TRAIN_LOSS=0.9833
+2025-02-06 18:39:50,067 - INFO - #################### Training epoch 2 ####################
+2025-02-06 18:39:50,068 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:50,486 - INFO - Epoch 2: train_loss=1.1816
+2025-02-06 18:39:50,776 - INFO - Epoch 2: train_loss=0.9580
+2025-02-06 18:39:51,111 - INFO - Epoch 2: val_loss=1.0640, val_acc=66.67%
+2025-02-06 18:39:51,115 - INFO - Epoch 2: EPOCH_AVG_TRAIN_LOSS=0.9580
+2025-02-06 18:39:51,154 - INFO - #################### Training epoch 3 ####################
+2025-02-06 18:39:51,154 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:51,572 - INFO - Epoch 3: train_loss=1.0634
+2025-02-06 18:39:51,862 - INFO - Epoch 3: train_loss=0.9678
+2025-02-06 18:39:52,194 - INFO - Epoch 3: val_loss=1.1398, val_acc=0.00%
+2025-02-06 18:39:52,198 - INFO - Epoch 3: EPOCH_AVG_TRAIN_LOSS=0.9678
+2025-02-06 18:39:52,200 - INFO - #################### Training epoch 4 ####################
+2025-02-06 18:39:52,200 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:52,617 - INFO - Epoch 4: train_loss=0.9879
+2025-02-06 18:39:52,908 - INFO - Epoch 4: train_loss=0.9200
+2025-02-06 18:39:53,245 - INFO - Epoch 4: val_loss=1.1693, val_acc=33.33%
+2025-02-06 18:39:53,249 - INFO - Epoch 4: EPOCH_AVG_TRAIN_LOSS=0.9200
+2025-02-06 18:39:53,251 - INFO - #################### Training epoch 5 ####################
+2025-02-06 18:39:53,251 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:53,670 - INFO - Epoch 5: train_loss=0.8559
+2025-02-06 18:39:53,961 - INFO - Epoch 5: train_loss=0.9306
+2025-02-06 18:39:54,297 - INFO - Epoch 5: val_loss=1.1723, val_acc=0.00%
+2025-02-06 18:39:54,301 - INFO - Epoch 5: EPOCH_AVG_TRAIN_LOSS=0.8559
+2025-02-06 18:39:54,303 - INFO - #################### Training epoch 6 ####################
+2025-02-06 18:39:54,303 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:54,720 - INFO - Epoch 6: train_loss=0.7542
+2025-02-06 18:39:55,011 - INFO - Epoch 6: train_loss=0.8671
+2025-02-06 18:39:55,347 - INFO - Epoch 6: val_loss=1.2445, val_acc=33.33%
+2025-02-06 18:39:55,351 - INFO - Epoch 6: EPOCH_AVG_TRAIN_LOSS=0.7542
+2025-02-06 18:39:55,353 - INFO - #################### Training epoch 7 ####################
+2025-02-06 18:39:55,353 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:55,773 - INFO - Epoch 7: train_loss=0.7144
+2025-02-06 18:39:56,064 - INFO - Epoch 7: train_loss=0.8518
+2025-02-06 18:39:56,400 - INFO - Epoch 7: val_loss=1.6004, val_acc=0.00%
+2025-02-06 18:39:56,404 - INFO - Epoch 7: EPOCH_AVG_TRAIN_LOSS=0.7144
+2025-02-06 18:39:56,406 - INFO - #################### Training epoch 8 ####################
+2025-02-06 18:39:56,406 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:56,827 - INFO - Epoch 8: train_loss=0.6641
+2025-02-06 18:39:57,118 - INFO - Epoch 8: train_loss=0.7266
+2025-02-06 18:39:57,450 - INFO - Epoch 8: val_loss=1.5628, val_acc=33.33%
+2025-02-06 18:39:57,453 - INFO - Epoch 8: EPOCH_AVG_TRAIN_LOSS=0.6641
+2025-02-06 18:39:57,456 - INFO - #################### Training epoch 9 ####################
+2025-02-06 18:39:57,456 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:57,870 - INFO - Epoch 9: train_loss=0.8484
+2025-02-06 18:39:58,163 - INFO - Epoch 9: train_loss=0.4263
+2025-02-06 18:39:58,501 - INFO - Epoch 9: val_loss=2.1604, val_acc=0.00%
+2025-02-06 18:39:58,505 - INFO - Epoch 9: EPOCH_AVG_TRAIN_LOSS=0.4263
+2025-02-06 18:39:58,507 - INFO - #################### Training epoch 10 ####################
+2025-02-06 18:39:58,507 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:58,925 - INFO - Epoch 10: train_loss=0.6685
+2025-02-06 18:39:59,217 - INFO - Epoch 10: train_loss=0.6620
+2025-02-06 18:39:59,545 - INFO - Epoch 10: val_loss=1.8424, val_acc=0.00%
+2025-02-06 18:39:59,549 - INFO - Epoch 10: EPOCH_AVG_TRAIN_LOSS=0.6620
+2025-02-06 18:39:59,551 - INFO - #################### Training epoch 11 ####################
+2025-02-06 18:39:59,551 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:39:59,968 - INFO - Epoch 11: train_loss=0.6993
+2025-02-06 18:40:00,259 - INFO - Epoch 11: train_loss=0.5728
+2025-02-06 18:40:00,592 - INFO - Epoch 11: val_loss=1.9107, val_acc=0.00%
+2025-02-06 18:40:00,596 - INFO - Epoch 11: EPOCH_AVG_TRAIN_LOSS=0.5728
+2025-02-06 18:40:00,598 - INFO - #################### Training epoch 12 ####################
+2025-02-06 18:40:00,598 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:01,015 - INFO - Epoch 12: train_loss=0.6933
+2025-02-06 18:40:01,306 - INFO - Epoch 12: train_loss=0.4335
+2025-02-06 18:40:01,639 - INFO - Epoch 12: val_loss=1.9937, val_acc=0.00%
+2025-02-06 18:40:01,642 - INFO - Epoch 12: EPOCH_AVG_TRAIN_LOSS=0.4335
+2025-02-06 18:40:01,645 - INFO - #################### Training epoch 13 ####################
+2025-02-06 18:40:01,645 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:02,060 - INFO - Epoch 13: train_loss=0.4859
+2025-02-06 18:40:02,351 - INFO - Epoch 13: train_loss=0.7708
+2025-02-06 18:40:02,688 - INFO - Epoch 13: val_loss=2.0745, val_acc=0.00%
+2025-02-06 18:40:02,692 - INFO - Epoch 13: EPOCH_AVG_TRAIN_LOSS=0.4859
+2025-02-06 18:40:02,694 - INFO - #################### Training epoch 14 ####################
+2025-02-06 18:40:02,694 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:03,112 - INFO - Epoch 14: train_loss=0.5163
+2025-02-06 18:40:03,403 - INFO - Epoch 14: train_loss=0.7866
+2025-02-06 18:40:03,737 - INFO - Epoch 14: val_loss=2.0902, val_acc=0.00%
+2025-02-06 18:40:03,740 - INFO - Epoch 14: EPOCH_AVG_TRAIN_LOSS=0.5163
+2025-02-06 18:40:03,742 - INFO - #################### Training epoch 15 ####################
+2025-02-06 18:40:03,742 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:04,158 - INFO - Epoch 15: train_loss=0.6011
+2025-02-06 18:40:04,447 - INFO - Epoch 15: train_loss=0.5263
+2025-02-06 18:40:04,778 - INFO - Epoch 15: val_loss=2.2418, val_acc=0.00%
+2025-02-06 18:40:04,781 - INFO - Epoch 15: EPOCH_AVG_TRAIN_LOSS=0.5263
+2025-02-06 18:40:04,783 - INFO - #################### Training epoch 16 ####################
+2025-02-06 18:40:04,783 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:05,204 - INFO - Epoch 16: train_loss=0.5750
+2025-02-06 18:40:05,493 - INFO - Epoch 16: train_loss=0.5305
+2025-02-06 18:40:05,826 - INFO - Epoch 16: val_loss=2.4804, val_acc=0.00%
+2025-02-06 18:40:05,830 - INFO - Epoch 16: EPOCH_AVG_TRAIN_LOSS=0.5305
+2025-02-06 18:40:05,832 - INFO - #################### Training epoch 17 ####################
+2025-02-06 18:40:05,832 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:06,251 - INFO - Epoch 17: train_loss=0.4500
+2025-02-06 18:40:06,541 - INFO - Epoch 17: train_loss=0.6243
+2025-02-06 18:40:06,871 - INFO - Epoch 17: val_loss=2.7794, val_acc=0.00%
+2025-02-06 18:40:06,875 - INFO - Epoch 17: EPOCH_AVG_TRAIN_LOSS=0.4500
+2025-02-06 18:40:06,877 - INFO - #################### Training epoch 18 ####################
+2025-02-06 18:40:06,877 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:07,292 - INFO - Epoch 18: train_loss=0.6247
+2025-02-06 18:40:07,582 - INFO - Epoch 18: train_loss=0.4239
+2025-02-06 18:40:07,911 - INFO - Epoch 18: val_loss=2.9130, val_acc=0.00%
+2025-02-06 18:40:07,915 - INFO - Epoch 18: EPOCH_AVG_TRAIN_LOSS=0.4239
+2025-02-06 18:40:07,917 - INFO - #################### Training epoch 19 ####################
+2025-02-06 18:40:07,917 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:08,334 - INFO - Epoch 19: train_loss=0.3906
+2025-02-06 18:40:08,624 - INFO - Epoch 19: train_loss=1.0413
+2025-02-06 18:40:08,957 - INFO - Epoch 19: val_loss=2.8679, val_acc=0.00%
+2025-02-06 18:40:08,961 - INFO - Epoch 19: EPOCH_AVG_TRAIN_LOSS=0.3906
+2025-02-06 18:40:08,963 - INFO - #################### Training epoch 20 ####################
+2025-02-06 18:40:08,963 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:09,378 - INFO - Epoch 20: train_loss=0.5180
+2025-02-06 18:40:09,667 - INFO - Epoch 20: train_loss=0.6202
+2025-02-06 18:40:09,997 - INFO - Epoch 20: val_loss=2.3131, val_acc=33.33%
+2025-02-06 18:40:10,001 - INFO - Epoch 20: EPOCH_AVG_TRAIN_LOSS=0.5180
+2025-02-06 18:40:10,003 - INFO - #################### Training epoch 21 ####################
+2025-02-06 18:40:10,003 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:10,423 - INFO - Epoch 21: train_loss=0.8113
+2025-02-06 18:40:10,712 - INFO - Epoch 21: train_loss=0.3450
+2025-02-06 18:40:11,042 - INFO - Epoch 21: val_loss=2.2875, val_acc=33.33%
+2025-02-06 18:40:11,046 - INFO - Epoch 21: EPOCH_AVG_TRAIN_LOSS=0.3450
+2025-02-06 18:40:11,048 - INFO - #################### Training epoch 22 ####################
+2025-02-06 18:40:11,048 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:11,462 - INFO - Epoch 22: train_loss=0.4448
+2025-02-06 18:40:11,751 - INFO - Epoch 22: train_loss=1.0444
+2025-02-06 18:40:12,078 - INFO - Epoch 22: val_loss=2.3043, val_acc=33.33%
+2025-02-06 18:40:12,082 - INFO - Epoch 22: EPOCH_AVG_TRAIN_LOSS=0.4448
+2025-02-06 18:40:12,084 - INFO - #################### Training epoch 23 ####################
+2025-02-06 18:40:12,084 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:12,503 - INFO - Epoch 23: train_loss=0.8435
+2025-02-06 18:40:12,793 - INFO - Epoch 23: train_loss=0.3936
+2025-02-06 18:40:13,128 - INFO - Epoch 23: val_loss=2.3187, val_acc=33.33%
+2025-02-06 18:40:13,132 - INFO - Epoch 23: EPOCH_AVG_TRAIN_LOSS=0.3936
+2025-02-06 18:40:13,134 - INFO - #################### Training epoch 24 ####################
+2025-02-06 18:40:13,134 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:13,554 - INFO - Epoch 24: train_loss=0.7307
+2025-02-06 18:40:13,843 - INFO - Epoch 24: train_loss=0.6377
+2025-02-06 18:40:14,175 - INFO - Epoch 24: val_loss=2.3318, val_acc=33.33%
+2025-02-06 18:40:14,178 - INFO - Epoch 24: EPOCH_AVG_TRAIN_LOSS=0.6377
+2025-02-06 18:40:14,181 - INFO - #################### Training epoch 25 ####################
+2025-02-06 18:40:14,181 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:14,599 - INFO - Epoch 25: train_loss=0.6045
+2025-02-06 18:40:14,888 - INFO - Epoch 25: train_loss=1.1343
+2025-02-06 18:40:15,224 - INFO - Epoch 25: val_loss=2.3425, val_acc=33.33%
+2025-02-06 18:40:15,229 - INFO - Epoch 25: EPOCH_AVG_TRAIN_LOSS=0.6045
+2025-02-06 18:40:15,232 - INFO - #################### Training epoch 26 ####################
+2025-02-06 18:40:15,232 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:15,648 - INFO - Epoch 26: train_loss=0.6725
+2025-02-06 18:40:15,938 - INFO - Epoch 26: train_loss=0.9038
+2025-02-06 18:40:16,272 - INFO - Epoch 26: val_loss=2.3511, val_acc=33.33%
+2025-02-06 18:40:16,276 - INFO - Epoch 26: EPOCH_AVG_TRAIN_LOSS=0.6725
+2025-02-06 18:40:16,278 - INFO - #################### Training epoch 27 ####################
+2025-02-06 18:40:16,278 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:16,693 - INFO - Epoch 27: train_loss=0.8814
+2025-02-06 18:40:16,983 - INFO - Epoch 27: train_loss=0.5660
+2025-02-06 18:40:17,307 - INFO - Epoch 27: val_loss=2.3575, val_acc=33.33%
+2025-02-06 18:40:17,310 - INFO - Epoch 27: EPOCH_AVG_TRAIN_LOSS=0.5660
+2025-02-06 18:40:17,312 - INFO - #################### Training epoch 28 ####################
+2025-02-06 18:40:17,312 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:17,729 - INFO - Epoch 28: train_loss=0.6895
+2025-02-06 18:40:18,019 - INFO - Epoch 28: train_loss=0.8253
+2025-02-06 18:40:18,349 - INFO - Epoch 28: val_loss=2.3653, val_acc=33.33%
+2025-02-06 18:40:18,353 - INFO - Epoch 28: EPOCH_AVG_TRAIN_LOSS=0.6895
+2025-02-06 18:40:18,355 - INFO - #################### Training epoch 29 ####################
+2025-02-06 18:40:18,355 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:18,768 - INFO - Epoch 29: train_loss=0.5573
+2025-02-06 18:40:19,057 - INFO - Epoch 29: train_loss=1.2625
+2025-02-06 18:40:19,383 - INFO - Epoch 29: val_loss=2.3695, val_acc=33.33%
+2025-02-06 18:40:19,386 - INFO - Epoch 29: EPOCH_AVG_TRAIN_LOSS=0.5573
+2025-02-06 18:40:19,389 - INFO - #################### Training epoch 30 ####################
+2025-02-06 18:40:19,389 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:19,802 - INFO - Epoch 30: train_loss=0.6578
+2025-02-06 18:40:20,092 - INFO - Epoch 30: train_loss=1.0959
+2025-02-06 18:40:20,422 - INFO - Epoch 30: val_loss=2.3727, val_acc=33.33%
+2025-02-06 18:40:20,425 - INFO - Epoch 30: EPOCH_AVG_TRAIN_LOSS=0.6578
+2025-02-06 18:40:20,428 - INFO - #################### Training epoch 31 ####################
+2025-02-06 18:40:20,428 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:20,844 - INFO - Epoch 31: train_loss=0.7835
+2025-02-06 18:40:21,134 - INFO - Epoch 31: train_loss=0.8101
+2025-02-06 18:40:21,460 - INFO - Epoch 31: val_loss=2.3760, val_acc=33.33%
+2025-02-06 18:40:21,464 - INFO - Epoch 31: EPOCH_AVG_TRAIN_LOSS=0.7835
+2025-02-06 18:40:21,466 - INFO - #################### Training epoch 32 ####################
+2025-02-06 18:40:21,466 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:21,873 - INFO - Epoch 32: train_loss=0.5061
+2025-02-06 18:40:22,163 - INFO - Epoch 32: train_loss=1.4828
+2025-02-06 18:40:22,491 - INFO - Epoch 32: val_loss=2.3791, val_acc=33.33%
+2025-02-06 18:40:22,494 - INFO - Epoch 32: EPOCH_AVG_TRAIN_LOSS=0.5061
+2025-02-06 18:40:22,496 - INFO - #################### Training epoch 33 ####################
+2025-02-06 18:40:22,497 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:22,907 - INFO - Epoch 33: train_loss=1.0006
+2025-02-06 18:40:23,198 - INFO - Epoch 33: train_loss=0.3303
+2025-02-06 18:40:23,527 - INFO - Epoch 33: val_loss=2.3813, val_acc=33.33%
+2025-02-06 18:40:23,531 - INFO - Epoch 33: EPOCH_AVG_TRAIN_LOSS=0.3303
+2025-02-06 18:40:23,533 - INFO - #################### Training epoch 34 ####################
+2025-02-06 18:40:23,533 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:23,947 - INFO - Epoch 34: train_loss=0.8452
+2025-02-06 18:40:24,238 - INFO - Epoch 34: train_loss=0.8138
+2025-02-06 18:40:24,564 - INFO - Epoch 34: val_loss=2.3826, val_acc=33.33%
+2025-02-06 18:40:24,568 - INFO - Epoch 34: EPOCH_AVG_TRAIN_LOSS=0.8138
+2025-02-06 18:40:24,570 - INFO - #################### Training epoch 35 ####################
+2025-02-06 18:40:24,570 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:24,988 - INFO - Epoch 35: train_loss=0.7814
+2025-02-06 18:40:25,277 - INFO - Epoch 35: train_loss=0.9260
+2025-02-06 18:40:25,603 - INFO - Epoch 35: val_loss=2.3846, val_acc=33.33%
+2025-02-06 18:40:25,607 - INFO - Epoch 35: EPOCH_AVG_TRAIN_LOSS=0.7814
+2025-02-06 18:40:25,609 - INFO - #################### Training epoch 36 ####################
+2025-02-06 18:40:25,609 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:26,023 - INFO - Epoch 36: train_loss=0.8141
+2025-02-06 18:40:26,314 - INFO - Epoch 36: train_loss=0.8746
+2025-02-06 18:40:26,645 - INFO - Epoch 36: val_loss=2.3863, val_acc=33.33%
+2025-02-06 18:40:26,648 - INFO - Epoch 36: EPOCH_AVG_TRAIN_LOSS=0.8141
+2025-02-06 18:40:26,651 - INFO - #################### Training epoch 37 ####################
+2025-02-06 18:40:26,651 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:27,066 - INFO - Epoch 37: train_loss=1.0988
+2025-02-06 18:40:27,356 - INFO - Epoch 37: train_loss=0.3926
+2025-02-06 18:40:27,683 - INFO - Epoch 37: val_loss=2.3872, val_acc=33.33%
+2025-02-06 18:40:27,686 - INFO - Epoch 37: EPOCH_AVG_TRAIN_LOSS=0.3926
+2025-02-06 18:40:27,688 - INFO - #################### Training epoch 38 ####################
+2025-02-06 18:40:27,688 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:28,104 - INFO - Epoch 38: train_loss=0.7623
+2025-02-06 18:40:28,395 - INFO - Epoch 38: train_loss=0.9421
+2025-02-06 18:40:28,727 - INFO - Epoch 38: val_loss=2.3913, val_acc=33.33%
+2025-02-06 18:40:28,730 - INFO - Epoch 38: EPOCH_AVG_TRAIN_LOSS=0.7623
+2025-02-06 18:40:28,732 - INFO - #################### Training epoch 39 ####################
+2025-02-06 18:40:28,732 - INFO - Current Learning Rate: 1.000000e-03
+2025-02-06 18:40:29,148 - INFO - Epoch 39: train_loss=0.6998
+2025-02-06 18:40:29,438 - INFO - Epoch 39: train_loss=1.0510
+2025-02-06 18:40:29,766 - INFO - Epoch 39: val_loss=2.3922, val_acc=33.33%
+2025-02-06 18:40:29,770 - INFO - Epoch 39: EPOCH_AVG_TRAIN_LOSS=0.6998
+2025-02-06 18:40:29,772 - INFO - #################### Training epoch 40 ####################
+2025-02-06 18:40:29,772 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:30,185 - INFO - Epoch 40: train_loss=0.9760
+2025-02-06 18:40:30,475 - INFO - Epoch 40: train_loss=0.4923
+2025-02-06 18:40:30,801 - INFO - Epoch 40: val_loss=2.3933, val_acc=33.33%
+2025-02-06 18:40:30,805 - INFO - Epoch 40: EPOCH_AVG_TRAIN_LOSS=0.4923
+2025-02-06 18:40:30,807 - INFO - #################### Training epoch 41 ####################
+2025-02-06 18:40:30,807 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:31,224 - INFO - Epoch 41: train_loss=0.8919
+2025-02-06 18:40:31,515 - INFO - Epoch 41: train_loss=0.7093
+2025-02-06 18:40:31,846 - INFO - Epoch 41: val_loss=2.3944, val_acc=33.33%
+2025-02-06 18:40:31,850 - INFO - Epoch 41: EPOCH_AVG_TRAIN_LOSS=0.7093
+2025-02-06 18:40:31,852 - INFO - #################### Training epoch 42 ####################
+2025-02-06 18:40:31,852 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:32,269 - INFO - Epoch 42: train_loss=0.9928
+2025-02-06 18:40:32,559 - INFO - Epoch 42: train_loss=0.3666
+2025-02-06 18:40:32,891 - INFO - Epoch 42: val_loss=2.3948, val_acc=33.33%
+2025-02-06 18:40:32,895 - INFO - Epoch 42: EPOCH_AVG_TRAIN_LOSS=0.3666
+2025-02-06 18:40:32,897 - INFO - #################### Training epoch 43 ####################
+2025-02-06 18:40:32,897 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:33,314 - INFO - Epoch 43: train_loss=1.1125
+2025-02-06 18:40:33,604 - INFO - Epoch 43: train_loss=0.2641
+2025-02-06 18:40:33,934 - INFO - Epoch 43: val_loss=2.3970, val_acc=33.33%
+2025-02-06 18:40:33,938 - INFO - Epoch 43: EPOCH_AVG_TRAIN_LOSS=0.2641
+2025-02-06 18:40:33,940 - INFO - #################### Training epoch 44 ####################
+2025-02-06 18:40:33,940 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:34,358 - INFO - Epoch 44: train_loss=0.8021
+2025-02-06 18:40:34,648 - INFO - Epoch 44: train_loss=0.9434
+2025-02-06 18:40:34,979 - INFO - Epoch 44: val_loss=2.3977, val_acc=33.33%
+2025-02-06 18:40:34,983 - INFO - Epoch 44: EPOCH_AVG_TRAIN_LOSS=0.8021
+2025-02-06 18:40:34,985 - INFO - #################### Training epoch 45 ####################
+2025-02-06 18:40:34,985 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:35,400 - INFO - Epoch 45: train_loss=0.8018
+2025-02-06 18:40:35,690 - INFO - Epoch 45: train_loss=0.8801
+2025-02-06 18:40:36,019 - INFO - Epoch 45: val_loss=2.3995, val_acc=33.33%
+2025-02-06 18:40:36,023 - INFO - Epoch 45: EPOCH_AVG_TRAIN_LOSS=0.8018
+2025-02-06 18:40:36,025 - INFO - #################### Training epoch 46 ####################
+2025-02-06 18:40:36,025 - INFO - Current Learning Rate: 7.000000e-04
+2025-02-06 18:40:36,442 - INFO - Epoch 46: train_loss=0.8425
