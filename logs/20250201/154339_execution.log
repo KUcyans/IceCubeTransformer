@@ -1,0 +1,12 @@
+nohup: ignoring input
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 284, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 275, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 270, in execute
+    datamodule = prepare_data(root_dir)
+TypeError: prepare_data() missing 1 required positional argument: 'config'

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/ImportLuc/inference.py", line 51, in <module>
+    input_dim = inference_dataset[0].x.size(1),
+                ~~~~~~~~~~~~~~~~~^^^
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/ImportLuc/dataset.py", line 165, in __getitem__
+    return Data(x=x_tensor, n_doms=n_doms, event_no=event_no, feature_path=feature_path, energy=energy, pid = pid, one_hot_pid=one_hot_pid)
+                                                                                                ^^^^^^
+NameError: name 'energy' is not defined

@@ -1,0 +1,28 @@
+nohup: ignoring input
+Importing libraries
+All is imported
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in ./wandb/run-20250217_115937-79n97h2w
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run serene-lion-2
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification/runs/79n97h2w
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/IceCube_project_share/icecube-projects/luc/training_script.py", line 38, in <module>
+    tensorboard_logger = TensorBoardLogger(save_dir='lightning_logs', name='')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/loggers/tensorboard.py", line 99, in __init__
+    super().__init__(
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/lightning_fabric/loggers/tensorboard.py", line 95, in __init__
+    raise ModuleNotFoundError(
+ModuleNotFoundError: Neither `tensorboard` nor `tensorboardX` is available. Try `pip install`ing either.
+Requirement 'tensorboardX' not met. HINT: Try running `pip install -U 'tensorboardX'`
+Requirement 'tensorboard' not met. HINT: Try running `pip install -U 'tensorboard'`
+wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.019 MB uploadedwandb: | 0.019 MB of 0.019 MB uploadedwandb: 🚀 View run serene-lion-2 at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification/runs/79n97h2w
+wandb: ⭐️ View project at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250217_115937-79n97h2w/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.

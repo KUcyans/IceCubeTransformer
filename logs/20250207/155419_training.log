@@ -1,0 +1,696 @@
+2025-02-07 15:56:01,109 - INFO - Starting training with the following parameters:
+2025-02-07 15:56:01,110 - INFO - | Parameter       | Value               |
+|-----------------|---------------------|
+| attention       | Scaled Dot-Product|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 128            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 0.001          |
+| epochs          | 50             |
+| batch_size      | 16             |
+
+2025-02-07 15:56:10,208 - INFO - Epoch 0: val_loss=1.0825, val_acc=50.00%
+2025-02-07 15:56:10,369 - INFO - Epoch 0: val_loss=1.0884, val_acc=37.50%
+2025-02-07 15:56:10,375 - INFO - #################### Training epoch 0 ####################
+2025-02-07 15:56:10,375 - INFO - Current Learning Rate: 4.000000e-04
+2025-02-07 15:56:11,097 - INFO - Epoch 0: train_loss=1.1072
+2025-02-07 15:56:12,095 - INFO - Epoch 0: train_loss=1.1846
+2025-02-07 15:56:12,316 - INFO - Epoch 0: train_loss=1.1284
+2025-02-07 15:56:12,538 - INFO - Epoch 0: train_loss=1.0806
+2025-02-07 15:56:12,760 - INFO - Epoch 0: train_loss=1.1174
+2025-02-07 15:56:12,981 - INFO - Epoch 0: train_loss=1.1526
+2025-02-07 15:56:13,203 - INFO - Epoch 0: train_loss=1.1018
+2025-02-07 15:56:13,423 - INFO - Epoch 0: train_loss=1.2515
+2025-02-07 15:56:13,643 - INFO - Epoch 0: train_loss=1.0498
+2025-02-07 15:56:13,863 - INFO - Epoch 0: train_loss=1.0791
+2025-02-07 15:56:14,083 - INFO - Epoch 0: train_loss=1.1560
+2025-02-07 15:56:14,304 - INFO - Epoch 0: train_loss=1.1738
+2025-02-07 15:56:14,524 - INFO - Epoch 0: train_loss=1.0828
+2025-02-07 15:56:14,744 - INFO - Epoch 0: train_loss=1.1252
+2025-02-07 15:56:14,963 - INFO - Epoch 0: train_loss=1.1155
+2025-02-07 15:56:15,183 - INFO - Epoch 0: train_loss=1.0896
+2025-02-07 15:56:15,403 - INFO - Epoch 0: train_loss=1.0618
+2025-02-07 15:56:15,624 - INFO - Epoch 0: train_loss=1.0762
+2025-02-07 15:56:15,844 - INFO - Epoch 0: train_loss=1.1611
+2025-02-07 15:56:16,063 - INFO - Epoch 0: train_loss=1.1716
+2025-02-07 15:56:16,283 - INFO - Epoch 0: train_loss=1.0459
+2025-02-07 15:56:16,503 - INFO - Epoch 0: train_loss=1.1958
+2025-02-07 15:56:16,723 - INFO - Epoch 0: train_loss=1.0854
+2025-02-07 15:56:16,943 - INFO - Epoch 0: train_loss=1.1833
+2025-02-07 15:56:17,164 - INFO - Epoch 0: train_loss=1.1641
+2025-02-07 15:56:17,385 - INFO - Epoch 0: train_loss=1.0190
+2025-02-07 15:56:17,605 - INFO - Epoch 0: train_loss=1.0813
+2025-02-07 15:56:17,826 - INFO - Epoch 0: train_loss=1.1479
+2025-02-07 15:56:18,047 - INFO - Epoch 0: train_loss=1.0640
+2025-02-07 15:56:18,268 - INFO - Epoch 0: train_loss=1.1255
+2025-02-07 15:56:18,489 - INFO - Epoch 0: train_loss=1.0627
+2025-02-07 15:56:18,710 - INFO - Epoch 0: train_loss=1.0977
+2025-02-07 15:56:18,930 - INFO - Epoch 0: train_loss=1.0530
+2025-02-07 15:56:19,150 - INFO - Epoch 0: train_loss=1.0657
+2025-02-07 15:56:19,370 - INFO - Epoch 0: train_loss=1.0498
+2025-02-07 15:56:19,590 - INFO - Epoch 0: train_loss=1.1343
+2025-02-07 15:56:19,810 - INFO - Epoch 0: train_loss=1.0320
+2025-02-07 15:56:20,031 - INFO - Epoch 0: train_loss=1.2158
+2025-02-07 15:56:20,251 - INFO - Epoch 0: train_loss=1.1633
+2025-02-07 15:56:20,472 - INFO - Epoch 0: train_loss=1.1179
+2025-02-07 15:56:20,692 - INFO - Epoch 0: train_loss=1.2222
+2025-02-07 15:56:20,912 - INFO - Epoch 0: train_loss=1.2021
+2025-02-07 15:56:21,132 - INFO - Epoch 0: train_loss=1.0586
+2025-02-07 15:56:21,353 - INFO - Epoch 0: train_loss=1.2239
+2025-02-07 15:56:21,573 - INFO - Epoch 0: train_loss=1.0598
+2025-02-07 15:56:21,793 - INFO - Epoch 0: train_loss=1.0825
+2025-02-07 15:56:22,014 - INFO - Epoch 0: train_loss=1.0310
+2025-02-07 15:56:22,234 - INFO - Epoch 0: train_loss=1.0115
+2025-02-07 15:56:22,455 - INFO - Epoch 0: train_loss=1.1648
+2025-02-07 15:56:22,676 - INFO - Epoch 0: train_loss=1.0425
+2025-02-07 15:56:22,896 - INFO - Epoch 0: train_loss=1.1245
+2025-02-07 15:56:23,117 - INFO - Epoch 0: train_loss=1.0884
+2025-02-07 15:56:23,337 - INFO - Epoch 0: train_loss=1.1248
+2025-02-07 15:56:23,557 - INFO - Epoch 0: train_loss=1.1194
+2025-02-07 15:56:23,778 - INFO - Epoch 0: train_loss=1.1387
+2025-02-07 15:56:23,999 - INFO - Epoch 0: train_loss=1.1138
+2025-02-07 15:56:24,220 - INFO - Epoch 0: train_loss=1.0811
+2025-02-07 15:56:24,440 - INFO - Epoch 0: train_loss=1.0867
+2025-02-07 15:56:24,661 - INFO - Epoch 0: train_loss=1.0659
+2025-02-07 15:56:24,882 - INFO - Epoch 0: train_loss=1.0679
+2025-02-07 15:56:25,104 - INFO - Epoch 0: train_loss=1.1174
+2025-02-07 15:56:25,325 - INFO - Epoch 0: train_loss=1.1604
+2025-02-07 15:56:25,546 - INFO - Epoch 0: train_loss=1.1919
+2025-02-07 15:56:25,767 - INFO - Epoch 0: train_loss=1.0254
+2025-02-07 15:56:25,988 - INFO - Epoch 0: train_loss=1.1492
+2025-02-07 15:56:26,208 - INFO - Epoch 0: train_loss=1.1047
+2025-02-07 15:56:26,429 - INFO - Epoch 0: train_loss=1.0703
+2025-02-07 15:56:26,650 - INFO - Epoch 0: train_loss=1.0903
+2025-02-07 15:56:26,871 - INFO - Epoch 0: train_loss=1.1565
+2025-02-07 15:56:27,092 - INFO - Epoch 0: train_loss=1.1204
+2025-02-07 15:56:27,313 - INFO - Epoch 0: train_loss=1.2244
+2025-02-07 15:56:27,535 - INFO - Epoch 0: train_loss=1.1567
+2025-02-07 15:56:27,756 - INFO - Epoch 0: train_loss=1.0247
+2025-02-07 15:56:27,977 - INFO - Epoch 0: train_loss=1.1475
+2025-02-07 15:56:28,198 - INFO - Epoch 0: train_loss=1.0481
+2025-02-07 15:56:28,418 - INFO - Epoch 0: train_loss=1.1497
+2025-02-07 15:56:28,639 - INFO - Epoch 0: train_loss=1.1838
+2025-02-07 15:56:28,860 - INFO - Epoch 0: train_loss=1.1372
+2025-02-07 15:56:29,081 - INFO - Epoch 0: train_loss=1.1323
+2025-02-07 15:56:29,303 - INFO - Epoch 0: train_loss=1.1382
+2025-02-07 15:56:29,524 - INFO - Epoch 0: train_loss=1.0569
+2025-02-07 15:56:29,745 - INFO - Epoch 0: train_loss=1.1699
+2025-02-07 15:56:29,966 - INFO - Epoch 0: train_loss=1.0593
+2025-02-07 15:56:30,187 - INFO - Epoch 0: train_loss=1.0793
+2025-02-07 15:56:30,408 - INFO - Epoch 0: train_loss=1.1853
+2025-02-07 15:56:30,629 - INFO - Epoch 0: train_loss=1.0510
+2025-02-07 15:56:30,851 - INFO - Epoch 0: train_loss=1.1619
+2025-02-07 15:56:31,072 - INFO - Epoch 0: train_loss=1.1694
+2025-02-07 15:56:31,293 - INFO - Epoch 0: train_loss=1.0845
+2025-02-07 15:56:31,514 - INFO - Epoch 0: train_loss=1.0603
+2025-02-07 15:56:31,735 - INFO - Epoch 0: train_loss=1.0759
+2025-02-07 15:56:31,956 - INFO - Epoch 0: train_loss=1.1128
+2025-02-07 15:56:32,177 - INFO - Epoch 0: train_loss=1.1841
+2025-02-07 15:56:32,398 - INFO - Epoch 0: train_loss=1.1421
+2025-02-07 15:56:32,620 - INFO - Epoch 0: train_loss=1.2153
+2025-02-07 15:56:32,841 - INFO - Epoch 0: train_loss=1.0872
+2025-02-07 15:56:33,063 - INFO - Epoch 0: train_loss=1.0513
+2025-02-07 15:56:33,284 - INFO - Epoch 0: train_loss=1.1926
+2025-02-07 15:56:33,505 - INFO - Epoch 0: train_loss=1.1777
+2025-02-07 15:56:33,727 - INFO - Epoch 0: train_loss=1.0977
+2025-02-07 15:56:33,949 - INFO - Epoch 0: train_loss=1.1416
+2025-02-07 15:56:34,170 - INFO - Epoch 0: train_loss=1.1482
+2025-02-07 15:56:34,392 - INFO - Epoch 0: train_loss=1.0422
+2025-02-07 15:56:34,613 - INFO - Epoch 0: train_loss=1.1250
+2025-02-07 15:56:34,835 - INFO - Epoch 0: train_loss=1.0808
+2025-02-07 15:56:35,057 - INFO - Epoch 0: train_loss=1.2073
+2025-02-07 15:56:35,277 - INFO - Epoch 0: train_loss=1.1531
+2025-02-07 15:56:35,499 - INFO - Epoch 0: train_loss=1.1440
+2025-02-07 15:56:35,720 - INFO - Epoch 0: train_loss=1.0642
+2025-02-07 15:56:35,941 - INFO - Epoch 0: train_loss=1.1028
+2025-02-07 15:56:36,163 - INFO - Epoch 0: train_loss=1.2683
+2025-02-07 15:56:36,385 - INFO - Epoch 0: train_loss=1.0884
+2025-02-07 15:56:36,607 - INFO - Epoch 0: train_loss=1.0415
+2025-02-07 15:56:36,827 - INFO - Epoch 0: train_loss=1.0496
+2025-02-07 15:56:37,048 - INFO - Epoch 0: train_loss=1.2349
+2025-02-07 15:56:37,269 - INFO - Epoch 0: train_loss=1.1643
+2025-02-07 15:56:37,490 - INFO - Epoch 0: train_loss=1.3174
+2025-02-07 15:56:37,711 - INFO - Epoch 0: train_loss=1.1790
+2025-02-07 15:56:37,933 - INFO - Epoch 0: train_loss=1.2141
+2025-02-07 15:56:38,154 - INFO - Epoch 0: train_loss=1.0906
+2025-02-07 15:56:38,375 - INFO - Epoch 0: train_loss=1.0679
+2025-02-07 15:56:38,596 - INFO - Epoch 0: train_loss=1.2104
+2025-02-07 15:56:38,818 - INFO - Epoch 0: train_loss=1.1914
+2025-02-07 15:56:39,040 - INFO - Epoch 0: train_loss=1.1611
+2025-02-07 15:56:39,261 - INFO - Epoch 0: train_loss=1.0510
+2025-02-07 15:56:39,483 - INFO - Epoch 0: train_loss=1.1023
+2025-02-07 15:56:39,704 - INFO - Epoch 0: train_loss=1.2542
+2025-02-07 15:56:39,926 - INFO - Epoch 0: train_loss=1.1372
+2025-02-07 15:56:40,147 - INFO - Epoch 0: train_loss=1.0149
+2025-02-07 15:56:40,369 - INFO - Epoch 0: train_loss=1.4143
+2025-02-07 15:56:40,590 - INFO - Epoch 0: train_loss=1.2349
+2025-02-07 15:56:40,812 - INFO - Epoch 0: train_loss=1.0254
+2025-02-07 15:56:41,033 - INFO - Epoch 0: train_loss=1.1899
+2025-02-07 15:56:41,255 - INFO - Epoch 0: train_loss=0.9614
+2025-02-07 15:56:41,476 - INFO - Epoch 0: train_loss=1.1133
+2025-02-07 15:56:41,698 - INFO - Epoch 0: train_loss=0.9431
+2025-02-07 15:56:41,919 - INFO - Epoch 0: train_loss=1.1245
+2025-02-07 15:56:42,141 - INFO - Epoch 0: train_loss=1.0176
+2025-02-07 15:56:42,363 - INFO - Epoch 0: train_loss=1.0908
+2025-02-07 15:56:42,585 - INFO - Epoch 0: train_loss=1.1360
+2025-02-07 15:56:42,806 - INFO - Epoch 0: train_loss=1.0635
+2025-02-07 15:56:43,027 - INFO - Epoch 0: train_loss=1.1106
+2025-02-07 15:56:43,249 - INFO - Epoch 0: train_loss=1.0698
+2025-02-07 15:56:43,470 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:43,690 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:43,910 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:44,130 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:44,352 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:44,572 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:44,792 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:45,012 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:45,232 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:45,452 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:45,672 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:45,892 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:46,112 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:46,332 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:46,552 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:46,772 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:46,992 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:47,212 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:47,432 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:47,652 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:47,873 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:48,093 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:48,313 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:48,533 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:48,754 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:48,975 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:49,196 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:49,416 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:49,637 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:49,857 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:50,077 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:50,298 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:50,518 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:50,738 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:50,958 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:51,178 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:51,399 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:51,621 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:51,842 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:52,063 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:52,283 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:52,503 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:52,723 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:52,944 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:53,164 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:53,384 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:53,604 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:53,825 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:54,046 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:54,267 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:54,488 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:54,708 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:54,929 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:55,149 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:55,369 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:55,590 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:55,810 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:56,030 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:56,252 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:56,473 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:56,694 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:56,915 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:57,136 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:57,357 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:57,577 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:57,797 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:58,018 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:58,238 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:58,459 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:58,679 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:58,899 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:59,119 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:59,340 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:59,561 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:56:59,782 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:00,002 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:00,223 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:00,443 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:00,664 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:00,885 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:01,105 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:01,326 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:01,547 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:01,767 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:01,988 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:02,209 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:02,430 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:02,651 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:02,872 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:03,093 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:03,314 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:03,534 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:03,755 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:03,976 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:04,196 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:04,417 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:04,638 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:04,858 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:05,079 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:05,299 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:05,520 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:05,741 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:05,962 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:06,183 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:06,404 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:06,624 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:06,845 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:07,065 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:07,286 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:07,507 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:07,728 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:07,949 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:08,170 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:08,391 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:08,612 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:08,832 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:09,053 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:09,273 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:09,494 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:09,716 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:09,936 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:10,156 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:10,377 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:10,598 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:10,818 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:11,039 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:11,260 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:11,482 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:11,703 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:11,923 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:12,144 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:12,364 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:12,585 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:12,806 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:13,027 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:13,249 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:13,470 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:13,691 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:13,911 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:14,131 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:14,353 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:14,574 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:14,794 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:15,015 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:15,236 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:15,456 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:15,678 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:15,899 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:16,119 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:16,340 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:16,560 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:16,781 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:17,001 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:17,222 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:17,442 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:17,663 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:17,885 - INFO - Epoch 0: train_loss=nan
+2025-02-07 15:57:18,261 - INFO - Epoch 0: val_loss=nan, val_acc=50.00%
+2025-02-07 15:57:18,404 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:18,545 - INFO - Epoch 0: val_loss=nan, val_acc=25.00%
+2025-02-07 15:57:18,687 - INFO - Epoch 0: val_loss=nan, val_acc=50.00%
+2025-02-07 15:57:18,828 - INFO - Epoch 0: val_loss=nan, val_acc=43.75%
+2025-02-07 15:57:18,970 - INFO - Epoch 0: val_loss=nan, val_acc=50.00%
+2025-02-07 15:57:19,111 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:19,253 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:19,394 - INFO - Epoch 0: val_loss=nan, val_acc=18.75%
+2025-02-07 15:57:19,536 - INFO - Epoch 0: val_loss=nan, val_acc=25.00%
+2025-02-07 15:57:19,678 - INFO - Epoch 0: val_loss=nan, val_acc=43.75%
+2025-02-07 15:57:19,819 - INFO - Epoch 0: val_loss=nan, val_acc=50.00%
+2025-02-07 15:57:19,960 - INFO - Epoch 0: val_loss=nan, val_acc=43.75%
+2025-02-07 15:57:20,102 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:20,245 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:20,386 - INFO - Epoch 0: val_loss=nan, val_acc=25.00%
+2025-02-07 15:57:20,528 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:20,670 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:20,812 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:20,953 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:21,095 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:21,237 - INFO - Epoch 0: val_loss=nan, val_acc=50.00%
+2025-02-07 15:57:21,378 - INFO - Epoch 0: val_loss=nan, val_acc=18.75%
+2025-02-07 15:57:21,519 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:21,661 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:21,803 - INFO - Epoch 0: val_loss=nan, val_acc=43.75%
+2025-02-07 15:57:21,944 - INFO - Epoch 0: val_loss=nan, val_acc=18.75%
+2025-02-07 15:57:22,085 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:22,226 - INFO - Epoch 0: val_loss=nan, val_acc=25.00%
+2025-02-07 15:57:22,367 - INFO - Epoch 0: val_loss=nan, val_acc=25.00%
+2025-02-07 15:57:22,509 - INFO - Epoch 0: val_loss=nan, val_acc=43.75%
+2025-02-07 15:57:22,650 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:22,791 - INFO - Epoch 0: val_loss=nan, val_acc=31.25%
+2025-02-07 15:57:22,932 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:23,074 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:23,216 - INFO - Epoch 0: val_loss=nan, val_acc=18.75%
+2025-02-07 15:57:23,358 - INFO - Epoch 0: val_loss=nan, val_acc=43.75%
+2025-02-07 15:57:23,433 - INFO - Epoch 0: val_loss=nan, val_acc=37.50%
+2025-02-07 15:57:24,514 - INFO - Epoch 0: EPOCH_AVG_TRAIN_LOSS=nan
+2025-02-07 15:57:24,610 - INFO - #################### Training epoch 1 ####################
+2025-02-07 15:57:24,610 - INFO - Current Learning Rate: 5.049380e-04
+2025-02-07 15:57:24,953 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:25,175 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:25,396 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:25,617 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:25,837 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:26,057 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:26,278 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:26,499 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:26,720 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:26,940 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:27,161 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:27,382 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:27,603 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:27,825 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:28,045 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:28,267 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:28,488 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:28,708 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:28,929 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:29,150 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:29,371 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:29,592 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:29,813 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:30,034 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:30,256 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:30,476 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:30,697 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:30,918 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:31,139 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:31,360 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:31,582 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:31,804 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:32,025 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:32,246 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:32,466 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:32,687 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:32,908 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:33,129 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:33,350 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:33,571 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:33,793 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:34,014 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:34,235 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:34,455 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:34,676 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:34,897 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:35,118 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:35,340 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:35,561 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:35,781 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:36,002 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:36,223 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:36,444 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:36,665 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:36,885 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:37,106 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:37,327 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:37,548 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:37,768 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:37,989 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:38,209 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:38,430 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:38,651 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:38,872 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:39,093 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:39,314 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:39,534 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:39,755 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:39,975 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:40,196 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:40,416 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:40,637 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:40,859 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:41,081 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:41,302 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:41,523 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:41,744 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:41,965 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:42,186 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:42,407 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:42,628 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:42,849 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:43,070 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:43,292 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:43,516 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:43,738 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:43,961 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:44,181 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:44,402 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:44,622 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:44,843 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:45,063 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:45,283 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:45,503 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:45,724 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:45,944 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:46,165 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:46,385 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:46,606 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:46,826 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:47,046 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:47,267 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:47,487 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:47,707 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:47,927 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:48,147 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:48,368 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:48,588 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:48,809 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:49,029 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:49,250 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:49,470 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:49,691 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:49,911 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:50,131 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:50,351 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:50,572 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:50,792 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:51,012 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:51,233 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:51,454 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:51,674 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:51,894 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:52,115 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:52,335 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:52,556 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:52,777 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:52,998 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:53,219 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:53,439 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:53,659 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:53,879 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:54,100 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:54,320 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:54,540 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:54,760 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:54,981 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:55,201 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:55,422 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:55,642 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:55,863 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:56,083 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:56,303 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:56,524 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:56,744 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:56,964 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:57,184 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:57,405 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:57,625 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:57,846 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:58,066 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:58,287 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:58,507 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:58,728 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:58,948 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:59,168 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:59,388 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:59,609 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:57:59,829 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:00,049 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:00,270 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:00,490 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:00,710 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:00,930 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:01,151 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:01,371 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:01,592 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:01,812 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:02,033 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:02,254 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:02,475 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:02,695 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:02,915 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:03,136 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:03,356 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:03,576 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:03,797 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:04,017 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:04,238 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:04,458 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:04,679 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:04,899 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:05,120 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:05,340 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:05,561 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:05,781 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:06,001 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:06,222 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:06,442 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:06,662 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:06,883 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:07,106 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:07,328 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:07,549 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:07,769 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:07,991 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:08,212 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:08,433 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:08,654 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:08,875 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:09,096 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:09,316 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:09,538 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:09,759 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:09,980 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:10,201 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:10,422 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:10,643 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:10,865 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:11,085 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:11,307 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:11,528 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:11,749 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:11,971 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:12,192 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:12,414 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:12,635 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:12,856 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:13,077 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:13,299 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:13,520 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:13,741 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:13,963 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:14,184 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:14,406 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:14,627 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:14,848 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:15,069 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:15,290 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:15,511 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:15,732 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:15,953 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:16,175 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:16,396 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:16,616 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:16,837 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:17,058 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:17,278 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:17,500 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:17,721 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:17,942 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:18,163 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:18,384 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:18,605 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:18,825 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:19,046 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:19,268 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:19,489 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:19,711 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:19,933 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:20,154 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:20,375 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:20,597 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:20,818 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:21,039 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:21,260 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:21,482 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:21,703 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:21,925 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:22,146 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:22,367 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:22,587 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:22,808 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:23,028 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:23,249 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:23,469 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:23,690 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:23,910 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:24,131 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:24,351 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:24,572 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:24,792 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:25,014 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:25,234 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:25,455 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:25,676 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:25,897 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:26,118 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:26,339 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:26,559 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:26,780 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:27,000 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:27,221 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:27,441 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:27,662 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:27,882 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:28,103 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:28,323 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:28,544 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:28,765 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:28,986 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:29,206 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:29,427 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:29,647 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:29,868 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:30,088 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:30,308 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:30,528 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:30,748 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:30,969 - INFO - Epoch 1: train_loss=nan
+2025-02-07 15:58:31,349 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:31,491 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:31,632 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:31,774 - INFO - Epoch 1: val_loss=nan, val_acc=50.00%
+2025-02-07 15:58:31,915 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:32,057 - INFO - Epoch 1: val_loss=nan, val_acc=25.00%
+2025-02-07 15:58:32,199 - INFO - Epoch 1: val_loss=nan, val_acc=50.00%
+2025-02-07 15:58:32,340 - INFO - Epoch 1: val_loss=nan, val_acc=25.00%
+2025-02-07 15:58:32,482 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:32,623 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:32,765 - INFO - Epoch 1: val_loss=nan, val_acc=25.00%
+2025-02-07 15:58:32,906 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:33,048 - INFO - Epoch 1: val_loss=nan, val_acc=31.25%
+2025-02-07 15:58:33,189 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:33,330 - INFO - Epoch 1: val_loss=nan, val_acc=12.50%
+2025-02-07 15:58:33,471 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:33,613 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:33,754 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:33,895 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:34,037 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:34,178 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:34,319 - INFO - Epoch 1: val_loss=nan, val_acc=18.75%
+2025-02-07 15:58:34,461 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:34,602 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:34,743 - INFO - Epoch 1: val_loss=nan, val_acc=31.25%
+2025-02-07 15:58:34,884 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:35,025 - INFO - Epoch 1: val_loss=nan, val_acc=18.75%
+2025-02-07 15:58:35,166 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:35,307 - INFO - Epoch 1: val_loss=nan, val_acc=31.25%
+2025-02-07 15:58:35,448 - INFO - Epoch 1: val_loss=nan, val_acc=31.25%
+2025-02-07 15:58:35,589 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:35,730 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:35,871 - INFO - Epoch 1: val_loss=nan, val_acc=43.75%
+2025-02-07 15:58:36,012 - INFO - Epoch 1: val_loss=nan, val_acc=25.00%
+2025-02-07 15:58:36,153 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%
+2025-02-07 15:58:36,294 - INFO - Epoch 1: val_loss=nan, val_acc=37.50%

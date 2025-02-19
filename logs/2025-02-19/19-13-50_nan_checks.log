@@ -1,0 +1,120 @@
+2025-02-19 19:14:03,641 - INFO - ==============Entering Encoder Block 0==============
+2025-02-19 19:14:03,676 - INFO - ---------- attention(Scaled Dot-Product) ---------- 
+2025-02-19 19:14:03,682 - INFO - attn_output hasn't NaN: True
+2025-02-19 19:14:03,692 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,692 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,692 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,692 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,692 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,692 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,693 - INFO - ---------FFN-----------
+2025-02-19 19:14:03,693 - INFO - s_i hasn't nan : True
+2025-02-19 19:14:03,693 - INFO - h_i hasm't nan : True
+2025-02-19 19:14:03,693 - INFO - x_next hasn't nan : True
+2025-02-19 19:14:03,693 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,693 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,693 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,693 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,693 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,694 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,694 - INFO - Encoder Block 0 output hasn't nan: True
+2025-02-19 19:14:03,694 - INFO - ==============Entering Encoder Block 1==============
+2025-02-19 19:14:03,694 - INFO - ---------- attention(Scaled Dot-Product) ---------- 
+2025-02-19 19:14:03,696 - INFO - attn_output hasn't NaN: True
+2025-02-19 19:14:03,696 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,697 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,697 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,697 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,697 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,697 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,697 - INFO - ---------FFN-----------
+2025-02-19 19:14:03,697 - INFO - s_i hasn't nan : True
+2025-02-19 19:14:03,697 - INFO - h_i hasm't nan : True
+2025-02-19 19:14:03,698 - INFO - x_next hasn't nan : True
+2025-02-19 19:14:03,698 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,698 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,698 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,698 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,698 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,698 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,698 - INFO - Encoder Block 1 output hasn't nan: True
+2025-02-19 19:14:03,698 - INFO - ==============Entering Encoder Block 2==============
+2025-02-19 19:14:03,699 - INFO - ---------- attention(Scaled Dot-Product) ---------- 
+2025-02-19 19:14:03,701 - INFO - attn_output hasn't NaN: True
+2025-02-19 19:14:03,701 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,701 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,701 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,702 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,702 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,702 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,702 - INFO - ---------FFN-----------
+2025-02-19 19:14:03,702 - INFO - s_i hasn't nan : True
+2025-02-19 19:14:03,702 - INFO - h_i hasm't nan : True
+2025-02-19 19:14:03,702 - INFO - x_next hasn't nan : True
+2025-02-19 19:14:03,702 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,703 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,703 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,703 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,703 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,703 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,703 - INFO - Encoder Block 2 output hasn't nan: True
+2025-02-19 19:14:03,703 - INFO - ==============Entering Encoder Block 3==============
+2025-02-19 19:14:03,703 - INFO - ---------- attention(Scaled Dot-Product) ---------- 
+2025-02-19 19:14:03,706 - INFO - attn_output hasn't NaN: True
+2025-02-19 19:14:03,706 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,706 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,706 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,706 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,706 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,706 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,707 - INFO - ---------FFN-----------
+2025-02-19 19:14:03,707 - INFO - s_i hasn't nan : True
+2025-02-19 19:14:03,707 - INFO - h_i hasm't nan : True
+2025-02-19 19:14:03,707 - INFO - x_next hasn't nan : True
+2025-02-19 19:14:03,707 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,707 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,707 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,707 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,708 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,708 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,708 - INFO - Encoder Block 3 output hasn't nan: True
+2025-02-19 19:14:03,708 - INFO - ==============Entering Encoder Block 4==============
+2025-02-19 19:14:03,708 - INFO - ---------- attention(Scaled Dot-Product) ---------- 
+2025-02-19 19:14:03,710 - INFO - attn_output hasn't NaN: True
+2025-02-19 19:14:03,711 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,711 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,711 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,711 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,711 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,711 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,711 - INFO - ---------FFN-----------
+2025-02-19 19:14:03,711 - INFO - s_i hasn't nan : True
+2025-02-19 19:14:03,712 - INFO - h_i hasm't nan : True
+2025-02-19 19:14:03,712 - INFO - x_next hasn't nan : True
+2025-02-19 19:14:03,712 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,712 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,712 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,712 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,712 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,712 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,712 - INFO - Encoder Block 4 output hasn't nan: True
+2025-02-19 19:14:03,712 - INFO - ==============Entering Encoder Block 5==============
+2025-02-19 19:14:03,713 - INFO - ---------- attention(Scaled Dot-Product) ---------- 
+2025-02-19 19:14:03,715 - INFO - attn_output hasn't NaN: True
+2025-02-19 19:14:03,715 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,715 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,716 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,716 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,716 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,716 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,716 - INFO - ---------FFN-----------
+2025-02-19 19:14:03,716 - INFO - s_i hasn't nan : True
+2025-02-19 19:14:03,716 - INFO - h_i hasm't nan : True
+2025-02-19 19:14:03,716 - INFO - x_next hasn't nan : True
+2025-02-19 19:14:03,716 - INFO - ---------Layer Normalisation-----------
+2025-02-19 19:14:03,717 - INFO - x hasn't nan: True
+2025-02-19 19:14:03,717 - INFO - mu hasn't nan: True
+2025-02-19 19:14:03,717 - INFO - var hasn't nan: True
+2025-02-19 19:14:03,717 - INFO - x_normalised hasn't nan: True
+2025-02-19 19:14:03,717 - INFO - x_tilde hasn't nan: True
+2025-02-19 19:14:03,717 - INFO - Encoder Block 5 output hasn't nan: True

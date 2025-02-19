@@ -1,0 +1,41 @@
+nohup: ignoring input
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250206_164942-49wn074m
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run jumping-pyramid-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250206_164750%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250206_164750%5D%20Flavour%20Classification/runs/49wn074m
+No GPU detected.
+No GPU detected.
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Config validation passed.
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 299, in run_training
+    trainer = create_trainer(model_config["epochs"], dirs["checkpoint_dir"], setup_callbacks(dirs["checkpoint_dir"], current_time), wandb_logger)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 138, in create_trainer
+    return Trainer(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/utilities/argparse.py", line 70, in insert_env_defaults
+    return fn(self, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 400, in __init__
+    self._accelerator_connector = _AcceleratorConnector(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py", line 146, in __init__
+    self._set_parallel_devices_and_init_accelerator()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py", line 376, in _set_parallel_devices_and_init_accelerator
+    self._devices_flag = accelerator_cls.parse_devices(self._devices_flag)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/accelerators/cpu.py", line 53, in parse_devices
+    return _parse_cpu_cores(devices)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/accelerators/cpu.py", line 94, in _parse_cpu_cores
+    raise TypeError("`devices` selected with `CPUAccelerator` should be an int > 0.")
+TypeError: `devices` selected with `CPUAccelerator` should be an int > 0.
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mjumping-pyramid-1[0m at: [34mhttps://wandb.ai/cyans-k-benhavns-universitet/%5B20250206_164750%5D%20Flavour%20Classification/runs/49wn074m[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../../../lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250206_164942-49wn074m/logs[0m

@@ -1,0 +1,4821 @@
+Starting job at Wed Feb 19 11:32:13 PM CET 2025
+Training script
+Checking allocated GPU...
+Wed Feb 19 23:32:14 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 555.42.06              Driver Version: 555.42.06      CUDA Version: 12.5     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3070        Off |   00000000:21:00.0 Off |                  N/A |
+| 30%   49C    P0             49W /  220W |       1MiB /   8192MiB |      5%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 0
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: wandb version 0.19.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250219_233228-gwwxkwr2
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run treasured-wind-25
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B2025-02-19%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B2025-02-19%5D%20Flavour%20Classification/runs/gwwxkwr2
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | position_embedding          | Embedding  | 32.8 K | train
+2 | encoder_blocks              | ModuleList | 597 K  | train
+3 | pooling                     | Pooling    | 0      | train
+4 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+634 K     Trainable params
+0         Non-trainable params
+634 K     Total params
+2.540     Total estimated model params size (MB)
+SLURM auto-requeueing enabled. Setting signal handlers.
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Requested index: 0, Dataset count: 3
+Requested index: 64, Dataset count: 3
+Requested index: 128, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Selected dataset index: 0Selected dataset index: 0
+
+
+Local index within dataset: 0Local index within dataset: 128
+
+Local index within dataset: 64
+Accessing index: 128, Dataset length: 304433Accessing index: 0, Dataset length: 304433
+
+Accessing index: 64, Dataset length: 304433
+Requested index: 192, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 192
+Accessing index: 192, Dataset length: 304433
+Requested index: 129, Dataset count: 3Requested index: 1, Dataset count: 3
+
+Requested index: 65, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+
+Local index within dataset: 129Selected dataset index: 0
+Selected dataset index: 0
+
+Local index within dataset: 65Accessing index: 129, Dataset length: 304433Local index within dataset: 1
+
+
+Accessing index: 65, Dataset length: 304433Accessing index: 1, Dataset length: 304433
+
+Requested index: 193, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 193
+Accessing index: 193, Dataset length: 304433
+Requested index: 130, Dataset count: 3
+Requested index: 66, Dataset count: 3Requested index: 2, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 130
+Accessing index: 130, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 2Local index within dataset: 66
+
+Accessing index: 2, Dataset length: 304433Accessing index: 66, Dataset length: 304433
+
+Requested index: 194, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 194
+Accessing index: 194, Dataset length: 304433
+Requested index: 131, Dataset count: 3
+Requested index: 67, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 131
+Accessing index: 131, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 67
+Accessing index: 67, Dataset length: 304433
+Requested index: 3, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 3
+Accessing index: 3, Dataset length: 304433
+Requested index: 195, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 195
+Accessing index: 195, Dataset length: 304433
+Requested index: 132, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 68, Dataset count: 3
+Selected dataset index: 0
+Local index within dataset: 132
+Accessing index: 132, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 68
+Accessing index: 68, Dataset length: 304433
+Requested index: 4, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 4
+Accessing index: 4, Dataset length: 304433
+Requested index: 196, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 196
+Accessing index: 196, Dataset length: 304433
+Requested index: 133, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Requested index: 69, Dataset count: 3
+Local index within dataset: 133
+
+Accessing index: 133, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 69
+Accessing index: 69, Dataset length: 304433
+Requested index: 5, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 5
+Accessing index: 5, Dataset length: 304433
+Requested index: 197, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 197
+Accessing index: 197, Dataset length: 304433
+Requested index: 134, Dataset count: 3
+Requested index: 70, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Cumulative lengths: [304433 473738 704392]
+
+Local index within dataset: 134
+Accessing index: 134, Dataset length: 304433Selected dataset index: 0
+
+Local index within dataset: 70
+Accessing index: 70, Dataset length: 304433
+Requested index: 6, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 198, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 6
+Accessing index: 6, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 198
+Accessing index: 198, Dataset length: 304433
+Requested index: 135, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 135Requested index: 71, Dataset count: 3
+Accessing index: 135, Dataset length: 304433
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 71
+Accessing index: 71, Dataset length: 304433
+Requested index: 7, Dataset count: 3
+Requested index: 199, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 7
+Accessing index: 7, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 199
+Accessing index: 199, Dataset length: 304433
+Requested index: 136, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 136
+Accessing index: 136, Dataset length: 304433
+Requested index: 72, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 72
+Accessing index: 72, Dataset length: 304433
+Requested index: 8, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 8
+Accessing index: 8, Dataset length: 304433
+Requested index: 200, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 200
+Accessing index: 200, Dataset length: 304433
+Requested index: 137, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 137Requested index: 73, Dataset count: 3
+Accessing index: 137, Dataset length: 304433
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 73
+Accessing index: 73, Dataset length: 304433
+Requested index: 9, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 9
+Accessing index: 9, Dataset length: 304433
+Requested index: 201, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 201
+Accessing index: 201, Dataset length: 304433
+Requested index: 74, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 138, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 74
+Accessing index: 74, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 138
+Accessing index: 138, Dataset length: 304433
+Requested index: 10, Dataset count: 3
+Requested index: 202, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 10
+Accessing index: 10, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 202
+Accessing index: 202, Dataset length: 304433
+Requested index: 75, Dataset count: 3
+Requested index: 139, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 75
+Accessing index: 75, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 139
+Accessing index: 139, Dataset length: 304433
+Requested index: 11, Dataset count: 3
+Requested index: 203, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 11
+Accessing index: 11, Dataset length: 304433Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 203
+Accessing index: 203, Dataset length: 304433
+Requested index: 76, Dataset count: 3
+Requested index: 140, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Cumulative lengths: [304433 473738 704392]
+
+Local index within dataset: 76
+Accessing index: 76, Dataset length: 304433Selected dataset index: 0
+
+Local index within dataset: 140
+Accessing index: 140, Dataset length: 304433
+Requested index: 12, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Requested index: 204, Dataset count: 3
+Local index within dataset: 12
+
+Accessing index: 12, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 204
+Accessing index: 204, Dataset length: 304433
+Requested index: 141, Dataset count: 3Requested index: 77, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 141Local index within dataset: 77
+
+Accessing index: 141, Dataset length: 304433Accessing index: 77, Dataset length: 304433
+
+Requested index: 13, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Requested index: 205, Dataset count: 3
+Local index within dataset: 13
+
+Accessing index: 13, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 205
+Accessing index: 205, Dataset length: 304433
+Requested index: 78, Dataset count: 3
+Requested index: 142, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 78
+Accessing index: 78, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 142
+Accessing index: 142, Dataset length: 304433
+Requested index: 206, Dataset count: 3
+Requested index: 14, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 206
+Accessing index: 206, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 14
+Accessing index: 14, Dataset length: 304433
+Requested index: 79, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 143, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 79
+Accessing index: 79, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 143
+Accessing index: 143, Dataset length: 304433
+Requested index: 207, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 207
+Accessing index: 207, Dataset length: 304433
+Requested index: 15, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 15
+Accessing index: 15, Dataset length: 304433
+Requested index: 80, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 80
+Accessing index: 80, Dataset length: 304433Requested index: 144, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 144
+Accessing index: 144, Dataset length: 304433
+Requested index: 208, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 208
+Accessing index: 208, Dataset length: 304433
+Requested index: 16, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 16
+Accessing index: 16, Dataset length: 304433
+Requested index: 81, Dataset count: 3
+Requested index: 145, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 81
+Accessing index: 81, Dataset length: 304433Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 145
+Accessing index: 145, Dataset length: 304433
+Requested index: 209, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 209
+Accessing index: 209, Dataset length: 304433
+Requested index: 17, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 17
+Accessing index: 17, Dataset length: 304433
+Requested index: 82, Dataset count: 3
+Requested index: 146, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 82Cumulative lengths: [304433 473738 704392]
+
+Accessing index: 82, Dataset length: 304433
+Selected dataset index: 0
+Local index within dataset: 146
+Accessing index: 146, Dataset length: 304433
+Requested index: 210, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 210
+Accessing index: 210, Dataset length: 304433
+Requested index: 18, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 18
+Accessing index: 18, Dataset length: 304433
+Requested index: 147, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 83, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 147
+Accessing index: 147, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 83
+Accessing index: 83, Dataset length: 304433
+Requested index: 148, Dataset count: 3
+Requested index: 84, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 148
+Accessing index: 148, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 84
+Accessing index: 84, Dataset length: 304433
+Requested index: 19, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 19
+Accessing index: 19, Dataset length: 304433
+Requested index: 211, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 211
+Accessing index: 211, Dataset length: 304433
+Requested index: 149, Dataset count: 3
+Requested index: 85, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 149
+Accessing index: 149, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 85
+Accessing index: 85, Dataset length: 304433
+Requested index: 20, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 20
+Accessing index: 20, Dataset length: 304433
+Requested index: 212, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 212
+Accessing index: 212, Dataset length: 304433
+Requested index: 150, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 150
+Accessing index: 150, Dataset length: 304433
+Requested index: 86, Dataset count: 3
+Requested index: 21, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 86Local index within dataset: 21
+
+Accessing index: 86, Dataset length: 304433Accessing index: 21, Dataset length: 304433
+
+Requested index: 213, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 213
+Accessing index: 213, Dataset length: 304433
+Requested index: 151, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 151
+Accessing index: 151, Dataset length: 304433
+Requested index: 22, Dataset count: 3
+Requested index: 87, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 22
+Accessing index: 22, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 87
+Accessing index: 87, Dataset length: 304433
+Requested index: 214, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 214
+Accessing index: 214, Dataset length: 304433
+Requested index: 152, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 152
+Accessing index: 152, Dataset length: 304433
+Requested index: 23, Dataset count: 3
+Requested index: 88, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Cumulative lengths: [304433 473738 704392]Local index within dataset: 23
+
+Accessing index: 23, Dataset length: 304433Selected dataset index: 0
+
+Local index within dataset: 88
+Accessing index: 88, Dataset length: 304433
+Requested index: 215, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 215
+Accessing index: 215, Dataset length: 304433
+Requested index: 153, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 153
+Accessing index: 153, Dataset length: 304433
+Requested index: 24, Dataset count: 3Requested index: 89, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 89Local index within dataset: 24
+
+Accessing index: 89, Dataset length: 304433Accessing index: 24, Dataset length: 304433
+
+Requested index: 216, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 216
+Accessing index: 216, Dataset length: 304433
+Requested index: 154, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 154
+Accessing index: 154, Dataset length: 304433
+Requested index: 25, Dataset count: 3
+Requested index: 90, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Cumulative lengths: [304433 473738 704392]Selected dataset index: 0
+
+Local index within dataset: 25Selected dataset index: 0
+
+Accessing index: 25, Dataset length: 304433Local index within dataset: 90
+
+Accessing index: 90, Dataset length: 304433
+Requested index: 217, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 217
+Accessing index: 217, Dataset length: 304433
+Requested index: 155, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 155
+Accessing index: 155, Dataset length: 304433
+Requested index: 26, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 26Requested index: 91, Dataset count: 3
+
+Accessing index: 26, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 91
+Accessing index: 91, Dataset length: 304433
+Requested index: 156, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 156
+Accessing index: 156, Dataset length: 304433
+Requested index: 218, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 218
+Accessing index: 218, Dataset length: 304433
+Requested index: 27, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 27
+Accessing index: 27, Dataset length: 304433
+Requested index: 92, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 92
+Accessing index: 92, Dataset length: 304433
+Requested index: 157, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 157
+Accessing index: 157, Dataset length: 304433
+Requested index: 219, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 219
+Accessing index: 219, Dataset length: 304433
+Requested index: 28, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 28
+Accessing index: 28, Dataset length: 304433
+Requested index: 93, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 93
+Accessing index: 93, Dataset length: 304433
+Requested index: 158, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 158
+Accessing index: 158, Dataset length: 304433
+Requested index: 220, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 220
+Accessing index: 220, Dataset length: 304433
+Requested index: 29, Dataset count: 3
+Requested index: 94, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 29
+Accessing index: 29, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 94
+Accessing index: 94, Dataset length: 304433
+Requested index: 159, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 159
+Accessing index: 159, Dataset length: 304433
+Requested index: 221, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 221
+Accessing index: 221, Dataset length: 304433
+Requested index: 95, Dataset count: 3
+Requested index: 30, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 95Local index within dataset: 30
+
+Accessing index: 95, Dataset length: 304433Accessing index: 30, Dataset length: 304433
+
+Requested index: 160, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 160
+Accessing index: 160, Dataset length: 304433
+Requested index: 222, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 222
+Accessing index: 222, Dataset length: 304433
+Requested index: 31, Dataset count: 3Requested index: 96, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 31Local index within dataset: 96
+
+Accessing index: 31, Dataset length: 304433Accessing index: 96, Dataset length: 304433
+
+Requested index: 161, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 161
+Accessing index: 161, Dataset length: 304433
+Requested index: 223, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 223
+Accessing index: 223, Dataset length: 304433
+Requested index: 32, Dataset count: 3Requested index: 97, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 97Local index within dataset: 32
+
+Accessing index: 97, Dataset length: 304433Accessing index: 32, Dataset length: 304433
+
+Requested index: 162, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 162
+Accessing index: 162, Dataset length: 304433
+Requested index: 224, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 224
+Accessing index: 224, Dataset length: 304433
+Requested index: 33, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 98, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 33
+Accessing index: 33, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 98
+Accessing index: 98, Dataset length: 304433
+Requested index: 163, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 163
+Accessing index: 163, Dataset length: 304433
+Requested index: 225, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 225
+Accessing index: 225, Dataset length: 304433
+Requested index: 99, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 99
+Accessing index: 99, Dataset length: 304433Requested index: 34, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 34
+Accessing index: 34, Dataset length: 304433
+Requested index: 164, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 164
+Accessing index: 164, Dataset length: 304433
+Requested index: 226, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 226
+Accessing index: 226, Dataset length: 304433
+Requested index: 100, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 100
+Accessing index: 100, Dataset length: 304433
+Requested index: 35, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 35
+Accessing index: 35, Dataset length: 304433
+Requested index: 165, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 165
+Accessing index: 165, Dataset length: 304433
+Requested index: 227, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 227
+Accessing index: 227, Dataset length: 304433
+Requested index: 101, Dataset count: 3
+Requested index: 36, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 101
+Accessing index: 101, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 36
+Accessing index: 36, Dataset length: 304433
+Requested index: 166, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 166
+Accessing index: 166, Dataset length: 304433
+Requested index: 228, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 228
+Accessing index: 228, Dataset length: 304433
+Requested index: 37, Dataset count: 3Requested index: 102, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 37Local index within dataset: 102
+
+Accessing index: 37, Dataset length: 304433Accessing index: 102, Dataset length: 304433
+
+Requested index: 167, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 167
+Accessing index: 167, Dataset length: 304433
+Requested index: 229, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 229
+Accessing index: 229, Dataset length: 304433
+Requested index: 38, Dataset count: 3Requested index: 103, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 103Local index within dataset: 38
+
+Accessing index: 103, Dataset length: 304433Accessing index: 38, Dataset length: 304433
+
+Requested index: 168, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 168
+Accessing index: 168, Dataset length: 304433
+Requested index: 230, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 230
+Accessing index: 230, Dataset length: 304433
+Requested index: 104, Dataset count: 3Requested index: 39, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 39Local index within dataset: 104
+
+Accessing index: 39, Dataset length: 304433Accessing index: 104, Dataset length: 304433
+
+Requested index: 169, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 169
+Accessing index: 169, Dataset length: 304433
+Requested index: 231, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 231
+Accessing index: 231, Dataset length: 304433
+Requested index: 40, Dataset count: 3Requested index: 105, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 105Local index within dataset: 40
+
+Accessing index: 105, Dataset length: 304433Accessing index: 40, Dataset length: 304433
+
+Requested index: 170, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 170
+Accessing index: 170, Dataset length: 304433
+Requested index: 232, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 232
+Accessing index: 232, Dataset length: 304433
+Requested index: 106, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 106
+Accessing index: 106, Dataset length: 304433
+Requested index: 41, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 171, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 41
+Accessing index: 41, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 171
+Accessing index: 171, Dataset length: 304433
+Requested index: 233, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 233
+Accessing index: 233, Dataset length: 304433
+Requested index: 107, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 107
+Accessing index: 107, Dataset length: 304433
+Requested index: 42, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 42
+Accessing index: 42, Dataset length: 304433Requested index: 172, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 172
+Accessing index: 172, Dataset length: 304433
+Requested index: 234, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 234
+Accessing index: 234, Dataset length: 304433
+Requested index: 108, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 108
+Accessing index: 108, Dataset length: 304433
+Requested index: 43, Dataset count: 3
+Requested index: 173, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 43
+Accessing index: 43, Dataset length: 304433Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 173
+Accessing index: 173, Dataset length: 304433
+Requested index: 235, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 235
+Accessing index: 235, Dataset length: 304433
+Requested index: 109, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 109
+Accessing index: 109, Dataset length: 304433
+Requested index: 44, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 44
+Accessing index: 44, Dataset length: 304433
+Requested index: 174, Dataset count: 3
+Requested index: 236, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 174
+Accessing index: 174, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 236
+Accessing index: 236, Dataset length: 304433
+Requested index: 110, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 110
+Accessing index: 110, Dataset length: 304433
+Requested index: 45, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 45
+Accessing index: 45, Dataset length: 304433
+Requested index: 175, Dataset count: 3
+Requested index: 237, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 175
+Accessing index: 175, Dataset length: 304433Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 237
+Accessing index: 237, Dataset length: 304433
+Requested index: 111, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 111
+Accessing index: 111, Dataset length: 304433
+Requested index: 46, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 46
+Accessing index: 46, Dataset length: 304433
+Requested index: 176, Dataset count: 3
+Requested index: 238, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Cumulative lengths: [304433 473738 704392]
+
+Local index within dataset: 176
+Selected dataset index: 0Accessing index: 176, Dataset length: 304433
+
+Local index within dataset: 238
+Accessing index: 238, Dataset length: 304433
+Requested index: 112, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 112
+Accessing index: 112, Dataset length: 304433
+Requested index: 47, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 47
+Accessing index: 47, Dataset length: 304433
+Requested index: 177, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 177
+Accessing index: 177, Dataset length: 304433
+Requested index: 239, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 239
+Accessing index: 239, Dataset length: 304433
+Requested index: 113, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 113
+Accessing index: 113, Dataset length: 304433
+Requested index: 48, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 48
+Accessing index: 48, Dataset length: 304433
+Requested index: 178, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 178
+Accessing index: 178, Dataset length: 304433
+Requested index: 240, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 240
+Accessing index: 240, Dataset length: 304433
+Requested index: 114, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 114
+Accessing index: 114, Dataset length: 304433
+Requested index: 49, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 49
+Accessing index: 49, Dataset length: 304433
+Requested index: 179, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 179
+Accessing index: 179, Dataset length: 304433Requested index: 241, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 241
+Accessing index: 241, Dataset length: 304433
+Requested index: 115, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 115
+Accessing index: 115, Dataset length: 304433
+Requested index: 50, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 50
+Accessing index: 50, Dataset length: 304433
+Requested index: 180, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 180
+Accessing index: 180, Dataset length: 304433
+Requested index: 242, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 242
+Accessing index: 242, Dataset length: 304433
+Requested index: 116, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 116
+Accessing index: 116, Dataset length: 304433
+Requested index: 51, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 51
+Accessing index: 51, Dataset length: 304433
+Requested index: 181, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 181
+Accessing index: 181, Dataset length: 304433
+Requested index: 243, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 243
+Accessing index: 243, Dataset length: 304433
+Requested index: 117, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 117
+Accessing index: 117, Dataset length: 304433
+Requested index: 52, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 52
+Accessing index: 52, Dataset length: 304433
+Requested index: 244, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 244
+Accessing index: 244, Dataset length: 304433
+Requested index: 182, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 182
+Accessing index: 182, Dataset length: 304433
+Requested index: 118, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 118
+Accessing index: 118, Dataset length: 304433
+Requested index: 53, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 53
+Accessing index: 53, Dataset length: 304433
+Requested index: 245, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 245
+Accessing index: 245, Dataset length: 304433
+Requested index: 183, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 183
+Accessing index: 183, Dataset length: 304433
+Requested index: 119, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 119
+Accessing index: 119, Dataset length: 304433
+Requested index: 54, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 54
+Accessing index: 54, Dataset length: 304433
+Requested index: 246, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 246
+Accessing index: 246, Dataset length: 304433
+Requested index: 184, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 184
+Accessing index: 184, Dataset length: 304433
+Requested index: 120, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 120
+Accessing index: 120, Dataset length: 304433
+Requested index: 55, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 55
+Accessing index: 55, Dataset length: 304433
+Requested index: 247, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 247
+Accessing index: 247, Dataset length: 304433
+Requested index: 185, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 185
+Accessing index: 185, Dataset length: 304433
+Requested index: 121, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 121
+Accessing index: 121, Dataset length: 304433
+Requested index: 56, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 56
+Accessing index: 56, Dataset length: 304433
+Requested index: 248, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 248
+Accessing index: 248, Dataset length: 304433
+Requested index: 186, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 186
+Accessing index: 186, Dataset length: 304433
+Requested index: 122, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 122
+Accessing index: 122, Dataset length: 304433
+Requested index: 57, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 57
+Accessing index: 57, Dataset length: 304433
+Requested index: 249, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 249
+Accessing index: 249, Dataset length: 304433
+Requested index: 187, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 187
+Accessing index: 187, Dataset length: 304433
+Requested index: 123, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 123
+Accessing index: 123, Dataset length: 304433
+Requested index: 58, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 58
+Accessing index: 58, Dataset length: 304433
+Requested index: 250, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 250
+Accessing index: 250, Dataset length: 304433
+Requested index: 188, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 188
+Accessing index: 188, Dataset length: 304433
+Requested index: 124, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 124
+Accessing index: 124, Dataset length: 304433
+Requested index: 59, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 59
+Accessing index: 59, Dataset length: 304433
+Requested index: 251, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 251
+Accessing index: 251, Dataset length: 304433
+Requested index: 189, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 189
+Accessing index: 189, Dataset length: 304433
+Requested index: 125, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 60, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 125
+Accessing index: 125, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 60
+Accessing index: 60, Dataset length: 304433
+Requested index: 252, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 252
+Accessing index: 252, Dataset length: 304433
+Requested index: 190, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 190
+Accessing index: 190, Dataset length: 304433
+Requested index: 126, Dataset count: 3
+Requested index: 61, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 126
+Accessing index: 126, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 61
+Accessing index: 61, Dataset length: 304433
+Requested index: 253, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 253
+Accessing index: 253, Dataset length: 304433
+Requested index: 191, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 191
+Accessing index: 191, Dataset length: 304433
+Requested index: 127, Dataset count: 3
+Requested index: 62, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 127
+Accessing index: 127, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 62
+Accessing index: 62, Dataset length: 304433
+Requested index: 254, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 254
+Accessing index: 254, Dataset length: 304433
+Requested index: 63, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 63
+Accessing index: 63, Dataset length: 304433
+Requested index: 255, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 255
+Accessing index: 255, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 384, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 384
+Accessing index: 384, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 320, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 320
+Accessing index: 320, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 385, Dataset count: 3
+Mask shape before expansion: torch.Size([64, 256])
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 385
+Accessing index: 385, Dataset length: 304433
+Requested index: 256, Dataset count: 3
+Requested index: 448, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 256
+Accessing index: 256, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 448
+Accessing index: 448, Dataset length: 304433
+Requested index: 386, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 386
+Accessing index: 386, Dataset length: 304433
+Requested index: 257, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 257
+Accessing index: 257, Dataset length: 304433
+Requested index: 449, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 449
+Accessing index: 449, Dataset length: 304433
+Requested index: 387, Dataset count: 3
+Requested index: 258, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Selected dataset index: 0Local index within dataset: 258
+
+Local index within dataset: 387Accessing index: 258, Dataset length: 304433
+
+Accessing index: 387, Dataset length: 304433
+Requested index: 450, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 450
+Accessing index: 450, Dataset length: 304433
+Requested index: 321, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 321
+Accessing index: 321, Dataset length: 304433
+Requested index: 259, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 259
+Accessing index: 259, Dataset length: 304433
+Requested index: 388, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 388
+Accessing index: 388, Dataset length: 304433
+Requested index: 451, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 451
+Accessing index: 451, Dataset length: 304433
+Requested index: 322, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 322
+Accessing index: 322, Dataset length: 304433
+Requested index: 260, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 260
+Accessing index: 260, Dataset length: 304433
+Requested index: 389, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 389
+Accessing index: 389, Dataset length: 304433
+Requested index: 452, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 452
+Accessing index: 452, Dataset length: 304433
+Requested index: 323, Dataset count: 3
+Requested index: 261, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 323
+Accessing index: 323, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 261
+Accessing index: 261, Dataset length: 304433
+Requested index: 390, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 390
+Accessing index: 390, Dataset length: 304433
+Requested index: 453, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 453
+Accessing index: 453, Dataset length: 304433
+Requested index: 324, Dataset count: 3
+Requested index: 262, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Cumulative lengths: [304433 473738 704392]
+
+Local index within dataset: 324
+Selected dataset index: 0Accessing index: 324, Dataset length: 304433
+
+Local index within dataset: 262
+Accessing index: 262, Dataset length: 304433
+Requested index: 391, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 391
+Accessing index: 391, Dataset length: 304433
+Requested index: 454, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 454
+Accessing index: 454, Dataset length: 304433
+Requested index: 325, Dataset count: 3Requested index: 263, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 263Local index within dataset: 325
+
+Accessing index: 263, Dataset length: 304433Accessing index: 325, Dataset length: 304433
+
+Requested index: 392, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 392
+Accessing index: 392, Dataset length: 304433
+Requested index: 455, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 455
+Accessing index: 455, Dataset length: 304433
+Requested index: 326, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 264, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 326
+Accessing index: 326, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 264
+Accessing index: 264, Dataset length: 304433
+Requested index: 393, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 393
+Accessing index: 393, Dataset length: 304433
+Requested index: 456, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 456
+Accessing index: 456, Dataset length: 304433
+Requested index: 327, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 327
+Accessing index: 327, Dataset length: 304433
+Requested index: 265, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 265
+Accessing index: 265, Dataset length: 304433
+Requested index: 394, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 394
+Accessing index: 394, Dataset length: 304433
+Requested index: 457, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 457
+Accessing index: 457, Dataset length: 304433
+Requested index: 328, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 328
+Accessing index: 328, Dataset length: 304433
+Requested index: 266, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 266
+Accessing index: 266, Dataset length: 304433
+Requested index: 395, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 395
+Accessing index: 395, Dataset length: 304433
+Requested index: 458, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 458
+Accessing index: 458, Dataset length: 304433
+Requested index: 329, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 329
+Accessing index: 329, Dataset length: 304433
+Requested index: 267, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 267
+Accessing index: 267, Dataset length: 304433
+Requested index: 396, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 396
+Accessing index: 396, Dataset length: 304433
+Requested index: 459, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 459
+Accessing index: 459, Dataset length: 304433
+Requested index: 330, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 268, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 330
+Accessing index: 330, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 268
+Accessing index: 268, Dataset length: 304433
+Requested index: 397, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 397
+Accessing index: 397, Dataset length: 304433
+Requested index: 460, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 460
+Accessing index: 460, Dataset length: 304433
+Requested index: 331, Dataset count: 3
+Requested index: 269, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 331
+Accessing index: 331, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 269
+Accessing index: 269, Dataset length: 304433
+Requested index: 398, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 398
+Accessing index: 398, Dataset length: 304433
+Requested index: 461, Dataset count: 3Requested index: 270, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 270
+Accessing index: 270, Dataset length: 304433
+Requested index: 399, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 271, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 399
+Accessing index: 399, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 271
+Accessing index: 271, Dataset length: 304433
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 461
+Accessing index: 461, Dataset length: 304433
+Requested index: 272, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 272
+Accessing index: 272, Dataset length: 304433
+Requested index: 273, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 273
+Accessing index: 273, Dataset length: 304433
+Requested index: 462, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 462
+Accessing index: 462, Dataset length: 304433
+Requested index: 274, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 274Requested index: 463, Dataset count: 3
+Accessing index: 274, Dataset length: 304433
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 463
+Accessing index: 463, Dataset length: 304433
+Requested index: 275, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 275
+Accessing index: 275, Dataset length: 304433
+Requested index: 464, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 464
+Accessing index: 464, Dataset length: 304433
+Requested index: 276, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 276
+Accessing index: 276, Dataset length: 304433
+Requested index: 465, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 465
+Accessing index: 465, Dataset length: 304433
+Requested index: 277, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 277
+Accessing index: 277, Dataset length: 304433
+Requested index: 278, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 278
+Accessing index: 278, Dataset length: 304433
+Requested index: 466, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 466
+Accessing index: 466, Dataset length: 304433
+Requested index: 279, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 279
+Accessing index: 279, Dataset length: 304433
+Requested index: 467, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 467
+Accessing index: 467, Dataset length: 304433
+Requested index: 280, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 280
+Accessing index: 280, Dataset length: 304433
+Requested index: 468, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 468
+Accessing index: 468, Dataset length: 304433
+Requested index: 281, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 281
+Accessing index: 281, Dataset length: 304433
+Requested index: 332, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Requested index: 469, Dataset count: 3Local index within dataset: 332
+
+Accessing index: 332, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 469
+Accessing index: 469, Dataset length: 304433
+Requested index: 282, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Requested index: 333, Dataset count: 3Local index within dataset: 282Requested index: 470, Dataset count: 3
+
+
+Accessing index: 282, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Selected dataset index: 0Local index within dataset: 333
+
+Local index within dataset: 470Accessing index: 333, Dataset length: 304433
+
+Accessing index: 470, Dataset length: 304433
+Requested index: 471, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 471
+Accessing index: 471, Dataset length: 304433
+Requested index: 334, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 334
+Accessing index: 334, Dataset length: 304433
+Requested index: 283, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 283
+Accessing index: 283, Dataset length: 304433
+Requested index: 472, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 472
+Accessing index: 472, Dataset length: 304433
+Requested index: 335, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 335
+Accessing index: 335, Dataset length: 304433
+Requested index: 284, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Requested index: 473, Dataset count: 3Local index within dataset: 284
+
+Accessing index: 284, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 473
+Accessing index: 473, Dataset length: 304433
+Requested index: 336, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 336
+Accessing index: 336, Dataset length: 304433
+Requested index: 474, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 474
+Accessing index: 474, Dataset length: 304433
+Requested index: 285, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 285
+Accessing index: 285, Dataset length: 304433
+Requested index: 475, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 475
+Accessing index: 475, Dataset length: 304433
+Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Requested index: 286, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 286
+Accessing index: 286, Dataset length: 304433
+Requested index: 400, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Selected dataset index: 0
+Local index within dataset: 400
+Accessing index: 400, Dataset length: 304433
+Requested index: 476, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 476
+Accessing index: 476, Dataset length: 304433
+Requested index: 287, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 401, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 287
+Accessing index: 287, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 401
+Accessing index: 401, Dataset length: 304433
+Requested index: 477, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 477
+Accessing index: 477, Dataset length: 304433
+Requested index: 288, Dataset count: 3
+Requested index: 402, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 288
+Accessing index: 288, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 402
+Accessing index: 402, Dataset length: 304433
+Requested index: 478, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 478
+Accessing index: 478, Dataset length: 304433
+Requested index: 289, Dataset count: 3
+Requested index: 403, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 289
+Cumulative lengths: [304433 473738 704392]Accessing index: 289, Dataset length: 304433
+
+Selected dataset index: 0
+Local index within dataset: 403
+Accessing index: 403, Dataset length: 304433
+Requested index: 479, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 479
+Accessing index: 479, Dataset length: 304433
+Requested index: 290, Dataset count: 3
+Requested index: 404, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Requested index: 480, Dataset count: 3Local index within dataset: 290Local index within dataset: 404
+
+
+Accessing index: 290, Dataset length: 304433Accessing index: 404, Dataset length: 304433
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 480
+Accessing index: 480, Dataset length: 304433
+Requested index: 481, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 481
+Accessing index: 481, Dataset length: 304433
+Requested index: 291, Dataset count: 3Requested index: 405, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 291Local index within dataset: 405
+
+Accessing index: 291, Dataset length: 304433Accessing index: 405, Dataset length: 304433
+
+Requested index: 482, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 482
+Accessing index: 482, Dataset length: 304433
+Requested index: 292, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 292
+Accessing index: 292, Dataset length: 304433
+Requested index: 483, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 483
+Accessing index: 483, Dataset length: 304433
+Requested index: 406, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 406
+Accessing index: 406, Dataset length: 304433
+Requested index: 484, Dataset count: 3
+Requested index: 293, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 484
+Accessing index: 484, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 293
+Accessing index: 293, Dataset length: 304433
+Requested index: 407, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 407
+Accessing index: 407, Dataset length: 304433
+Requested index: 485, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 485
+Accessing index: 485, Dataset length: 304433
+Requested index: 294, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 294
+Accessing index: 294, Dataset length: 304433
+Requested index: 486, Dataset count: 3
+Requested index: 408, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 486
+Accessing index: 486, Dataset length: 304433Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 408
+Accessing index: 408, Dataset length: 304433
+Requested index: 295, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 295
+Accessing index: 295, Dataset length: 304433
+Requested index: 487, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 487
+Accessing index: 487, Dataset length: 304433
+Requested index: 409, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 409
+Accessing index: 409, Dataset length: 304433
+Requested index: 296, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 296
+Accessing index: 296, Dataset length: 304433
+Requested index: 488, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 488
+Accessing index: 488, Dataset length: 304433
+Requested index: 410, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 410
+Accessing index: 410, Dataset length: 304433
+Requested index: 297, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 297
+Accessing index: 297, Dataset length: 304433
+Requested index: 489, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 489
+Accessing index: 489, Dataset length: 304433
+Requested index: 411, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 411
+Accessing index: 411, Dataset length: 304433
+Requested index: 490, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 490
+Accessing index: 490, Dataset length: 304433
+Requested index: 298, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 298
+Accessing index: 298, Dataset length: 304433
+Requested index: 491, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 491
+Accessing index: 491, Dataset length: 304433
+Requested index: 412, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 412
+Accessing index: 412, Dataset length: 304433
+Requested index: 299, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 299
+Accessing index: 299, Dataset length: 304433
+Requested index: 492, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 492
+Accessing index: 492, Dataset length: 304433
+Requested index: 413, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 413
+Accessing index: 413, Dataset length: 304433
+Requested index: 300, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 300
+Accessing index: 300, Dataset length: 304433
+Requested index: 493, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 493
+Accessing index: 493, Dataset length: 304433
+Requested index: 301, Dataset count: 3
+Requested index: 414, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 301
+Accessing index: 301, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 414
+Accessing index: 414, Dataset length: 304433
+Requested index: 494, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 494
+Accessing index: 494, Dataset length: 304433
+Requested index: 302, Dataset count: 3
+Requested index: 495, Dataset count: 3
+Requested index: 415, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Cumulative lengths: [304433 473738 704392]Local index within dataset: 302
+
+Accessing index: 302, Dataset length: 304433Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+
+Local index within dataset: 495
+Selected dataset index: 0Accessing index: 495, Dataset length: 304433
+
+Local index within dataset: 415
+Accessing index: 415, Dataset length: 304433
+Requested index: 496, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 496
+Accessing index: 496, Dataset length: 304433
+Requested index: 303, Dataset count: 3
+Requested index: 416, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 303
+Accessing index: 303, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 416
+Accessing index: 416, Dataset length: 304433
+Requested index: 497, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 497
+Accessing index: 497, Dataset length: 304433
+Requested index: 304, Dataset count: 3
+Requested index: 417, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 304
+Accessing index: 304, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 417
+Accessing index: 417, Dataset length: 304433
+Requested index: 337, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 498, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 337
+Accessing index: 337, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 498
+Accessing index: 498, Dataset length: 304433
+Requested index: 418, Dataset count: 3Requested index: 305, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 305Local index within dataset: 418
+
+Accessing index: 305, Dataset length: 304433Accessing index: 418, Dataset length: 304433
+
+Requested index: 499, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 499
+Accessing index: 499, Dataset length: 304433
+Requested index: 338, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 338
+Accessing index: 338, Dataset length: 304433
+Requested index: 306, Dataset count: 3Requested index: 419, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 419Local index within dataset: 306
+
+Accessing index: 419, Dataset length: 304433Accessing index: 306, Dataset length: 304433
+
+Requested index: 500, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 500
+Accessing index: 500, Dataset length: 304433
+Requested index: 339, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 339
+Accessing index: 339, Dataset length: 304433
+Requested index: 307, Dataset count: 3
+Requested index: 420, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 307
+Accessing index: 307, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 420
+Accessing index: 420, Dataset length: 304433
+Requested index: 501, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 501
+Accessing index: 501, Dataset length: 304433
+Requested index: 340, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 340
+Accessing index: 340, Dataset length: 304433
+Requested index: 308, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 308
+Accessing index: 308, Dataset length: 304433
+Requested index: 502, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 502
+Accessing index: 502, Dataset length: 304433
+Requested index: 421, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 421
+Accessing index: 421, Dataset length: 304433
+Requested index: 309, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 309
+Accessing index: 309, Dataset length: 304433
+Requested index: 503, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 503
+Accessing index: 503, Dataset length: 304433
+Requested index: 310, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 310
+Accessing index: 310, Dataset length: 304433
+Requested index: 422, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 422
+Accessing index: 422, Dataset length: 304433
+Requested index: 504, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 504
+Accessing index: 504, Dataset length: 304433
+Requested index: 505, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Requested index: 311, Dataset count: 3
+Local index within dataset: 505
+
+Accessing index: 505, Dataset length: 304433
+Requested index: 423, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 311
+Accessing index: 311, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 423
+Accessing index: 423, Dataset length: 304433
+Requested index: 506, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 506
+Accessing index: 506, Dataset length: 304433
+Requested index: 312, Dataset count: 3
+Requested index: 424, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 312
+Accessing index: 312, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 424
+Accessing index: 424, Dataset length: 304433
+Requested index: 341, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 341
+Accessing index: 341, Dataset length: 304433
+Requested index: 507, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 507
+Accessing index: 507, Dataset length: 304433
+Requested index: 313, Dataset count: 3
+Requested index: 425, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Cumulative lengths: [304433 473738 704392]
+
+Local index within dataset: 313
+Selected dataset index: 0Accessing index: 313, Dataset length: 304433
+
+Local index within dataset: 425
+Accessing index: 425, Dataset length: 304433
+Requested index: 342, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 342
+Accessing index: 342, Dataset length: 304433
+Requested index: 508, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 508
+Accessing index: 508, Dataset length: 304433
+Requested index: 314, Dataset count: 3Requested index: 426, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 314Local index within dataset: 426
+
+Accessing index: 314, Dataset length: 304433Accessing index: 426, Dataset length: 304433
+
+Requested index: 509, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 509
+Accessing index: 509, Dataset length: 304433
+Requested index: 315, Dataset count: 3Requested index: 427, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 427Local index within dataset: 315
+
+Requested index: 510, Dataset count: 3Accessing index: 427, Dataset length: 304433Accessing index: 315, Dataset length: 304433
+
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 510
+Accessing index: 510, Dataset length: 304433
+Requested index: 511, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 511
+Accessing index: 511, Dataset length: 304433
+Requested index: 316, Dataset count: 3Requested index: 428, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 316Local index within dataset: 428
+
+Accessing index: 316, Dataset length: 304433Accessing index: 428, Dataset length: 304433
+
+Requested index: 317, Dataset count: 3Requested index: 429, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 317Local index within dataset: 429
+
+Accessing index: 317, Dataset length: 304433Accessing index: 429, Dataset length: 304433
+
+Requested index: 318, Dataset count: 3Requested index: 430, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 318Local index within dataset: 430
+
+Accessing index: 318, Dataset length: 304433Accessing index: 430, Dataset length: 304433
+
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 319, Dataset count: 3Requested index: 431, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 431Local index within dataset: 319
+
+Accessing index: 431, Dataset length: 304433Accessing index: 319, Dataset length: 304433
+
+Requested index: 432, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 432
+Accessing index: 432, Dataset length: 304433
+Requested index: 343, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 343
+Accessing index: 343, Dataset length: 304433
+Requested index: 344, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 344
+Accessing index: 344, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 345, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 345
+Accessing index: 345, Dataset length: 304433
+Requested index: 346, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 346
+Accessing index: 346, Dataset length: 304433
+Requested index: 433, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 433
+Accessing index: 433, Dataset length: 304433
+Requested index: 347, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 347
+Accessing index: 347, Dataset length: 304433
+Requested index: 348, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Requested index: 434, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 348
+Accessing index: 348, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 434
+Accessing index: 434, Dataset length: 304433
+Requested index: 512, Dataset count: 3
+Requested index: 349, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Cumulative lengths: [304433 473738 704392]
+
+Local index within dataset: 349
+Accessing index: 349, Dataset length: 304433Selected dataset index: 0
+
+Local index within dataset: 512
+Accessing index: 512, Dataset length: 304433
+Requested index: 435, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 435
+Accessing index: 435, Dataset length: 304433
+Requested index: 350, Dataset count: 3
+Requested index: 436, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Selected dataset index: 0Local index within dataset: 436
+
+Local index within dataset: 350Accessing index: 436, Dataset length: 304433
+
+Accessing index: 350, Dataset length: 304433
+Requested index: 513, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 513
+Accessing index: 513, Dataset length: 304433
+Requested index: 437, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 437
+Accessing index: 437, Dataset length: 304433
+Requested index: 351, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 351
+Accessing index: 351, Dataset length: 304433
+Requested index: 514, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 514
+Accessing index: 514, Dataset length: 304433
+Requested index: 438, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 438
+Accessing index: 438, Dataset length: 304433
+Requested index: 352, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 352
+Accessing index: 352, Dataset length: 304433
+Requested index: 515, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 515
+Accessing index: 515, Dataset length: 304433Requested index: 439, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 439
+Accessing index: 439, Dataset length: 304433
+Requested index: 440, Dataset count: 3
+Requested index: 353, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 440
+Accessing index: 440, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 353
+Accessing index: 353, Dataset length: 304433
+Requested index: 516, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 516
+Accessing index: 516, Dataset length: 304433
+Requested index: 441, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 441
+Accessing index: 441, Dataset length: 304433
+Requested index: 354, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 354
+Accessing index: 354, Dataset length: 304433
+Requested index: 517, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 517
+Accessing index: 517, Dataset length: 304433
+Requested index: 442, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 442
+Accessing index: 442, Dataset length: 304433
+Requested index: 355, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 355
+Accessing index: 355, Dataset length: 304433
+Requested index: 518, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 518
+Accessing index: 518, Dataset length: 304433
+Requested index: 443, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 443
+Accessing index: 443, Dataset length: 304433
+Requested index: 444, Dataset count: 3
+Requested index: 356, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 444Local index within dataset: 356
+
+Accessing index: 444, Dataset length: 304433Accessing index: 356, Dataset length: 304433
+
+Requested index: 519, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 519
+Accessing index: 519, Dataset length: 304433
+Requested index: 445, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 445
+Accessing index: 445, Dataset length: 304433
+Requested index: 357, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 357
+Accessing index: 357, Dataset length: 304433
+Requested index: 520, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 520
+Accessing index: 520, Dataset length: 304433
+Requested index: 446, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 446
+Accessing index: 446, Dataset length: 304433
+Requested index: 358, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 358
+Accessing index: 358, Dataset length: 304433
+Requested index: 521, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0Requested index: 447, Dataset count: 3
+Local index within dataset: 521
+
+Accessing index: 521, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 447
+Accessing index: 447, Dataset length: 304433
+Requested index: 359, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 359
+Accessing index: 359, Dataset length: 304433
+Requested index: 522, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 522
+Accessing index: 522, Dataset length: 304433
+Requested index: 360, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 360
+Accessing index: 360, Dataset length: 304433
+Requested index: 523, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 523
+Accessing index: 523, Dataset length: 304433
+Requested index: 361, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 361
+Accessing index: 361, Dataset length: 304433
+Requested index: 524, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 524
+Accessing index: 524, Dataset length: 304433Mask shape before expansion: torch.Size([64, 256])
+
+Requested index: 362, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 362
+Accessing index: 362, Dataset length: 304433
+Requested index: 525, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 525
+Accessing index: 525, Dataset length: 304433
+Requested index: 363, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 363
+Accessing index: 363, Dataset length: 304433
+Requested index: 526, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 526
+Accessing index: 526, Dataset length: 304433
+Requested index: 364, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 364
+Accessing index: 364, Dataset length: 304433
+Requested index: 527, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 527
+Accessing index: 527, Dataset length: 304433
+Requested index: 365, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 365
+Accessing index: 365, Dataset length: 304433
+Requested index: 528, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 528
+Accessing index: 528, Dataset length: 304433
+Requested index: 366, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 366
+Accessing index: 366, Dataset length: 304433
+Requested index: 529, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 529
+Accessing index: 529, Dataset length: 304433
+Requested index: 367, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 367
+Accessing index: 367, Dataset length: 304433
+Requested index: 530, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 530
+Accessing index: 530, Dataset length: 304433
+Requested index: 368, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 368
+Accessing index: 368, Dataset length: 304433
+Requested index: 531, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 531
+Accessing index: 531, Dataset length: 304433
+Requested index: 369, Dataset count: 3
+Requested index: 532, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 369
+Accessing index: 369, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 532
+Accessing index: 532, Dataset length: 304433
+Requested index: 370, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Requested index: 533, Dataset count: 3Local index within dataset: 370
+
+Accessing index: 370, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 533
+Accessing index: 533, Dataset length: 304433
+Requested index: 371, Dataset count: 3
+Requested index: 534, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 371
+Accessing index: 371, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 534
+Accessing index: 534, Dataset length: 304433
+Requested index: 372, Dataset count: 3
+Requested index: 535, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Cumulative lengths: [304433 473738 704392]Local index within dataset: 372
+
+Accessing index: 372, Dataset length: 304433Selected dataset index: 0
+
+Local index within dataset: 535
+Accessing index: 535, Dataset length: 304433
+Requested index: 536, Dataset count: 3Requested index: 373, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 536Local index within dataset: 373
+
+Accessing index: 536, Dataset length: 304433Accessing index: 373, Dataset length: 304433
+
+Requested index: 537, Dataset count: 3Requested index: 374, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 537Local index within dataset: 374
+
+Accessing index: 537, Dataset length: 304433Accessing index: 374, Dataset length: 304433
+
+Requested index: 375, Dataset count: 3Requested index: 538, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 538Local index within dataset: 375
+
+Accessing index: 538, Dataset length: 304433Accessing index: 375, Dataset length: 304433
+
+Requested index: 539, Dataset count: 3Requested index: 376, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 539Local index within dataset: 376
+
+Accessing index: 539, Dataset length: 304433Accessing index: 376, Dataset length: 304433
+
+Requested index: 377, Dataset count: 3Requested index: 540, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 540Local index within dataset: 377
+
+Accessing index: 540, Dataset length: 304433Accessing index: 377, Dataset length: 304433
+
+Requested index: 541, Dataset count: 3Requested index: 378, Dataset count: 3
+
+Cumulative lengths: [304433 473738 704392]Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0Selected dataset index: 0
+
+Local index within dataset: 541Local index within dataset: 378
+
+Accessing index: 541, Dataset length: 304433Accessing index: 378, Dataset length: 304433
+
+Requested index: 379, Dataset count: 3
+Requested index: 542, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 379
+Cumulative lengths: [304433 473738 704392]Accessing index: 379, Dataset length: 304433
+
+Selected dataset index: 0
+Local index within dataset: 542
+Accessing index: 542, Dataset length: 304433
+Requested index: 380, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 543, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 380
+Accessing index: 380, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 543
+Accessing index: 543, Dataset length: 304433
+Requested index: 381, Dataset count: 3
+Requested index: 544, Dataset count: 3Cumulative lengths: [304433 473738 704392]
+
+Selected dataset index: 0
+Local index within dataset: 381
+Accessing index: 381, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 544
+Accessing index: 544, Dataset length: 304433
+Requested index: 382, Dataset count: 3
+Requested index: 545, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 382Cumulative lengths: [304433 473738 704392]
+
+Accessing index: 382, Dataset length: 304433
+Selected dataset index: 0
+Local index within dataset: 545
+Accessing index: 545, Dataset length: 304433
+Requested index: 546, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]Requested index: 383, Dataset count: 3
+
+Selected dataset index: 0
+Local index within dataset: 546
+Accessing index: 546, Dataset length: 304433
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 383
+Accessing index: 383, Dataset length: 304433
+Requested index: 547, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 547
+Accessing index: 547, Dataset length: 304433
+Requested index: 548, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 548
+Accessing index: 548, Dataset length: 304433
+Requested index: 549, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 549
+Accessing index: 549, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 550, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 550
+Accessing index: 550, Dataset length: 304433
+Requested index: 551, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 551
+Accessing index: 551, Dataset length: 304433
+Requested index: 552, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 552
+Accessing index: 552, Dataset length: 304433
+Requested index: 553, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 553
+Accessing index: 553, Dataset length: 304433
+Requested index: 554, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 554
+Accessing index: 554, Dataset length: 304433
+Requested index: 555, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 555
+Accessing index: 555, Dataset length: 304433
+Requested index: 556, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 556
+Accessing index: 556, Dataset length: 304433
+Requested index: 557, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 557
+Accessing index: 557, Dataset length: 304433
+Requested index: 558, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 558
+Accessing index: 558, Dataset length: 304433
+Requested index: 559, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 559
+Accessing index: 559, Dataset length: 304433
+Requested index: 560, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 560
+Accessing index: 560, Dataset length: 304433
+Requested index: 561, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 561
+Accessing index: 561, Dataset length: 304433
+Requested index: 562, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 562
+Accessing index: 562, Dataset length: 304433
+Requested index: 563, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 563
+Accessing index: 563, Dataset length: 304433
+Requested index: 564, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 564
+Accessing index: 564, Dataset length: 304433
+Requested index: 565, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 565
+Accessing index: 565, Dataset length: 304433
+Requested index: 566, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 566
+Accessing index: 566, Dataset length: 304433
+Requested index: 567, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 567
+Accessing index: 567, Dataset length: 304433
+Requested index: 568, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 568
+Accessing index: 568, Dataset length: 304433
+Requested index: 569, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 569
+Accessing index: 569, Dataset length: 304433
+Requested index: 570, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 570
+Accessing index: 570, Dataset length: 304433
+Requested index: 571, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 571
+Accessing index: 571, Dataset length: 304433
+Requested index: 572, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 572
+Accessing index: 572, Dataset length: 304433
+Requested index: 573, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 573
+Accessing index: 573, Dataset length: 304433
+Requested index: 574, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 574
+Accessing index: 574, Dataset length: 304433
+Requested index: 575, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 575
+Accessing index: 575, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  2.54it/s]Requested index: 576, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 576
+Accessing index: 576, Dataset length: 304433
+Requested index: 577, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 577
+Accessing index: 577, Dataset length: 304433
+Requested index: 578, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 578
+Accessing index: 578, Dataset length: 304433
+Requested index: 579, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 579
+Accessing index: 579, Dataset length: 304433
+Requested index: 580, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 580
+Accessing index: 580, Dataset length: 304433
+Requested index: 581, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 581
+Accessing index: 581, Dataset length: 304433
+Requested index: 582, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 582
+Accessing index: 582, Dataset length: 304433
+Requested index: 583, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 583
+Accessing index: 583, Dataset length: 304433
+Requested index: 584, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 584
+Accessing index: 584, Dataset length: 304433
+Requested index: 585, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 585
+Accessing index: 585, Dataset length: 304433
+Requested index: 586, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 586
+Accessing index: 586, Dataset length: 304433
+Requested index: 587, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 587
+Accessing index: 587, Dataset length: 304433
+Requested index: 588, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 588
+Accessing index: 588, Dataset length: 304433
+Requested index: 589, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 589
+Accessing index: 589, Dataset length: 304433
+Requested index: 590, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 590
+Accessing index: 590, Dataset length: 304433
+Requested index: 591, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 591
+Accessing index: 591, Dataset length: 304433
+Requested index: 592, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 592
+Accessing index: 592, Dataset length: 304433
+Requested index: 593, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 593
+Accessing index: 593, Dataset length: 304433
+Requested index: 594, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 594
+Accessing index: 594, Dataset length: 304433
+Requested index: 595, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 595
+Accessing index: 595, Dataset length: 304433
+Requested index: 596, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 596
+Accessing index: 596, Dataset length: 304433
+Requested index: 597, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 597
+Accessing index: 597, Dataset length: 304433
+Requested index: 598, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 598
+Accessing index: 598, Dataset length: 304433
+Requested index: 599, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 599
+Accessing index: 599, Dataset length: 304433
+Requested index: 600, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 600
+Accessing index: 600, Dataset length: 304433
+Requested index: 601, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 601
+Accessing index: 601, Dataset length: 304433
+Requested index: 602, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 602
+Accessing index: 602, Dataset length: 304433
+Requested index: 603, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 603
+Accessing index: 603, Dataset length: 304433
+Requested index: 604, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 604
+Accessing index: 604, Dataset length: 304433
+Requested index: 605, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 605
+Accessing index: 605, Dataset length: 304433
+Requested index: 606, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 606
+Accessing index: 606, Dataset length: 304433
+Requested index: 607, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 607
+Accessing index: 607, Dataset length: 304433
+Requested index: 608, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 608
+Accessing index: 608, Dataset length: 304433
+Requested index: 609, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 609
+Accessing index: 609, Dataset length: 304433
+Requested index: 610, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 610
+Accessing index: 610, Dataset length: 304433
+Requested index: 611, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 611
+Accessing index: 611, Dataset length: 304433
+Requested index: 612, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 612
+Accessing index: 612, Dataset length: 304433
+Requested index: 613, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 613
+Accessing index: 613, Dataset length: 304433
+Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  4.72it/s]Requested index: 614, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 614
+Accessing index: 614, Dataset length: 304433
+Requested index: 615, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 615
+Accessing index: 615, Dataset length: 304433
+                                                                           Requested index: 616, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 616
+Accessing index: 616, Dataset length: 304433
+Requested index: 617, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 617
+Accessing index: 617, Dataset length: 304433
+Requested index: 618, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 618
+Accessing index: 618, Dataset length: 304433
+Requested index: 619, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 619
+Accessing index: 619, Dataset length: 304433
+Requested index: 620, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 620
+Accessing index: 620, Dataset length: 304433
+Requested index: 621, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 621
+Accessing index: 621, Dataset length: 304433
+Requested index: 622, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 622
+Accessing index: 622, Dataset length: 304433
+Requested index: 623, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 623
+Accessing index: 623, Dataset length: 304433
+Requested index: 624, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 624
+Accessing index: 624, Dataset length: 304433
+Requested index: 625, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 625
+Accessing index: 625, Dataset length: 304433
+Requested index: 626, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 626
+Accessing index: 626, Dataset length: 304433
+Requested index: 627, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 627
+Accessing index: 627, Dataset length: 304433
+Requested index: 628, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 628
+Accessing index: 628, Dataset length: 304433
+Requested index: 629, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 629
+Accessing index: 629, Dataset length: 304433
+Requested index: 630, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 630
+Accessing index: 630, Dataset length: 304433
+Requested index: 631, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 631
+Accessing index: 631, Dataset length: 304433
+Requested index: 632, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 632
+Accessing index: 632, Dataset length: 304433
+Requested index: 633, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 633
+Accessing index: 633, Dataset length: 304433
+Requested index: 634, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 634
+Accessing index: 634, Dataset length: 304433
+Requested index: 635, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 635
+Accessing index: 635, Dataset length: 304433
+Requested index: 636, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 636
+Accessing index: 636, Dataset length: 304433
+Requested index: 637, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 637
+Accessing index: 637, Dataset length: 304433
+Requested index: 638, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 638
+Accessing index: 638, Dataset length: 304433
+Requested index: 639, Dataset count: 3
+Cumulative lengths: [304433 473738 704392]
+Selected dataset index: 0
+Local index within dataset: 639
+Accessing index: 639, Dataset length: 304433
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 438655, Dataset count: 3
+Requested index: 161571, Dataset count: 3
+Requested index: 636053, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Cumulative lengths: [304081 473296 704939]Local index within dataset: 134574
+
+Accessing index: 134574, Dataset length: 169215
+Selected dataset index: 0
+Local index within dataset: 161571
+Accessing index: 161571, Dataset length: 304081
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 162757
+Accessing index: 162757, Dataset length: 231643
+Training: |          | 0/? [00:00<?, ?it/s]Requested index: 493659, Dataset count: 3
+Training:   0%|          | 0/11015 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/11015 [00:00<?, ?it/s] Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 20363
+Accessing index: 20363, Dataset length: 231643
+Requested index: 5716, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 5716
+Accessing index: 5716, Dataset length: 304081
+Requested index: 420582, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 116501
+Accessing index: 116501, Dataset length: 169215
+Requested index: 69043, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 69043
+Accessing index: 69043, Dataset length: 304081
+Requested index: 50867, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 50867
+Accessing index: 50867, Dataset length: 304081
+Requested index: 186349, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 186349
+Accessing index: 186349, Dataset length: 304081
+Requested index: 370436, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 66355
+Accessing index: 66355, Dataset length: 169215
+Requested index: 185302, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 185302
+Accessing index: 185302, Dataset length: 304081
+Requested index: 637669, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 164373
+Accessing index: 164373, Dataset length: 231643
+Requested index: 158880, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 158880
+Accessing index: 158880, Dataset length: 304081
+Requested index: 68787, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 68787
+Accessing index: 68787, Dataset length: 304081
+Requested index: 314168, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 10087
+Accessing index: 10087, Dataset length: 169215
+Requested index: 407735, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 103654
+Accessing index: 103654, Dataset length: 169215
+Requested index: 532773, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 59477
+Accessing index: 59477, Dataset length: 231643
+Requested index: 86449, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 86449
+Accessing index: 86449, Dataset length: 304081
+Requested index: 269318, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 269318
+Accessing index: 269318, Dataset length: 304081
+Requested index: 352128, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 48047
+Accessing index: 48047, Dataset length: 169215
+Requested index: 391707, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 87626
+Accessing index: 87626, Dataset length: 169215
+Requested index: 11821, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 11821
+Accessing index: 11821, Dataset length: 304081
+Requested index: 609324, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 136028
+Accessing index: 136028, Dataset length: 231643
+Requested index: 246271, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 246271
+Accessing index: 246271, Dataset length: 304081
+Requested index: 476966, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 3670
+Accessing index: 3670, Dataset length: 231643
+Requested index: 400667, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 96586
+Accessing index: 96586, Dataset length: 169215
+Requested index: 585799, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 112503
+Accessing index: 112503, Dataset length: 231643
+Requested index: 200736, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 200736
+Accessing index: 200736, Dataset length: 304081
+Requested index: 254414, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 254414
+Accessing index: 254414, Dataset length: 304081
+Requested index: 26056, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 26056
+Accessing index: 26056, Dataset length: 304081
+Requested index: 83042, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 83042
+Accessing index: 83042, Dataset length: 304081
+Requested index: 590389, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 117093
+Accessing index: 117093, Dataset length: 231643
+Requested index: 259779, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 259779
+Accessing index: 259779, Dataset length: 304081
+Requested index: 35015, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 35015
+Accessing index: 35015, Dataset length: 304081
+Requested index: 197102, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 197102
+Accessing index: 197102, Dataset length: 304081
+Requested index: 555250, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 81954
+Accessing index: 81954, Dataset length: 231643
+Requested index: 170780, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 170780
+Accessing index: 170780, Dataset length: 304081
+Requested index: 424294, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 120213
+Accessing index: 120213, Dataset length: 169215
+Requested index: 62872, Dataset count: 3
+Requested index: 667366, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]Cumulative lengths: [304081 473296 704939]
+
+Selected dataset index: 0Selected dataset index: 2
+
+Local index within dataset: 62872
+Local index within dataset: 194070
+Accessing index: 62872, Dataset length: 304081
+Accessing index: 194070, Dataset length: 231643
+Requested index: 402601, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 98520
+Accessing index: 98520, Dataset length: 169215
+Requested index: 246340, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 246340
+Accessing index: 246340, Dataset length: 304081
+Requested index: 146276, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 146276
+Accessing index: 146276, Dataset length: 304081
+Requested index: 193840, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 193840
+Accessing index: 193840, Dataset length: 304081
+Requested index: 286437, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 286437
+Accessing index: 286437, Dataset length: 304081
+Requested index: 81500, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 81500
+Accessing index: 81500, Dataset length: 304081
+Requested index: 494791, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 21495
+Accessing index: 21495, Dataset length: 231643
+Requested index: 648090, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 174794
+Accessing index: 174794, Dataset length: 231643
+Requested index: 212358, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 212358
+Accessing index: 212358, Dataset length: 304081
+Requested index: 176369, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 176369
+Accessing index: 176369, Dataset length: 304081
+Requested index: 422486, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 118405
+Accessing index: 118405, Dataset length: 169215
+Requested index: 402851, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 98770
+Accessing index: 98770, Dataset length: 169215
+Requested index: 556768, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 83472
+Accessing index: 83472, Dataset length: 231643
+Requested index: 15125, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 15125
+Accessing index: 15125, Dataset length: 304081
+Requested index: 171965, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 171965
+Accessing index: 171965, Dataset length: 304081
+Requested index: 152578, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 152578
+Accessing index: 152578, Dataset length: 304081
+Requested index: 263530, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 263530
+Accessing index: 263530, Dataset length: 304081
+Requested index: 125981, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 125981
+Accessing index: 125981, Dataset length: 304081
+Requested index: 148412, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 148412
+Accessing index: 148412, Dataset length: 304081
+Requested index: 115530, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 115530
+Accessing index: 115530, Dataset length: 304081
+Requested index: 356695, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 52614
+Accessing index: 52614, Dataset length: 169215
+Requested index: 56974, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 56974
+Accessing index: 56974, Dataset length: 304081
+Requested index: 545243, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 71947
+Accessing index: 71947, Dataset length: 231643
+Requested index: 150442, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 150442
+Accessing index: 150442, Dataset length: 304081
+Requested index: 651579, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 178283
+Accessing index: 178283, Dataset length: 231643
+Requested index: 678218, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 204922
+Accessing index: 204922, Dataset length: 231643
+Requested index: 27199, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 27199
+Accessing index: 27199, Dataset length: 304081
+Requested index: 94234, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 94234
+Accessing index: 94234, Dataset length: 304081
+Requested index: 409735, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 105654
+Accessing index: 105654, Dataset length: 169215
+Requested index: 504399, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 31103
+Accessing index: 31103, Dataset length: 231643
+Requested index: 371053, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 66972
+Accessing index: 66972, Dataset length: 169215
+Requested index: 373514, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 69433
+Accessing index: 69433, Dataset length: 169215
+Requested index: 704402, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 231106
+Accessing index: 231106, Dataset length: 231643
+Requested index: 248353, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 248353
+Accessing index: 248353, Dataset length: 304081
+Requested index: 186269, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 186269
+Accessing index: 186269, Dataset length: 304081
+Requested index: 402822, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 98741
+Accessing index: 98741, Dataset length: 169215
+Requested index: 614650, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 141354
+Accessing index: 141354, Dataset length: 231643
+Requested index: 89361, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 89361
+Accessing index: 89361, Dataset length: 304081
+Requested index: 377063, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 72982
+Accessing index: 72982, Dataset length: 169215
+Requested index: 599524, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 126228
+Accessing index: 126228, Dataset length: 231643
+Requested index: 86827, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 86827
+Accessing index: 86827, Dataset length: 304081
+Requested index: 159365, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 159365
+Accessing index: 159365, Dataset length: 304081
+Requested index: 111313, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 111313
+Accessing index: 111313, Dataset length: 304081
+Requested index: 330642, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 26561
+Accessing index: 26561, Dataset length: 169215
+Requested index: 20349, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 20349
+Accessing index: 20349, Dataset length: 304081
+Requested index: 112924, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 112924
+Accessing index: 112924, Dataset length: 304081
+Requested index: 468271, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 164190
+Accessing index: 164190, Dataset length: 169215
+Requested index: 419374, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 115293
+Accessing index: 115293, Dataset length: 169215
+Requested index: 207398, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 207398
+Accessing index: 207398, Dataset length: 304081
+Requested index: 391066, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 86985
+Accessing index: 86985, Dataset length: 169215
+Requested index: 428970, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 124889
+Accessing index: 124889, Dataset length: 169215
+Requested index: 669960, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 196664
+Accessing index: 196664, Dataset length: 231643
+Requested index: 45777, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 45777
+Accessing index: 45777, Dataset length: 304081
+Requested index: 38331, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 38331
+Accessing index: 38331, Dataset length: 304081
+Requested index: 147370, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 147370
+Accessing index: 147370, Dataset length: 304081
+Requested index: 236381, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 236381
+Accessing index: 236381, Dataset length: 304081
+Requested index: 78323, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 78323
+Accessing index: 78323, Dataset length: 304081
+Requested index: 90344, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 90344
+Accessing index: 90344, Dataset length: 304081
+Requested index: 14523, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 14523
+Accessing index: 14523, Dataset length: 304081
+Requested index: 437139, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 133058
+Accessing index: 133058, Dataset length: 169215
+Requested index: 615135, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 141839
+Accessing index: 141839, Dataset length: 231643
+Requested index: 494034, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 20738
+Accessing index: 20738, Dataset length: 231643
+Requested index: 181940, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 181940
+Accessing index: 181940, Dataset length: 304081
+Requested index: 85263, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 85263
+Accessing index: 85263, Dataset length: 304081
+Requested index: 212102, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 212102
+Accessing index: 212102, Dataset length: 304081
+Requested index: 496889, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 23593
+Accessing index: 23593, Dataset length: 231643
+Requested index: 265706, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 265706
+Accessing index: 265706, Dataset length: 304081
+Requested index: 367524, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 63443
+Accessing index: 63443, Dataset length: 169215
+Requested index: 241688, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 241688
+Accessing index: 241688, Dataset length: 304081
+Requested index: 73179, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 73179
+Accessing index: 73179, Dataset length: 304081
+Requested index: 383797, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 79716
+Accessing index: 79716, Dataset length: 169215
+Requested index: 125564, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 125564
+Accessing index: 125564, Dataset length: 304081
+Requested index: 149802, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 149802
+Accessing index: 149802, Dataset length: 304081
+Requested index: 573707, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 100411
+Accessing index: 100411, Dataset length: 231643
+Requested index: 99851, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 99851
+Accessing index: 99851, Dataset length: 304081
+Requested index: 206448, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 206448
+Accessing index: 206448, Dataset length: 304081
+Requested index: 427173, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 123092
+Accessing index: 123092, Dataset length: 169215
+Requested index: 683415, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 210119
+Accessing index: 210119, Dataset length: 231643
+Requested index: 669993, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 196697
+Accessing index: 196697, Dataset length: 231643
+Requested index: 140111, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 140111
+Accessing index: 140111, Dataset length: 304081
+Requested index: 289807, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 289807
+Accessing index: 289807, Dataset length: 304081
+Requested index: 414002, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 109921
+Accessing index: 109921, Dataset length: 169215
+Requested index: 244772, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 244772
+Accessing index: 244772, Dataset length: 304081
+Requested index: 136675, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 136675
+Accessing index: 136675, Dataset length: 304081
+Requested index: 177076, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 177076
+Accessing index: 177076, Dataset length: 304081
+Requested index: 13817, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 13817
+Accessing index: 13817, Dataset length: 304081
+Requested index: 566807, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 93511
+Accessing index: 93511, Dataset length: 231643
+Requested index: 522538, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 49242
+Accessing index: 49242, Dataset length: 231643
+Requested index: 218861, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 218861
+Accessing index: 218861, Dataset length: 304081
+Requested index: 536424, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 63128
+Accessing index: 63128, Dataset length: 231643
+Requested index: 616377, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 143081
+Accessing index: 143081, Dataset length: 231643
+Requested index: 643445, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 170149
+Accessing index: 170149, Dataset length: 231643
+Requested index: 364142, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 60061
+Accessing index: 60061, Dataset length: 169215
+Requested index: 1487, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 1487
+Accessing index: 1487, Dataset length: 304081
+Requested index: 56667, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 56667
+Accessing index: 56667, Dataset length: 304081
+Requested index: 319055, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 14974
+Accessing index: 14974, Dataset length: 169215
+Requested index: 464755, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 160674
+Accessing index: 160674, Dataset length: 169215
+Requested index: 547374, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 74078
+Accessing index: 74078, Dataset length: 231643
+Requested index: 567159, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 93863
+Accessing index: 93863, Dataset length: 231643
+Requested index: 431593, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 127512
+Accessing index: 127512, Dataset length: 169215
+Requested index: 517444, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 44148
+Accessing index: 44148, Dataset length: 231643
+Requested index: 703191, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 229895
+Accessing index: 229895, Dataset length: 231643
+Requested index: 201420, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 201420
+Accessing index: 201420, Dataset length: 304081
+Requested index: 421615, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 117534
+Accessing index: 117534, Dataset length: 169215
+Requested index: 99221, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 99221
+Accessing index: 99221, Dataset length: 304081
+Requested index: 269499, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 269499
+Accessing index: 269499, Dataset length: 304081
+Requested index: 545022, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 71726
+Accessing index: 71726, Dataset length: 231643
+Requested index: 542663, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 69367
+Accessing index: 69367, Dataset length: 231643
+Requested index: 148753, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 148753
+Accessing index: 148753, Dataset length: 304081
+Requested index: 428312, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 124231
+Accessing index: 124231, Dataset length: 169215
+Requested index: 582022, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 108726
+Accessing index: 108726, Dataset length: 231643
+Requested index: 557760, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 84464
+Accessing index: 84464, Dataset length: 231643
+Requested index: 126179, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 126179
+Accessing index: 126179, Dataset length: 304081
+Requested index: 46239, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 46239
+Accessing index: 46239, Dataset length: 304081
+Requested index: 32562, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 32562
+Accessing index: 32562, Dataset length: 304081
+Requested index: 185206, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 185206
+Accessing index: 185206, Dataset length: 304081
+Requested index: 663078, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 189782
+Accessing index: 189782, Dataset length: 231643
+Requested index: 45162, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 45162
+Accessing index: 45162, Dataset length: 304081
+Requested index: 285223, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 285223
+Accessing index: 285223, Dataset length: 304081
+Requested index: 521444, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 48148
+Accessing index: 48148, Dataset length: 231643
+Requested index: 460407, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 156326
+Accessing index: 156326, Dataset length: 169215
+Requested index: 172699, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 172699
+Accessing index: 172699, Dataset length: 304081
+Requested index: 269766, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 269766
+Accessing index: 269766, Dataset length: 304081
+Requested index: 516296, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 43000
+Accessing index: 43000, Dataset length: 231643
+Requested index: 80786, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 80786
+Accessing index: 80786, Dataset length: 304081
+Requested index: 106867, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 106867
+Accessing index: 106867, Dataset length: 304081
+Requested index: 252653, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 252653
+Accessing index: 252653, Dataset length: 304081
+Requested index: 29235, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 29235
+Accessing index: 29235, Dataset length: 304081
+Requested index: 49855, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 49855
+Accessing index: 49855, Dataset length: 304081
+Requested index: 543435, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 70139
+Accessing index: 70139, Dataset length: 231643
+Requested index: 65188, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 65188
+Accessing index: 65188, Dataset length: 304081
+Requested index: 430146, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 126065
+Accessing index: 126065, Dataset length: 169215
+Requested index: 540304, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 67008
+Accessing index: 67008, Dataset length: 231643
+Requested index: 687034, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 213738
+Accessing index: 213738, Dataset length: 231643
+Requested index: 45831, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 45831
+Accessing index: 45831, Dataset length: 304081
+Requested index: 406524, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 102443
+Accessing index: 102443, Dataset length: 169215
+Requested index: 396265, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 92184
+Accessing index: 92184, Dataset length: 169215
+Requested index: 547995, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 74699
+Accessing index: 74699, Dataset length: 231643
+Requested index: 542643, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 69347
+Accessing index: 69347, Dataset length: 231643
+Requested index: 189321, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 189321
+Accessing index: 189321, Dataset length: 304081
+Requested index: 415544, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 111463
+Accessing index: 111463, Dataset length: 169215
+Requested index: 252174, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 252174
+Accessing index: 252174, Dataset length: 304081
+Requested index: 286011, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 286011
+Accessing index: 286011, Dataset length: 304081
+Requested index: 546621, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 73325
+Accessing index: 73325, Dataset length: 231643
+Requested index: 64240, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 64240
+Accessing index: 64240, Dataset length: 304081
+Requested index: 536102, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 62806
+Accessing index: 62806, Dataset length: 231643
+Requested index: 572914, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 99618
+Accessing index: 99618, Dataset length: 231643
+Requested index: 356964, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 52883
+Accessing index: 52883, Dataset length: 169215
+Requested index: 199530, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Requested index: 381759, Dataset count: 3Selected dataset index: 0
+
+Local index within dataset: 199530
+Accessing index: 199530, Dataset length: 304081
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 77678
+Accessing index: 77678, Dataset length: 169215
+Requested index: 208036, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 208036
+Accessing index: 208036, Dataset length: 304081
+Requested index: 402244, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 98163
+Accessing index: 98163, Dataset length: 169215
+Requested index: 614428, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 141132
+Accessing index: 141132, Dataset length: 231643
+Requested index: 580029, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 106733
+Accessing index: 106733, Dataset length: 231643
+Requested index: 360906, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 56825
+Accessing index: 56825, Dataset length: 169215
+Requested index: 594454, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 121158
+Accessing index: 121158, Dataset length: 231643
+Requested index: 610628, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 137332
+Accessing index: 137332, Dataset length: 231643
+Requested index: 650111, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 176815
+Accessing index: 176815, Dataset length: 231643
+Requested index: 144136, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 144136
+Accessing index: 144136, Dataset length: 304081
+Requested index: 264361, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 264361
+Accessing index: 264361, Dataset length: 304081
+Requested index: 482131, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 8835
+Accessing index: 8835, Dataset length: 231643
+Requested index: 697160, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 223864
+Accessing index: 223864, Dataset length: 231643
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 650615, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 177319
+Accessing index: 177319, Dataset length: 231643
+Requested index: 391040, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 86959
+Accessing index: 86959, Dataset length: 169215
+Requested index: 99782, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 99782
+Accessing index: 99782, Dataset length: 304081
+Requested index: 477520, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 4224
+Accessing index: 4224, Dataset length: 231643
+Requested index: 110353, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 110353
+Accessing index: 110353, Dataset length: 304081
+Requested index: 492316, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 19020
+Accessing index: 19020, Dataset length: 231643
+Requested index: 333852, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 29771
+Accessing index: 29771, Dataset length: 169215
+Requested index: 159011, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 159011
+Accessing index: 159011, Dataset length: 304081
+Requested index: 266168, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 266168
+Accessing index: 266168, Dataset length: 304081
+Requested index: 66533, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 66533
+Accessing index: 66533, Dataset length: 304081
+Batch 0: train_loss=0.2807
+
+prob Requested index: 395337, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 91256
+Accessing index: 91256, Dataset length: 169215
+Requested index: 234576, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 234576
+Accessing index: 234576, Dataset length: 304081
+Requested index: 394682, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 90601
+Accessing index: 90601, Dataset length: 169215
+Requested index: 296013, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 296013
+Accessing index: 296013, Dataset length: 304081
+Requested index: 345966, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 41885
+Accessing index: 41885, Dataset length: 169215
+Requested index: 387120, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 83039
+Accessing index: 83039, Dataset length: 169215
+Requested index: 54490, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 54490
+Accessing index: 54490, Dataset length: 304081
+Requested index: 159693, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 159693
+Accessing index: 159693, Dataset length: 304081
+Requested index: 112990, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 112990
+Accessing index: 112990, Dataset length: 304081
+Requested index: 179781, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 179781
+Accessing index: 179781, Dataset length: 304081
+Requested index: 212877, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 212877
+Accessing index: 212877, Dataset length: 304081
+Requested index: 109258, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 109258
+Accessing index: 109258, Dataset length: 304081
+Requested index: 355966, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 51885
+Accessing index: 51885, Dataset length: 169215
+Requested index: 337649, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 33568
+Accessing index: 33568, Dataset length: 169215
+Requested index: 299684, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 299684
+Accessing index: 299684, Dataset length: 304081
+Requested index: 604010, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 130714
+Accessing index: 130714, Dataset length: 231643
+Requested index: 638200, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 164904
+Accessing index: 164904, Dataset length: 231643
+Requested index: 14494, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 14494
+Accessing index: 14494, Dataset length: 304081
+tensor([[-0.1250,  0.7471,  0.3354],
+        [ 0.0815,  0.6492,  0.4003],
+        [ 0.2646,  0.6951,  0.4334],
+        [ 0.3544,  0.7155,  0.4529],
+        [ 0.4981,  0.6973,  0.4158],
+        [ 0.0273,  0.5716,  0.2629],
+        [ 0.3842,  0.6999,  0.3962],
+        [-0.1494,  0.7383,  0.2870],
+        [-0.0767,  0.6645,  0.3700],
+        [-0.1653,  0.7052,  0.4181],
+        [ 0.0786,  0.6662,  0.4072],
+        [ 0.0705,  0.6534,  0.3779],
+        [ 0.2001,  0.7267,  0.3241],
+        [-0.0792,  0.5857,  0.2731],
+        [-0.2711,  0.7358,  0.3191],
+        [ 0.2607,  0.7665,  0.3787],
+        [-0.2011,  0.6718,  0.3345],
+        [ 0.1095,  0.6328,  0.3993],
+        [ 0.0474,  0.6685,  0.3277],
+        [-0.1629,  0.6562,  0.3451],
+        [ 0.2878,  0.6911,  0.4414],
+        [ 0.4603,  0.7678,  0.4208],
+        [ 0.1919,  0.6807,  0.4638],
+        [-0.1294,  0.6848,  0.2528],
+        [ 0.4660,  0.7846,  0.3548],
+        [ 0.2057,  0.7500,  0.3571],
+        [-0.0527,  0.6864,  0.3935],
+        [ 0.3207,  0.4479,  0.3705],
+        [ 0.1581,  0.6466,  0.3897],
+        [-0.1148,  0.7050,  0.3656],
+        [ 0.2550,  0.6240,  0.3636],
+        [ 0.2486,  0.7487,  0.3401],
+        [-0.9389,  0.9618,  0.2340],
+        [ 0.1360,  0.6765,  0.4378],
+        [ 0.4062,  0.7852,  0.4704],
+        [-0.1621,  0.6707,  0.2859],
+        [ 0.1693,  0.7100,  0.4815],
+        [ 0.2324,  0.6493,  0.3752],
+        [-0.0584,  0.6517,  0.3626],
+        [-0.1445,  0.4704,  0.1722],
+        [-0.0940,  0.6682,  0.3476],
+        [-0.0534,  0.5846,  0.3239],
+        [ 0.3806,  0.7859,  0.4221],
+        [-0.0104,  0.6334,  0.3545],
+        [ 0.4590,  0.7011,  0.5286],
+        [-0.8212,  0.8873,  0.2723],
+        [-0.9352,  0.9862,  0.1886],
+        [-0.0560,  0.6256,  0.3006],
+        [-0.0359,  0.6209,  0.2959],
+        [-0.0412,  0.7732,  0.2382],
+        [ 0.0578,  0.7191,  0.3510],
+        [ 0.2185,  0.7323,  0.4077],
+        [ 0.0936,  0.6915,  0.3690],
+        [ 0.4017,  0.7621,  0.3759],
+        [ 0.1524,  0.6289,  0.3990],
+        [-0.1533,  0.6522,  0.3703],
+        [ 0.0446,  0.6323,  0.4063],
+        [ 0.2543,  0.6389,  0.3287],
+        [-1.0319,  1.0809,  0.1848],
+        [-0.2198,  0.6263,  0.3010],
+        [ 0.0511,  0.6342,  0.3783],
+        [ 0.3522,  0.7863,  0.3710],
+        [ 0.1644,  0.5228,  0.2780],
+        [ 0.0902,  0.6848,  0.3021]], device='cuda:0',
+       grad_fn=<AddmmBackward0>)
+target Requested index: 564211, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 90915
+Accessing index: 90915, Dataset length: 231643
+tensor([[1., 0., 0.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [1., 0., 0.],
+        [1., 0., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 0., 1.],
+        [1., 0., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 0., 1.],
+        [1., 0., 0.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 0., 1.],
+        [0., 0., 1.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 0., 1.],
+        [0., 0., 1.],
+        [1., 0., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [0., 1., 0.],
+        [1., 0., 0.],
+        [0., 0., 1.],
+        [0., 0., 1.],
+        [0., 1., 0.],
+        [0., 0., 1.]], device='cuda:0')
+Requested index: 401916, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 97835
+Accessing index: 97835, Dataset length: 169215
+Requested index: 280024, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 280024
+Accessing index: 280024, Dataset length: 304081
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 84518, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 84518
+Accessing index: 84518, Dataset length: 304081
+Requested index: 422479, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 118398
+Accessing index: 118398, Dataset length: 169215
+Requested index: 292256, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 292256
+Accessing index: 292256, Dataset length: 304081
+Requested index: 683450, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 210154
+Accessing index: 210154, Dataset length: 231643
+Requested index: 551593, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 78297
+Accessing index: 78297, Dataset length: 231643
+Requested index: 155954, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 155954
+Accessing index: 155954, Dataset length: 304081
+Requested index: 542206, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 68910
+Accessing index: 68910, Dataset length: 231643
+Requested index: 644170, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 170874
+Accessing index: 170874, Dataset length: 231643
+Requested index: 263499, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 263499
+Accessing index: 263499, Dataset length: 304081
+Requested index: 114532, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 114532
+Accessing index: 114532, Dataset length: 304081
+Requested index: 209780, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 209780
+Accessing index: 209780, Dataset length: 304081
+Requested index: 393311, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 89230
+Accessing index: 89230, Dataset length: 169215
+Requested index: 130512, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 130512
+Accessing index: 130512, Dataset length: 304081
+Requested index: 519310, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 46014
+Accessing index: 46014, Dataset length: 231643
+Requested index: 476130, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 2834
+Accessing index: 2834, Dataset length: 231643
+Requested index: 407193, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 103112
+Accessing index: 103112, Dataset length: 169215
+Requested index: 631190, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 157894
+Accessing index: 157894, Dataset length: 231643
+Requested index: 409542, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 105461
+Accessing index: 105461, Dataset length: 169215
+Mask shape before expansion: torch.Size([64, 256])
+Requested index: 442866, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 138785
+Accessing index: 138785, Dataset length: 169215
+Requested index: 632264, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 158968
+Accessing index: 158968, Dataset length: 231643
+Requested index: 451520, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 147439
+Accessing index: 147439, Dataset length: 169215
+Requested index: 375852, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 71771
+Accessing index: 71771, Dataset length: 169215
+Requested index: 627263, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 153967
+Accessing index: 153967, Dataset length: 231643
+Requested index: 153069, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 153069
+Accessing index: 153069, Dataset length: 304081
+Requested index: 350390, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 46309
+Accessing index: 46309, Dataset length: 169215
+Requested index: 417769, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 113688
+Accessing index: 113688, Dataset length: 169215
+Requested index: 402647, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 98566
+Accessing index: 98566, Dataset length: 169215
+Requested index: 518133, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 44837
+Accessing index: 44837, Dataset length: 231643
+Requested index: 201785, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 201785
+Accessing index: 201785, Dataset length: 304081
+Requested index: 602393, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 129097
+Accessing index: 129097, Dataset length: 231643
+Requested index: 327051, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 22970
+Accessing index: 22970, Dataset length: 169215
+Requested index: 72688, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 72688
+Accessing index: 72688, Dataset length: 304081
+Requested index: 581422, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 108126
+Accessing index: 108126, Dataset length: 231643
+Requested index: 181816, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 181816
+Accessing index: 181816, Dataset length: 304081
+Requested index: 76606, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 76606
+Accessing index: 76606, Dataset length: 304081
+Requested index: 583074, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 109778
+Accessing index: 109778, Dataset length: 231643
+Requested index: 367264, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 63183
+Accessing index: 63183, Dataset length: 169215
+Requested index: 289478, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 289478
+Accessing index: 289478, Dataset length: 304081
+Requested index: 134682, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 134682
+Accessing index: 134682, Dataset length: 304081
+Requested index: 50517, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 50517
+Accessing index: 50517, Dataset length: 304081
+Requested index: 188807, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 188807
+Accessing index: 188807, Dataset length: 304081
+Requested index: 703696, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 230400
+Accessing index: 230400, Dataset length: 231643
+Requested index: 107009, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 107009
+Accessing index: 107009, Dataset length: 304081
+Requested index: 486693, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 13397
+Accessing index: 13397, Dataset length: 231643
+Requested index: 323602, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 19521
+Accessing index: 19521, Dataset length: 169215
+Requested index: 398852, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 94771
+Accessing index: 94771, Dataset length: 169215
+Requested index: 555850, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 82554
+Accessing index: 82554, Dataset length: 231643
+Requested index: 239856, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 239856
+Accessing index: 239856, Dataset length: 304081
+Requested index: 376702, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 1
+Local index within dataset: 72621
+Accessing index: 72621, Dataset length: 169215
+Requested index: 639728, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 166432
+Accessing index: 166432, Dataset length: 231643
+Requested index: 150065, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 0
+Local index within dataset: 150065
+Accessing index: 150065, Dataset length: 304081
+Requested index: 696880, Dataset count: 3
+Cumulative lengths: [304081 473296 704939]
+Selected dataset index: 2
+Local index within dataset: 223584
+Accessing index: 223584, Dataset length: 231643

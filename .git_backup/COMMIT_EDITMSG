@@ -1,0 +1,1 @@
+first stage of refactorisation completed. The dataset reads data from different part. The datamodule instantiate the dataloader objects. The model structure underwent modification according to Luc's model

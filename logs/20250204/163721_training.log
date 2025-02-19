@@ -1,0 +1,417 @@
+2025-02-04 16:37:31,362 - INFO - Starting training with the following parameters:
+2025-02-04 16:37:31,363 - INFO - | Parameter       | Value               |
+|-----------------|---------------------|
+| attention       | XFormers       |
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 128            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 0.001          |
+| epochs          | 100            |
+| batch_size      | 32             |
+
+2025-02-04 16:37:31,957 - INFO - Epoch 0: val_loss=1.9189, val_acc=0.00%
+2025-02-04 16:37:32,100 - INFO - ####################Training epoch 0####################
+2025-02-04 16:37:32,188 - INFO - Epoch 0: train_loss=1.3210
+2025-02-04 16:37:32,530 - INFO - Epoch 0: val_loss=1.2029, val_acc=33.33%
+2025-02-04 16:37:32,534 - INFO - Epoch 0: EPOCH_AVG_TRAIN_LOSS=1.3210
+2025-02-04 16:37:32,561 - INFO - ####################Training epoch 1####################
+2025-02-04 16:37:32,795 - INFO - Epoch 1: train_loss=1.1125
+2025-02-04 16:37:33,081 - INFO - Epoch 1: val_loss=0.8793, val_acc=66.67%
+2025-02-04 16:37:33,085 - INFO - Epoch 1: EPOCH_AVG_TRAIN_LOSS=1.1125
+2025-02-04 16:37:33,109 - INFO - ####################Training epoch 2####################
+2025-02-04 16:37:33,346 - INFO - Epoch 2: train_loss=1.1471
+2025-02-04 16:37:33,634 - INFO - Epoch 2: val_loss=0.8731, val_acc=66.67%
+2025-02-04 16:37:33,638 - INFO - Epoch 2: EPOCH_AVG_TRAIN_LOSS=1.1471
+2025-02-04 16:37:33,662 - INFO - ####################Training epoch 3####################
+2025-02-04 16:37:33,906 - INFO - Epoch 3: train_loss=1.1514
+2025-02-04 16:37:34,197 - INFO - Epoch 3: val_loss=0.9292, val_acc=66.67%
+2025-02-04 16:37:34,201 - INFO - Epoch 3: EPOCH_AVG_TRAIN_LOSS=1.1514
+2025-02-04 16:37:34,227 - INFO - ####################Training epoch 4####################
+2025-02-04 16:37:34,466 - INFO - Epoch 4: train_loss=1.1078
+2025-02-04 16:37:34,753 - INFO - Epoch 4: val_loss=1.0553, val_acc=66.67%
+2025-02-04 16:37:34,756 - INFO - Epoch 4: EPOCH_AVG_TRAIN_LOSS=1.1078
+2025-02-04 16:37:34,760 - INFO - ####################Training epoch 5####################
+2025-02-04 16:37:35,002 - INFO - Epoch 5: train_loss=1.0809
+2025-02-04 16:37:35,288 - INFO - Epoch 5: val_loss=1.1929, val_acc=0.00%
+2025-02-04 16:37:35,292 - INFO - Epoch 5: EPOCH_AVG_TRAIN_LOSS=1.0809
+2025-02-04 16:37:35,295 - INFO - ####################Training epoch 6####################
+2025-02-04 16:37:35,535 - INFO - Epoch 6: train_loss=1.0937
+2025-02-04 16:37:35,824 - INFO - Epoch 6: val_loss=1.2261, val_acc=0.00%
+2025-02-04 16:37:35,828 - INFO - Epoch 6: EPOCH_AVG_TRAIN_LOSS=1.0937
+2025-02-04 16:37:35,831 - INFO - ####################Training epoch 7####################
+2025-02-04 16:37:36,075 - INFO - Epoch 7: train_loss=1.0972
+2025-02-04 16:37:36,366 - INFO - Epoch 7: val_loss=1.1803, val_acc=0.00%
+2025-02-04 16:37:36,370 - INFO - Epoch 7: EPOCH_AVG_TRAIN_LOSS=1.0972
+2025-02-04 16:37:36,374 - INFO - ####################Training epoch 8####################
+2025-02-04 16:37:36,613 - INFO - Epoch 8: train_loss=1.0877
+2025-02-04 16:37:36,901 - INFO - Epoch 8: val_loss=1.0837, val_acc=33.33%
+2025-02-04 16:37:36,905 - INFO - Epoch 8: EPOCH_AVG_TRAIN_LOSS=1.0877
+2025-02-04 16:37:36,908 - INFO - ####################Training epoch 9####################
+2025-02-04 16:37:37,146 - INFO - Epoch 9: train_loss=1.0784
+2025-02-04 16:37:37,433 - INFO - Epoch 9: val_loss=1.0393, val_acc=66.67%
+2025-02-04 16:37:37,436 - INFO - Epoch 9: EPOCH_AVG_TRAIN_LOSS=1.0784
+2025-02-04 16:37:37,440 - INFO - ####################Training epoch 10####################
+2025-02-04 16:37:37,688 - INFO - Epoch 10: train_loss=1.0765
+2025-02-04 16:37:37,984 - INFO - Epoch 10: val_loss=1.0066, val_acc=66.67%
+2025-02-04 16:37:37,988 - INFO - Epoch 10: EPOCH_AVG_TRAIN_LOSS=1.0765
+2025-02-04 16:37:37,992 - INFO - ####################Training epoch 11####################
+2025-02-04 16:37:38,235 - INFO - Epoch 11: train_loss=1.0772
+2025-02-04 16:37:38,523 - INFO - Epoch 11: val_loss=0.9890, val_acc=66.67%
+2025-02-04 16:37:38,527 - INFO - Epoch 11: EPOCH_AVG_TRAIN_LOSS=1.0772
+2025-02-04 16:37:38,531 - INFO - ####################Training epoch 12####################
+2025-02-04 16:37:38,773 - INFO - Epoch 12: train_loss=1.0781
+2025-02-04 16:37:39,068 - INFO - Epoch 12: val_loss=0.9877, val_acc=66.67%
+2025-02-04 16:37:39,071 - INFO - Epoch 12: EPOCH_AVG_TRAIN_LOSS=1.0781
+2025-02-04 16:37:39,075 - INFO - ####################Training epoch 13####################
+2025-02-04 16:37:39,316 - INFO - Epoch 13: train_loss=1.0762
+2025-02-04 16:37:39,609 - INFO - Epoch 13: val_loss=0.9991, val_acc=66.67%
+2025-02-04 16:37:39,612 - INFO - Epoch 13: EPOCH_AVG_TRAIN_LOSS=1.0762
+2025-02-04 16:37:39,616 - INFO - ####################Training epoch 14####################
+2025-02-04 16:37:39,857 - INFO - Epoch 14: train_loss=1.0729
+2025-02-04 16:37:40,146 - INFO - Epoch 14: val_loss=1.0208, val_acc=66.67%
+2025-02-04 16:37:40,150 - INFO - Epoch 14: EPOCH_AVG_TRAIN_LOSS=1.0729
+2025-02-04 16:37:40,153 - INFO - ####################Training epoch 15####################
+2025-02-04 16:37:40,397 - INFO - Epoch 15: train_loss=1.0694
+2025-02-04 16:37:40,690 - INFO - Epoch 15: val_loss=1.0340, val_acc=66.67%
+2025-02-04 16:37:40,693 - INFO - Epoch 15: EPOCH_AVG_TRAIN_LOSS=1.0694
+2025-02-04 16:37:40,697 - INFO - ####################Training epoch 16####################
+2025-02-04 16:37:40,941 - INFO - Epoch 16: train_loss=1.0677
+2025-02-04 16:37:41,234 - INFO - Epoch 16: val_loss=1.0483, val_acc=33.33%
+2025-02-04 16:37:41,237 - INFO - Epoch 16: EPOCH_AVG_TRAIN_LOSS=1.0677
+2025-02-04 16:37:41,240 - INFO - ####################Training epoch 17####################
+2025-02-04 16:37:41,485 - INFO - Epoch 17: train_loss=1.0657
+2025-02-04 16:37:41,776 - INFO - Epoch 17: val_loss=1.0619, val_acc=66.67%
+2025-02-04 16:37:41,780 - INFO - Epoch 17: EPOCH_AVG_TRAIN_LOSS=1.0657
+2025-02-04 16:37:41,783 - INFO - ####################Training epoch 18####################
+2025-02-04 16:37:42,035 - INFO - Epoch 18: train_loss=1.0643
+2025-02-04 16:37:42,327 - INFO - Epoch 18: val_loss=1.0733, val_acc=33.33%
+2025-02-04 16:37:42,331 - INFO - Epoch 18: EPOCH_AVG_TRAIN_LOSS=1.0643
+2025-02-04 16:37:42,334 - INFO - ####################Training epoch 19####################
+2025-02-04 16:37:42,576 - INFO - Epoch 19: train_loss=1.0637
+2025-02-04 16:37:42,865 - INFO - Epoch 19: val_loss=1.0829, val_acc=33.33%
+2025-02-04 16:37:42,869 - INFO - Epoch 19: EPOCH_AVG_TRAIN_LOSS=1.0637
+2025-02-04 16:37:42,873 - INFO - ####################Training epoch 20####################
+2025-02-04 16:37:43,116 - INFO - Epoch 20: train_loss=1.0618
+2025-02-04 16:37:43,407 - INFO - Epoch 20: val_loss=1.0865, val_acc=33.33%
+2025-02-04 16:37:43,410 - INFO - Epoch 20: EPOCH_AVG_TRAIN_LOSS=1.0618
+2025-02-04 16:37:43,413 - INFO - ####################Training epoch 21####################
+2025-02-04 16:37:43,660 - INFO - Epoch 21: train_loss=1.0605
+2025-02-04 16:37:43,953 - INFO - Epoch 21: val_loss=1.0848, val_acc=33.33%
+2025-02-04 16:37:43,956 - INFO - Epoch 21: EPOCH_AVG_TRAIN_LOSS=1.0605
+2025-02-04 16:37:43,960 - INFO - ####################Training epoch 22####################
+2025-02-04 16:37:44,203 - INFO - Epoch 22: train_loss=1.0604
+2025-02-04 16:37:44,493 - INFO - Epoch 22: val_loss=1.0827, val_acc=33.33%
+2025-02-04 16:37:44,497 - INFO - Epoch 22: EPOCH_AVG_TRAIN_LOSS=1.0604
+2025-02-04 16:37:44,500 - INFO - ####################Training epoch 23####################
+2025-02-04 16:37:44,746 - INFO - Epoch 23: train_loss=1.0592
+2025-02-04 16:37:45,040 - INFO - Epoch 23: val_loss=1.0790, val_acc=33.33%
+2025-02-04 16:37:45,043 - INFO - Epoch 23: EPOCH_AVG_TRAIN_LOSS=1.0592
+2025-02-04 16:37:45,046 - INFO - ####################Training epoch 24####################
+2025-02-04 16:37:45,289 - INFO - Epoch 24: train_loss=1.0580
+2025-02-04 16:37:45,580 - INFO - Epoch 24: val_loss=1.0741, val_acc=33.33%
+2025-02-04 16:37:45,584 - INFO - Epoch 24: EPOCH_AVG_TRAIN_LOSS=1.0580
+2025-02-04 16:37:45,588 - INFO - ####################Training epoch 25####################
+2025-02-04 16:37:45,832 - INFO - Epoch 25: train_loss=1.0568
+2025-02-04 16:37:46,122 - INFO - Epoch 25: val_loss=1.0685, val_acc=33.33%
+2025-02-04 16:37:46,126 - INFO - Epoch 25: EPOCH_AVG_TRAIN_LOSS=1.0568
+2025-02-04 16:37:46,129 - INFO - ####################Training epoch 26####################
+2025-02-04 16:37:46,372 - INFO - Epoch 26: train_loss=1.0547
+2025-02-04 16:37:46,662 - INFO - Epoch 26: val_loss=1.0625, val_acc=66.67%
+2025-02-04 16:37:46,665 - INFO - Epoch 26: EPOCH_AVG_TRAIN_LOSS=1.0547
+2025-02-04 16:37:46,669 - INFO - ####################Training epoch 27####################
+2025-02-04 16:37:46,912 - INFO - Epoch 27: train_loss=1.0552
+2025-02-04 16:37:47,203 - INFO - Epoch 27: val_loss=1.0595, val_acc=66.67%
+2025-02-04 16:37:47,207 - INFO - Epoch 27: EPOCH_AVG_TRAIN_LOSS=1.0552
+2025-02-04 16:37:47,210 - INFO - ####################Training epoch 28####################
+2025-02-04 16:37:47,451 - INFO - Epoch 28: train_loss=1.0544
+2025-02-04 16:37:47,735 - INFO - Epoch 28: val_loss=1.0566, val_acc=66.67%
+2025-02-04 16:37:47,739 - INFO - Epoch 28: EPOCH_AVG_TRAIN_LOSS=1.0544
+2025-02-04 16:37:47,742 - INFO - ####################Training epoch 29####################
+2025-02-04 16:37:47,983 - INFO - Epoch 29: train_loss=1.0537
+2025-02-04 16:37:48,273 - INFO - Epoch 29: val_loss=1.0539, val_acc=33.33%
+2025-02-04 16:37:48,276 - INFO - Epoch 29: EPOCH_AVG_TRAIN_LOSS=1.0537
+2025-02-04 16:37:48,280 - INFO - ####################Training epoch 30####################
+2025-02-04 16:37:48,525 - INFO - Epoch 30: train_loss=1.0527
+2025-02-04 16:37:48,814 - INFO - Epoch 30: val_loss=1.0514, val_acc=33.33%
+2025-02-04 16:37:48,818 - INFO - Epoch 30: EPOCH_AVG_TRAIN_LOSS=1.0527
+2025-02-04 16:37:48,821 - INFO - ####################Training epoch 31####################
+2025-02-04 16:37:49,061 - INFO - Epoch 31: train_loss=1.0521
+2025-02-04 16:37:49,349 - INFO - Epoch 31: val_loss=1.0492, val_acc=33.33%
+2025-02-04 16:37:49,353 - INFO - Epoch 31: EPOCH_AVG_TRAIN_LOSS=1.0521
+2025-02-04 16:37:49,356 - INFO - ####################Training epoch 32####################
+2025-02-04 16:37:49,597 - INFO - Epoch 32: train_loss=1.0511
+2025-02-04 16:37:49,888 - INFO - Epoch 32: val_loss=1.0473, val_acc=33.33%
+2025-02-04 16:37:49,891 - INFO - Epoch 32: EPOCH_AVG_TRAIN_LOSS=1.0511
+2025-02-04 16:37:49,894 - INFO - ####################Training epoch 33####################
+2025-02-04 16:37:50,136 - INFO - Epoch 33: train_loss=1.0501
+2025-02-04 16:37:50,426 - INFO - Epoch 33: val_loss=1.0465, val_acc=33.33%
+2025-02-04 16:37:50,430 - INFO - Epoch 33: EPOCH_AVG_TRAIN_LOSS=1.0501
+2025-02-04 16:37:50,433 - INFO - ####################Training epoch 34####################
+2025-02-04 16:37:50,672 - INFO - Epoch 34: train_loss=1.0505
+2025-02-04 16:37:50,959 - INFO - Epoch 34: val_loss=1.0457, val_acc=33.33%
+2025-02-04 16:37:50,963 - INFO - Epoch 34: EPOCH_AVG_TRAIN_LOSS=1.0505
+2025-02-04 16:37:50,966 - INFO - ####################Training epoch 35####################
+2025-02-04 16:37:51,206 - INFO - Epoch 35: train_loss=1.0494
+2025-02-04 16:37:51,488 - INFO - Epoch 35: val_loss=1.0452, val_acc=33.33%
+2025-02-04 16:37:51,492 - INFO - Epoch 35: EPOCH_AVG_TRAIN_LOSS=1.0494
+2025-02-04 16:37:51,495 - INFO - ####################Training epoch 36####################
+2025-02-04 16:37:51,736 - INFO - Epoch 36: train_loss=1.0498
+2025-02-04 16:37:52,025 - INFO - Epoch 36: val_loss=1.0446, val_acc=33.33%
+2025-02-04 16:37:52,029 - INFO - Epoch 36: EPOCH_AVG_TRAIN_LOSS=1.0498
+2025-02-04 16:37:52,032 - INFO - ####################Training epoch 37####################
+2025-02-04 16:37:52,275 - INFO - Epoch 37: train_loss=1.0488
+2025-02-04 16:37:52,566 - INFO - Epoch 37: val_loss=1.0443, val_acc=33.33%
+2025-02-04 16:37:52,570 - INFO - Epoch 37: EPOCH_AVG_TRAIN_LOSS=1.0488
+2025-02-04 16:37:52,573 - INFO - ####################Training epoch 38####################
+2025-02-04 16:37:52,815 - INFO - Epoch 38: train_loss=1.0478
+2025-02-04 16:37:53,107 - INFO - Epoch 38: val_loss=1.0440, val_acc=33.33%
+2025-02-04 16:37:53,110 - INFO - Epoch 38: EPOCH_AVG_TRAIN_LOSS=1.0478
+2025-02-04 16:37:53,114 - INFO - ####################Training epoch 39####################
+2025-02-04 16:37:53,355 - INFO - Epoch 39: train_loss=1.0484
+2025-02-04 16:37:53,641 - INFO - Epoch 39: val_loss=1.0439, val_acc=33.33%
+2025-02-04 16:37:53,644 - INFO - Epoch 39: EPOCH_AVG_TRAIN_LOSS=1.0484
+2025-02-04 16:37:53,647 - INFO - ####################Training epoch 40####################
+2025-02-04 16:37:53,889 - INFO - Epoch 40: train_loss=1.0490
+2025-02-04 16:37:54,178 - INFO - Epoch 40: val_loss=1.0439, val_acc=33.33%
+2025-02-04 16:37:54,182 - INFO - Epoch 40: EPOCH_AVG_TRAIN_LOSS=1.0490
+2025-02-04 16:37:54,185 - INFO - ####################Training epoch 41####################
+2025-02-04 16:37:54,430 - INFO - Epoch 41: train_loss=1.0479
+2025-02-04 16:37:54,718 - INFO - Epoch 41: val_loss=1.0439, val_acc=33.33%
+2025-02-04 16:37:54,722 - INFO - Epoch 41: EPOCH_AVG_TRAIN_LOSS=1.0479
+2025-02-04 16:37:54,725 - INFO - ####################Training epoch 42####################
+2025-02-04 16:37:54,967 - INFO - Epoch 42: train_loss=1.0470
+2025-02-04 16:37:55,252 - INFO - Epoch 42: val_loss=1.0439, val_acc=33.33%
+2025-02-04 16:37:55,256 - INFO - Epoch 42: EPOCH_AVG_TRAIN_LOSS=1.0470
+2025-02-04 16:37:55,259 - INFO - ####################Training epoch 43####################
+2025-02-04 16:37:55,501 - INFO - Epoch 43: train_loss=1.0476
+2025-02-04 16:37:55,790 - INFO - Epoch 43: val_loss=1.0440, val_acc=33.33%
+2025-02-04 16:37:55,794 - INFO - Epoch 43: EPOCH_AVG_TRAIN_LOSS=1.0476
+2025-02-04 16:37:55,797 - INFO - ####################Training epoch 44####################
+2025-02-04 16:37:56,043 - INFO - Epoch 44: train_loss=1.0473
+2025-02-04 16:37:56,333 - INFO - Epoch 44: val_loss=1.0441, val_acc=33.33%
+2025-02-04 16:37:56,337 - INFO - Epoch 44: EPOCH_AVG_TRAIN_LOSS=1.0473
+2025-02-04 16:37:56,341 - INFO - ####################Training epoch 45####################
+2025-02-04 16:37:56,582 - INFO - Epoch 45: train_loss=1.0472
+2025-02-04 16:37:56,872 - INFO - Epoch 45: val_loss=1.0442, val_acc=33.33%
+2025-02-04 16:37:56,876 - INFO - Epoch 45: EPOCH_AVG_TRAIN_LOSS=1.0472
+2025-02-04 16:37:56,879 - INFO - ####################Training epoch 46####################
+2025-02-04 16:37:57,117 - INFO - Epoch 46: train_loss=1.0469
+2025-02-04 16:37:57,406 - INFO - Epoch 46: val_loss=1.0443, val_acc=33.33%
+2025-02-04 16:37:57,409 - INFO - Epoch 46: EPOCH_AVG_TRAIN_LOSS=1.0469
+2025-02-04 16:37:57,413 - INFO - ####################Training epoch 47####################
+2025-02-04 16:37:57,655 - INFO - Epoch 47: train_loss=1.0471
+2025-02-04 16:37:57,942 - INFO - Epoch 47: val_loss=1.0444, val_acc=33.33%
+2025-02-04 16:37:57,946 - INFO - Epoch 47: EPOCH_AVG_TRAIN_LOSS=1.0471
+2025-02-04 16:37:57,949 - INFO - ####################Training epoch 48####################
+2025-02-04 16:37:58,187 - INFO - Epoch 48: train_loss=1.0462
+2025-02-04 16:37:58,475 - INFO - Epoch 48: val_loss=1.0445, val_acc=33.33%
+2025-02-04 16:37:58,478 - INFO - Epoch 48: EPOCH_AVG_TRAIN_LOSS=1.0462
+2025-02-04 16:37:58,482 - INFO - ####################Training epoch 49####################
+2025-02-04 16:37:58,722 - INFO - Epoch 49: train_loss=1.0463
+2025-02-04 16:37:59,012 - INFO - Epoch 49: val_loss=1.0447, val_acc=33.33%
+2025-02-04 16:37:59,016 - INFO - Epoch 49: EPOCH_AVG_TRAIN_LOSS=1.0463
+2025-02-04 16:37:59,019 - INFO - ####################Training epoch 50####################
+2025-02-04 16:37:59,258 - INFO - Epoch 50: train_loss=1.0466
+2025-02-04 16:37:59,546 - INFO - Epoch 50: val_loss=1.0448, val_acc=33.33%
+2025-02-04 16:37:59,550 - INFO - Epoch 50: EPOCH_AVG_TRAIN_LOSS=1.0466
+2025-02-04 16:37:59,553 - INFO - ####################Training epoch 51####################
+2025-02-04 16:37:59,793 - INFO - Epoch 51: train_loss=1.0467
+2025-02-04 16:38:00,084 - INFO - Epoch 51: val_loss=1.0449, val_acc=33.33%
+2025-02-04 16:38:00,087 - INFO - Epoch 51: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:00,091 - INFO - ####################Training epoch 52####################
+2025-02-04 16:38:00,328 - INFO - Epoch 52: train_loss=1.0463
+2025-02-04 16:38:00,617 - INFO - Epoch 52: val_loss=1.0450, val_acc=33.33%
+2025-02-04 16:38:00,621 - INFO - Epoch 52: EPOCH_AVG_TRAIN_LOSS=1.0463
+2025-02-04 16:38:00,624 - INFO - ####################Training epoch 53####################
+2025-02-04 16:38:00,864 - INFO - Epoch 53: train_loss=1.0466
+2025-02-04 16:38:01,150 - INFO - Epoch 53: val_loss=1.0451, val_acc=33.33%
+2025-02-04 16:38:01,154 - INFO - Epoch 53: EPOCH_AVG_TRAIN_LOSS=1.0466
+2025-02-04 16:38:01,157 - INFO - ####################Training epoch 54####################
+2025-02-04 16:38:01,401 - INFO - Epoch 54: train_loss=1.0464
+2025-02-04 16:38:01,687 - INFO - Epoch 54: val_loss=1.0452, val_acc=33.33%
+2025-02-04 16:38:01,691 - INFO - Epoch 54: EPOCH_AVG_TRAIN_LOSS=1.0464
+2025-02-04 16:38:01,694 - INFO - ####################Training epoch 55####################
+2025-02-04 16:38:01,937 - INFO - Epoch 55: train_loss=1.0466
+2025-02-04 16:38:02,227 - INFO - Epoch 55: val_loss=1.0453, val_acc=33.33%
+2025-02-04 16:38:02,230 - INFO - Epoch 55: EPOCH_AVG_TRAIN_LOSS=1.0466
+2025-02-04 16:38:02,233 - INFO - ####################Training epoch 56####################
+2025-02-04 16:38:02,474 - INFO - Epoch 56: train_loss=1.0467
+2025-02-04 16:38:02,759 - INFO - Epoch 56: val_loss=1.0453, val_acc=33.33%
+2025-02-04 16:38:02,762 - INFO - Epoch 56: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:02,766 - INFO - ####################Training epoch 57####################
+2025-02-04 16:38:03,009 - INFO - Epoch 57: train_loss=1.0470
+2025-02-04 16:38:03,299 - INFO - Epoch 57: val_loss=1.0454, val_acc=33.33%
+2025-02-04 16:38:03,302 - INFO - Epoch 57: EPOCH_AVG_TRAIN_LOSS=1.0470
+2025-02-04 16:38:03,306 - INFO - ####################Training epoch 58####################
+2025-02-04 16:38:03,547 - INFO - Epoch 58: train_loss=1.0467
+2025-02-04 16:38:03,837 - INFO - Epoch 58: val_loss=1.0455, val_acc=33.33%
+2025-02-04 16:38:03,840 - INFO - Epoch 58: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:03,844 - INFO - ####################Training epoch 59####################
+2025-02-04 16:38:04,082 - INFO - Epoch 59: train_loss=1.0465
+2025-02-04 16:38:04,369 - INFO - Epoch 59: val_loss=1.0455, val_acc=33.33%
+2025-02-04 16:38:04,373 - INFO - Epoch 59: EPOCH_AVG_TRAIN_LOSS=1.0465
+2025-02-04 16:38:04,376 - INFO - ####################Training epoch 60####################
+2025-02-04 16:38:04,618 - INFO - Epoch 60: train_loss=1.0467
+2025-02-04 16:38:04,907 - INFO - Epoch 60: val_loss=1.0455, val_acc=33.33%
+2025-02-04 16:38:04,911 - INFO - Epoch 60: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:04,914 - INFO - ####################Training epoch 61####################
+2025-02-04 16:38:05,153 - INFO - Epoch 61: train_loss=1.0467
+2025-02-04 16:38:05,441 - INFO - Epoch 61: val_loss=1.0456, val_acc=33.33%
+2025-02-04 16:38:05,445 - INFO - Epoch 61: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:05,448 - INFO - ####################Training epoch 62####################
+2025-02-04 16:38:05,684 - INFO - Epoch 62: train_loss=1.0456
+2025-02-04 16:38:05,975 - INFO - Epoch 62: val_loss=1.0456, val_acc=33.33%
+2025-02-04 16:38:05,978 - INFO - Epoch 62: EPOCH_AVG_TRAIN_LOSS=1.0456
+2025-02-04 16:38:05,982 - INFO - ####################Training epoch 63####################
+2025-02-04 16:38:06,223 - INFO - Epoch 63: train_loss=1.0459
+2025-02-04 16:38:06,513 - INFO - Epoch 63: val_loss=1.0457, val_acc=33.33%
+2025-02-04 16:38:06,516 - INFO - Epoch 63: EPOCH_AVG_TRAIN_LOSS=1.0459
+2025-02-04 16:38:06,519 - INFO - ####################Training epoch 64####################
+2025-02-04 16:38:06,764 - INFO - Epoch 64: train_loss=1.0461
+2025-02-04 16:38:07,053 - INFO - Epoch 64: val_loss=1.0457, val_acc=33.33%
+2025-02-04 16:38:07,056 - INFO - Epoch 64: EPOCH_AVG_TRAIN_LOSS=1.0461
+2025-02-04 16:38:07,059 - INFO - ####################Training epoch 65####################
+2025-02-04 16:38:07,300 - INFO - Epoch 65: train_loss=1.0452
+2025-02-04 16:38:07,588 - INFO - Epoch 65: val_loss=1.0457, val_acc=33.33%
+2025-02-04 16:38:07,591 - INFO - Epoch 65: EPOCH_AVG_TRAIN_LOSS=1.0452
+2025-02-04 16:38:07,595 - INFO - ####################Training epoch 66####################
+2025-02-04 16:38:07,834 - INFO - Epoch 66: train_loss=1.0458
+2025-02-04 16:38:08,126 - INFO - Epoch 66: val_loss=1.0457, val_acc=33.33%
+2025-02-04 16:38:08,129 - INFO - Epoch 66: EPOCH_AVG_TRAIN_LOSS=1.0458
+2025-02-04 16:38:08,133 - INFO - ####################Training epoch 67####################
+2025-02-04 16:38:08,376 - INFO - Epoch 67: train_loss=1.0461
+2025-02-04 16:38:08,665 - INFO - Epoch 67: val_loss=1.0458, val_acc=33.33%
+2025-02-04 16:38:08,669 - INFO - Epoch 67: EPOCH_AVG_TRAIN_LOSS=1.0461
+2025-02-04 16:38:08,672 - INFO - ####################Training epoch 68####################
+2025-02-04 16:38:08,915 - INFO - Epoch 68: train_loss=1.0467
+2025-02-04 16:38:09,207 - INFO - Epoch 68: val_loss=1.0458, val_acc=33.33%
+2025-02-04 16:38:09,211 - INFO - Epoch 68: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:09,214 - INFO - ####################Training epoch 69####################
+2025-02-04 16:38:09,454 - INFO - Epoch 69: train_loss=1.0462
+2025-02-04 16:38:09,737 - INFO - Epoch 69: val_loss=1.0458, val_acc=33.33%
+2025-02-04 16:38:09,741 - INFO - Epoch 69: EPOCH_AVG_TRAIN_LOSS=1.0462
+2025-02-04 16:38:09,744 - INFO - ####################Training epoch 70####################
+2025-02-04 16:38:09,985 - INFO - Epoch 70: train_loss=1.0461
+2025-02-04 16:38:10,273 - INFO - Epoch 70: val_loss=1.0458, val_acc=33.33%
+2025-02-04 16:38:10,276 - INFO - Epoch 70: EPOCH_AVG_TRAIN_LOSS=1.0461
+2025-02-04 16:38:10,280 - INFO - ####################Training epoch 71####################
+2025-02-04 16:38:10,520 - INFO - Epoch 71: train_loss=1.0461
+2025-02-04 16:38:10,810 - INFO - Epoch 71: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:10,814 - INFO - Epoch 71: EPOCH_AVG_TRAIN_LOSS=1.0461
+2025-02-04 16:38:10,817 - INFO - ####################Training epoch 72####################
+2025-02-04 16:38:11,059 - INFO - Epoch 72: train_loss=1.0465
+2025-02-04 16:38:11,346 - INFO - Epoch 72: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:11,350 - INFO - Epoch 72: EPOCH_AVG_TRAIN_LOSS=1.0465
+2025-02-04 16:38:11,353 - INFO - ####################Training epoch 73####################
+2025-02-04 16:38:11,596 - INFO - Epoch 73: train_loss=1.0463
+2025-02-04 16:38:11,884 - INFO - Epoch 73: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:11,888 - INFO - Epoch 73: EPOCH_AVG_TRAIN_LOSS=1.0463
+2025-02-04 16:38:11,891 - INFO - ####################Training epoch 74####################
+2025-02-04 16:38:12,131 - INFO - Epoch 74: train_loss=1.0453
+2025-02-04 16:38:12,419 - INFO - Epoch 74: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:12,422 - INFO - Epoch 74: EPOCH_AVG_TRAIN_LOSS=1.0453
+2025-02-04 16:38:12,426 - INFO - ####################Training epoch 75####################
+2025-02-04 16:38:12,667 - INFO - Epoch 75: train_loss=1.0464
+2025-02-04 16:38:12,952 - INFO - Epoch 75: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:12,955 - INFO - Epoch 75: EPOCH_AVG_TRAIN_LOSS=1.0464
+2025-02-04 16:38:12,959 - INFO - ####################Training epoch 76####################
+2025-02-04 16:38:13,201 - INFO - Epoch 76: train_loss=1.0465
+2025-02-04 16:38:13,492 - INFO - Epoch 76: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:13,496 - INFO - Epoch 76: EPOCH_AVG_TRAIN_LOSS=1.0465
+2025-02-04 16:38:13,499 - INFO - ####################Training epoch 77####################
+2025-02-04 16:38:13,735 - INFO - Epoch 77: train_loss=1.0460
+2025-02-04 16:38:14,028 - INFO - Epoch 77: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:14,032 - INFO - Epoch 77: EPOCH_AVG_TRAIN_LOSS=1.0460
+2025-02-04 16:38:14,035 - INFO - ####################Training epoch 78####################
+2025-02-04 16:38:14,276 - INFO - Epoch 78: train_loss=1.0456
+2025-02-04 16:38:14,563 - INFO - Epoch 78: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:14,567 - INFO - Epoch 78: EPOCH_AVG_TRAIN_LOSS=1.0456
+2025-02-04 16:38:14,570 - INFO - ####################Training epoch 79####################
+2025-02-04 16:38:14,812 - INFO - Epoch 79: train_loss=1.0469
+2025-02-04 16:38:15,102 - INFO - Epoch 79: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:15,106 - INFO - Epoch 79: EPOCH_AVG_TRAIN_LOSS=1.0469
+2025-02-04 16:38:15,109 - INFO - ####################Training epoch 80####################
+2025-02-04 16:38:15,349 - INFO - Epoch 80: train_loss=1.0455
+2025-02-04 16:38:15,642 - INFO - Epoch 80: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:15,645 - INFO - Epoch 80: EPOCH_AVG_TRAIN_LOSS=1.0455
+2025-02-04 16:38:15,648 - INFO - ####################Training epoch 81####################
+2025-02-04 16:38:15,892 - INFO - Epoch 81: train_loss=1.0457
+2025-02-04 16:38:16,181 - INFO - Epoch 81: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:16,185 - INFO - Epoch 81: EPOCH_AVG_TRAIN_LOSS=1.0457
+2025-02-04 16:38:16,188 - INFO - ####################Training epoch 82####################
+2025-02-04 16:38:16,431 - INFO - Epoch 82: train_loss=1.0462
+2025-02-04 16:38:16,722 - INFO - Epoch 82: val_loss=1.0459, val_acc=33.33%
+2025-02-04 16:38:16,726 - INFO - Epoch 82: EPOCH_AVG_TRAIN_LOSS=1.0462
+2025-02-04 16:38:16,729 - INFO - ####################Training epoch 83####################
+2025-02-04 16:38:16,973 - INFO - Epoch 83: train_loss=1.0457
+2025-02-04 16:38:17,263 - INFO - Epoch 83: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:17,267 - INFO - Epoch 83: EPOCH_AVG_TRAIN_LOSS=1.0457
+2025-02-04 16:38:17,270 - INFO - ####################Training epoch 84####################
+2025-02-04 16:38:17,512 - INFO - Epoch 84: train_loss=1.0461
+2025-02-04 16:38:17,799 - INFO - Epoch 84: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:17,802 - INFO - Epoch 84: EPOCH_AVG_TRAIN_LOSS=1.0461
+2025-02-04 16:38:17,805 - INFO - ####################Training epoch 85####################
+2025-02-04 16:38:18,047 - INFO - Epoch 85: train_loss=1.0464
+2025-02-04 16:38:18,336 - INFO - Epoch 85: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:18,340 - INFO - Epoch 85: EPOCH_AVG_TRAIN_LOSS=1.0464
+2025-02-04 16:38:18,343 - INFO - ####################Training epoch 86####################
+2025-02-04 16:38:18,586 - INFO - Epoch 86: train_loss=1.0462
+2025-02-04 16:38:18,871 - INFO - Epoch 86: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:18,875 - INFO - Epoch 86: EPOCH_AVG_TRAIN_LOSS=1.0462
+2025-02-04 16:38:18,878 - INFO - ####################Training epoch 87####################
+2025-02-04 16:38:19,121 - INFO - Epoch 87: train_loss=1.0467
+2025-02-04 16:38:19,409 - INFO - Epoch 87: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:19,412 - INFO - Epoch 87: EPOCH_AVG_TRAIN_LOSS=1.0467
+2025-02-04 16:38:19,416 - INFO - ####################Training epoch 88####################
+2025-02-04 16:38:19,657 - INFO - Epoch 88: train_loss=1.0464
+2025-02-04 16:38:19,943 - INFO - Epoch 88: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:19,947 - INFO - Epoch 88: EPOCH_AVG_TRAIN_LOSS=1.0464
+2025-02-04 16:38:19,950 - INFO - ####################Training epoch 89####################
+2025-02-04 16:38:20,188 - INFO - Epoch 89: train_loss=1.0461
+2025-02-04 16:38:20,476 - INFO - Epoch 89: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:20,480 - INFO - Epoch 89: EPOCH_AVG_TRAIN_LOSS=1.0461
+2025-02-04 16:38:20,483 - INFO - ####################Training epoch 90####################
+2025-02-04 16:38:20,724 - INFO - Epoch 90: train_loss=1.0460
+2025-02-04 16:38:21,013 - INFO - Epoch 90: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:21,017 - INFO - Epoch 90: EPOCH_AVG_TRAIN_LOSS=1.0460
+2025-02-04 16:38:21,020 - INFO - ####################Training epoch 91####################
+2025-02-04 16:38:21,258 - INFO - Epoch 91: train_loss=1.0455
+2025-02-04 16:38:21,547 - INFO - Epoch 91: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:21,551 - INFO - Epoch 91: EPOCH_AVG_TRAIN_LOSS=1.0455
+2025-02-04 16:38:21,554 - INFO - ####################Training epoch 92####################
+2025-02-04 16:38:21,794 - INFO - Epoch 92: train_loss=1.0462
+2025-02-04 16:38:22,082 - INFO - Epoch 92: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:22,086 - INFO - Epoch 92: EPOCH_AVG_TRAIN_LOSS=1.0462
+2025-02-04 16:38:22,089 - INFO - ####################Training epoch 93####################
+2025-02-04 16:38:22,330 - INFO - Epoch 93: train_loss=1.0459
+2025-02-04 16:38:22,618 - INFO - Epoch 93: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:22,622 - INFO - Epoch 93: EPOCH_AVG_TRAIN_LOSS=1.0459
+2025-02-04 16:38:22,625 - INFO - ####################Training epoch 94####################
+2025-02-04 16:38:22,865 - INFO - Epoch 94: train_loss=1.0463
+2025-02-04 16:38:23,159 - INFO - Epoch 94: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:23,163 - INFO - Epoch 94: EPOCH_AVG_TRAIN_LOSS=1.0463
+2025-02-04 16:38:23,166 - INFO - ####################Training epoch 95####################
+2025-02-04 16:38:23,405 - INFO - Epoch 95: train_loss=1.0460
+2025-02-04 16:38:23,692 - INFO - Epoch 95: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:23,696 - INFO - Epoch 95: EPOCH_AVG_TRAIN_LOSS=1.0460
+2025-02-04 16:38:23,699 - INFO - ####################Training epoch 96####################
+2025-02-04 16:38:23,941 - INFO - Epoch 96: train_loss=1.0455
+2025-02-04 16:38:24,233 - INFO - Epoch 96: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:24,237 - INFO - Epoch 96: EPOCH_AVG_TRAIN_LOSS=1.0455
+2025-02-04 16:38:24,240 - INFO - ####################Training epoch 97####################
+2025-02-04 16:38:24,478 - INFO - Epoch 97: train_loss=1.0462
+2025-02-04 16:38:24,764 - INFO - Epoch 97: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:24,768 - INFO - Epoch 97: EPOCH_AVG_TRAIN_LOSS=1.0462
+2025-02-04 16:38:24,771 - INFO - ####################Training epoch 98####################
+2025-02-04 16:38:25,011 - INFO - Epoch 98: train_loss=1.0454
+2025-02-04 16:38:25,297 - INFO - Epoch 98: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:25,300 - INFO - Epoch 98: EPOCH_AVG_TRAIN_LOSS=1.0454
+2025-02-04 16:38:25,303 - INFO - ####################Training epoch 99####################
+2025-02-04 16:38:25,546 - INFO - Epoch 99: train_loss=1.0454
+2025-02-04 16:38:25,831 - INFO - Epoch 99: val_loss=1.0460, val_acc=33.33%
+2025-02-04 16:38:25,834 - INFO - Epoch 99: EPOCH_AVG_TRAIN_LOSS=1.0454
+2025-02-04 16:38:26,035 - INFO - Model saved.

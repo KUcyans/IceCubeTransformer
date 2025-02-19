@@ -1,0 +1,38 @@
+{
+    "batch_size": 64,
+    "num_workers": 4,
+    "embedding_dim": 128,
+    "d_input": 32,
+    "event_length": 256,
+    "n_layers": 6,
+    "n_heads": 4,
+    "output_dim": 3,
+    "n_epochs": 50,
+    "patience": 50,
+    "dropout": 0.1,
+    "attention": "scaled_dot",
+    "train_data": {
+        "22011": [1],
+        "22014": [1],
+        "22017": [1]
+    },
+    "validate_data": {
+        "22011": [3],
+        "22014": [3],
+        "22017": [3]
+    },
+    "sample_weights": [1, 1, 1],
+    "gpu": [0],
+    "optimizer": {
+        "lr": 5e-4,
+        "betas": [0.9, 0.999],
+        "eps": 1e-8,
+        "weight_decay": 0,
+        "amsgrad": true, 
+        "pct_start": 0.3,
+        "final_div_factor": 1e4,
+        "anneal_strategy": "cos",
+        "interval": "step",
+        "frequency": 1
+    }
+}

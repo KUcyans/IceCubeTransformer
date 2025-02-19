@@ -1,0 +1,1378 @@
+nohup: ignoring input
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_165856-noya8tei
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run zesty-butterfly-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_165850%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_165850%5D%20Flavour%20Classification/runs/noya8tei
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py --date 20250204 --time 1 ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250204 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 298 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+303 K     Trainable params
+0         Non-trainable params
+303 K     Total params
+1.213     Total estimated model params size (MB)
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Config validation passed.
+Dataset split into train (24), val (3), and test (3)
+Class weights: tensor([0.1250, 0.1250, 0.1250])
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.06it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s]  learning rate0: 1.000000e-02
+Batch 0: train_loss=1.2733
+Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s, v_num=8tei]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.81it/s][A
+                                                                      [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.21it/s, v_num=8tei]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.21it/s, v_num=8tei]Metric val_acc improved. New best score: 0.333
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei] learning rate1: 1.000000e-02
+Batch 0: train_loss=2.7928
+Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  2.51it/s, v_num=8tei]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=1.270]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.98it/s][A
+                                                                      [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=1.270]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=1.270]Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.270]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.270] learning rate2: 1.000000e-02
+Batch 0: train_loss=2.8503
+Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s, v_num=8tei, epoch_avg_train_loss=1.270]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s, v_num=8tei, epoch_avg_train_loss=2.790]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.47it/s][A
+                                                                      [AEpoch 2: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=2.790]Epoch 2: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=2.790]Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=2.790]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=2.790] learning rate3: 1.000000e-02
+Batch 0: train_loss=1.9871
+Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  2.61it/s, v_num=8tei, epoch_avg_train_loss=2.790]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s, v_num=8tei, epoch_avg_train_loss=2.850]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.67it/s][A
+                                                                      [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, v_num=8tei, epoch_avg_train_loss=2.850]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, v_num=8tei, epoch_avg_train_loss=2.850]Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=2.850]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=2.850] learning rate4: 1.000000e-02
+Batch 0: train_loss=1.9533
+Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=2.850]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=1.990]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 28.75it/s][A
+                                                                      [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s, v_num=8tei, epoch_avg_train_loss=1.990]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s, v_num=8tei, epoch_avg_train_loss=1.990]Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.990]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.990] learning rate5: 5.000000e-03
+Batch 0: train_loss=1.7867
+Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=1.990]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=1.950]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 29.07it/s][A
+                                                                      [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=1.950]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=1.950]Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.950]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.950] learning rate6: 5.000000e-03
+Batch 0: train_loss=1.7012
+Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  2.56it/s, v_num=8tei, epoch_avg_train_loss=1.950]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  2.56it/s, v_num=8tei, epoch_avg_train_loss=1.790]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.48it/s][A
+                                                                      [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  1.14it/s, v_num=8tei, epoch_avg_train_loss=1.790]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  1.14it/s, v_num=8tei, epoch_avg_train_loss=1.790]Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.790]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.790] learning rate7: 5.000000e-03
+Batch 0: train_loss=1.6226
+Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=1.790]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=1.700]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.62it/s][A
+                                                                      [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s, v_num=8tei, epoch_avg_train_loss=1.700]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s, v_num=8tei, epoch_avg_train_loss=1.700]Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.700]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.700] learning rate8: 5.000000e-03
+Batch 0: train_loss=nan
+Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=1.700]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=1.620]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 26.40it/s][A
+                                                                      [AEpoch 8: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=1.620]Epoch 8: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=1.620]Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.620]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=1.620] learning rate9: 2.500000e-03
+Batch 0: train_loss=nan
+Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=1.620]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.65it/s][A
+                                                                      [AEpoch 9: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 9: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate10: 2.500000e-03
+Batch 0: train_loss=nan
+Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  2.29it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  2.29it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 10.26it/s][A
+                                                                      [AEpoch 10: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 10: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate11: 2.500000e-03
+Batch 0: train_loss=nan
+Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  2.61it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  2.61it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.66it/s][A
+                                                                      [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  1.11it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  1.11it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate12: 2.500000e-03
+Batch 0: train_loss=nan
+Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  2.51it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.74it/s][A
+                                                                      [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate13: 1.250000e-03
+Batch 0: train_loss=nan
+Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 26.58it/s][A
+                                                                      [AEpoch 13: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 13: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate14: 1.250000e-03
+Batch 0: train_loss=nan
+Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.59it/s][A
+                                                                      [AEpoch 14: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 14: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate15: 1.250000e-03
+Batch 0: train_loss=nan
+Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 12.71it/s][A
+                                                                      [AEpoch 15: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate16: 1.250000e-03
+Batch 0: train_loss=nan
+Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.60it/s][A
+                                                                      [AEpoch 16: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate17: 6.250000e-04
+Batch 0: train_loss=nan
+Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  2.52it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  2.52it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.70it/s][A
+                                                                      [AEpoch 17: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate18: 6.250000e-04
+Batch 0: train_loss=nan
+Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 27.70it/s][A
+                                                                      [AEpoch 18: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate19: 6.250000e-04
+Batch 0: train_loss=nan
+Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.73it/s][A
+                                                                      [AEpoch 19: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 19: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate20: 6.250000e-04
+Batch 0: train_loss=nan
+Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.64it/s][A
+                                                                      [AEpoch 20: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 20: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate21: 3.125000e-04
+Batch 0: train_loss=nan
+Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  2.62it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.58it/s][A
+                                                                      [AEpoch 21: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  1.12it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate22: 3.125000e-04
+Batch 0: train_loss=nan
+Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.70it/s][A
+                                                                      [AEpoch 22: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate23: 3.125000e-04
+Batch 0: train_loss=nan
+Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 26.54it/s][A
+                                                                      [AEpoch 23: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 23: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate24: 3.125000e-04
+Batch 0: train_loss=nan
+Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.50it/s][A
+                                                                      [AEpoch 24: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 24: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate25: 1.562500e-04
+Batch 0: train_loss=nan
+Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  2.51it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  2.51it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 15.27it/s][A
+                                                                      [AEpoch 25: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate26: 1.562500e-04
+Batch 0: train_loss=nan
+Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  2.64it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  2.64it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.49it/s][A
+                                                                      [AEpoch 26: 100%|██████████| 1/1 [00:00<00:00,  1.13it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  1.13it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate27: 1.562500e-04
+Batch 0: train_loss=nan
+Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 29.71it/s][A
+                                                                      [AEpoch 27: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate28: 1.562500e-04
+Batch 0: train_loss=nan
+Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 31.33it/s][A
+                                                                      [AEpoch 28: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate29: 7.812500e-05
+Batch 0: train_loss=nan
+Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 26.35it/s][A
+                                                                      [AEpoch 29: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 29: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 30:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate30: 7.812500e-05
+Batch 0: train_loss=nan
+Epoch 30: 100%|██████████| 1/1 [00:00<00:00,  1.74it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 30: 100%|██████████| 1/1 [00:00<00:00,  1.74it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s][A
+                                                                      [AEpoch 30: 100%|██████████| 1/1 [00:01<00:00,  0.76it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 30: 100%|██████████| 1/1 [00:01<00:00,  0.75it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 30:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 31:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate31: 7.812500e-05
+Batch 0: train_loss=nan
+Epoch 31: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 31: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.09it/s][A
+                                                                      [AEpoch 31: 100%|██████████| 1/1 [00:01<00:00,  0.91it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 31: 100%|██████████| 1/1 [00:01<00:00,  0.91it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 31:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 32:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate32: 7.812500e-05
+Batch 0: train_loss=nan
+Epoch 32: 100%|██████████| 1/1 [00:00<00:00,  2.68it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 32: 100%|██████████| 1/1 [00:00<00:00,  2.67it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.22it/s][A
+                                                                      [AEpoch 32: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 32: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 32:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 33:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate33: 3.906250e-05
+Batch 0: train_loss=nan
+Epoch 33: 100%|██████████| 1/1 [00:00<00:00,  1.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 33: 100%|██████████| 1/1 [00:00<00:00,  1.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.69it/s][A
+                                                                      [AEpoch 33: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 33: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 33:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 34:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate34: 3.906250e-05
+Batch 0: train_loss=nan
+Epoch 34: 100%|██████████| 1/1 [00:00<00:00,  1.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 34: 100%|██████████| 1/1 [00:00<00:00,  1.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.76it/s][A
+                                                                      [AEpoch 34: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 34: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 34:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 35:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate35: 3.906250e-05
+Batch 0: train_loss=nan
+Epoch 35: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 35: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.78it/s][A
+                                                                      [AEpoch 35: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 35: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 35:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 36:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate36: 3.906250e-05
+Batch 0: train_loss=nan
+Epoch 36: 100%|██████████| 1/1 [00:00<00:00,  1.59it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 36: 100%|██████████| 1/1 [00:00<00:00,  1.59it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.61it/s][A
+                                                                      [AEpoch 36: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 36: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 36:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 37:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate37: 1.953125e-05
+Batch 0: train_loss=nan
+Epoch 37: 100%|██████████| 1/1 [00:00<00:00,  1.69it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 37: 100%|██████████| 1/1 [00:00<00:00,  1.68it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.94it/s][A
+                                                                      [AEpoch 37: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 37: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 37:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 38:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate38: 1.953125e-05
+Batch 0: train_loss=nan
+Epoch 38: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 38: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.27it/s][A
+                                                                      [AEpoch 38: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 38: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 38:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 39:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate39: 1.953125e-05
+Batch 0: train_loss=nan
+Epoch 39: 100%|██████████| 1/1 [00:00<00:00,  1.70it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 39: 100%|██████████| 1/1 [00:00<00:00,  1.70it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.50it/s][A
+                                                                      [AEpoch 39: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 39: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 39:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 40:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate40: 1.953125e-05
+Batch 0: train_loss=nan
+Epoch 40: 100%|██████████| 1/1 [00:00<00:00,  1.54it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 40: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.79it/s][A
+                                                                      [AEpoch 40: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 40: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 40:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 41:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate41: 9.765625e-06
+Batch 0: train_loss=nan
+Epoch 41: 100%|██████████| 1/1 [00:00<00:00,  1.73it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 41: 100%|██████████| 1/1 [00:00<00:00,  1.73it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.91it/s][A
+                                                                      [AEpoch 41: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 41: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 41:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 42:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate42: 9.765625e-06
+Batch 0: train_loss=nan
+Epoch 42: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 42: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.99it/s][A
+                                                                      [AEpoch 42: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 42: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 42:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 43:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate43: 9.765625e-06
+Batch 0: train_loss=nan
+Epoch 43: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 43: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.28it/s][A
+                                                                      [AEpoch 43: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 43: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 43:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 44:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate44: 9.765625e-06
+Batch 0: train_loss=nan
+Epoch 44: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 44: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.10it/s][A
+                                                                      [AEpoch 44: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 44: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 44:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 45:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate45: 4.882813e-06
+Batch 0: train_loss=nan
+Epoch 45: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 45: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.88it/s][A
+                                                                      [AEpoch 45: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 45: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 45:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 46:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate46: 4.882813e-06
+Batch 0: train_loss=nan
+Epoch 46: 100%|██████████| 1/1 [00:00<00:00,  1.47it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 46: 100%|██████████| 1/1 [00:00<00:00,  1.46it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 10.72it/s][A
+                                                                      [AEpoch 46: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 46: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 46:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 47:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate47: 4.882813e-06
+Batch 0: train_loss=nan
+Epoch 47: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 47: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 10.49it/s][A
+                                                                      [AEpoch 47: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 47: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 47:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 48:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate48: 4.882813e-06
+Batch 0: train_loss=nan
+Epoch 48: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 48: 100%|██████████| 1/1 [00:00<00:00,  1.63it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 13.90it/s][A
+                                                                      [AEpoch 48: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 48: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 48:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 49:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate49: 2.441406e-06
+Batch 0: train_loss=nan
+Epoch 49: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 49: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.45it/s][A
+                                                                      [AEpoch 49: 100%|██████████| 1/1 [00:01<00:00,  0.73it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 49: 100%|██████████| 1/1 [00:01<00:00,  0.73it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 49:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 50:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate50: 2.441406e-06
+Batch 0: train_loss=nan
+Epoch 50: 100%|██████████| 1/1 [00:00<00:00,  1.66it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 50: 100%|██████████| 1/1 [00:00<00:00,  1.66it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.20it/s][A
+                                                                      [AEpoch 50: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 50: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 50:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 51:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate51: 2.441406e-06
+Batch 0: train_loss=nan
+Epoch 51: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 51: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.20it/s][A
+                                                                      [AEpoch 51: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 51: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 51:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 52:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate52: 2.441406e-06
+Batch 0: train_loss=nan
+Epoch 52: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 52: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.15it/s][A
+                                                                      [AEpoch 52: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 52: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 52:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 53:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate53: 1.220703e-06
+Batch 0: train_loss=nan
+Epoch 53: 100%|██████████| 1/1 [00:00<00:00,  2.55it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 53: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.18it/s][A
+                                                                      [AEpoch 53: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 53: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 53:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 54:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate54: 1.220703e-06
+Batch 0: train_loss=nan
+Epoch 54: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 54: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.45it/s][A
+                                                                      [AEpoch 54: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 54: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 54:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 55:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate55: 1.220703e-06
+Batch 0: train_loss=nan
+Epoch 55: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 55: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.46it/s][A
+                                                                      [AEpoch 55: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 55: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 55:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 56:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate56: 1.220703e-06
+Batch 0: train_loss=nan
+Epoch 56: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 56: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.53it/s][A
+                                                                      [AEpoch 56: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 56: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 56:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 57:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate57: 6.103516e-07
+Batch 0: train_loss=nan
+Epoch 57: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 57: 100%|██████████| 1/1 [00:00<00:00,  2.10it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.41it/s][A
+                                                                      [AEpoch 57: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 57: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 57:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 58:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate58: 6.103516e-07
+Batch 0: train_loss=nan
+Epoch 58: 100%|██████████| 1/1 [00:00<00:00,  2.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 58: 100%|██████████| 1/1 [00:00<00:00,  2.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.14it/s][A
+                                                                      [AEpoch 58: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 58: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 58:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 59:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate59: 6.103516e-07
+Batch 0: train_loss=nan
+Epoch 59: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 59: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.79it/s][A
+                                                                      [AEpoch 59: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 59: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 59:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 60:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate60: 6.103516e-07
+Batch 0: train_loss=nan
+Epoch 60: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 60: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.10it/s][A
+                                                                      [AEpoch 60: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 60: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 60:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 61:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate61: 3.051758e-07
+Batch 0: train_loss=nan
+Epoch 61: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 61: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.90it/s][A
+                                                                      [AEpoch 61: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 61: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 61:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 62:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate62: 3.051758e-07
+Batch 0: train_loss=nan
+Epoch 62: 100%|██████████| 1/1 [00:00<00:00,  1.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 62: 100%|██████████| 1/1 [00:00<00:00,  1.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.01it/s][A
+                                                                      [AEpoch 62: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 62: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 62:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 63:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate63: 3.051758e-07
+Batch 0: train_loss=nan
+Epoch 63: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 63: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.39it/s][A
+                                                                      [AEpoch 63: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 63: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 63:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 64:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate64: 3.051758e-07
+Batch 0: train_loss=nan
+Epoch 64: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 64: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.23it/s][A
+                                                                      [AEpoch 64: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 64: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 64:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 65:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate65: 1.525879e-07
+Batch 0: train_loss=nan
+Epoch 65: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 65: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.60it/s][A
+                                                                      [AEpoch 65: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 65: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 65:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 66:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate66: 1.525879e-07
+Batch 0: train_loss=nan
+Epoch 66: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 66: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.17it/s][A
+                                                                      [AEpoch 66: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 66: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 66:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 67:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate67: 1.525879e-07
+Batch 0: train_loss=nan
+Epoch 67: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 67: 100%|██████████| 1/1 [00:00<00:00,  2.33it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.59it/s][A
+                                                                      [AEpoch 67: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 67: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 67:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 68:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate68: 1.525879e-07
+Batch 0: train_loss=nan
+Epoch 68: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 68: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.87it/s][A
+                                                                      [AEpoch 68: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 68: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 68:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 69:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate69: 7.629395e-08
+Batch 0: train_loss=nan
+Epoch 69: 100%|██████████| 1/1 [00:00<00:00,  1.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 69: 100%|██████████| 1/1 [00:00<00:00,  1.96it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.84it/s][A
+                                                                      [AEpoch 69: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 69: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 69:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 70:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate70: 7.629395e-08
+Batch 0: train_loss=nan
+Epoch 70: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 70: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.43it/s][A
+                                                                      [AEpoch 70: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 70: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 70:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 71:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate71: 7.629395e-08
+Batch 0: train_loss=nan
+Epoch 71: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 71: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.02it/s][A
+                                                                      [AEpoch 71: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 71: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 71:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 72:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate72: 7.629395e-08
+Batch 0: train_loss=nan
+Epoch 72: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 72: 100%|██████████| 1/1 [00:00<00:00,  2.59it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.50it/s][A
+                                                                      [AEpoch 72: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 72: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 72:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 73:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate73: 3.814697e-08
+Batch 0: train_loss=nan
+Epoch 73: 100%|██████████| 1/1 [00:00<00:00,  1.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 73: 100%|██████████| 1/1 [00:00<00:00,  1.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.63it/s][A
+                                                                      [AEpoch 73: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 73: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 73:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 74:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate74: 3.814697e-08
+Batch 0: train_loss=nan
+Epoch 74: 100%|██████████| 1/1 [00:00<00:00,  1.70it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 74: 100%|██████████| 1/1 [00:00<00:00,  1.70it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.57it/s][A
+                                                                      [AEpoch 74: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 74: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 74:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 75:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate75: 3.814697e-08
+Batch 0: train_loss=nan
+Epoch 75: 100%|██████████| 1/1 [00:00<00:00,  1.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 75: 100%|██████████| 1/1 [00:00<00:00,  1.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.46it/s][A
+                                                                      [AEpoch 75: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 75: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 75:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 76:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate76: 3.814697e-08
+Batch 0: train_loss=nan
+Epoch 76: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 76: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.34it/s][A
+                                                                      [AEpoch 76: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 76: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 76:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 77:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate77: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 77: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 77: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.06it/s][A
+                                                                      [AEpoch 77: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 77: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 77:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 78:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate78: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 78: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 78: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.36it/s][A
+                                                                      [AEpoch 78: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 78: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 78:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 79:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate79: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 79: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 79: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s][A
+                                                                      [AEpoch 79: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 79: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 79:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 80:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate80: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 80: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 80: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.20it/s][A
+                                                                      [AEpoch 80: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 80: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 80:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 81:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate81: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 81: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 81: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.10it/s][A
+                                                                      [AEpoch 81: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 81: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 81:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 82:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate82: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 82: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 82: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.69it/s][A
+                                                                      [AEpoch 82: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 82: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 82:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 83:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate83: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 83: 100%|██████████| 1/1 [00:00<00:00,  1.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 83: 100%|██████████| 1/1 [00:00<00:00,  1.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.84it/s][A
+                                                                      [AEpoch 83: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 83: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 83:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 84:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate84: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 84: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 84: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.57it/s][A
+                                                                      [AEpoch 84: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 84: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 84:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 85:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate85: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 85: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 85: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.33it/s][A
+                                                                      [AEpoch 85: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 85: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 85:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 86:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate86: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 86: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 86: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.18it/s][A
+                                                                      [AEpoch 86: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 86: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 86:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 87:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate87: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 87: 100%|██████████| 1/1 [00:00<00:00,  2.55it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 87: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s][A
+                                                                      [AEpoch 87: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 87: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 87:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 88:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate88: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 88: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 88: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.00it/s][A
+                                                                      [AEpoch 88: 100%|██████████| 1/1 [00:01<00:00,  0.96it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 88: 100%|██████████| 1/1 [00:01<00:00,  0.96it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 88:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 89:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate89: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 89: 100%|██████████| 1/1 [00:00<00:00,  1.70it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 89: 100%|██████████| 1/1 [00:00<00:00,  1.70it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.58it/s][A
+                                                                      [AEpoch 89: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 89: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 89:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 90:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate90: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 90: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 90: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.41it/s][A
+                                                                      [AEpoch 90: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 90: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 90:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 91:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate91: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 91: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 91: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.36it/s][A
+                                                                      [AEpoch 91: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 91: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 91:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 92:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate92: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 92: 100%|██████████| 1/1 [00:00<00:00,  1.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 92: 100%|██████████| 1/1 [00:00<00:00,  1.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.20it/s][A
+                                                                      [AEpoch 92: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 92: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 92:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 93:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate93: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 93: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 93: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.65it/s][A
+                                                                      [AEpoch 93: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 93: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 93:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 94:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate94: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 94: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 94: 100%|██████████| 1/1 [00:00<00:00,  2.54it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.15it/s][A
+                                                                      [AEpoch 94: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 94: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 94:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 95:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate95: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 95: 100%|██████████| 1/1 [00:00<00:00,  2.17it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 95: 100%|██████████| 1/1 [00:00<00:00,  2.17it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.71it/s][A
+                                                                      [AEpoch 95: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 95: 100%|██████████| 1/1 [00:01<00:00,  0.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 95:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 96:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate96: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 96: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 96: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.35it/s][A
+                                                                      [AEpoch 96: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 96: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 96:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 97:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate97: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 97: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 97: 100%|██████████| 1/1 [00:00<00:00,  2.03it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.35it/s][A
+                                                                      [AEpoch 97: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 97: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 97:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 98:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate98: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 98: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 98: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s][A
+                                                                      [AEpoch 98: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 98: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 98:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 99:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate99: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 99: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 99: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.85it/s][A
+                                                                      [AEpoch 99: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 99: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 99:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 100:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate100: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 100: 100%|██████████| 1/1 [00:00<00:00,  2.52it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 100: 100%|██████████| 1/1 [00:00<00:00,  2.52it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.83it/s][A
+                                                                      [AEpoch 100: 100%|██████████| 1/1 [00:01<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 100: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 100:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 101:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate101: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 101: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 101: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.68it/s][A
+                                                                      [AEpoch 101: 100%|██████████| 1/1 [00:01<00:00,  0.92it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 101: 100%|██████████| 1/1 [00:01<00:00,  0.92it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 101:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 102:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate102: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 102: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 102: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.64it/s][A
+                                                                      [AEpoch 102: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 102: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 102:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 103:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate103: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 103: 100%|██████████| 1/1 [00:00<00:00,  2.01it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 103: 100%|██████████| 1/1 [00:00<00:00,  2.01it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.36it/s][A
+                                                                      [AEpoch 103: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 103: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 103:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 104:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate104: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 104: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 104: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.18it/s][A
+                                                                      [AEpoch 104: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 104: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 104:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 105:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate105: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 105: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 105: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.72it/s][A
+                                                                      [AEpoch 105: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 105: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 105:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 106:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate106: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 106: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 106: 100%|██████████| 1/1 [00:00<00:00,  2.37it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.26it/s][A
+                                                                      [AEpoch 106: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 106: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 106:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 107:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate107: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 107: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 107: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.74it/s][A
+                                                                      [AEpoch 107: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 107: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 107:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 108:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate108: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 108: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 108: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.53it/s][A
+                                                                      [AEpoch 108: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 108: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 108:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 109:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate109: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 109: 100%|██████████| 1/1 [00:00<00:00,  2.46it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 109: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.06it/s][A
+                                                                      [AEpoch 109: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 109: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 109:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 110:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate110: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 110: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 110: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.13it/s][A
+                                                                      [AEpoch 110: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 110: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 110:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 111:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate111: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 111: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 111: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.70it/s][A
+                                                                      [AEpoch 111: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 111: 100%|██████████| 1/1 [00:01<00:00,  0.97it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 111:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 112:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate112: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 112: 100%|██████████| 1/1 [00:00<00:00,  2.14it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 112: 100%|██████████| 1/1 [00:00<00:00,  2.14it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.78it/s][A
+                                                                      [AEpoch 112: 100%|██████████| 1/1 [00:01<00:00,  0.91it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 112: 100%|██████████| 1/1 [00:01<00:00,  0.91it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 112:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 113:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate113: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 113: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 113: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.07it/s][A
+                                                                      [AEpoch 113: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 113: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 113:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 114:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate114: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 114: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 114: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.26it/s][A
+                                                                      [AEpoch 114: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 114: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 114:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 115:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate115: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 115: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 115: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.40it/s][A
+                                                                      [AEpoch 115: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 115: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 115:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 116:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate116: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 116: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 116: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.20it/s][A
+                                                                      [AEpoch 116: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 116: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 116:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 117:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate117: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 117: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 117: 100%|██████████| 1/1 [00:00<00:00,  2.42it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.29it/s][A
+                                                                      [AEpoch 117: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 117: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 117:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 118:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate118: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 118: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 118: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.83it/s][A
+                                                                      [AEpoch 118: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 118: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 118:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 119:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate119: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 119: 100%|██████████| 1/1 [00:00<00:00,  2.46it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 119: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.44it/s][A
+                                                                      [AEpoch 119: 100%|██████████| 1/1 [00:01<00:00,  0.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 119: 100%|██████████| 1/1 [00:01<00:00,  0.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 119:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 120:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate120: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 120: 100%|██████████| 1/1 [00:00<00:00,  2.25it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 120: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.65it/s][A
+                                                                      [AEpoch 120: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 120: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 120:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 121:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate121: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 121: 100%|██████████| 1/1 [00:00<00:00,  1.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 121: 100%|██████████| 1/1 [00:00<00:00,  1.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.45it/s][A
+                                                                      [AEpoch 121: 100%|██████████| 1/1 [00:01<00:00,  0.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 121: 100%|██████████| 1/1 [00:01<00:00,  0.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 121:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 122:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate122: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 122: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 122: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.37it/s][A
+                                                                      [AEpoch 122: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 122: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 122:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 123:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate123: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 123: 100%|██████████| 1/1 [00:00<00:00,  2.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 123: 100%|██████████| 1/1 [00:00<00:00,  2.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s][A
+                                                                      [AEpoch 123: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 123: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 123:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 124:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate124: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 124: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 124: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s][A
+                                                                      [AEpoch 124: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 124: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 124:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 125:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate125: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 125: 100%|██████████| 1/1 [00:00<00:00,  2.37it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 125: 100%|██████████| 1/1 [00:00<00:00,  2.37it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.93it/s][A
+                                                                      [AEpoch 125: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 125: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 125:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 126:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate126: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 126: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 126: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s][A
+                                                                      [AEpoch 126: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 126: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 126:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 127:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate127: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 127: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 127: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.08it/s][A
+                                                                      [AEpoch 127: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 127: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 127:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 128:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate128: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 128: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 128: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.24it/s][A
+                                                                      [AEpoch 128: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 128: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 128:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 129:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate129: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 129: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 129: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.74it/s][A
+                                                                      [AEpoch 129: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 129: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 129:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 130:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate130: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 130: 100%|██████████| 1/1 [00:00<00:00,  1.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 130: 100%|██████████| 1/1 [00:00<00:00,  1.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.49it/s][A
+                                                                      [AEpoch 130: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 130: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 130:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 131:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate131: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 131: 100%|██████████| 1/1 [00:00<00:00,  1.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 131: 100%|██████████| 1/1 [00:00<00:00,  1.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.25it/s][A
+                                                                      [AEpoch 131: 100%|██████████| 1/1 [00:01<00:00,  0.76it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 131: 100%|██████████| 1/1 [00:01<00:00,  0.76it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 131:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 132:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate132: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 132: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 132: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.49it/s][A
+                                                                      [AEpoch 132: 100%|██████████| 1/1 [00:01<00:00,  0.76it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 132: 100%|██████████| 1/1 [00:01<00:00,  0.76it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 132:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 133:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate133: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 133: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 133: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.77it/s][A
+                                                                      [AEpoch 133: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 133: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 133:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 134:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate134: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 134: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 134: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.27it/s][A
+                                                                      [AEpoch 134: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 134: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 134:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 135:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate135: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 135: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 135: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.86it/s][A
+                                                                      [AEpoch 135: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 135: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 135:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 136:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate136: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 136: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 136: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.68it/s][A
+                                                                      [AEpoch 136: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 136: 100%|██████████| 1/1 [00:01<00:00,  0.98it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 136:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 137:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate137: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 137: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 137: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.03it/s][A
+                                                                      [AEpoch 137: 100%|██████████| 1/1 [00:01<00:00,  0.91it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 137: 100%|██████████| 1/1 [00:01<00:00,  0.91it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 137:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 138:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate138: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 138: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 138: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.21it/s][A
+                                                                      [AEpoch 138: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 138: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 138:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 139:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate139: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 139: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 139: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.25it/s][A
+                                                                      [AEpoch 139: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 139: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 139:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 140:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate140: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 140: 100%|██████████| 1/1 [00:00<00:00,  2.29it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 140: 100%|██████████| 1/1 [00:00<00:00,  2.29it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.43it/s][A
+                                                                      [AEpoch 140: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 140: 100%|██████████| 1/1 [00:01<00:00,  0.78it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 140:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 141:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate141: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 141: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 141: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.88it/s][A
+                                                                      [AEpoch 141: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 141: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 141:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 142:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate142: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 142: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 142: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.99it/s][A
+                                                                      [AEpoch 142: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 142: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 142:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 143:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate143: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 143: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 143: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.43it/s][A
+                                                                      [AEpoch 143: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 143: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 143:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 144:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate144: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 144: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 144: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.19it/s][A
+                                                                      [AEpoch 144: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 144: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 144:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 145:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate145: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 145: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 145: 100%|██████████| 1/1 [00:00<00:00,  2.43it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.12it/s][A
+                                                                      [AEpoch 145: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 145: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 145:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 146:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate146: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 146: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 146: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.83it/s][A
+                                                                      [AEpoch 146: 100%|██████████| 1/1 [00:01<00:00,  0.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 146: 100%|██████████| 1/1 [00:01<00:00,  0.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 146:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 147:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate147: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 147: 100%|██████████| 1/1 [00:00<00:00,  1.96it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 147: 100%|██████████| 1/1 [00:00<00:00,  1.96it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.38it/s][A
+                                                                      [AEpoch 147: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 147: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 147:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 148:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate148: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 148: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 148: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.28it/s][A
+                                                                      [AEpoch 148: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 148: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 148:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 149:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate149: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 149: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 149: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.37it/s][A
+                                                                      [AEpoch 149: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 149: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 149:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 150:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate150: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 150: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 150: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.83it/s][A
+                                                                      [AEpoch 150: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 150: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 150:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 151:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate151: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 151: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 151: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.28it/s][A
+                                                                      [AEpoch 151: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 151: 100%|██████████| 1/1 [00:01<00:00,  0.89it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 151:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 152:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate152: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 152: 100%|██████████| 1/1 [00:00<00:00,  2.51it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 152: 100%|██████████| 1/1 [00:00<00:00,  2.51it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.04it/s][A
+                                                                      [AEpoch 152: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 152: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 152:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 153:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate153: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 153: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 153: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.62it/s][A
+                                                                      [AEpoch 153: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 153: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 153:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 154:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate154: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 154: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 154: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.51it/s][A
+                                                                      [AEpoch 154: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 154: 100%|██████████| 1/1 [00:01<00:00,  0.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 154:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 155:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate155: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 155: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 155: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.33it/s][A
+                                                                      [AEpoch 155: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 155: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 155:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 156:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate156: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 156: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 156: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.18it/s][A
+                                                                      [AEpoch 156: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 156: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 156:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 157:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate157: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 157: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 157: 100%|██████████| 1/1 [00:00<00:00,  2.38it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.74it/s][A
+                                                                      [AEpoch 157: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 157: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 157:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 158:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate158: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 158: 100%|██████████| 1/1 [00:00<00:00,  2.37it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 158: 100%|██████████| 1/1 [00:00<00:00,  2.37it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.10it/s][A
+                                                                      [AEpoch 158: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 158: 100%|██████████| 1/1 [00:01<00:00,  0.88it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 158:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 159:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate159: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 159: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 159: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  4.88it/s][A
+                                                                      [AEpoch 159: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 159: 100%|██████████| 1/1 [00:01<00:00,  0.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 159:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 160:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate160: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 160: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 160: 100%|██████████| 1/1 [00:00<00:00,  2.49it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.54it/s][A
+                                                                      [AEpoch 160: 100%|██████████| 1/1 [00:01<00:00,  0.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 160: 100%|██████████| 1/1 [00:01<00:00,  0.95it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 160:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 161:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate161: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 161: 100%|██████████| 1/1 [00:00<00:00,  2.26it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 161: 100%|██████████| 1/1 [00:00<00:00,  2.25it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.61it/s][A
+                                                                      [AEpoch 161: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 161: 100%|██████████| 1/1 [00:01<00:00,  0.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 161:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 162:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate162: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 162: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 162: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.81it/s][A
+                                                                      [AEpoch 162: 100%|██████████| 1/1 [00:01<00:00,  0.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 162: 100%|██████████| 1/1 [00:01<00:00,  0.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 162:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 163:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate163: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 163: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 163: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.27it/s][A
+                                                                      [AEpoch 163: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 163: 100%|██████████| 1/1 [00:01<00:00,  0.80it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 163:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 164:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate164: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 164: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 164: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.39it/s][A
+                                                                      [AEpoch 164: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 164: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 164:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 165:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate165: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 165: 100%|██████████| 1/1 [00:00<00:00,  2.29it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 165: 100%|██████████| 1/1 [00:00<00:00,  2.29it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.24it/s][A
+                                                                      [AEpoch 165: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 165: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 165:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 166:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate166: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 166: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 166: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.41it/s][A
+                                                                      [AEpoch 166: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 166: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 166:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 167:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate167: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 167: 100%|██████████| 1/1 [00:00<00:00,  1.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 167: 100%|██████████| 1/1 [00:00<00:00,  1.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.46it/s][A
+                                                                      [AEpoch 167: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 167: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 167:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 168:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate168: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 168: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 168: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.88it/s][A
+                                                                      [AEpoch 168: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 168: 100%|██████████| 1/1 [00:01<00:00,  0.82it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 168:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 169:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate169: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 169: 100%|██████████| 1/1 [00:00<00:00,  1.75it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 169: 100%|██████████| 1/1 [00:00<00:00,  1.75it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  7.81it/s][A
+                                                                      [AEpoch 169: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 169: 100%|██████████| 1/1 [00:01<00:00,  0.77it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 169:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 170:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate170: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 170: 100%|██████████| 1/1 [00:00<00:00,  2.04it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 170: 100%|██████████| 1/1 [00:00<00:00,  2.04it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.28it/s][A
+                                                                      [AEpoch 170: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 170: 100%|██████████| 1/1 [00:01<00:00,  0.83it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 170:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 171:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate171: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 171: 100%|██████████| 1/1 [00:00<00:00,  2.31it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 171: 100%|██████████| 1/1 [00:00<00:00,  2.30it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.52it/s][A
+                                                                      [AEpoch 171: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 171: 100%|██████████| 1/1 [00:01<00:00,  0.81it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 171:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 172:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate172: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 172: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 172: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.19it/s][A
+                                                                      [AEpoch 172: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 172: 100%|██████████| 1/1 [00:01<00:00,  0.85it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 172:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 173:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate173: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 173: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 173: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.16it/s][A
+                                                                      [AEpoch 173: 100%|██████████| 1/1 [00:01<00:00,  0.92it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 173: 100%|██████████| 1/1 [00:01<00:00,  0.92it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 173:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 174:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate174: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 174: 100%|██████████| 1/1 [00:00<00:00,  2.56it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 174: 100%|██████████| 1/1 [00:00<00:00,  2.55it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.98it/s][A
+                                                                      [AEpoch 174: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 174: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 174:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 175:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate175: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 175: 100%|██████████| 1/1 [00:00<00:00,  1.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 175: 100%|██████████| 1/1 [00:00<00:00,  1.86it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  9.46it/s][A
+                                                                      [AEpoch 175: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 175: 100%|██████████| 1/1 [00:01<00:00,  0.87it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 175:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 176:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate176: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 176: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 176: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  8.56it/s][A
+                                                                      [AEpoch 176: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 176: 100%|██████████| 1/1 [00:01<00:00,  0.79it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 176:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0]        Epoch 177:   0%|          | 0/1 [00:00<?, ?it/s, v_num=8tei, epoch_avg_train_loss=nan.0] learning rate177: 1.907349e-08
+Batch 0: train_loss=nan
+Epoch 177: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]Epoch 177: 100%|██████████| 1/1 [00:00<00:00,  2.06it/s, v_num=8tei, epoch_avg_train_loss=nan.0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A[rank: 0] Received SIGTERM: 15
+Traceback (most recent call last):
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_stage
+    self.fit_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 141, in run
+    self.on_advance_end(data_fetcher)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 295, in on_advance_end
+    self.val_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/utilities.py", line 182, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 135, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 396, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 311, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 411, in validation_step
+    return self.lightning_module.validation_step(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 102, in validation_step
+    logits = self(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 59, in forward
+    x = encoder(x, mask)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/EncoderBlock.py", line 62, in forward
+    x = self.norm_attention(x + self.dropout(attn_output))
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/BuildingBlocks/LayerNormalisation.py", line 30, in forward
+    self.nan_logger.info(f"x hasn't nan: {not torch.isnan(x).any()}")
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 67, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 1093474) is killed by signal: Terminated. 
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 344, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 335, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 331, in execute
+    run_training(base_dir, config, datamodule)
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 303, in run_training
+    trainer.fit(model, datamodule=datamodule)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
+    call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 60, in _call_and_handle_interrupt
+    trainer._teardown()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1009, in _teardown
+    self.strategy.teardown()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/strategies/strategy.py", line 535, in teardown
+    self.lightning_module.cpu()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/utilities/device_dtype_mixin.py", line 82, in cpu
+    return super().cpu()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 965, in cpu
+    return self._apply(lambda t: t.cpu())
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 780, in _apply
+    module._apply(fn)
+  [Previous line repeated 1 more time]
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 805, in _apply
+    param_applied = fn(param)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 965, in <lambda>
+    return self._apply(lambda t: t.cpu())
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 67, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 1093568) is killed by signal: Terminated. 
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mzesty-butterfly-1[0m at: [34mhttps://wandb.ai/cyans-k-benhavns-universitet/%5B20250204_165850%5D%20Flavour%20Classification/runs/noya8tei[0m
+[1;34mwandb[0m: Find logs at: [1;35m../../../../../lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250204_165856-noya8tei/logs[0m

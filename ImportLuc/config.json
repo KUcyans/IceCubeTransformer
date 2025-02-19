@@ -1,0 +1,14 @@
+{
+    "output_dim": 3,
+    "reconstruction_target": "one_hot_pid",
+    "embedding_dim": 128,
+    "seq_dim": 256,
+    "batch_size": 64,
+    "num_workers": 4,
+    "n_layers": 6,
+    "n_heads": 4,
+    "n_epochs": 50,
+    "patience": 200,
+    "lr": 5e-4,
+    "dropout": 0.1
+}

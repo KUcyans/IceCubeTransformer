@@ -1,0 +1,783 @@
+nohup: ignoring input
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: wandb version 0.19.5 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.2
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_162232-7a7d7rak
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run lucky-water-1
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_162230%5DNeutrino%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_162230%5DNeutrino%20Flavour%20Classification/runs/7a7d7rak
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+Missing logger folder: /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/logs/20250130/162230
+2025-01-30 16:22:34.994926: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-01-30 16:22:35.009923: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-01-30 16:22:35.014738: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-01-30 16:22:35.027908: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-01-30 16:22:36.344488: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250130 exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | encoder_blocks              | ModuleList | 397 K  | train
+2 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+402 K     Trainable params
+0         Non-trainable params
+402 K     Total params
+1.608     Total estimated model params size (MB)
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
+Dataset split: Train=4800, Val=600, Test=600
+Class weights: tensor([6.3492e-04, 6.2461e-04, 6.1576e-04, 1.0000e+00])
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
+Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:01<00:01,  0.76it/s]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:01<00:00,  1.09it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/38 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/38 [00:00<?, ?it/s] x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:   3%|▎         | 1/38 [00:03<02:23,  0.26it/s]Epoch 0:   3%|▎         | 1/38 [00:03<02:23,  0.26it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:   5%|▌         | 2/38 [00:04<01:19,  0.45it/s, v_num=0]Epoch 0:   5%|▌         | 2/38 [00:04<01:19,  0.45it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:   8%|▊         | 3/38 [00:06<01:13,  0.47it/s, v_num=0]Epoch 0:   8%|▊         | 3/38 [00:06<01:13,  0.47it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  11%|█         | 4/38 [00:08<01:10,  0.48it/s, v_num=0]Epoch 0:  11%|█         | 4/38 [00:08<01:10,  0.48it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  13%|█▎        | 5/38 [00:10<01:07,  0.49it/s, v_num=0]Epoch 0:  13%|█▎        | 5/38 [00:10<01:07,  0.49it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  16%|█▌        | 6/38 [00:12<01:04,  0.49it/s, v_num=0]Epoch 0:  16%|█▌        | 6/38 [00:12<01:04,  0.49it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  18%|█▊        | 7/38 [00:14<01:02,  0.50it/s, v_num=0]Epoch 0:  18%|█▊        | 7/38 [00:14<01:02,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  21%|██        | 8/38 [00:16<01:00,  0.50it/s, v_num=0]Epoch 0:  21%|██        | 8/38 [00:16<01:00,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  24%|██▎       | 9/38 [00:17<00:57,  0.50it/s, v_num=0]Epoch 0:  24%|██▎       | 9/38 [00:17<00:57,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  26%|██▋       | 10/38 [00:19<00:55,  0.50it/s, v_num=0]Epoch 0:  26%|██▋       | 10/38 [00:19<00:55,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  29%|██▉       | 11/38 [00:21<00:53,  0.50it/s, v_num=0]Epoch 0:  29%|██▉       | 11/38 [00:21<00:53,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  32%|███▏      | 12/38 [00:23<00:51,  0.50it/s, v_num=0]Epoch 0:  32%|███▏      | 12/38 [00:23<00:51,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  34%|███▍      | 13/38 [00:25<00:49,  0.50it/s, v_num=0]Epoch 0:  34%|███▍      | 13/38 [00:25<00:49,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  37%|███▋      | 14/38 [00:27<00:47,  0.50it/s, v_num=0]Epoch 0:  37%|███▋      | 14/38 [00:27<00:47,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  39%|███▉      | 15/38 [00:29<00:45,  0.50it/s, v_num=0]Epoch 0:  39%|███▉      | 15/38 [00:29<00:45,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  42%|████▏     | 16/38 [00:31<00:43,  0.50it/s, v_num=0]Epoch 0:  42%|████▏     | 16/38 [00:31<00:43,  0.50it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  45%|████▍     | 17/38 [00:33<00:41,  0.51it/s, v_num=0]Epoch 0:  45%|████▍     | 17/38 [00:33<00:41,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  47%|████▋     | 18/38 [00:35<00:39,  0.51it/s, v_num=0]Epoch 0:  47%|████▋     | 18/38 [00:35<00:39,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  50%|█████     | 19/38 [00:37<00:37,  0.51it/s, v_num=0]Epoch 0:  50%|█████     | 19/38 [00:37<00:37,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  53%|█████▎    | 20/38 [00:39<00:35,  0.51it/s, v_num=0]Epoch 0:  53%|█████▎    | 20/38 [00:39<00:35,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  55%|█████▌    | 21/38 [00:41<00:33,  0.51it/s, v_num=0]Epoch 0:  55%|█████▌    | 21/38 [00:41<00:33,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  58%|█████▊    | 22/38 [00:43<00:31,  0.51it/s, v_num=0]Epoch 0:  58%|█████▊    | 22/38 [00:43<00:31,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  61%|██████    | 23/38 [00:45<00:29,  0.51it/s, v_num=0]Epoch 0:  61%|██████    | 23/38 [00:45<00:29,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  63%|██████▎   | 24/38 [00:47<00:27,  0.51it/s, v_num=0]Epoch 0:  63%|██████▎   | 24/38 [00:47<00:27,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  66%|██████▌   | 25/38 [00:49<00:25,  0.51it/s, v_num=0]Epoch 0:  66%|██████▌   | 25/38 [00:49<00:25,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  68%|██████▊   | 26/38 [00:51<00:23,  0.51it/s, v_num=0]Epoch 0:  68%|██████▊   | 26/38 [00:51<00:23,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  71%|███████   | 27/38 [00:53<00:21,  0.51it/s, v_num=0]Epoch 0:  71%|███████   | 27/38 [00:53<00:21,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  74%|███████▎  | 28/38 [00:55<00:19,  0.51it/s, v_num=0]Epoch 0:  74%|███████▎  | 28/38 [00:55<00:19,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  76%|███████▋  | 29/38 [00:57<00:17,  0.51it/s, v_num=0]Epoch 0:  76%|███████▋  | 29/38 [00:57<00:17,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  79%|███████▉  | 30/38 [00:58<00:15,  0.51it/s, v_num=0]Epoch 0:  79%|███████▉  | 30/38 [00:58<00:15,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  82%|████████▏ | 31/38 [01:00<00:13,  0.51it/s, v_num=0]Epoch 0:  82%|████████▏ | 31/38 [01:00<00:13,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  84%|████████▍ | 32/38 [01:02<00:11,  0.51it/s, v_num=0]Epoch 0:  84%|████████▍ | 32/38 [01:02<00:11,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  87%|████████▋ | 33/38 [01:04<00:09,  0.51it/s, v_num=0]Epoch 0:  87%|████████▋ | 33/38 [01:04<00:09,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  89%|████████▉ | 34/38 [01:06<00:07,  0.51it/s, v_num=0]Epoch 0:  89%|████████▉ | 34/38 [01:06<00:07,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  92%|█████████▏| 35/38 [01:08<00:05,  0.51it/s, v_num=0]Epoch 0:  92%|█████████▏| 35/38 [01:08<00:05,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  95%|█████████▍| 36/38 [01:10<00:03,  0.51it/s, v_num=0]Epoch 0:  95%|█████████▍| 36/38 [01:10<00:03,  0.51it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 0:  97%|█████████▋| 37/38 [01:12<00:01,  0.51it/s, v_num=0]Epoch 0:  97%|█████████▋| 37/38 [01:12<00:01,  0.51it/s, v_num=0]x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+Epoch 0: 100%|██████████| 38/38 [01:14<00:00,  0.51it/s, v_num=0]Epoch 0: 100%|██████████| 38/38 [01:14<00:00,  0.51it/s, v_num=0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/5 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.85it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.83it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.84it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.83it/s][Ax shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+
+Validation DataLoader 0: 100%|██████████| 5/5 [00:02<00:00,  1.96it/s][A
+                                                                      [AEpoch 0: 100%|██████████| 38/38 [01:17<00:00,  0.49it/s, v_num=0]Epoch 0: 100%|██████████| 38/38 [01:17<00:00,  0.49it/s, v_num=0]Metric val_loss improved. New best score: 1.105
+Epoch 0:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]         Epoch 1:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:   3%|▎         | 1/38 [00:00<00:32,  1.13it/s, v_num=0]Epoch 1:   3%|▎         | 1/38 [00:00<00:32,  1.12it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:   5%|▌         | 2/38 [00:02<00:51,  0.70it/s, v_num=0]Epoch 1:   5%|▌         | 2/38 [00:02<00:51,  0.70it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:   8%|▊         | 3/38 [00:04<00:56,  0.62it/s, v_num=0]Epoch 1:   8%|▊         | 3/38 [00:04<00:56,  0.62it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  11%|█         | 4/38 [00:06<00:57,  0.59it/s, v_num=0]Epoch 1:  11%|█         | 4/38 [00:06<00:57,  0.59it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  13%|█▎        | 5/38 [00:08<00:57,  0.57it/s, v_num=0]Epoch 1:  13%|█▎        | 5/38 [00:08<00:57,  0.57it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  16%|█▌        | 6/38 [00:10<00:56,  0.56it/s, v_num=0]Epoch 1:  16%|█▌        | 6/38 [00:10<00:56,  0.56it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  18%|█▊        | 7/38 [00:12<00:56,  0.55it/s, v_num=0]Epoch 1:  18%|█▊        | 7/38 [00:12<00:56,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]Epoch 1:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]Epoch 1:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  26%|██▋       | 10/38 [00:18<00:51,  0.54it/s, v_num=0]Epoch 1:  26%|██▋       | 10/38 [00:18<00:51,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  29%|██▉       | 11/38 [00:20<00:50,  0.54it/s, v_num=0]Epoch 1:  29%|██▉       | 11/38 [00:20<00:50,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]Epoch 1:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  34%|███▍      | 13/38 [00:24<00:47,  0.53it/s, v_num=0]Epoch 1:  34%|███▍      | 13/38 [00:24<00:47,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]Epoch 1:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]Epoch 1:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]Epoch 1:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  45%|████▍     | 17/38 [00:32<00:39,  0.53it/s, v_num=0]Epoch 1:  45%|████▍     | 17/38 [00:32<00:39,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  47%|████▋     | 18/38 [00:34<00:38,  0.53it/s, v_num=0]Epoch 1:  47%|████▋     | 18/38 [00:34<00:38,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]Epoch 1:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]Epoch 1:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]Epoch 1:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]Epoch 1:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]Epoch 1:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]Epoch 1:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  66%|██████▌   | 25/38 [00:48<00:24,  0.52it/s, v_num=0]Epoch 1:  66%|██████▌   | 25/38 [00:48<00:24,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]Epoch 1:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  71%|███████   | 27/38 [00:51<00:21,  0.52it/s, v_num=0]Epoch 1:  71%|███████   | 27/38 [00:51<00:21,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  74%|███████▎  | 28/38 [00:53<00:19,  0.52it/s, v_num=0]Epoch 1:  74%|███████▎  | 28/38 [00:53<00:19,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  76%|███████▋  | 29/38 [00:55<00:17,  0.52it/s, v_num=0]Epoch 1:  76%|███████▋  | 29/38 [00:55<00:17,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]Epoch 1:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]Epoch 1:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]Epoch 1:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]Epoch 1:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]Epoch 1:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]Epoch 1:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]Epoch 1:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 1:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]Epoch 1:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+Epoch 1: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]Epoch 1: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/5 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.83it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.82it/s][Ax shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+
+Validation DataLoader 0: 100%|██████████| 5/5 [00:02<00:00,  1.94it/s][A
+                                                                      [AEpoch 1: 100%|██████████| 38/38 [01:16<00:00,  0.49it/s, v_num=0]Epoch 1: 100%|██████████| 38/38 [01:16<00:00,  0.49it/s, v_num=0]Epoch 1:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]         Epoch 2:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:   3%|▎         | 1/38 [00:00<00:29,  1.26it/s, v_num=0]Epoch 2:   3%|▎         | 1/38 [00:00<00:29,  1.26it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:   5%|▌         | 2/38 [00:02<00:49,  0.72it/s, v_num=0]Epoch 2:   5%|▌         | 2/38 [00:02<00:49,  0.72it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:   8%|▊         | 3/38 [00:04<00:55,  0.63it/s, v_num=0]Epoch 2:   8%|▊         | 3/38 [00:04<00:55,  0.63it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  11%|█         | 4/38 [00:06<00:56,  0.60it/s, v_num=0]Epoch 2:  11%|█         | 4/38 [00:06<00:56,  0.60it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  13%|█▎        | 5/38 [00:08<00:57,  0.58it/s, v_num=0]Epoch 2:  13%|█▎        | 5/38 [00:08<00:57,  0.58it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  16%|█▌        | 6/38 [00:10<00:56,  0.56it/s, v_num=0]Epoch 2:  16%|█▌        | 6/38 [00:10<00:56,  0.56it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  18%|█▊        | 7/38 [00:12<00:55,  0.56it/s, v_num=0]Epoch 2:  18%|█▊        | 7/38 [00:12<00:55,  0.56it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]Epoch 2:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]Epoch 2:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  26%|██▋       | 10/38 [00:18<00:51,  0.54it/s, v_num=0]Epoch 2:  26%|██▋       | 10/38 [00:18<00:51,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  29%|██▉       | 11/38 [00:20<00:50,  0.54it/s, v_num=0]Epoch 2:  29%|██▉       | 11/38 [00:20<00:50,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]Epoch 2:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  34%|███▍      | 13/38 [00:24<00:46,  0.53it/s, v_num=0]Epoch 2:  34%|███▍      | 13/38 [00:24<00:46,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]Epoch 2:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]Epoch 2:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]Epoch 2:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  45%|████▍     | 17/38 [00:32<00:39,  0.53it/s, v_num=0]Epoch 2:  45%|████▍     | 17/38 [00:32<00:39,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  47%|████▋     | 18/38 [00:34<00:38,  0.53it/s, v_num=0]Epoch 2:  47%|████▋     | 18/38 [00:34<00:38,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]Epoch 2:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]Epoch 2:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]Epoch 2:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]Epoch 2:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]Epoch 2:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]Epoch 2:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  66%|██████▌   | 25/38 [00:48<00:24,  0.52it/s, v_num=0]Epoch 2:  66%|██████▌   | 25/38 [00:48<00:24,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]Epoch 2:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  71%|███████   | 27/38 [00:51<00:21,  0.52it/s, v_num=0]Epoch 2:  71%|███████   | 27/38 [00:51<00:21,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  74%|███████▎  | 28/38 [00:53<00:19,  0.52it/s, v_num=0]Epoch 2:  74%|███████▎  | 28/38 [00:53<00:19,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  76%|███████▋  | 29/38 [00:55<00:17,  0.52it/s, v_num=0]Epoch 2:  76%|███████▋  | 29/38 [00:55<00:17,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]Epoch 2:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]Epoch 2:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]Epoch 2:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]Epoch 2:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]Epoch 2:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]Epoch 2:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]Epoch 2:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 2:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]Epoch 2:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+Epoch 2: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]Epoch 2: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/5 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.83it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.82it/s][Ax shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+
+Validation DataLoader 0: 100%|██████████| 5/5 [00:02<00:00,  1.94it/s][A
+                                                                      [AEpoch 2: 100%|██████████| 38/38 [01:16<00:00,  0.49it/s, v_num=0]Epoch 2: 100%|██████████| 38/38 [01:16<00:00,  0.49it/s, v_num=0]Epoch 2:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]         Epoch 3:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:   3%|▎         | 1/38 [00:00<00:29,  1.25it/s, v_num=0]Epoch 3:   3%|▎         | 1/38 [00:00<00:29,  1.25it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:   5%|▌         | 2/38 [00:02<00:49,  0.72it/s, v_num=0]Epoch 3:   5%|▌         | 2/38 [00:02<00:49,  0.72it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:   8%|▊         | 3/38 [00:04<00:55,  0.63it/s, v_num=0]Epoch 3:   8%|▊         | 3/38 [00:04<00:55,  0.63it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  11%|█         | 4/38 [00:06<00:57,  0.60it/s, v_num=0]Epoch 3:  11%|█         | 4/38 [00:06<00:57,  0.60it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  13%|█▎        | 5/38 [00:08<00:57,  0.58it/s, v_num=0]Epoch 3:  13%|█▎        | 5/38 [00:08<00:57,  0.58it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  16%|█▌        | 6/38 [00:10<00:56,  0.56it/s, v_num=0]Epoch 3:  16%|█▌        | 6/38 [00:10<00:56,  0.56it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  18%|█▊        | 7/38 [00:12<00:55,  0.55it/s, v_num=0]Epoch 3:  18%|█▊        | 7/38 [00:12<00:55,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]Epoch 3:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]Epoch 3:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  26%|██▋       | 10/38 [00:18<00:51,  0.54it/s, v_num=0]Epoch 3:  26%|██▋       | 10/38 [00:18<00:51,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  29%|██▉       | 11/38 [00:20<00:50,  0.54it/s, v_num=0]Epoch 3:  29%|██▉       | 11/38 [00:20<00:50,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]Epoch 3:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  34%|███▍      | 13/38 [00:24<00:46,  0.53it/s, v_num=0]Epoch 3:  34%|███▍      | 13/38 [00:24<00:46,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]Epoch 3:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]Epoch 3:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]Epoch 3:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  45%|████▍     | 17/38 [00:32<00:39,  0.53it/s, v_num=0]Epoch 3:  45%|████▍     | 17/38 [00:32<00:39,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  47%|████▋     | 18/38 [00:34<00:38,  0.53it/s, v_num=0]Epoch 3:  47%|████▋     | 18/38 [00:34<00:38,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]Epoch 3:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]Epoch 3:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]Epoch 3:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]Epoch 3:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]Epoch 3:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]Epoch 3:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  66%|██████▌   | 25/38 [00:48<00:24,  0.52it/s, v_num=0]Epoch 3:  66%|██████▌   | 25/38 [00:48<00:24,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]Epoch 3:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  71%|███████   | 27/38 [00:52<00:21,  0.52it/s, v_num=0]Epoch 3:  71%|███████   | 27/38 [00:52<00:21,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  74%|███████▎  | 28/38 [00:53<00:19,  0.52it/s, v_num=0]Epoch 3:  74%|███████▎  | 28/38 [00:53<00:19,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  76%|███████▋  | 29/38 [00:55<00:17,  0.52it/s, v_num=0]Epoch 3:  76%|███████▋  | 29/38 [00:55<00:17,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]Epoch 3:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]Epoch 3:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]Epoch 3:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]Epoch 3:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]Epoch 3:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]Epoch 3:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]Epoch 3:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 3:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]Epoch 3:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+Epoch 3: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]Epoch 3: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/5 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.81it/s][Ax shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+
+Validation DataLoader 0: 100%|██████████| 5/5 [00:02<00:00,  1.94it/s][A
+                                                                      [AEpoch 3: 100%|██████████| 38/38 [01:16<00:00,  0.49it/s, v_num=0]Epoch 3: 100%|██████████| 38/38 [01:16<00:00,  0.49it/s, v_num=0]Epoch 3:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]         Epoch 4:   0%|          | 0/38 [00:00<?, ?it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:   3%|▎         | 1/38 [00:00<00:31,  1.16it/s, v_num=0]Epoch 4:   3%|▎         | 1/38 [00:00<00:31,  1.16it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:   5%|▌         | 2/38 [00:02<00:51,  0.71it/s, v_num=0]Epoch 4:   5%|▌         | 2/38 [00:02<00:51,  0.71it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:   8%|▊         | 3/38 [00:04<00:56,  0.62it/s, v_num=0]Epoch 4:   8%|▊         | 3/38 [00:04<00:56,  0.62it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  11%|█         | 4/38 [00:06<00:57,  0.59it/s, v_num=0]Epoch 4:  11%|█         | 4/38 [00:06<00:57,  0.59it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  13%|█▎        | 5/38 [00:08<00:57,  0.57it/s, v_num=0]Epoch 4:  13%|█▎        | 5/38 [00:08<00:57,  0.57it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  16%|█▌        | 6/38 [00:10<00:57,  0.56it/s, v_num=0]Epoch 4:  16%|█▌        | 6/38 [00:10<00:57,  0.56it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  18%|█▊        | 7/38 [00:12<00:56,  0.55it/s, v_num=0]Epoch 4:  18%|█▊        | 7/38 [00:12<00:56,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]Epoch 4:  21%|██        | 8/38 [00:14<00:54,  0.55it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]Epoch 4:  24%|██▎       | 9/38 [00:16<00:53,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  26%|██▋       | 10/38 [00:18<00:52,  0.54it/s, v_num=0]Epoch 4:  26%|██▋       | 10/38 [00:18<00:52,  0.54it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  29%|██▉       | 11/38 [00:20<00:50,  0.53it/s, v_num=0]Epoch 4:  29%|██▉       | 11/38 [00:20<00:50,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]Epoch 4:  32%|███▏      | 12/38 [00:22<00:48,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  34%|███▍      | 13/38 [00:24<00:47,  0.53it/s, v_num=0]Epoch 4:  34%|███▍      | 13/38 [00:24<00:47,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]Epoch 4:  37%|███▋      | 14/38 [00:26<00:45,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]Epoch 4:  39%|███▉      | 15/38 [00:28<00:43,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]Epoch 4:  42%|████▏     | 16/38 [00:30<00:41,  0.53it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  45%|████▍     | 17/38 [00:32<00:40,  0.52it/s, v_num=0]Epoch 4:  45%|████▍     | 17/38 [00:32<00:40,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  47%|████▋     | 18/38 [00:34<00:38,  0.52it/s, v_num=0]Epoch 4:  47%|████▋     | 18/38 [00:34<00:38,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]Epoch 4:  50%|█████     | 19/38 [00:36<00:36,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]Epoch 4:  53%|█████▎    | 20/38 [00:38<00:34,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]Epoch 4:  55%|█████▌    | 21/38 [00:40<00:32,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]Epoch 4:  58%|█████▊    | 22/38 [00:42<00:30,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]Epoch 4:  61%|██████    | 23/38 [00:44<00:28,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]Epoch 4:  63%|██████▎   | 24/38 [00:46<00:26,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  66%|██████▌   | 25/38 [00:48<00:25,  0.52it/s, v_num=0]Epoch 4:  66%|██████▌   | 25/38 [00:48<00:25,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]Epoch 4:  68%|██████▊   | 26/38 [00:50<00:23,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  71%|███████   | 27/38 [00:52<00:21,  0.52it/s, v_num=0]Epoch 4:  71%|███████   | 27/38 [00:52<00:21,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  74%|███████▎  | 28/38 [00:54<00:19,  0.52it/s, v_num=0]Epoch 4:  74%|███████▎  | 28/38 [00:54<00:19,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  76%|███████▋  | 29/38 [00:56<00:17,  0.52it/s, v_num=0]Epoch 4:  76%|███████▋  | 29/38 [00:56<00:17,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]Epoch 4:  79%|███████▉  | 30/38 [00:57<00:15,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]Epoch 4:  82%|████████▏ | 31/38 [00:59<00:13,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]Epoch 4:  84%|████████▍ | 32/38 [01:01<00:11,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]Epoch 4:  87%|████████▋ | 33/38 [01:03<00:09,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]Epoch 4:  89%|████████▉ | 34/38 [01:05<00:07,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]Epoch 4:  92%|█████████▏| 35/38 [01:07<00:05,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]Epoch 4:  95%|█████████▍| 36/38 [01:09<00:03,  0.52it/s, v_num=0]x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+Epoch 4:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]Epoch 4:  97%|█████████▋| 37/38 [01:11<00:01,  0.52it/s, v_num=0]x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+x shape: torch.Size([64, 2421, 128])
+Epoch 4: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]Epoch 4: 100%|██████████| 38/38 [01:13<00:00,  0.52it/s, v_num=0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation:   0%|          | 0/5 [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:02,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.82it/s][Ax shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+x shape: torch.Size([128, 2421, 128])
+
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.81it/s][Ax shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+x shape: torch.Size([88, 2421, 128])
+
+Validation DataLoader 0: 100%|██████████| 5/5 [00:02<00:00,  1.93it/s][A
+                                                                      [AEpoch 4: 100%|██████████| 38/38 [01:17<00:00,  0.49it/s, v_num=0]Epoch 4: 100%|██████████| 38/38 [01:17<00:00,  0.49it/s, v_num=0]`Trainer.fit` stopped: `max_epochs=5` reached.
+Epoch 4: 100%|██████████| 38/38 [01:17<00:00,  0.49it/s, v_num=0]wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.008 MB uploadedwandb: | 0.015 MB of 0.064 MB uploadedwandb: / 0.064 MB of 0.064 MB uploadedwandb: - 0.064 MB of 0.064 MB uploadedwandb: \ 0.064 MB of 0.064 MB uploadedwandb:                                                                                
+wandb: 🚀 View run lucky-water-1 at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_162230%5DNeutrino%20Flavour%20Classification/runs/7a7d7rak
+wandb: ⭐️ View project at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_162230%5DNeutrino%20Flavour%20Classification
+wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250130_162232-7a7d7rak/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+Restoring states from the checkpoint path at /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250130/162230_transformer-epochepoch=00-val_lossval_loss=1.11.ckpt
+/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/utilities/cloud_io.py:57: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
+Loaded model weights from the checkpoint at /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250130/162230_transformer-epochepoch=00-val_lossval_loss=1.11.ckpt
+
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 215, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 212, in main
+    trainer.test(ckpt_path="best")
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 753, in test
+    return call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 793, in _test_impl
+    results = self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1023, in _run_stage
+    return self._evaluation_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/utilities.py", line 182, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 110, in run
+    self.setup_data()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 166, in setup_data
+    dataloaders = _request_dataloader(source)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 325, in _request_dataloader
+    return data_source.dataloader()
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 289, in dataloader
+    return call._call_lightning_module_hook(self.instance.trainer, self.name, pl_module=self.instance)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 159, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/core/hooks.py", line 512, in test_dataloader
+    raise MisconfigurationException("`test_dataloader` must be implemented to be used with the Lightning Trainer")
+lightning_fabric.utilities.exceptions.MisconfigurationException: `test_dataloader` must be implemented to be used with the Lightning Trainer

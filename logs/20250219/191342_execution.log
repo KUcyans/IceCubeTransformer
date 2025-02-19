@@ -1,0 +1,113 @@
+Starting job at Wed Feb 19 07:13:42 PM CET 2025
+Training script
+Checking allocated GPU...
+Wed Feb 19 19:13:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 555.42.06              Driver Version: 555.42.06      CUDA Version: 12.5     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3070        Off |   00000000:21:00.0 Off |                  N/A |
+| 30%   50C    P0             49W /  220W |       1MiB /   8192MiB |      5%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 0
+wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.19.6 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250219_191357-blyy2sbe
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run fast-jazz-12
+wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B2025-02-19%5D%20Flavour%20Classification
+wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B2025-02-19%5D%20Flavour%20Classification/runs/blyy2sbe
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                        | Type       | Params | Mode 
+-------------------------------------------------------------------
+0 | input_projection            | Linear     | 4.2 K  | train
+1 | position_embedding          | Embedding  | 32.8 K | train
+2 | encoder_blocks              | ModuleList | 597 K  | train
+3 | pooling                     | Pooling    | 0      | train
+4 | classification_output_layer | Linear     | 387    | train
+-------------------------------------------------------------------
+634 K     Trainable params
+0         Non-trainable params
+634 K     Total params
+2.540     Total estimated model params size (MB)
+SLURM auto-requeueing enabled. Setting signal handlers.
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/run_training.py", line 237, in <module>
+    run_training(config_file=os.path.join(config_dir, config_file),
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/run_training.py", line 228, in run_training
+    trainer.fit(model, datamodule=datamodule)
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
+    call._call_and_handle_interrupt(
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
+    results = self._run_stage()
+              ^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/trainer.py", line 1028, in _run_stage
+    self._run_sanity_check()
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/trainer.py", line 1057, in _run_sanity_check
+    val_loop.run()
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/loops/utilities.py", line 182, in _decorator
+    return loop_run(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 135, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/loops/evaluation_loop.py", line 396, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/trainer/call.py", line 311, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pytorch_lightning/strategies/strategy.py", line 411, in validation_step
+    return self.lightning_module.validation_step(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 129, in validation_step
+    _, logits = self(x, mask=mask, event_lengths=event_lengths)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 88, in forward
+    x = self.pooling(x, mask)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/groups/icecube/cyan/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/BuildingBlocks/Pooling.py", line 11, in forward
+    mask = mask.unsqueeze(-1).expand(-1, x.size(1), -1)  # ✅ Ensure correct shape
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: expand(CUDABoolType{[64, 256, 256, 1]}, size=[-1, 256, -1]): the number of sizes provided (3) must be greater or equal to the number of dimensions in the tensor (4)
+wandb: - 0.006 MB of 0.006 MB uploadedwandb: \ 0.006 MB of 0.006 MB uploadedwandb: | 0.006 MB of 0.022 MB uploadedwandb: / 0.022 MB of 0.022 MB uploadedwandb: 🚀 View run fast-jazz-12 at: https://wandb.ai/cyans-k-benhavns-universitet/%5B2025-02-19%5D%20Flavour%20Classification/runs/blyy2sbe
+wandb: ⭐️ View project at: https://wandb.ai/cyans-k-benhavns-universitet/%5B2025-02-19%5D%20Flavour%20Classification
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250219_191357-blyy2sbe/logs
+wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
+Job completed at Wed Feb 19 07:14:10 PM CET 2025

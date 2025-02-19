@@ -1,0 +1,29 @@
+nohup: ignoring input
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Number of GPUs available: 2
+GPU 0: NVIDIA GeForce RTX 3090
+GPU 1: NVIDIA GeForce RTX 3090
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 334, in <module>
+    main()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 325, in main
+    execute()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 320, in execute
+    datamodule = prepare_data(root_dir, config["batch_size"])
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 168, in prepare_data
+    ds_PeV_1_1 = DatasetMultiFlavourShard(
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/DataSocket/DatasetMultiFlavourShard.py", line 39, in __init__
+    self.datasets = self._collect_shards()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/DataSocket/DatasetMultiFlavourShard.py", line 56, in _collect_shards
+    dataset = DatasetMonoFlavourShard(
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/DataSocket/DatasetMonoFlavourShard.py", line 40, in __init__
+    self.truth_data = self._load_truth_data()
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/DataSocket/DatasetMonoFlavourShard.py", line 126, in _load_truth_data
+    flavour_arrow_array = pa.array(flavour_array, type=pa.int64())
+  File "pyarrow/array.pxi", line 370, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 42, in pyarrow.lib._sequence_to_array
+  File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
+  File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: Could not convert [0, 1, 0] with type list: tried to convert to int64

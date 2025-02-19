@@ -1,0 +1,34 @@
+Starting job at Wed Feb 19 10:25:41 PM CET 2025
+Training script
+Checking allocated GPU...
+Wed Feb 19 22:25:42 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 555.42.06              Driver Version: 555.42.06      CUDA Version: 12.5     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3070        Off |   00000000:21:00.0 Off |                  N/A |
+| 30%   49C    P0             47W /  220W |       1MiB /   8192MiB |      5%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA_VISIBLE_DEVICES: 0
+Traceback (most recent call last):
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/run_training.py", line 13, in <module>
+    from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 8, in <module>
+    from .BuildingBlocks.Pooling import Pooling
+  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/BuildingBlocks/Pooling.py", line 1, in <module>
+    class Pooling(nn.Module):
+                  ^^
+NameError: name 'nn' is not defined
+Job completed at Wed Feb 19 10:27:02 PM CET 2025

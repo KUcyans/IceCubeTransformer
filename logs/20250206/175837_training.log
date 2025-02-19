@@ -1,0 +1,15 @@
+2025-02-06 17:58:47,116 - INFO - Starting training with the following parameters:
+2025-02-06 17:58:47,117 - INFO - | Parameter       | Value               |
+|-----------------|---------------------|
+| attention       | Scaled Dot-Product|
+| d_model         | 128            |
+| n_heads         | 8              |
+| d_f             | 128            |
+| num_layers      | 3              |
+| d_input         | 32             |
+| num_classes     | 3              |
+| dropout         | 0.1            |
+| learning_rate   | 0.001          |
+| epochs          | 200            |
+| batch_size      | 16             |
+
