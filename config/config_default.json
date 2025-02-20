@@ -7,8 +7,8 @@
     "n_layers": 6,
     "n_heads": 4,
     "output_dim": 3,
-    "n_epochs": 50,
-    "patience": 50,
+    "n_epochs": 300,
+    "patience": 300,
     "dropout": 0.1,
     "attention": "scaled_dot",
     "train_data": {

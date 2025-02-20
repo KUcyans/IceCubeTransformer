@@ -32,13 +32,12 @@ This Transformer Encoder model and its data socket are designed to classify the 
 
 ## **`__getitem__`**
 ```python
-    def __getitem__(self, idx):
-        # 1. Determine the dataset index using the cumulative lengths
-        dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')
-        # 2. Calculate the local index within the selected dataset
-        local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]
-        # 3. Return the event from the selected dataset
-        return self.datasets[dataset_idx][local_idx]
+def __getitem__(self, idx):
+  """Retrieve item from correct dataset using binary search."""
+  idx = int(idx)
+  dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')
+  local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]
+  return self.datasets[dataset_idx][local_idx]
 ```
 ---
 

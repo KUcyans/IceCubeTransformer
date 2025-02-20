@@ -86,12 +86,26 @@ ckpt_dir = f"/groups/icecube/cyan/factory/IceCubeTransformer/ImportLuc/checkpoin
 
 ckpt_files = [f for f in os.listdir(ckpt_dir) if f.endswith(".ckpt")]
 
-if "last.ckpt" in ckpt_files:
-    ckpt_file = "last.ckpt"  # Use the last saved checkpoint
-else:
-    ckpt_file = sorted(ckpt_files)[-1] 
+# if "last.ckpt" in ckpt_files:
+#     ckpt_file = "last.ckpt"  # Use the last saved checkpoint
+# else:
+#     ckpt_file = sorted(ckpt_files)[-1] 
+
+# ckpt_file = "last.ckpt"
+ckpt_file = "transformer-epoch=27.ckpt"
 
 ckpt_path = os.path.join(ckpt_dir, ckpt_file)
+
+# Manually load checkpoint with weights_only=False
+checkpoint = torch.load(ckpt_path, map_location="cuda" if torch.cuda.is_available() else "cpu", weights_only=False)
+lit_model.load_state_dict(checkpoint['state_dict'])
+
+# Predict without passing ckpt_path
+predictions = trainer.predict(
+    model = lit_model,
+    dataloaders = inference_dataloader,
+)
+
 
 print('Start predicting')
 predictions = trainer.predict(
@@ -148,7 +162,7 @@ df = pd.DataFrame({
 
 
 prediction_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/ImportLuc/Predictions/"
-prediction_file = f"{current_date}_{current_time}_TRUTH_3_VAL_epoch50.csv"
+prediction_file = f"{current_date}_{current_time}_TRUTH_3_VAL_epoch50_lasts.csv"
 df.to_csv(prediction_dir + prediction_file, index=False)
 
 print('Predictions stored')

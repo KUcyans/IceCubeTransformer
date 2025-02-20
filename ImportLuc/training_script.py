@@ -1,4 +1,9 @@
 print("Importing libraries")
+import warnings
+warnings.filterwarnings("ignore", message="An issue occurred while importing 'torch-scatter'")
+warnings.filterwarnings("ignore", message="An issue occurred while importing 'torch-cluster'")
+warnings.filterwarnings("ignore", message="An issue occurred while importing 'torch-sparse'")
+
 import torch
 import pandas as pd
 import numpy as np
@@ -32,7 +37,7 @@ print("All is imported")
 checkpoint_path = None
 
 # WandB configuration logging
-project_name = f"[20250217] Flavour Classification"
+project_name = f"[20250220] Existing Flavour Classification"
 wandb_logger = WandbLogger(project=project_name, log_model=True)
 wandb_logger.log_hyperparams(config)
 tensorboard_logger = TensorBoardLogger(save_dir='lightning_logs', name='')

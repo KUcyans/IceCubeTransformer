@@ -14,6 +14,13 @@ from Model.FlavourClassificationTransformerEncoder import FlavourClassificationT
 from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Training Script with Timestamped Logs")
+    parser.add_argument("--date", type=str, required=True, help="Execution date in YYYYMMDD format")
+    parser.add_argument("--time", type=str, required=True, help="Execution time in HHMMSS format")
+    return parser.parse_args()
+
+
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
     logger.setLevel(level)
@@ -45,7 +52,8 @@ def log_training_parameters(config: dict, training_logger: logging.Logger):
 
     config_flattened = flatten_dict(config)
 
-    message = """| Parameter       | Value               |
+    message = """\n
+    | Parameter       | Value               |
     |-----------------|---------------------|
     """ + "".join([f"| {k:<30} | {str(v):<20} |\n" for k, v in config_flattened.items()])
 
@@ -55,20 +63,19 @@ def log_training_parameters(config: dict, training_logger: logging.Logger):
 
 def build_model(config: dict, 
                 train_logger: logging.Logger, 
-                nan_logger: logging.Logger, 
-                device: torch.device):
+                device: torch.device,
+                ):
     """Build and return the model."""
     model = FlavourClassificationTransformerEncoder(
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
         d_f=config['embedding_dim'],
         num_layers=config['n_layers'],
-        d_input=config['d_input'],
+        d_input= config['d_input'],
         num_classes=config['output_dim'],
         seq_len=config['event_length'],
         attention_type=config['attention'],
         dropout=config['dropout'],
-        nan_logger=nan_logger,
         train_logger=train_logger,
     )
     return model.to(device)
@@ -135,26 +142,38 @@ def build_callbacks(config: dict, callback_dir: str):
                         mode='min'),
         LearningRateMonitor(logging_interval='step'),
         TQDMProgressBar()  # ✅ Added missing comma
-    ]
+    ]   
     return callbacks
 
 
-def secure_the_area(config):
-    """Configure GPU if available, else use CPU."""
-    if torch.cuda.is_available():
-        device = torch.device('cuda')
-        torch.set_float32_matmul_precision('high')
+def lock_and_load(config):
+    """Set CUDA device based on config['gpu'] if available, else use CPU."""
+    print("CUDA_VISIBLE_DEVICES (before):", os.environ.get("CUDA_VISIBLE_DEVICES"))
+    print("torch.cuda.is_available():", torch.cuda.is_available())
+    print("torch.cuda.device_count():", torch.cuda.device_count())
+
+    # Set CUDA devices from config
+    if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
+        print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
         os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, config['gpu']))
+        torch.cuda.set_device(int(config['gpu'][0]))  # Use the first GPU in the list
+        device = torch.device('cuda')
+        torch.set_float32_matmul_precision('highest')
+        print(f"Using GPU(s): {config['gpu']}")
     else:
         device = torch.device('cpu')
+        print("CUDA not available. Using CPU.")
+
+    print("CUDA_VISIBLE_DEVICES (after):", os.environ.get("CUDA_VISIBLE_DEVICES"))
+    print(f"Selected device: {device}")
     return device
+
 
 
 def setup_directories(base_dir: str, current_date: str, current_time: str):
     """Create and return directories for logs and checkpoints."""
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
-        "torch_profile_dir": os.path.join(base_dir, "torch_profile", current_date),
         "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date),
     }
 
@@ -164,13 +183,12 @@ def setup_directories(base_dir: str, current_date: str, current_time: str):
     return {
         **paths,
         "train_log_file": os.path.join(paths["log_dir"], f"{current_time}_training.log"),
-        "nan_log_file": os.path.join(paths["log_dir"], f"{current_time}_nan_checks.log"),
     }
 
 
 def run_training(config_file: str, training_dir: str, data_root_dir: str):
-    """Main function to run the training pipeline."""
-    current_date, current_time = time.strftime("%Y-%m-%d"), time.strftime("%H-%M-%S")
+    args = parse_args()
+    current_date, current_time = args.date, args.time
     
     # ✅ Load Configuration
     project_name = f"[{current_date}] Flavour Classification"
@@ -180,22 +198,21 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
     # ✅ Setup directories and loggers
     dirs = setup_directories(training_dir, current_date, current_time)
     train_logger = setup_logger("training", dirs["train_log_file"])
-    nan_logger = setup_logger("nan_checks", dirs["nan_log_file"])
     
     # ✅ Secure GPU/CPU
-    device = secure_the_area(config)
-
-    # ✅ Build Model
-    model = build_model(config=config, 
-                        train_logger=train_logger, 
-                        nan_logger=nan_logger, 
-                        device=device)
+    device = lock_and_load(config)
 
     # ✅ Build DataModule (without optimizer first)
     datamodule = build_data_module(config=config, 
                                    root_dir=data_root_dir, 
                                    optimizer=None)
+    
     datamodule.setup(stage='fit')  # ✅ Prepare datasets
+    
+    # ✅ Build Model
+    model = build_model(config=config, 
+                        train_logger=train_logger, 
+                        device=device,)
 
     # ✅ Build Optimizer (after DataModule setup to get train_dataloader_length)
     train_dataloader_length = len(datamodule.train_dataloader())
@@ -221,8 +238,8 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
         max_epochs=config['n_epochs'],
         logger=wandb_logger,
         callbacks=callbacks,
-        accelerator=device.type,
-        devices=len(config['gpu']) if device.type == 'cuda' else 1
+        accelerator="gpu" if torch.cuda.is_available() else "cpu",
+        devices=config['gpu'],
     )
 
     trainer.fit(model, datamodule=datamodule)

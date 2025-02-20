@@ -52,11 +52,15 @@ class MultiPartDataModule(pl.LightningDataModule):
                 sample_weights=self.sample_weights_val,
                 selection=self.selection
             )
+        first_event, _ = self.train_dataset[0]
+        print("Feature Dimension:", first_event.shape[1])
+        # After initializing MultiPartDataModule
+
 
     def pad_or_truncate(self, event: torch.Tensor):
         """Pads or truncates an event based on the specified column name."""
         if self.train_dataset.datasets[0].column_indices is None:
-            raise ValueError("Column indices are not initialized. Ensure `_preload_column_indices()` is called during dataset setup.")
+            raise ValueError("Column indices are not initialized.")
 
         if self.order_by_this_column not in self.train_dataset.datasets[0].column_indices:
             raise KeyError(f"Column '{self.order_by_this_column}' not found in dataset columns: {list(self.train_dataset.datasets[0].column_indices.keys())}")
@@ -90,7 +94,6 @@ class MultiPartDataModule(pl.LightningDataModule):
         batch_masks = torch.stack(event_masks)
         batch_targets = torch.stack(targets)
         batch_event_lengths = torch.tensor(event_lengths, dtype=torch.int64)
-        print(f"Mask shape before expansion: {batch_masks.shape}")
 
         return batch_events, batch_targets, batch_masks, batch_event_lengths
 
@@ -98,7 +101,7 @@ class MultiPartDataModule(pl.LightningDataModule):
         return DataLoader(
             self.train_dataset,
             batch_size=self.batch_size,
-            shuffle=True,
+            shuffle=False,
             num_workers=self.num_workers,
             collate_fn=self.custom_collate_fn,
             persistent_workers=True,

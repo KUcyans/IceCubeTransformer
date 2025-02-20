@@ -7,15 +7,13 @@ class ALiBiAttention(nn.Module):
                 # d_qk: int,
                 # d_v: int,
                  n_heads: int,
-                 dropout: float = 0.1,
-                 nan_logger=None):
+                 dropout: float = 0.1,):
         super().__init__()
         self.d_model = d_model
         self.n_heads = n_heads
         self.head_dim = d_model // n_heads
         self.scale = self.head_dim ** -0.5
         self.dropout = nn.Dropout(dropout)
-        self.nan_logger = nan_logger
 
         self.q_proj = nn.Linear(d_model, d_model)
         self.k_proj = nn.Linear(d_model, d_model)
@@ -36,10 +34,6 @@ class ALiBiAttention(nn.Module):
 
         attn_weights = F.softmax(attn_scores, dim=-1)
         attention_output = torch.einsum("bhqk,bkhd->bqhd", attn_weights, V).reshape(batch_size, seq_length, self.d_model)
-
-        if self.nan_logger:
-            self.nan_logger.info(f"---------- attention(ALiBi) ---------- ")
-            self.nan_logger.info(f"attn_output hasn't NaN: {not torch.isnan(attention_output).any()}")
 
         return self.out_proj(attention_output)
 

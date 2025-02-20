@@ -8,14 +8,12 @@ class XFormersAttention(nn.Module):
                 # d_qk: int,
                 # d_v: int,
                  n_heads: int, 
-                 dropout: float = 0.1, 
-                 nan_logger=None):
+                 dropout: float = 0.1):
         super().__init__()
         self.d_model = d_model
         self.n_heads = n_heads
         self.head_dim = d_model // n_heads
         self.scale = self.head_dim ** -0.5
-        self.nan_logger = nan_logger
 
         self.q_proj = nn.Linear(d_model, d_model)
         self.k_proj = nn.Linear(d_model, d_model)

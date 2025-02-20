@@ -19,7 +19,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  seq_len: int,  # ✅ Added sequence length
                  attention_type: str,  
                  dropout: float = 0.1, 
-                 nan_logger=None,
                  train_logger=None,
                  profiler=None):
         super().__init__()
@@ -28,6 +27,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.d_f = d_f
         self.num_layers = num_layers
         self.d_input = d_input
+
         self.num_classes = num_classes
         self.dropout = dropout
         self.attention_type = attention_type  
@@ -37,7 +37,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.input_projection = nn.Linear(self.d_input, self.d_model)
         self.position_embedding = nn.Embedding(self.seq_len, self.d_model)  # ✅ Added Positional Embeddings
 
-        self.nan_logger = nan_logger
         self.train_logger = train_logger
         self.profiler = profiler
 
@@ -49,7 +48,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 d_f=self.d_f, 
                 attention_type=self.attention_type,  
                 dropout=self.dropout, 
-                nan_logger=self.nan_logger,
                 layer_idx=i) for i in range(self.num_layers)]
         )
 
@@ -68,17 +66,16 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         
     def forward(self, x, target=None, mask = None, event_lengths=None):
         batch_size, seq_dim_x, n_features = x.size()
-        device = x.device
         
         x = self.input_projection(x)  # ✅ Input embedding
-        pos_emb = self.position_embedding(torch.arange(seq_dim_x).to(device))
+        pos_emb = self.position_embedding(torch.arange(seq_dim_x, device=x.device))
         pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1)
         x = x + pos_emb  # ✅ Add positional embedding
         
         # ✅ Fix Masking Using `event_lengths`
         mask = None
         if event_lengths is not None and mask is None:
-            mask = torch.arange(seq_dim_x, device=device).unsqueeze(0).expand(batch_size, -1)
+            mask = torch.arange(seq_dim_x, device=x.device).unsqueeze(0).expand(batch_size, -1)
             mask = mask < event_lengths.unsqueeze(1)
             mask = mask.unsqueeze(1).expand(-1, seq_dim_x, -1)  # (batch_size, seq_dim, seq_dim)
 
@@ -112,10 +109,13 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             self.train_logger.info(f"Epoch {self.current_epoch}: train_loss={loss.item():.4f}")
 
         if batch_idx % 1000 == 0:
-            print()
-            print("prob", prob)
-            print("target", target)
-        
+            print(f"\nPeek at predictions and targets at batch {batch_idx}")
+            prob_np = prob[:15].detach().cpu().numpy()
+            target_np = target[:15].detach().cpu().numpy()
+            print(f"{'Prediction':<30} {'Target':<30}")
+            for p, t in zip(prob_np, target_np):
+                print(f"[{p[0]:.4f}, {p[1]:.4f}, {p[2]:.4f}] [{int(t[0])},{int(t[1])},{int(t[2])}]")
+
         if self.profiler:
             self.profiler.step()
 
@@ -146,7 +146,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return loss
     
     def on_train_epoch_start(self):
-        self.nan_logger.info(f"#################### Training epoch {self.current_epoch} ####################")
         self.train_logger.info(f"#################### Training epoch {self.current_epoch} ####################")
 
     def on_train_epoch_end(self):

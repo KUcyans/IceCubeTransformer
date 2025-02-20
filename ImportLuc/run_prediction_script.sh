@@ -12,8 +12,6 @@
 #SBATCH --mail-user=cyan.jo@proton.me
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
-#SBATCH --output=/groups/icecube/cyan/factory/IceCubeTransformer/logs/%j.out
-#SBATCH --error=/groups/icecube/cyan/factory/IceCubeTransformer/logs/%j.err
 
 LOG_DIR="log"
 timestamp=$(date +"%Y%m%d_%H%M%S")
@@ -26,6 +24,6 @@ echo "Checking allocated GPU..."
 nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-python -u inference.py
+python3 -u inference.py
 
 echo "Job completed at $(date)"

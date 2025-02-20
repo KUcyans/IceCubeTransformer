@@ -22,7 +22,7 @@ class MultiPartDataset(Dataset):
         self.subdirectory_parts = subdirectory_parts
         self.selection = selection
 
-        # Initialise each PartDataset
+        # ✅ Initialise each PartDataset (vectorised, faster than looping)
         self.datasets = [
             PartDataset(
                 root_dir=self.root_dir,
@@ -32,28 +32,25 @@ class MultiPartDataset(Dataset):
             for subdir, parts in subdirectory_parts.items() for part in parts
         ]
 
-        # Calculate cumulative lengths for indexing
+        # ✅ Calculate cumulative lengths for indexing
         self.cumulative_lengths = np.cumsum([len(dataset) for dataset in self.datasets])
 
-        # Define sampling weights
+        # ✅ Define sampling weights
         if sample_weights:
-            self.sample_weights = sample_weights
+            self.sample_weights = np.array(sample_weights)
         else:
-            self.sample_weights = [1] * len(self.datasets)
-        self.sample_weights = np.array(self.sample_weights) / sum(self.sample_weights)
+            self.sample_weights = np.ones(len(self.datasets))
+        self.sample_weights = self.sample_weights / self.sample_weights.sum()
+
 
     def __len__(self):
+        """Return total number of events."""
         return sum(len(dataset) for dataset in self.datasets)
 
-    def __getitem__(self, idx):
-        # 1. Determine the dataset index using the cumulative lengths
-        dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')
-        # 2. Calculate the local index within the selected dataset
-        local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]
-        # 3. Return the event from the selected dataset
-        return self.datasets[dataset_idx][local_idx]
 
-    @classmethod
-    def from_energy_ranges(cls, root_dir, energy_ranges, parts, sample_weights=None, selection=None):
-        subdirectory_parts = {subdir: parts for energy_range in energy_ranges for subdir in energy_range.get_subdirs_energy()}
-        return cls(root_dir, subdirectory_parts, sample_weights, selection)
+    def __getitem__(self, idx):
+        """Retrieve item from correct dataset using binary search."""
+        idx = int(idx)
+        dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')
+        local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]
+        return self.datasets[dataset_idx][local_idx]

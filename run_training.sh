@@ -32,6 +32,7 @@ nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
 # ✅ Added config file and log directory as arguments
-python -u run_training.py
+python -u run_training.py --date "$datestamp" --time "$timestamp"
+
 
 echo "Job completed at $(date)"
