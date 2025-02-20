@@ -26,40 +26,52 @@ This Transformer Encoder model and its data socket are designed to classify the 
 
 ## New DataSocket `SnowyDataSocket`(2025.02.19)
 1. PartDataset: The dataset that reads the data from the part directory. It returns a tensor of shape `(event_length, feature_dim)`.
-2. MultiPartDataset: it reads data from multiple part directories and samples data from different `PartDataset` instances in a **cyclic** way. This ensures each dataset is accessed sequentially in a cycle where the sampling frequency is determined by the weights.
+2. MultiPartDataset: reads data from multiple part directories and retrieves data from different PartDataset instances in a cyclic manner. This ensures that each dataset is accessed sequentially in a loop, distributing indices evenly across all datasets.
 
 ---
 
-## **`__getitem__`**
+---
+
+#### **`__getitem__`**
 ```python
 def __getitem__(self, idx):
-  """Retrieve item from correct dataset using binary search."""
-  idx = int(idx)
-  dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')
-  local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]
-  return self.datasets[dataset_idx][local_idx]
+    idx = int(idx)
+    dataset_idx = idx % len(self.datasets)  # ✅ Cycle over datasets sequentially
+    
+    # ✅ Calculate where this index would land within the combined datasets using searchsorted
+    adjusted_idx = idx // len(self.datasets)  # ✅ Distribute indices evenly
+    local_idx = adjusted_idx if dataset_idx == 0 else adjusted_idx - self.cumulative_lengths[dataset_idx - 1]
+
+    # ✅ Ensure index wraps around if it's out of range (for smaller datasets)
+    local_idx = local_idx % len(self.datasets[dataset_idx])
+
+    return self.datasets[dataset_idx][local_idx]
 ```
----
 
 * `dataset_idx`:  
   * Represents the index of the dataset that contains the event.  
-  * Determined using `np.searchsorted(self.cumulative_lengths, idx, side='right')`, which identifies the dataset based on cumulative event counts.
+  * Determined using modulo operation `idx % len(self.datasets)` to cycle through datasets sequentially.
+
+* `adjusted_idx`:  
+  * Distributes indices evenly across datasets using `idx // len(self.datasets)`.
 
 * `local_idx`:  
-  * The local index within the selected dataset.  
-  * Calculated by subtracting the cumulative sum of events from the previous datasets, ensuring zero-based indexing within each dataset.
+  * Local index within the selected dataset.  
+  * Ensures that the index wraps around if it exceeds the dataset's length using modulo operation.
 
 ---
 
-### **Example**
+##### **Example**
 ```python
 self.cumulative_lengths = [100, 200, 300]
 idx = 150
 
-dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')  # Returns 1
-local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]  # 150 - 100 = 50
+dataset_idx = idx % len(self.datasets)  # Returns 0, 1, or 2 based on cycling through datasets
+adjusted_idx = idx // len(self.datasets)  # Integer division for even distribution
+local_idx = adjusted_idx if dataset_idx == 0 else adjusted_idx - self.cumulative_lengths[dataset_idx - 1]
+local_idx = local_idx % len(self.datasets[dataset_idx])  # Wraps around if out of range
 ```
-* `numpy.searchsorted`'s logic in this example:
+* Explanation:
   ```python
   if idx < 100:
       dataset_idx = 0
@@ -68,10 +80,12 @@ local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_i
   else:
       dataset_idx = 2
   ```
-* The dataset at index **1** is selected, and the local index within that dataset is **50**.
+* The dataset at index **1** is selected, and the local index within that dataset is **50**.  
+* The index wraps around if it exceeds the dataset's length, ensuring efficient sampling.
 
 ---
 
 * TODO
   * consider moving the optimiser to the datamodule from the model
     * training script needs to be changed
+  * 

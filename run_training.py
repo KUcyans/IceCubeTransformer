@@ -135,13 +135,13 @@ def build_callbacks(config: dict, callback_dir: str):
                       patience=config['patience'], 
                       verbose=True),
         ModelCheckpoint(dirpath=callback_dir,
-                        filename="{epoch:02d}_{val_loss:.2f}",  # ✅ Fixed Syntax
+                        filename="{epoch:03d}_{val_loss:.4f}",
                         save_top_k=1, 
                         save_last=True, 
                         monitor='val_loss', 
                         mode='min'),
         LearningRateMonitor(logging_interval='step'),
-        TQDMProgressBar()  # ✅ Added missing comma
+        TQDMProgressBar(refresh_rate=1000),
     ]   
     return callbacks
 
@@ -156,7 +156,7 @@ def lock_and_load(config):
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
         print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
         os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, config['gpu']))
-        torch.cuda.set_device(int(config['gpu'][0]))  # Use the first GPU in the list
+        torch.cuda.set_device(int(config['gpu'][0]))
         device = torch.device('cuda')
         torch.set_float32_matmul_precision('highest')
         print(f"Using GPU(s): {config['gpu']}")
@@ -240,6 +240,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
         callbacks=callbacks,
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=config['gpu'],
+        log_every_n_steps=1000, 
     )
 
     trainer.fit(model, datamodule=datamodule)

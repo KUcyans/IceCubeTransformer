@@ -49,8 +49,16 @@ class MultiPartDataset(Dataset):
 
 
     def __getitem__(self, idx):
-        """Retrieve item from correct dataset using binary search."""
+        """Retrieve item from correct dataset using deterministic mixing and searchsorted for efficiency."""
         idx = int(idx)
-        dataset_idx = np.searchsorted(self.cumulative_lengths, idx, side='right')
-        local_idx = idx if dataset_idx == 0 else idx - self.cumulative_lengths[dataset_idx - 1]
+        dataset_idx = idx % len(self.datasets)  # ✅ Cycle over datasets sequentially
+        
+        # ✅ Calculate where this index would land within the combined datasets using searchsorted
+        adjusted_idx = idx // len(self.datasets)  # ✅ Distribute indices evenly
+        local_idx = adjusted_idx if dataset_idx == 0 else adjusted_idx - self.cumulative_lengths[dataset_idx - 1]
+
+        # ✅ Ensure index wraps around if it's out of range (for smaller datasets)
+        local_idx = local_idx % len(self.datasets[dataset_idx])
+
         return self.datasets[dataset_idx][local_idx]
+

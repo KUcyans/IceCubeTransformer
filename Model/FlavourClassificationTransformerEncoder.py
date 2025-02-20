@@ -54,65 +54,63 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.pooling = Pooling(pooling_type="mean")
 
         # Classification head
-        # self.classification_output_layer = OutputProjection(
-        #     input_dim=self.d_model,  
-        #     hidden_dim=self.d_model,
-        #     output_dim=self.num_classes,
-        #     dropout=self.dropout
-        # )
-        self.classification_output_layer = nn.Linear(self.d_model, self.num_classes)
+        self.classification_output_layer = nn.Sequential(
+                nn.Linear(self.d_model, self.num_classes),
+                nn.Softmax(dim=-1)
+            )
 
         self.training_losses = []
         
-    def forward(self, x, target=None, mask = None, event_lengths=None):
+    def forward(self, x, target=None, mask=None, event_lengths=None):
         batch_size, seq_dim_x, n_features = x.size()
-        
-        x = self.input_projection(x)  # ✅ Input embedding
+
+        x = self.input_projection(x)
         pos_emb = self.position_embedding(torch.arange(seq_dim_x, device=x.device))
         pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1)
-        x = x + pos_emb  # ✅ Add positional embedding
-        
-        # ✅ Fix Masking Using `event_lengths`
+        x = x + pos_emb
+
         mask = None
         if event_lengths is not None and mask is None:
             mask = torch.arange(seq_dim_x, device=x.device).unsqueeze(0).expand(batch_size, -1)
             mask = mask < event_lengths.unsqueeze(1)
-            mask = mask.unsqueeze(1).expand(-1, seq_dim_x, -1)  # (batch_size, seq_dim, seq_dim)
+            mask = mask.unsqueeze(1).expand(-1, seq_dim_x, -1)
 
         for encoder in self.encoder_blocks:
             x = encoder(x, mask)
-            
+
         if mask is not None:
-            mask = mask[:, 0, :]  # (batch_size, seq_dim) 
+            mask = mask[:, 0, :]
 
         x = self.pooling(x, mask)
-        
-        logits = self.classification_output_layer(x)
-        
+
+        # ✅ Softmax is now applied here automatically
+        prob = self.classification_output_layer(x)
+
         loss = None
         if target is not None:
             net_target = target[:, :self.num_classes]
-            loss = F.mse_loss(input = logits, 
-                              target = net_target)
+            loss = F.mse_loss(prob, net_target)
             self.training_losses.append(loss)
 
-        return loss, logits
+        return loss, prob
+
 
     def training_step(self, batch, batch_idx):
         x, target, mask, event_lengths = batch
-        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)  # ✅ Now both `mask` & `event_lengths` are passed
-        
+        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)
+
         if batch_idx % 100 == 0:
             print(f"Batch {batch_idx}: train_loss={loss.item():.4f}")
             self.log("train_loss", loss, prog_bar=True, on_step=True)
             self.log("learning rate", self.trainer.optimizers[0].param_groups[0]["lr"], prog_bar=True, on_step=True)
             self.train_logger.info(f"Epoch {self.current_epoch}: train_loss={loss.item():.4f}")
 
+        how_many = 5
         if batch_idx % 1000 == 0:
-            print(f"\nPeek at predictions and targets at batch {batch_idx}")
-            prob_np = prob[:15].detach().cpu().numpy()
-            target_np = target[:15].detach().cpu().numpy()
-            print(f"{'Prediction':<30} {'Target':<30}")
+            print("\nPeek at predictions and targets at batch {}".format(batch_idx))
+            prob_np = prob[:how_many].detach().cpu().numpy()  # ✅ Just use the probabilities directly
+            target_np = target[:how_many].detach().cpu().numpy()
+            print(f"{'Prediction':<25} {'Target':<25}")
             for p, t in zip(prob_np, target_np):
                 print(f"[{p[0]:.4f}, {p[1]:.4f}, {p[2]:.4f}] [{int(t[0])},{int(t[1])},{int(t[2])}]")
 
@@ -121,29 +119,29 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         return loss
 
+
     def predict_step(self, batch, batch_idx):
         x, _, mask, _ = batch
         with torch.no_grad():
             _, probs = self(x, mask=mask)
         return {"probs": probs}
 
+
     def validation_step(self, batch, batch_idx):
         x, target, mask, event_lengths = batch
-        _, logits = self(x, mask=mask, event_lengths=event_lengths)
-        net_target = target[:, :self.num_classes]
-        loss = F.mse_loss(logits, net_target)
+        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)  # ✅ Changed to receive `prob`
         self.log("val_loss", loss)
         self.train_logger.info(f"Epoch {self.current_epoch}: val_loss={loss.item():.4f}")
         return loss
 
+
     def test_step(self, batch, batch_idx):
         x, target, mask, event_lengths = batch
-        _, logits = self(x, mask=mask, event_lengths=event_lengths)
-        net_target = target[:, :self.num_classes]
-        loss = F.mse_loss(logits, net_target)
+        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)  # ✅ Changed to receive `prob`
         self.log("test_loss", loss)
         self.train_logger.info(f"Epoch {self.current_epoch}: test_loss={loss.item():.4f}")
         return loss
+
     
     def on_train_epoch_start(self):
         self.train_logger.info(f"#################### Training epoch {self.current_epoch} ####################")
