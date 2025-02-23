@@ -8,7 +8,8 @@ class MultiPartDataModule(pl.LightningDataModule):
                  root_dir, 
                  subdirectory_parts_train, 
                  subdirectory_parts_val, 
-                 event_length, 
+                 subdirectory_parts_test=None,
+                 event_length = 128, 
                  batch_size=64, 
                  num_workers=4, 
                  sample_weights_train=None, 
@@ -20,6 +21,7 @@ class MultiPartDataModule(pl.LightningDataModule):
         self.root_dir = root_dir
         self.subdirectory_parts_train = subdirectory_parts_train
         self.subdirectory_parts_val = subdirectory_parts_val
+        self.subdirectory_parts_test = subdirectory_parts_test if subdirectory_parts_test else []
         self.event_length = event_length
         self.batch_size = batch_size
         self.num_workers = num_workers
@@ -28,6 +30,7 @@ class MultiPartDataModule(pl.LightningDataModule):
         self.selection = selection
         self.order_by_this_column = order_by_this_column
         self.optimizer = optimizer
+
 
     def setup(self, stage=None):
         """Initialises datasets for training, validation, and testing."""
@@ -44,30 +47,77 @@ class MultiPartDataModule(pl.LightningDataModule):
                 sample_weights=self.sample_weights_val,
                 selection=self.selection
             )
+            first_event, _ = self.train_dataset[0]
+            print("Feature Dimension (Train):", first_event.shape[1])
 
-        if stage == 'test':
+        elif stage == 'test':
             self.test_dataset = MultiPartDataset(
                 root_dir=self.root_dir,
-                subdirectory_parts=self.subdirectory_parts_val,
+                subdirectory_parts=self.subdirectory_parts_test,
                 sample_weights=self.sample_weights_val,
                 selection=self.selection
             )
-        first_event, _ = self.train_dataset[0]
-        print("Feature Dimension:", first_event.shape[1])
-        # After initializing MultiPartDataModule
+            first_event, _ = self.test_dataset[0]
+            print("Feature Dimension (Test):", first_event.shape[1])
+
+        elif stage == 'predict':
+            self.predict_dataset = MultiPartDataset(
+                root_dir=self.root_dir,
+                subdirectory_parts=self.subdirectory_parts_test,
+                sample_weights=self.sample_weights_val,
+                selection=self.selection
+            )
+            first_event, _ = self.predict_dataset[0]
+            print("Feature Dimension (Predict):", first_event.shape[1])
 
 
+    # def pad_or_truncate(self, event: torch.Tensor):
+    #     """Pads or truncates an event based on the specified column name."""
+    #     if self.train_dataset.datasets[0].column_indices is None:
+    #         raise ValueError("Column indices are not initialized.")
+
+    #     if self.order_by_this_column not in self.train_dataset.datasets[0].column_indices:
+    #         raise KeyError(f"Column '{self.order_by_this_column}' not found in dataset columns: {list(self.train_dataset.datasets[0].column_indices.keys())}")
+
+    #     # ✅ Proceed with truncation or padding
+    #     seq_length = event.size(0)
+    #     index_order_by = self.train_dataset.datasets[0].column_indices[self.order_by_this_column]
+
+    #     # Truncate if too long
+    #     if seq_length > self.event_length:
+    #         event = event[event[:, index_order_by].argsort(descending=True)][:self.event_length]
+    #         mask = torch.ones(self.event_length)
+    #     else:
+    #         padding = torch.zeros((self.event_length - seq_length, event.size(1)))
+    #         event = torch.cat([event, padding], dim=0)
+    #         mask = torch.zeros(self.event_length)
+    #         mask[:seq_length] = 1
+
+    #     return event, mask, seq_length
+    
     def pad_or_truncate(self, event: torch.Tensor):
         """Pads or truncates an event based on the specified column name."""
-        if self.train_dataset.datasets[0].column_indices is None:
+        # Determine which dataset to use based on stage
+        dataset = (
+            self.train_dataset if hasattr(self, 'train_dataset') else
+            self.predict_dataset if hasattr(self, 'predict_dataset') else
+            self.test_dataset if hasattr(self, 'test_dataset') else None
+        )
+
+        if dataset is None:
+            raise ValueError("No dataset is available to determine column indices.")
+
+        if dataset.datasets[0].column_indices is None:
             raise ValueError("Column indices are not initialized.")
 
-        if self.order_by_this_column not in self.train_dataset.datasets[0].column_indices:
-            raise KeyError(f"Column '{self.order_by_this_column}' not found in dataset columns: {list(self.train_dataset.datasets[0].column_indices.keys())}")
+        if self.order_by_this_column not in dataset.datasets[0].column_indices:
+            raise KeyError(
+                f"Column '{self.order_by_this_column}' not found in dataset columns: "
+                f"{list(dataset.datasets[0].column_indices.keys())}"
+            )
 
-        # ✅ Proceed with truncation or padding
         seq_length = event.size(0)
-        index_order_by = self.train_dataset.datasets[0].column_indices[self.order_by_this_column]
+        index_order_by = dataset.datasets[0].column_indices[self.order_by_this_column]
 
         # Truncate if too long
         if seq_length > self.event_length:
@@ -80,6 +130,7 @@ class MultiPartDataModule(pl.LightningDataModule):
             mask[:seq_length] = 1
 
         return event, mask, seq_length
+
 
     def custom_collate_fn(self, batch):
         """Custom collate function to pad or truncate each event in the batch."""
@@ -118,6 +169,19 @@ class MultiPartDataModule(pl.LightningDataModule):
             persistent_workers=True,
             pin_memory=True
         )
+
+
+    def predict_dataloader(self):
+        return DataLoader(
+            self.predict_dataset,
+            batch_size=self.batch_size,
+            shuffle=False,
+            num_workers=self.num_workers,
+            collate_fn=self.custom_collate_fn,
+            persistent_workers=True,
+            pin_memory=True
+        )
+
 
     def test_dataloader(self):
         return DataLoader(

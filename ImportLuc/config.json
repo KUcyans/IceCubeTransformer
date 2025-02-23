@@ -5,7 +5,7 @@
     "seq_dim": 256,
     "batch_size": 64,
     "num_workers": 4,
-    "n_layers": 6,
+    "n_layers": 3,
     "n_heads": 4,
     "n_epochs": 50,
     "patience": 50,

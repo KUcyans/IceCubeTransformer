@@ -38,3 +38,8 @@ cd /groups/icecube/cyan/factory/IceCubeTransformer
 python -u benchmarker.py
 
 echo "=== Benchmark Completed ==="
+
+
+# commandline to run the script
+# timestamp=$(date +"%Y%m%d_%H%M%S")
+# nohup python -u benchmarker.py > benchmark_result/[${timestamp}]_benchmarking.log 2>&1 &

@@ -6,6 +6,7 @@ import psutil
 from datetime import datetime
 from tqdm import tqdm
 import warnings
+import os
 
 sys.path.append('/groups/icecube/cyan/factory/IceCubeTransformer')
 
@@ -27,28 +28,64 @@ def log_system_info():
     print(f"Python Version: {platform.python_version()}")
 
     # Check GPU if available
+    # if torch.cuda.is_available():
+    #     print("\n=== GPU Information ===")
+    #     print(f"CUDA Version: {torch.version.cuda}")
+    #     print(f"GPU Name: {torch.cuda.get_device_name(0)}")
+    #     print(f"GPU Memory Total: {torch.cuda.get_device_properties(0).total_memory / (1024 ** 3):.2f} GB")
+    #     print(f"GPU Device Count: {torch.cuda.device_count()}")
+    # else:
+    #     print("\nNo GPU detected. Using CPU only.")
+    lock_and_load()
+
+def lock_and_load():
+    """Set CUDA device based on config['gpu'] if available, else use CPU."""
+    print("CUDA_VISIBLE_DEVICES (before):", os.environ.get("CUDA_VISIBLE_DEVICES"))
+    print("torch.cuda.is_available():", torch.cuda.is_available())
+    print("torch.cuda.device_count():", torch.cuda.device_count())
+
+    # Set CUDA devices from config
     if torch.cuda.is_available():
-        print("\n=== GPU Information ===")
+        print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
+        os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, '0'))
+        torch.cuda.set_device(0)
+        device = torch.device('cuda')
+        torch.set_float32_matmul_precision('highest')
+        print(f"Using GPU(s): [0]")
+        print("\n============ GPU Information ============")
         print(f"CUDA Version: {torch.version.cuda}")
         print(f"GPU Name: {torch.cuda.get_device_name(0)}")
         print(f"GPU Memory Total: {torch.cuda.get_device_properties(0).total_memory / (1024 ** 3):.2f} GB")
         print(f"GPU Device Count: {torch.cuda.device_count()}")
     else:
-        print("\nNo GPU detected. Using CPU only.")
+        device = torch.device('cpu')
+        print("CUDA not available. Using CPU.")
 
+    print("CUDA_VISIBLE_DEVICES (after):", os.environ.get("CUDA_VISIBLE_DEVICES"))
+    print(f"Selected device: {device}")
+    return device
 
 def benchmarker(dataset, name):
+    max_events = 64_000
+    total_events = min(len(dataset), max_events)
+
     start = time.perf_counter()
-    for _ in tqdm(dataset, desc=name, file=sys.stdout, miniters=10_000):
-        pass
+
+    iterator = iter(dataset)
+    for _ in tqdm(range(total_events), desc=name, file=sys.stdout, miniters=10_000):
+        next(iterator)
+
     end = time.perf_counter()
     total_time = end - start
-    average_event_rate = len(dataset) / total_time
+    average_event_rate = total_events / total_time
 
     print(f"\n===================== Benchmark Results for {name} =====================")
     print(f"Dataset Length: {len(dataset)}")
+    print(f"Total Events Processed: {total_events}")
     print(f"Total Time Taken: {total_time:.4f} seconds")
     print(f"Average Events per Second: {average_event_rate:.4f}")
+
+
 
 
 def build_dataset_existing():
@@ -107,3 +144,9 @@ if __name__ == "__main__":
     print("Starting Benchmark Script")
     run_benchmarker()
 
+
+
+# use this command to run the script
+# conda activate icecube_transformer
+# timestamp=$(date +"%Y%m%d_%H:%M:%S")
+# nohup python -u benchmarker.py > benchmark_result/[${timestamp}]benchmarking.log 2>&1 &

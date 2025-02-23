@@ -89,6 +89,7 @@ def build_data_module(config: dict,
         root_dir=root_dir,
         subdirectory_parts_train=config['train_data'],
         subdirectory_parts_val=config['validate_data'],
+        subdirectory_parts_test=config['predict_data'],
         event_length=config['event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
@@ -96,6 +97,7 @@ def build_data_module(config: dict,
         sample_weights_val=config.get('sample_weights'),
         optimizer=optimizer
     )
+    datamodule.setup(stage='fit')
     return datamodule
 
 
@@ -206,9 +208,6 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
     datamodule = build_data_module(config=config, 
                                    root_dir=data_root_dir, 
                                    optimizer=None)
-    
-    datamodule.setup(stage='fit')  # ✅ Prepare datasets
-    
     # ✅ Build Model
     model = build_model(config=config, 
                         train_logger=train_logger, 
@@ -248,7 +247,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 
 if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
-    config_file = "config_default.json"
+    config_file = "config_training.json"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     training_dir = os.path.dirname(os.path.realpath(__file__))
     start_time = time.time()

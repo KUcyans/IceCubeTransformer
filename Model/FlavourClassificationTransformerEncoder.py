@@ -60,6 +60,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             )
 
         self.training_losses = []
+        self.validation_losses = []
         
     def forward(self, x, target=None, mask=None, event_lengths=None):
         batch_size, seq_dim_x, n_features = x.size()
@@ -83,7 +84,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         x = self.pooling(x, mask)
 
-        # ✅ Softmax is now applied here automatically
         prob = self.classification_output_layer(x)
 
         loss = None
@@ -99,16 +99,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         x, target, mask, event_lengths = batch
         loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)
 
-        if batch_idx % 100 == 0:
-            print(f"Batch {batch_idx}: train_loss={loss.item():.4f}")
-            self.log("train_loss", loss, prog_bar=True, on_step=True)
-            self.log("learning rate", self.trainer.optimizers[0].param_groups[0]["lr"], prog_bar=True, on_step=True)
-            self.train_logger.info(f"Epoch {self.current_epoch}: train_loss={loss.item():.4f}")
-
         how_many = 5
         if batch_idx % 1000 == 0:
+            self.log_dict({
+                "epoch": self.current_epoch,
+                "batch_idx": batch_idx,
+                "train_loss_step": loss.item(),
+                "lr_step": self.trainer.optimizers[0].param_groups[0]["lr"]
+            }, prog_bar=True, on_step=True)
+
+            print(f"\nBatch {batch_idx}: train_loss_step={loss.item():.4f}")
             print("\nPeek at predictions and targets at batch {}".format(batch_idx))
-            prob_np = prob[:how_many].detach().cpu().numpy()  # ✅ Just use the probabilities directly
+            prob_np = prob[:how_many].detach().cpu().numpy()
             target_np = target[:how_many].detach().cpu().numpy()
             print(f"{'Prediction':<25} {'Target':<25}")
             for p, t in zip(prob_np, target_np):
@@ -121,38 +123,69 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
 
     def predict_step(self, batch, batch_idx):
-        x, _, mask, _ = batch
+        x, target, mask, event_lengths = batch
         with torch.no_grad():
             _, probs = self(x, mask=mask)
-        return {"probs": probs}
+        return {"probs": probs, "target": target}
 
 
     def validation_step(self, batch, batch_idx):
+        """Compute validation loss per batch and store for epoch-level statistics."""
         x, target, mask, event_lengths = batch
-        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)  # ✅ Changed to receive `prob`
-        self.log("val_loss", loss)
-        self.train_logger.info(f"Epoch {self.current_epoch}: val_loss={loss.item():.4f}")
+        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)
+        self.validation_losses.append(loss)  # Store validation loss for the epoch
+
+        # Log step-specific validation loss
+        if batch_idx % 1000 == 0:
+            self.log_dict({"val_loss_step": loss.item()}, prog_bar=True, on_step=True)
+            self.train_logger.info(f"Epoch {self.current_epoch}, Batch {batch_idx}: val_loss_step={loss.item():.4f}")
+
         return loss
+
 
 
     def test_step(self, batch, batch_idx):
+        """Compute test loss per batch."""
         x, target, mask, event_lengths = batch
-        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)  # ✅ Changed to receive `prob`
-        self.log("test_loss", loss)
-        self.train_logger.info(f"Epoch {self.current_epoch}: test_loss={loss.item():.4f}")
+        loss, prob = self(x, target=target, mask=mask, event_lengths=event_lengths)
+
+        # Log step-specific test loss
+        if batch_idx % 1000 == 0:
+            self.log_dict({"test_loss_step": loss.item()}, prog_bar=True, on_step=True)
+            self.train_logger.info(f"Epoch {self.current_epoch}, Batch {batch_idx}: test_loss_step={loss.item():.4f}")
+
         return loss
 
-    
+
     def on_train_epoch_start(self):
         self.train_logger.info(f"#################### Training epoch {self.current_epoch} ####################")
 
     def on_train_epoch_end(self):
+        """Compute median and mean training loss at the end of each epoch."""
         if self.training_losses:
             median_loss = torch.median(torch.stack(self.training_losses))
-            self.train_logger.info(f"Epoch {self.current_epoch}: EPOCH_AVG_TRAIN_LOSS={median_loss.item():.4f}")
-            self.log("median_train_loss", median_loss, prog_bar=True, on_epoch=True)
-            self.training_losses.clear()
+            mean_loss = torch.mean(torch.stack(self.training_losses))
             
+            # Log both median and mean training loss
+            self.log("median_train_loss", median_loss, prog_bar=True, on_epoch=True)
+            self.log("mean_train_loss", mean_loss, prog_bar=True, on_epoch=True)
+            
+            self.train_logger.info(f"Epoch {self.current_epoch}: MEDIAN_TRAIN_LOSS={median_loss.item():.4f}, MEAN_TRAIN_LOSS={mean_loss.item():.4f}")
+            self.training_losses.clear()
+
+    def on_validation_epoch_end(self):
+        """Compute and log median and mean validation loss at the end of each epoch."""
+        if self.validation_losses:
+            median_val_loss = torch.median(torch.stack(self.validation_losses))
+            mean_val_loss = torch.mean(torch.stack(self.validation_losses))
+            
+            # Log both median and mean validation loss
+            self.log("median_val_loss_epoch", median_val_loss, prog_bar=True, on_epoch=True)
+            self.log("mean_val_loss_epoch", mean_val_loss, prog_bar=True, on_epoch=True)
+
+            self.train_logger.info(f"Epoch {self.current_epoch}: MEDIAN_VAL_LOSS={median_val_loss.item():.4f}, MEAN_VAL_LOSS={mean_val_loss.item():.4f}")
+            self.validation_losses.clear()
+
     def configure_optimizers(self):
         """Pass the optimizer from the DataModule or return a default optimizer."""
         if hasattr(self.trainer, 'datamodule') and self.trainer.datamodule.optimizer:
