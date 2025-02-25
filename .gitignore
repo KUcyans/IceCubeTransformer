@@ -25,3 +25,4 @@ ModelDebuggyingYard.ipynb
 DataSocketDebuggingYard.ipynb
 TrainingDebuggingYard.py
 predictions/*
+*.out
