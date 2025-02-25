@@ -15,8 +15,7 @@ class MultiPartDataModule(pl.LightningDataModule):
                  sample_weights_train=None, 
                  sample_weights_val=None,
                  selection=None, 
-                 order_by_this_column="Qtotal",
-                 optimizer=None):
+                 order_by_this_column="Qtotal"):
         super().__init__()
         self.root_dir = root_dir
         self.subdirectory_parts_train = subdirectory_parts_train
@@ -29,7 +28,6 @@ class MultiPartDataModule(pl.LightningDataModule):
         self.sample_weights_val = sample_weights_val
         self.selection = selection
         self.order_by_this_column = order_by_this_column
-        self.optimizer = optimizer
 
 
     def setup(self, stage=None):
@@ -49,16 +47,8 @@ class MultiPartDataModule(pl.LightningDataModule):
             )
             first_event, _ = self.train_dataset[0]
             print("Feature Dimension (Train):", first_event.shape[1])
-
-        elif stage == 'test':
-            self.test_dataset = MultiPartDataset(
-                root_dir=self.root_dir,
-                subdirectory_parts=self.subdirectory_parts_test,
-                sample_weights=self.sample_weights_val,
-                selection=self.selection
-            )
-            first_event, _ = self.test_dataset[0]
-            print("Feature Dimension (Test):", first_event.shape[1])
+            self.index_order_by = self.train_dataset.datasets[0].column_indices[self.order_by_this_column]
+            
 
         elif stage == 'predict':
             self.predict_dataset = MultiPartDataset(
@@ -68,85 +58,49 @@ class MultiPartDataModule(pl.LightningDataModule):
                 selection=self.selection
             )
             first_event, _ = self.predict_dataset[0]
+            self.index_order_by = self.predict_dataset.datasets[0].column_indices[self.order_by_this_column]
             print("Feature Dimension (Predict):", first_event.shape[1])
 
-
-    # def pad_or_truncate(self, event: torch.Tensor):
-    #     """Pads or truncates an event based on the specified column name."""
-    #     if self.train_dataset.datasets[0].column_indices is None:
-    #         raise ValueError("Column indices are not initialized.")
-
-    #     if self.order_by_this_column not in self.train_dataset.datasets[0].column_indices:
-    #         raise KeyError(f"Column '{self.order_by_this_column}' not found in dataset columns: {list(self.train_dataset.datasets[0].column_indices.keys())}")
-
-    #     # ✅ Proceed with truncation or padding
-    #     seq_length = event.size(0)
-    #     index_order_by = self.train_dataset.datasets[0].column_indices[self.order_by_this_column]
-
-    #     # Truncate if too long
-    #     if seq_length > self.event_length:
-    #         event = event[event[:, index_order_by].argsort(descending=True)][:self.event_length]
-    #         mask = torch.ones(self.event_length)
-    #     else:
-    #         padding = torch.zeros((self.event_length - seq_length, event.size(1)))
-    #         event = torch.cat([event, padding], dim=0)
-    #         mask = torch.zeros(self.event_length)
-    #         mask[:seq_length] = 1
-
-    #     return event, mask, seq_length
-    
-    def pad_or_truncate(self, event: torch.Tensor):
-        """Pads or truncates an event based on the specified column name."""
-        # Determine which dataset to use based on stage
-        dataset = (
-            self.train_dataset if hasattr(self, 'train_dataset') else
-            self.predict_dataset if hasattr(self, 'predict_dataset') else
-            self.test_dataset if hasattr(self, 'test_dataset') else None
-        )
-
-        if dataset is None:
-            raise ValueError("No dataset is available to determine column indices.")
-
-        if dataset.datasets[0].column_indices is None:
-            raise ValueError("Column indices are not initialized.")
-
-        if self.order_by_this_column not in dataset.datasets[0].column_indices:
-            raise KeyError(
-                f"Column '{self.order_by_this_column}' not found in dataset columns: "
-                f"{list(dataset.datasets[0].column_indices.keys())}"
+        elif stage == 'test':
+            self.test_dataset = MultiPartDataset(
+                root_dir=self.root_dir,
+                subdirectory_parts=self.subdirectory_parts_test,
+                sample_weights=self.sample_weights_val,
+                selection=self.selection
             )
+            first_event, _ = self.test_dataset[0]
+            self.index_order_by = self.test_dataset.datasets[0].column_indices[self.order_by_this_column]
+            print("Feature Dimension (Test):", first_event.shape[1])
 
+
+    def pad_or_truncate(self, event: torch.Tensor):
         seq_length = event.size(0)
-        index_order_by = dataset.datasets[0].column_indices[self.order_by_this_column]
 
         # Truncate if too long
         if seq_length > self.event_length:
-            event = event[event[:, index_order_by].argsort(descending=True)][:self.event_length]
-            mask = torch.ones(self.event_length)
+            event = event[event[:, self.index_order_by].argsort(descending=True)][:self.event_length]
         else:
             padding = torch.zeros((self.event_length - seq_length, event.size(1)))
             event = torch.cat([event, padding], dim=0)
-            mask = torch.zeros(self.event_length)
-            mask[:seq_length] = 1
 
-        return event, mask, seq_length
+        return event, seq_length
 
 
     def custom_collate_fn(self, batch):
         """Custom collate function to pad or truncate each event in the batch."""
+        # batch returns = featurs, targets, masks, event_length
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
 
         # Pad or truncate using the specified column name
-        padded_events, event_masks, event_lengths = zip(*[self.pad_or_truncate(event) for event in features])
+        padded_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
 
         # Stack everything into tensors
-        batch_events = torch.stack(padded_events)
-        batch_masks = torch.stack(event_masks)
+        batch_events = torch.stack(padded_events) # (batch_size, seq_length, n_features=32)
         batch_targets = torch.stack(targets)
-        batch_event_lengths = torch.tensor(event_lengths, dtype=torch.int64)
+        batch_event_length = torch.tensor(event_length, dtype=torch.int64)
 
-        return batch_events, batch_targets, batch_masks, batch_event_lengths
+        return batch_events, batch_targets, batch_event_length
 
     def train_dataloader(self):
         return DataLoader(
@@ -193,7 +147,3 @@ class MultiPartDataModule(pl.LightningDataModule):
             persistent_workers=True,
             pin_memory=True
         )
-
-    def configure_optimizers(self):
-        """Pass the optimizer if provided."""
-        return self.optimizer if self.optimizer else None

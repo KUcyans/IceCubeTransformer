@@ -37,7 +37,7 @@ print("All is imported")
 checkpoint_path = None
 
 # WandB configuration logging
-project_name = f"[20250220] Existing Flavour Classification"
+project_name = f"Existing Flavour Classification"
 wandb_logger = WandbLogger(project=project_name, log_model=True)
 wandb_logger.log_hyperparams(config)
 tensorboard_logger = TensorBoardLogger(save_dir='lightning_logs', name='')
@@ -66,6 +66,7 @@ train_set_total = PMTfiedDatasetPyArrow(
     sample_weights=[1,1,1],
     selection=None,
     )
+
 
 val_set_total = PMTfiedDatasetPyArrow(
     truth_paths_1=val_path_1,

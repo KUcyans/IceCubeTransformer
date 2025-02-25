@@ -27,18 +27,18 @@ class EncoderBlock(nn.Module):
             dropout=dropout,
         )
         
-        # self.norm_attention = LayerNormalisation(d_n=self.d_model)
         self.norm_attention = nn.LayerNorm(self.d_model)
         
         self.ffn = FFN(d_model=self.d_model, d_f=self.d_f, dropout=dropout)
         
-        # self.norm_ffn = LayerNormalisation(d_n=self.d_model)
         self.norm_ffn = nn.LayerNorm(self.d_model)
         
-    def forward(self, x, mask=None):
-        attn_output = self.attention(x, mask)
-        x = self.norm_attention(x + self.dropout(attn_output))
+    def forward(self, x, event_length = None):
+        attn_output = self.attention(x, event_length = event_length)
+        x = x + attn_output
+        x = self.norm_attention(x)
         
         ffn_output = self.ffn(x)
-        x = self.norm_ffn(x + self.dropout(ffn_output))
+        x = x + ffn_output
+        x = self.norm_ffn(x)
         return x

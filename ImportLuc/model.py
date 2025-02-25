@@ -111,7 +111,7 @@ class FeedForward(nn.Module):
     def forward(self, x):
         return self.step(x)
 
-class DecoderBlock(nn.Module):
+class EncoderBlock(nn.Module):
     """
     Decoder block class:
     - contains a multi-head attention layer and a feedforward network
@@ -126,7 +126,7 @@ class DecoderBlock(nn.Module):
             n_heads,
             dropout,
             ):
-        super(DecoderBlock, self).__init__()
+        super(EncoderBlock, self).__init__()
         self.multihead = MultiAttentionHead(embedding_dim, n_heads, dropout)
         self.feedforward = FeedForward(embedding_dim, dropout)
         self.norm1 = nn.LayerNorm(embedding_dim)
@@ -205,7 +205,7 @@ class regression_Transformer(nn.Module):
 
         self.input_embedding = nn.Linear(input_dim, embedding_dim)
         self.position_embedding = nn.Embedding(seq_dim, embedding_dim)
-        self.layers = nn.ModuleList([DecoderBlock(embedding_dim, n_heads, dropout) for _ in range(n_layers)])
+        self.layers = nn.ModuleList([EncoderBlock(embedding_dim, n_heads, dropout) for _ in range(n_layers)])
         self.layer_norm = nn.LayerNorm(embedding_dim)
         self.mean_pooling = AveragePooling() # average pooling layer to get a single embedding from the sequence
         self.max_pooling = MaxPooling() # max pooling layer to get a single embedding from the sequence
@@ -237,7 +237,6 @@ class regression_Transformer(nn.Module):
         row_indices = row_indices.to(device)
 
         mask = row_indices < event_lengths.view(-1, 1, 1).to(device) # Shape: (batch_size, seq_dim, emb_dim)
-
         # Apply mask to x
         x = x.masked_fill(mask == 0, 0)
 

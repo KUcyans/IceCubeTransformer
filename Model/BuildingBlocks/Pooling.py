@@ -8,8 +8,7 @@ class Pooling(nn.Module):
 
     def forward(self, x, mask=None):
         if mask is not None:
-            mask = mask.unsqueeze(-1)  # Shape: [batch_size, event_length, 1]
-            x = x * mask  # Broadcasting works here
+            x = x * mask
 
             if self.pooling_type == "mean":
                 # Sum along the sequence dimension and normalize by mask (event length)

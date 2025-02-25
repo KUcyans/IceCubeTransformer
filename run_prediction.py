@@ -10,7 +10,6 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, Ea
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
 from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
 
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Prediction Script with Timestamped Logs")
     parser.add_argument("--date", type=str, required=True, help="Execution date in YYYYMMDD format")
@@ -18,7 +17,6 @@ def parse_args():
     parser.add_argument("--checkpoint_date", type=str, required=True, help="Date of the checkpoint in YYYYMMDD format")
     
     return parser.parse_args()
-
 
 def setup_directories(base_dir: str, current_date: str, current_time: str, checkpoint_date: str):
     paths = {
@@ -68,9 +66,11 @@ def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Lo
 def build_model(config: dict, 
                 train_logger: logging.Logger, 
                 device: torch.device,
+                ckpt_file: str = None
                 ):
-    """Build and return the model."""
-    model = FlavourClassificationTransformerEncoder(
+    model = FlavourClassificationTransformerEncoder.load_from_checkpoint(
+        checkpoint_path=ckpt_file,
+        strict = False,
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
         d_f=config['embedding_dim'],
@@ -82,12 +82,11 @@ def build_model(config: dict,
         dropout=config['dropout'],
         train_logger=train_logger,
     )
-    return model.to(device)
+    return model
 
 
 def build_data_module(config: dict, 
-                      root_dir:str, 
-                      optimizer: torch.optim.Optimizer):
+                      root_dir:str):
     datamodule = MultiPartDataModule(
         root_dir=root_dir,
         subdirectory_parts_train=config['train_data'],
@@ -98,7 +97,6 @@ def build_data_module(config: dict,
         num_workers=config['num_workers'],
         sample_weights_train=config.get('sample_weights'),
         sample_weights_val=config.get('sample_weights'),
-        optimizer=optimizer
     )
     datamodule.setup(stage='predict')
     return datamodule
@@ -142,11 +140,7 @@ def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: 
     for i in range(len(predictions)):
         prob = predictions[i]['probs']  # ✅ Corrected key
         target = predictions[i].get('target', None)  # Optional, if available
-        
-        if i == 0:
-            print('prob', prob)  # Debugging
 
-        # Convert logits to class indices
         pred_class = torch.argmax(prob, dim=-1)
         target_class = torch.argmax(target, dim=-1)
         
@@ -172,7 +166,9 @@ def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: 
         "target_class": target_classes.numpy(),
     })
 
-    df.to_csv(os.path.join(prediction_dir, f"predictions_{ckpt_file}.csv"), index=False)
+    csv_name = os.path.join(prediction_dir, f"predictions_{os.path.splitext(ckpt_file)[0]}.csv")
+    df.to_csv(csv_name, index=False)
+    print(f"Predictions saved to {csv_name}.")
 
 
 def run_prediction(config_file: str, 
@@ -191,18 +187,10 @@ def run_prediction(config_file: str,
     
     device = lock_and_load(config)
     
-    model = build_model(config = config, 
-                        train_logger=predict_logger, 
-                        device=device)
-    
-    optimizer = torch.optim.Adam(model.parameters(), lr=config['optimizer']['lr'])
-    
     datamodule = build_data_module(config=config,
-                                    root_dir=data_root_dir,
-                                    optimizer=optimizer)
+                                    root_dir=data_root_dir)
     
     callbacks = build_callbacks()
-    
     log_training_parameters(config, predict_logger)
     
     trainer = Trainer(
@@ -213,19 +201,29 @@ def run_prediction(config_file: str,
         logger=None,
     )
     
-    predictions = trainer.predict(
-        model=model,
-        dataloaders=datamodule.predict_dataloader()
-    )
     specific_checkpoint_dir = os.path.join(checkpoint_dir, specific_checkpoint)
-    # ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
-    for ckpt_file in os.listdir(specific_checkpoint_dir):
+    ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
+
+    for ckpt_file in ckpt_files:
+        ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
+
         if not ckpt_file.endswith(".ckpt"):
             continue
-        print(f"Saving predictions by {ckpt_file} ... ")
+        ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
+
+        print(f"\n🔥 Loading model from {ckpt_file}...")
+        model = build_model(config=config, train_logger=predict_logger, device=device, ckpt_file=ckpt_file_dir)
+        optimizer = torch.optim.Adam(model.parameters(), lr=config['optimizer']['lr'])
+        model.set_optimiser(optimizer)
+        model.to(device)
+
+        print("🚀 Running predictions...")
+        predictions = trainer.predict(model=model, dataloaders=datamodule.predict_dataloader())
+
+        print("💾 Saving predictions...")
         save_predictions(predictions, dirs["predict_dir"], ckpt_file)
-        print(f"Prediction by {ckpt_file} completed.")
-    
+
+
 if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_predict.json"

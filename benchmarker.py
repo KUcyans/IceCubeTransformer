@@ -27,15 +27,6 @@ def log_system_info():
     print(f"Total Memory: {round(psutil.virtual_memory().total / (1024 ** 3), 2)} GB")
     print(f"Python Version: {platform.python_version()}")
 
-    # Check GPU if available
-    # if torch.cuda.is_available():
-    #     print("\n=== GPU Information ===")
-    #     print(f"CUDA Version: {torch.version.cuda}")
-    #     print(f"GPU Name: {torch.cuda.get_device_name(0)}")
-    #     print(f"GPU Memory Total: {torch.cuda.get_device_properties(0).total_memory / (1024 ** 3):.2f} GB")
-    #     print(f"GPU Device Count: {torch.cuda.device_count()}")
-    # else:
-    #     print("\nNo GPU detected. Using CPU only.")
     lock_and_load()
 
 def lock_and_load():

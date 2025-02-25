@@ -81,8 +81,8 @@ class PartDataset(Dataset):
         target = self._encode_target(pid)
 
         return features_tensor, target
-    
-    
+
+
     def _encode_target(self, pid):
         """Encode particle ID as a one-hot vector."""
         pid_to_one_hot = {
@@ -92,7 +92,7 @@ class PartDataset(Dataset):
         }
         return torch.tensor(pid_to_one_hot.get(pid, [0, 0, 0]), dtype=torch.float32)
 
-    
+
     def _preload_column_indices(self):
         """Load feature columns from the first shard and store their indices."""
         first_shard_path = os.path.join(self.feature_dir, f"PMTfied_1.parquet")

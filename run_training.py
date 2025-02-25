@@ -63,8 +63,7 @@ def log_training_parameters(config: dict, training_logger: logging.Logger):
 
 def build_model(config: dict, 
                 train_logger: logging.Logger, 
-                device: torch.device,
-                ):
+                device: torch.device,):
     """Build and return the model."""
     model = FlavourClassificationTransformerEncoder(
         d_model=config['embedding_dim'],
@@ -82,8 +81,7 @@ def build_model(config: dict,
 
 
 def build_data_module(config: dict, 
-                      root_dir:str, 
-                      optimizer: torch.optim.Optimizer):
+                      root_dir:str):
     """Build and return the datamodule."""
     datamodule = MultiPartDataModule(
         root_dir=root_dir,
@@ -95,7 +93,6 @@ def build_data_module(config: dict,
         num_workers=config['num_workers'],
         sample_weights_train=config.get('sample_weights'),
         sample_weights_val=config.get('sample_weights'),
-        optimizer=optimizer
     )
     datamodule.setup(stage='fit')
     return datamodule
@@ -150,9 +147,7 @@ def build_callbacks(config: dict, callback_dir: str):
 
 def lock_and_load(config):
     """Set CUDA device based on config['gpu'] if available, else use CPU."""
-    print("CUDA_VISIBLE_DEVICES (before):", os.environ.get("CUDA_VISIBLE_DEVICES"))
     print("torch.cuda.is_available():", torch.cuda.is_available())
-    print("torch.cuda.device_count():", torch.cuda.device_count())
 
     # Set CUDA devices from config
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
@@ -206,8 +201,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 
     # ✅ Build DataModule (without optimizer first)
     datamodule = build_data_module(config=config, 
-                                   root_dir=data_root_dir, 
-                                   optimizer=None)
+                                   root_dir=data_root_dir)
     # ✅ Build Model
     model = build_model(config=config, 
                         train_logger=train_logger, 
@@ -215,12 +209,12 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 
     # ✅ Build Optimizer (after DataModule setup to get train_dataloader_length)
     train_dataloader_length = len(datamodule.train_dataloader())
-    optimizer = build_optimiser(config=config, 
+    optimiser = build_optimiser(config=config, 
                                 model=model, 
                                 train_dataloader_length=train_dataloader_length)
 
     # ✅ Assign optimizer to DataModule
-    datamodule.optimizer = optimizer
+    model.set_optimiser(optimiser)
 
     # ✅ Build Callbacks
     callbacks = build_callbacks(config=config, callback_dir=dirs["checkpoint_dir"])
@@ -247,7 +241,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 
 if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
-    config_file = "config_training.json"
+    config_file = "config_training_innocent.json"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     training_dir = os.path.dirname(os.path.realpath(__file__))
     start_time = time.time()

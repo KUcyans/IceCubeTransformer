@@ -32,8 +32,8 @@ class MultiPartDataset(Dataset):
             for subdir, parts in subdirectory_parts.items() for part in parts
         ]
 
-        # ✅ Calculate cumulative lengths for indexing
-        self.cumulative_lengths = np.cumsum([len(dataset) for dataset in self.datasets])
+        # ✅ Calculate cumulative length for indexing
+        self.cumulative_length = np.cumsum([len(dataset) for dataset in self.datasets])
 
         # ✅ Define sampling weights
         if sample_weights:
@@ -55,7 +55,7 @@ class MultiPartDataset(Dataset):
         
         # ✅ Calculate where this index would land within the combined datasets using searchsorted
         adjusted_idx = idx // len(self.datasets)  # ✅ Distribute indices evenly
-        local_idx = adjusted_idx if dataset_idx == 0 else adjusted_idx - self.cumulative_lengths[dataset_idx - 1]
+        local_idx = adjusted_idx if dataset_idx == 0 else adjusted_idx - self.cumulative_length[dataset_idx - 1]
 
         # ✅ Ensure index wraps around if it's out of range (for smaller datasets)
         local_idx = local_idx % len(self.datasets[dataset_idx])

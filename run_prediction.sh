@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=60G
-#SBATCH --time=01:00:00
+#SBATCH --time=02:00:00
 #SBATCH --signal=B:USR1@60
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
