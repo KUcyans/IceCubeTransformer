@@ -167,7 +167,7 @@ class MaxPooling(nn.Module):
     def forward(self, x):
         return torch.max(x, dim=1)
     
-class Linear_regression(nn.Module):
+class Linear_output(nn.Module):
     """
     Linear regression class:
     - applies a linear layer to the max-pooled embedding (1 by embedding_dim)
@@ -178,13 +178,13 @@ class Linear_regression(nn.Module):
             embedding_dim,
             output_dim,
             ):
-        super(Linear_regression, self).__init__()
+        super(Linear_output, self).__init__()
         self.linear = nn.Linear(embedding_dim, output_dim)
     
     def forward(self, x):
         return self.linear(x)
     
-class regression_Transformer(nn.Module):
+class classification_Transformer(nn.Module):
     """
     Regression transformer class:
     - contains an input embedding layer, position embedding layer, transformer layers, and output layers
@@ -201,7 +201,7 @@ class regression_Transformer(nn.Module):
             dropout=0.1,
             output_dim=1,
             ):
-        super(regression_Transformer, self).__init__()
+        super(classification_Transformer, self).__init__()
 
         self.input_embedding = nn.Linear(input_dim, embedding_dim)
         self.position_embedding = nn.Embedding(seq_dim, embedding_dim)
@@ -209,7 +209,7 @@ class regression_Transformer(nn.Module):
         self.layer_norm = nn.LayerNorm(embedding_dim)
         self.mean_pooling = AveragePooling() # average pooling layer to get a single embedding from the sequence
         self.max_pooling = MaxPooling() # max pooling layer to get a single embedding from the sequence
-        self.linear_regression = Linear_regression(embedding_dim, output_dim) # linear regression layer to predict the target
+        self.linear_output = Linear_output(embedding_dim, output_dim) # linear regression layer to predict the target
 
     def forward(self, x, target=None, event_lengths=None):
         seq_dim_x = x.shape[1]
@@ -244,7 +244,7 @@ class regression_Transformer(nn.Module):
         x = x.sum(dim=1) / event_lengths.view(-1, 1) # Shape: (batch_size, emb_dim)
 
         # Feed to a linear regression layer
-        y_pred = self.linear_regression(x)
+        y_pred = self.linear_output(x)
 
         if target is None:
             loss = None

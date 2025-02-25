@@ -17,34 +17,24 @@ class ScaledDotProductAttention(nn.Module):
         self.scale = torch.sqrt(torch.tensor(self.d_model).float())
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, x, event_lengths=None, mask=None):
+    def forward(self, x, event_lengths=None):
         q = self.q_proj(x)
         k = self.k_proj(x)
         v = self.v_proj(x)
         
-        batch_size, seq_len, d_model = x.shape
-        attention_weights =  torch.matmul(q, k.transpose(-2, -1)) # compute attention weights by taking the dot product of query and key
-        attention_weights = attention_weights / self.scale # scale the attention weights
+        batch_size, seq_len, input_dim = x.shape # batch size, sequence length, input dimension
         
+        mask = None
         if event_lengths is not None:
-            # Step 1: Generate row and column indices for a square matrix of size seq_len
-            row_indices = torch.arange(seq_len).view(1, -1, 1)  # Shape: (1, seq_len, 1)
-            col_indices = torch.arange(seq_len).view(1, 1, -1)  # Shape: (1, 1, seq_len)
-
-            # Map row and col indices to the device of the input tensor
-            row_indices = row_indices.to(x.device)
-            col_indices = col_indices.to(x.device)
-
-            # Step 2: Compare indices against event_lengths to create the mask
-            event_lengths_new = event_lengths.view(-1, 1, 1).to(x.device)  # Shape: (batch_size, 1, 1)
-
-            mask = (row_indices < event_lengths_new) & (col_indices < event_lengths_new)
-            # Mask shape: (batch_size, seq_dim, seq_dim)
-            #attention_weights[~mask] = float('-inf')
-            attention_weights = attention_weights.masked_fill(~mask, float('-1e9'))
-        
-        attention_weights = F.softmax(attention_weights, dim=-1) # apply softmax to get the attention weights
-        attention_weights = self.dropout(attention_weights)
-        output = torch.matmul(attention_weights, v)
+            row_indices = torch.arange(seq_len, device=x.device).view(1, -1, 1)
+            col_indices = torch.arange(seq_len, device=x.device).view(1, 1, -1)
+            event_length_new = event_lengths.view(-1, 1, 1).to(x.device)
+            mask = (row_indices < event_length_new) & (col_indices < event_length_new)  # Shape: (batch_size, seq_len, seq_len)
+            mask = ~mask  # Invert: False means attend, True means ignore
+            mask = mask.unsqueeze(1)  # Shape: (batch_size, 1, seq_len, seq_len)
+            
+        output = F.scaled_dot_product_attention(q, k, v, attn_mask=mask, dropout_p=self.dropout.p)
         
         return output
+
+        

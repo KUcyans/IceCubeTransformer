@@ -58,7 +58,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         # Classification head
         self.classification_output_layer = nn.Sequential(
-                nn.Linear(self.d_model, 1), # single scalar output
+                nn.Linear(self.d_model, self.num_classes),
             )
 
         self.training_losses = []
@@ -121,24 +121,19 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             self.training_predictions.extend(predicted_labels.cpu().tolist())
             self.training_targets.extend(true_labels.cpu().tolist())
 
-        how_many = 5
-        if batch_idx % 1000 == 0:
+            # Print sample predictions
+            how_many = 5
             print(f"\nEpoch {self.current_epoch}, Batch {batch_idx}:")
             print(f"train_loss_step={loss.item():.4f}, train_accuracy_step={accuracy.item():.4f}")
             print(f"Predicted (One-hot): {F.one_hot(predicted_labels[:how_many], num_classes=self.num_classes).tolist()}")
             print(f"True (One-hot)     : {target[:how_many].to(torch.int32).tolist()}")
             
             self.train_logger.info(f"Epoch {self.current_epoch}, Batch {batch_idx}: train_loss_step={loss.item():.4f}, train_accuracy_step={accuracy.item():.4f}")
-            self.train_logger.info(f"Predicted (One-hot): {F.one_hot(predicted_labels[:how_many], num_classes=self.num_classes).tolist()}")
-            self.train_logger.info(f"True (One-hot)     : {target[:how_many].to(torch.int32).tolist()}")
             self.log("train_accuracy", accuracy, prog_bar=True, on_step=True)
 
-        # Sparse Mini Confusion Matrix - Every 5000 batches
-        # if batch_idx % 1000 == 0:
-            device = self.device
-            self.mini_conf_matrix.to(device)
-
-            if len(self.training_predictions) > 0 and len(self.training_targets) > 0:
+            if len(self.training_predictions) > 0:
+                device = self.device
+                self.mini_conf_matrix = self.mini_conf_matrix.to(device)
                 conf_matrix = self.mini_conf_matrix(
                     torch.tensor(self.training_predictions, device=device),
                     torch.tensor(self.training_targets, device=device)
@@ -146,16 +141,16 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 diagonal_sum = torch.trace(conf_matrix)
                 total_element = torch.sum(conf_matrix)
                 diagonal_ratio = diagonal_sum / total_element
-                self.log("train_diagonal_sum", diagonal_sum, prog_bar=True, on_step=True)
-                self.log("train_diagonal_ratio", diagonal_ratio, prog_bar=True, on_step=True)
+
+                self.log("train_diagonal_sum", diagonal_sum.float(), prog_bar=True, on_step=True)
+                self.log("train_diagonal_ratio", diagonal_ratio.float(), prog_bar=True, on_step=True)
 
                 print(f"\nEpoch {self.current_epoch}, Batch {batch_idx}: Mini Confusion Matrix\n")
                 print(conf_matrix.cpu().numpy())
 
-                # Only clear if we actually logged something
-                if batch_idx % 10000 == 0:
-                    self.training_predictions.clear()
-                    self.training_targets.clear()
+            # Clear predictions and targets after logging
+            self.training_predictions.clear()
+            self.training_targets.clear()
 
         return loss
 
@@ -169,23 +164,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.validation_losses.append(loss)
 
         # Store predictions for sparse monitoring
-        self.training_predictions.extend(predicted_labels.cpu().tolist())
-        self.training_targets.extend(true_labels.cpu().tolist())
-
-        how_many = 5
         if batch_idx % 1000 == 0:
+            self.training_predictions.extend(predicted_labels.cpu().tolist())
+            self.training_targets.extend(true_labels.cpu().tolist())
+
+            # Print sample predictions
             self.log_dict({"val_loss_step": loss.item(), "val_accuracy_step": accuracy.item()}, prog_bar=True, on_step=True)
             self.train_logger.info(f"Epoch {self.current_epoch}, Batch {batch_idx}: val_loss_step={loss.item():.4f}, val_accuracy_step={accuracy.item():.4f}")
-            self.train_logger.info(f"Predicted (One-hot): {F.one_hot(predicted_labels[:how_many], num_classes=self.num_classes).tolist()}")
-            self.train_logger.info(f"True (One-hot)     : {target[:how_many].to(torch.int32).tolist()}")
             self.log("val_accuracy", accuracy, prog_bar=True, on_step=True)
 
-        # Sparse Mini Confusion Matrix
-        # if batch_idx % 5000 == 0:
-            device = self.device
-            self.mini_conf_matrix.to(device)
-
-            if len(self.training_predictions) > 0 and len(self.training_targets) > 0:
+            if len(self.training_predictions) > 0:
+                device = self.device
+                self.mini_conf_matrix = self.mini_conf_matrix.to(device)
                 conf_matrix = self.mini_conf_matrix(
                     torch.tensor(self.training_predictions, device=device),
                     torch.tensor(self.training_targets, device=device)
@@ -194,18 +184,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 total_element = torch.sum(conf_matrix)
                 diagonal_ratio = diagonal_sum / total_element
 
-                # ✅ Log confusion matrix-based metrics
-                self.log("val_diagonal_sum", diagonal_sum, prog_bar=True, on_step=True)
-                self.log("val_diagonal_ratio", diagonal_ratio, prog_bar=True, on_step=True)
+                self.log("val_diagonal_sum", diagonal_sum.float(), prog_bar=True, on_step=True)
+                self.log("val_diagonal_ratio", diagonal_ratio.float(), prog_bar=True, on_step=True)
 
                 print(f"\nEpoch {self.current_epoch}, Batch {batch_idx}: Validation Mini Confusion Matrix\n")
                 print(conf_matrix.cpu().numpy())
 
-                # ✅ Clear predictions and targets after logging
-                self.training_predictions.clear()
-                self.training_targets.clear()
+            # Clear predictions and targets after logging
+            self.training_predictions.clear()
+            self.training_targets.clear()
 
         return loss
+
 
 
     def predict_step(self, batch, batch_idx):

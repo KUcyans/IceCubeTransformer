@@ -20,7 +20,7 @@ from pytorch_lightning.loggers import WandbLogger, TensorBoardLogger
 
 from dataset_multifile_flavours import PMTfiedDatasetPyArrow
 from dataloader import custom_collate_fn
-from model import regression_Transformer
+from model import classification_Transformer
 from model import LitModel
 
 import json
@@ -109,7 +109,7 @@ print(f"Number of batches in the validation set: {len(val_dataloader)}")
 #==================================================================================================
 # Define the model
 
-model = regression_Transformer(
+model = classification_Transformer(
     embedding_dim = config['embedding_dim'],
     n_layers = config['n_layers'],
     n_heads = config['n_heads'],
