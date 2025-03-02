@@ -3,7 +3,6 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 from .PartDataset import PartDataset
-from .EnergyRange import EnergyRange
 
 class MultiPartDataset(Dataset):
     def __init__(self, 

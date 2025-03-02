@@ -111,7 +111,7 @@ class MultiPartDataModule(pl.LightningDataModule):
             collate_fn=self.custom_collate_fn,
             persistent_workers=True,
             pin_memory=True
-        )
+        ) # leng(dataloader) = len(dataset) // batch_size + 1
 
     def val_dataloader(self):
         return DataLoader(

@@ -1,8 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=train_script_%j
-#SBATCH --partition=icecube_gpu
+#SBATCH --job-name=check_node_%j
+#SBATCH --partition=gr10_gpu
 #SBATCH --ntasks=1
-#SBATCH --nodelist=node161
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=1G

@@ -1,17 +1,4 @@
 #!/bin/bash
-#SBATCH --job-name=predict_script_%j
-#SBATCH --partition=icecube_gpu
-#SBATCH --ntasks=1
-#SBATCH --nodelist=node161
-#SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=60G
-#SBATCH --time=02:00:00
-#SBATCH --signal=B:USR1@60
-#SBATCH --output=/dev/null
-#SBATCH --error=/dev/null
-
-# ✅ Variables for logs
 LOG_ROOT_DIR="logs"
 datestamp=$(date +"%Y%m%d")
 timestamp=$(date +"%H%M%S")
@@ -33,7 +20,9 @@ CHECKPOINT_DATE="20250301"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer
-python -u run_prediction.py --date "$datestamp" --time "$timestamp" \
-                            --checkpoint_date "$CHECKPOINT_DATE"
+
+nohup python -u run_prediction.py --date "$datestamp" --time "$timestamp" \
+                            --checkpoint_date "$CHECKPOINT_DATE" > "${logfile}" 2>&1 &
 
 echo "Prediction job completed at $(date)"
+disown

@@ -39,10 +39,10 @@ class InnocentAttention(nn.Module):
             #attention_weights[~mask] = float('-inf')
             attention_weights = attention_weights.masked_fill(~mask, float('-1e9'))
         
-        attention_weights = F.softmax(attention_weights, dim=-1)
+        attention_weights = F.softmax(attention_weights, dim=-1) #shape: (batch_size, seq_len, seq_len)
         attention_weights = self.dropout(attention_weights)
         output = torch.matmul(attention_weights, v)
+        # output = torch.einsum("bij,bjk->bik", attention_weights, v) # explicit, slower
+
         
         return output
-
-        # attention_output = torch.einsum("bhqk,bkhd->bqhd", attn_weights, V).reshape(batch_size, seq_length, self.d_model)

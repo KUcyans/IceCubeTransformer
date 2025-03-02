@@ -37,7 +37,7 @@ def init_wandb(config: dict, project_name: str):
     wandb.init(project=project_name, config=config)
 
 
-def log_training_parameters(config: dict, training_logger: logging.Logger):
+def log_training_parameters(config: dict):
     """Log training parameters for debugging and reproducibility."""
     def flatten_dict(d, parent_key='', sep=' -> '):
         """Recursively flatten nested dictionaries."""
@@ -57,25 +57,23 @@ def log_training_parameters(config: dict, training_logger: logging.Logger):
     |-----------------|---------------------|
     """ + "".join([f"| {k:<30} | {str(v):<20} |\n" for k, v in config_flattened.items()])
 
-    training_logger.info("Starting training with the following parameters:")
-    training_logger.info(message)
+    print("Starting training with the following parameters:")
+    print(message)
 
 
 def build_model(config: dict, 
-                train_logger: logging.Logger, 
                 device: torch.device,):
     """Build and return the model."""
     model = FlavourClassificationTransformerEncoder(
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
-        d_f=config['embedding_dim'],
+        d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
         d_input= config['d_input'],
         num_classes=config['output_dim'],
         seq_len=config['event_length'],
         attention_type=config['attention'],
         dropout=config['dropout'],
-        train_logger=train_logger,
     )
     return model.to(device)
 
@@ -98,25 +96,28 @@ def build_data_module(config: dict,
     return datamodule
 
 
-def build_optimiser(config: dict, model: torch.nn.Module, train_dataloader_length: int):
+def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodule: MultiPartDataModule):
     """Build and return the optimizer and learning rate scheduler."""
     optimizer_config = config['optimizer']
     optimizer = torch.optim.AdamW(
         model.parameters(),
-        lr=optimizer_config['lr'],
+        lr=optimizer_config['lr_max']/optimizer_config['div_factor'],
         betas=tuple(optimizer_config['betas']),
         eps=optimizer_config['eps'],
         weight_decay=optimizer_config['weight_decay'],
         amsgrad=optimizer_config['amsgrad']
     )
-
+    total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
     scheduler = {
         'scheduler': torch.optim.lr_scheduler.OneCycleLR(
             optimizer,
-            max_lr=optimizer_config['lr'],
+            max_lr=optimizer_config['lr_max'],
             epochs=config['n_epochs'],
-            steps_per_epoch=train_dataloader_length,
+            total_steps=total_N_steps,
             pct_start=optimizer_config['pct_start'],
+            div_factor=optimizer_config['div_factor'],
+            max_momentum=optimizer_config['max_momentum'],
+            base_momentum=optimizer_config['base_momentum'],
             final_div_factor=optimizer_config['final_div_factor'],
             anneal_strategy=optimizer_config['anneal_strategy']
         ),
@@ -124,20 +125,20 @@ def build_optimiser(config: dict, model: torch.nn.Module, train_dataloader_lengt
         'frequency': optimizer_config['frequency'],
     }
 
-    return [optimizer], [scheduler]
+    return optimizer, scheduler
 
 
 def build_callbacks(config: dict, callback_dir: str):
     """Build and return training callbacks."""
     callbacks = [
-        EarlyStopping(monitor='val_loss', 
+        EarlyStopping(monitor='mean_val_loss_epoch', 
                       patience=config['patience'], 
                       verbose=True),
         ModelCheckpoint(dirpath=callback_dir,
                         filename="{epoch:03d}_{val_loss:.4f}",
                         save_top_k=1, 
                         save_last=True, 
-                        monitor='val_loss', 
+                        monitor='mean_val_loss_epoch', 
                         mode='min'),
         LearningRateMonitor(logging_interval='step'),
         TQDMProgressBar(refresh_rate=1000),
@@ -148,20 +149,25 @@ def build_callbacks(config: dict, callback_dir: str):
 def lock_and_load(config):
     """Set CUDA device based on config['gpu'] if available, else use CPU."""
     print("torch.cuda.is_available():", torch.cuda.is_available())
-
+    available_devices = list(range(torch.cuda.device_count()))
+    print(f"Available CUDA devices: {available_devices}")
     # Set CUDA devices from config
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
-        os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, config['gpu']))
-        torch.cuda.set_device(int(config['gpu'][0]))
-        device = torch.device('cuda')
-        torch.set_float32_matmul_precision('highest')
-        print(f"Using GPU(s): {config['gpu']}")
+        selected_gpu = int(config['gpu'][0])
+        if selected_gpu in available_devices:
+            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
+            os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, config['gpu']))
+            torch.cuda.set_device(selected_gpu)
+            device = torch.device('cuda')
+            torch.set_float32_matmul_precision('highest')
+            print(f"Using GPU(s): {config['gpu']}")
+        else:
+            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
+            device = torch.device('cpu')
     else:
         device = torch.device('cpu')
         print("CUDA not available. Using CPU.")
 
-    print("CUDA_VISIBLE_DEVICES (after):", os.environ.get("CUDA_VISIBLE_DEVICES"))
     print(f"Selected device: {device}")
     return device
 
@@ -179,7 +185,6 @@ def setup_directories(base_dir: str, current_date: str, current_time: str):
 
     return {
         **paths,
-        "train_log_file": os.path.join(paths["log_dir"], f"{current_time}_training.log"),
     }
 
 
@@ -194,7 +199,6 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 
     # ✅ Setup directories and loggers
     dirs = setup_directories(training_dir, current_date, current_time)
-    train_logger = setup_logger("training", dirs["train_log_file"])
     
     # ✅ Secure GPU/CPU
     device = lock_and_load(config)
@@ -204,17 +208,16 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
                                    root_dir=data_root_dir)
     # ✅ Build Model
     model = build_model(config=config, 
-                        train_logger=train_logger, 
                         device=device,)
 
     # ✅ Build Optimizer (after DataModule setup to get train_dataloader_length)
-    train_dataloader_length = len(datamodule.train_dataloader())
-    optimiser = build_optimiser(config=config, 
+    optimiser, scheduler = build_optimiser_and_scheduler(config=config, 
                                 model=model, 
-                                train_dataloader_length=train_dataloader_length)
+                                datamodule=datamodule
+                                )
 
     # ✅ Assign optimizer to DataModule
-    model.set_optimiser(optimiser)
+    model.set_optimiser(optimiser, scheduler)
 
     # ✅ Build Callbacks
     callbacks = build_callbacks(config=config, callback_dir=dirs["checkpoint_dir"])
@@ -224,7 +227,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
     wandb_logger = WandbLogger(project=project_name, config=config)
 
     # ✅ Log Training Parameters
-    log_training_parameters(config=config, training_logger=train_logger)
+    log_training_parameters(config=config)
 
     # ✅ Initialize Trainer and Fit
     trainer = pl.Trainer(
@@ -242,7 +245,8 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_training_innocent.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
+    data_root_dir =  "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     training_dir = os.path.dirname(os.path.realpath(__file__))
     start_time = time.time()
     run_training(config_file=os.path.join(config_dir, config_file),

@@ -34,6 +34,7 @@ class ScaledDotProductAttention(nn.Module):
             mask = mask.unsqueeze(1)  # Shape: (batch_size, 1, seq_len, seq_len)
             
         output = F.scaled_dot_product_attention(q, k, v, attn_mask=mask, dropout_p=self.dropout.p)
+        # this already has softmax and dropout applied
         
         return output
 

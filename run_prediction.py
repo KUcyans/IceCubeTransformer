@@ -32,25 +32,38 @@ def setup_directories(base_dir: str, current_date: str, current_time: str, check
 
 def lock_and_load(config):
     """Set CUDA device based on config['gpu'] if available, else use CPU."""
-    print("CUDA_VISIBLE_DEVICES (before):", os.environ.get("CUDA_VISIBLE_DEVICES"))
     print("torch.cuda.is_available():", torch.cuda.is_available())
-    print("torch.cuda.device_count():", torch.cuda.device_count())
+    available_devices = list(range(torch.cuda.device_count()))
+    print(f"Available CUDA devices: {available_devices}")
 
-    # Set CUDA devices from config
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
-        os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, config['gpu']))
-        torch.cuda.set_device(int(config['gpu'][0]))
-        device = torch.device('cuda')
-        torch.set_float32_matmul_precision('highest')
-        print(f"Using GPU(s): {config['gpu']}")
-    else:
-        device = torch.device('cpu')
-        print("CUDA not available. Using CPU.")
+        selected_gpu = int(config['gpu'][0])
 
-    print("CUDA_VISIBLE_DEVICES (after):", os.environ.get("CUDA_VISIBLE_DEVICES"))
+        if selected_gpu in available_devices:
+            print(f"🔥 LOCK AND LOAD! Using GPU {selected_gpu} 🔥")
+
+            # Set CUDA_VISIBLE_DEVICES to limit PyTorch to only the selected GPU
+            os.environ["CUDA_VISIBLE_DEVICES"] = str(selected_gpu)
+
+            # Now that only one GPU is visible, PyTorch will recognize it as cuda:0
+            torch.cuda.set_device(0)
+            device = torch.device("cuda:0")
+
+            # ✅ Update config['gpu'] so PyTorch Lightning does not misinterpret the device
+            config['gpu'] = [0]
+
+            torch.set_float32_matmul_precision("highest")
+        else:
+            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
+            device = torch.device("cpu")
+    else:
+        device = torch.device("cpu")
+        print("❄️ CUDA not available. Using CPU.")
+
     print(f"Selected device: {device}")
     return device
+
+
 
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
@@ -73,7 +86,7 @@ def build_model(config: dict,
         strict = False,
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
-        d_f=config['embedding_dim'],
+        d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
         d_input= config['d_input'],
         num_classes=config['output_dim'],
@@ -101,6 +114,36 @@ def build_data_module(config: dict,
     datamodule.setup(stage='predict')
     return datamodule
 
+def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodule: MultiPartDataModule):
+    """Build and return the optimizer and learning rate scheduler."""
+    optimizer_config = config['optimizer']
+    optimizer = torch.optim.Adam(
+        model.parameters(),
+        lr=optimizer_config['lr_max']/optimizer_config['div_factor'],
+        betas=tuple(optimizer_config['betas']),
+        eps=optimizer_config['eps'],
+        weight_decay=optimizer_config['weight_decay'],
+        amsgrad=optimizer_config['amsgrad']
+    )
+    total_N_steps = config['n_epochs'] * len(datamodule.predict_dataloader())
+    scheduler = {
+        'scheduler': torch.optim.lr_scheduler.OneCycleLR(
+            optimizer,
+            max_lr=optimizer_config['lr_max'],
+            epochs=config['n_epochs'],
+            total_steps=total_N_steps,
+            pct_start=optimizer_config['pct_start'],
+            div_factor=optimizer_config['div_factor'],
+            max_momentum=optimizer_config['max_momentum'],
+            base_momentum=optimizer_config['base_momentum'],
+            final_div_factor=optimizer_config['final_div_factor'],
+            anneal_strategy=optimizer_config['anneal_strategy']
+        ),
+        'interval': optimizer_config['interval'],
+        'frequency': optimizer_config['frequency'],
+    }
+
+    return optimizer, scheduler
 
 def build_callbacks():
     callbacks = [
@@ -213,8 +256,8 @@ def run_prediction(config_file: str,
 
         print(f"\n🔥 Loading model from {ckpt_file}...")
         model = build_model(config=config, train_logger=predict_logger, device=device, ckpt_file=ckpt_file_dir)
-        optimizer = torch.optim.Adam(model.parameters(), lr=config['optimizer']['lr'])
-        model.set_optimiser(optimizer)
+        optimizer, scheduler = build_optimiser_and_scheduler(config=config, model=model, datamodule=datamodule)
+        model.set_optimiser(optimizer, scheduler)
         model.to(device)
 
         print("🚀 Running predictions...")
@@ -227,7 +270,8 @@ def run_prediction(config_file: str,
 if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_predict.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
+    data_root_dir =  = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     prediction_dir = os.path.dirname(os.path.realpath(__file__))
     checkpoint_dir = os.path.join(prediction_dir, "checkpoints")
     

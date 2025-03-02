@@ -31,7 +31,7 @@ class AttentionHead(nn.Module):
 
         seq_dim = x.shape[1]
 
-        attention_weights =  torch.matmul(q, k.transpose(-2, -1)) # compute attention weights by taking the dot product of query and key
+        attention_weights = torch.matmul(q, k.transpose(-2, -1)) # compute attention weights by taking the dot product of query and key
         attention_weights = attention_weights / torch.sqrt(torch.tensor(self.embedding_dim).float()) # scale by dividing by sqrt(embedding_dim)
 
         if event_lengths is not None:
@@ -199,7 +199,7 @@ class classification_Transformer(nn.Module):
             input_dim=7,
             seq_dim=256,
             dropout=0.1,
-            output_dim=1,
+            output_dim=3,
             ):
         super(classification_Transformer, self).__init__()
 
