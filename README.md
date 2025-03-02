@@ -1,3 +1,7 @@
+## License
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+![Apache License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
+
 # Transformer Workshop for Neutrino Flavour Classification
 This Transformer Encoder model and its data socket are designed to classify the neutrino flavour based on the IceCube Neutrino Observatory data. The data which the model is suited for are DOM-wisely summarised data. The processing of the data is described in [PMTfication github](https://github.com/KUcyans/PMTfication). Thus it requires a characteristic way of storing the data.
 ![alt text](image.png)
