@@ -262,6 +262,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             minute = int(elapsed_time // 60)
             seconds = elapsed_time % 60
             print(f"\nTraining duration(Epoch {self.current_epoch}): {minute}m {seconds:.2f}s")
+            self.log("train_duration", elapsed_time, prog_bar=True, on_epoch=True)
         elif stage == "val":
             predictions = self.validation_predictions
             targets = self.validation_targets
@@ -269,6 +270,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             minute = int(elapsed_time // 60)
             seconds = elapsed_time % 60
             print(f"\nValidation duration(Epoch {self.current_epoch}): {minute}m {seconds:.2f}s")
+            self.log("val_duration", elapsed_time, prog_bar=True, on_epoch=True)
         elif stage == "test":
             predictions = getattr(self, "test_predictions", [])
             targets = getattr(self, "test_targets", [])

@@ -21,14 +21,17 @@ def parse_args():
 def setup_directories(base_dir: str, current_date: str, current_time: str, checkpoint_date: str):
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
-        "predict_dir": os.path.join(base_dir, "predictions", current_date, f"model_{checkpoint_date}"),
+        "predict_dir": os.path.join(base_dir, "predictions", current_date, f"model_{checkpoint_date}", current_time),
+        "checkpoint_dir": os.path.join(base_dir, "checkpoints", checkpoint_date),  # Load from checkpoint_date
     }
     for path in paths.values():
         os.makedirs(path, exist_ok=True)
+
     return {
         **paths,
         "predict_log_file": os.path.join(paths["log_dir"], f"{current_time}_predict.log"),
     }
+
 
 def lock_and_load(config):
     """Set CUDA device based on config['gpu'] if available, else use CPU."""
@@ -40,25 +43,17 @@ def lock_and_load(config):
         selected_gpu = int(config['gpu'][0])
 
         if selected_gpu in available_devices:
-            print(f"🔥 LOCK AND LOAD! Using GPU {selected_gpu} 🔥")
-
-            # Set CUDA_VISIBLE_DEVICES to limit PyTorch to only the selected GPU
-            os.environ["CUDA_VISIBLE_DEVICES"] = str(selected_gpu)
-
-            # Now that only one GPU is visible, PyTorch will recognize it as cuda:0
-            torch.cuda.set_device(0)
-            device = torch.device("cuda:0")
-
-            # ✅ Update config['gpu'] so PyTorch Lightning does not misinterpret the device
-            config['gpu'] = [0]
-
-            torch.set_float32_matmul_precision("highest")
+            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
+            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
+            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
+            torch.set_float32_matmul_precision('highest')
+            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
         else:
             print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
-            device = torch.device("cpu")
+            device = torch.device('cpu')
     else:
-        device = torch.device("cpu")
-        print("❄️ CUDA not available. Using CPU.")
+        device = torch.device('cpu')
+        print("CUDA not available. Using CPU.")
 
     print(f"Selected device: {device}")
     return device
@@ -209,14 +204,14 @@ def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: 
         "target_class": target_classes.numpy(),
     })
 
-    csv_name = os.path.join(prediction_dir, f"predictions_{os.path.splitext(ckpt_file)[0]}.csv")
+    checkpoint_name = os.path.basename(ckpt_file).replace(".ckpt", "")
+    csv_name = os.path.join(prediction_dir, f"predictions_{checkpoint_name}.csv")
     df.to_csv(csv_name, index=False)
-    print(f"Predictions saved to {csv_name}.")
+    print(f"Predictions saved to {csv_name}")
 
 
 def run_prediction(config_file: str, 
-                   prediction_dir: str, 
-                   checkpoint_dir: str,
+                   base_dir: str, 
                    data_root_dir: str):
     args = parse_args()
     current_date, current_time = args.date, args.time
@@ -225,7 +220,7 @@ def run_prediction(config_file: str,
     with open(config_file, 'r') as f:
         config = json.load(f)
         
-    dirs = setup_directories(prediction_dir, current_date, current_time, specific_checkpoint)
+    dirs = setup_directories(base_dir, current_date, current_time, specific_checkpoint)
     predict_logger = setup_logger("predict", dirs["predict_log_file"])
     
     device = lock_and_load(config)
@@ -244,7 +239,7 @@ def run_prediction(config_file: str,
         logger=None,
     )
     
-    specific_checkpoint_dir = os.path.join(checkpoint_dir, specific_checkpoint)
+    specific_checkpoint_dir = dirs["checkpoint_dir"]
     ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
 
     for ckpt_file in ckpt_files:
@@ -271,14 +266,13 @@ if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_predict.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
-    data_root_dir =  = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    prediction_dir = os.path.dirname(os.path.realpath(__file__))
-    checkpoint_dir = os.path.join(prediction_dir, "checkpoints")
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    base_dir = os.path.dirname(os.path.realpath(__file__))
+    checkpoint_dir = os.path.join(base_dir, "checkpoints")
     
     start_time = time.time()
     run_prediction(config_file=os.path.join(config_dir, config_file),
-                 prediction_dir=prediction_dir,
-                 checkpoint_dir=checkpoint_dir,
+                 base_dir=base_dir,
                  data_root_dir=data_root_dir)
     end_time = time.time()
     print(f"Prediction completed in {end_time - start_time:.2f} seconds.")

@@ -151,16 +151,16 @@ def lock_and_load(config):
     print("torch.cuda.is_available():", torch.cuda.is_available())
     available_devices = list(range(torch.cuda.device_count()))
     print(f"Available CUDA devices: {available_devices}")
-    # Set CUDA devices from config
+
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
         selected_gpu = int(config['gpu'][0])
+
         if selected_gpu in available_devices:
             print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
-            os.environ["CUDA_VISIBLE_DEVICES"] = ','.join(map(str, config['gpu']))
-            torch.cuda.set_device(selected_gpu)
-            device = torch.device('cuda')
+            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
+            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
             torch.set_float32_matmul_precision('highest')
-            print(f"Using GPU(s): {config['gpu']}")
+            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
         else:
             print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
             device = torch.device('cpu')
@@ -174,18 +174,18 @@ def lock_and_load(config):
 
 
 def setup_directories(base_dir: str, current_date: str, current_time: str):
-    """Create and return directories for logs and checkpoints."""
+    """Create and return directories for logs and checkpoints with a timestamped subdirectory."""
+    
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
-        "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date),
+        "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date, current_time),
     }
 
     for path in paths.values():
         os.makedirs(path, exist_ok=True)
 
-    return {
-        **paths,
-    }
+    return paths
+
 
 
 def run_training(config_file: str, training_dir: str, data_root_dir: str):
