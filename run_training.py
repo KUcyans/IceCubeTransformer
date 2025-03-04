@@ -11,8 +11,8 @@ from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping, TQDMProgressBar
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
+from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
 from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
-
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Training Script with Timestamped Logs")
@@ -134,12 +134,15 @@ def build_callbacks(config: dict, callback_dir: str):
         EarlyStopping(monitor='mean_val_loss_epoch', 
                       patience=config['patience'], 
                       verbose=True),
-        ModelCheckpoint(dirpath=callback_dir,
+        ModelCheckpoint(dirpath=
+                        callback_dir,
                         filename="{epoch:03d}_{val_loss:.4f}",
                         save_top_k=1, 
                         save_last=True, 
                         monitor='mean_val_loss_epoch', 
                         mode='min'),
+        LocalMinimumCheckpoint(checkpoint_dir=callback_dir, monitor="mean_val_loss_epoch"),
+
         LearningRateMonitor(logging_interval='step'),
         TQDMProgressBar(refresh_rate=1000),
     ]   
@@ -246,7 +249,7 @@ if __name__ == "__main__":
     config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_training_innocent.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
-    data_root_dir =  "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     training_dir = os.path.dirname(os.path.realpath(__file__))
     start_time = time.time()
     run_training(config_file=os.path.join(config_dir, config_file),

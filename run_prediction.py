@@ -15,14 +15,15 @@ def parse_args():
     parser.add_argument("--date", type=str, required=True, help="Execution date in YYYYMMDD format")
     parser.add_argument("--time", type=str, required=True, help="Execution time in HHMMSS format")
     parser.add_argument("--checkpoint_date", type=str, required=True, help="Date of the checkpoint in YYYYMMDD format")
+    parser.add_argument("--checkpoint_time", type=str, required=True, help="Time of the checkpoint in HHMMSS format")
     
     return parser.parse_args()
 
-def setup_directories(base_dir: str, current_date: str, current_time: str, checkpoint_date: str):
+def setup_directories(base_dir: str, current_date: str, current_time: str, checkpoint_date: str, checkpoint_time: str):
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
         "predict_dir": os.path.join(base_dir, "predictions", current_date, f"model_{checkpoint_date}", current_time),
-        "checkpoint_dir": os.path.join(base_dir, "checkpoints", checkpoint_date),  # Load from checkpoint_date
+        "checkpoint_dir": os.path.join(base_dir, "checkpoints", checkpoint_date, checkpoint_time),
     }
     for path in paths.values():
         os.makedirs(path, exist_ok=True)
@@ -58,8 +59,6 @@ def lock_and_load(config):
     print(f"Selected device: {device}")
     return device
 
-
-
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
     logger.setLevel(level)
@@ -72,7 +71,6 @@ def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Lo
 
 
 def build_model(config: dict, 
-                train_logger: logging.Logger, 
                 device: torch.device,
                 ckpt_file: str = None
                 ):
@@ -88,7 +86,6 @@ def build_model(config: dict,
         seq_len=config['event_length'],
         attention_type=config['attention'],
         dropout=config['dropout'],
-        train_logger=train_logger,
     )
     return model
 
@@ -146,7 +143,7 @@ def build_callbacks():
     ]   
     return callbacks
 
-def log_training_parameters(config: dict, training_logger: logging.Logger):
+def log_training_parameters(config: dict):
     """Log training parameters for debugging and reproducibility."""
     def flatten_dict(d, parent_key='', sep=' -> '):
         """Recursively flatten nested dictionaries."""
@@ -166,8 +163,7 @@ def log_training_parameters(config: dict, training_logger: logging.Logger):
     |-----------------|---------------------|
     """ + "".join([f"| {k:<30} | {str(v):<20} |\n" for k, v in config_flattened.items()])
 
-    training_logger.info("The training parameters:")
-    training_logger.info(message)
+    print(message)
 
 
 def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: str):
@@ -207,7 +203,7 @@ def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: 
     checkpoint_name = os.path.basename(ckpt_file).replace(".ckpt", "")
     csv_name = os.path.join(prediction_dir, f"predictions_{checkpoint_name}.csv")
     df.to_csv(csv_name, index=False)
-    print(f"Predictions saved to {csv_name}")
+    print(f"Predictions saved to.. \n{csv_name}")
 
 
 def run_prediction(config_file: str, 
@@ -215,13 +211,19 @@ def run_prediction(config_file: str,
                    data_root_dir: str):
     args = parse_args()
     current_date, current_time = args.date, args.time
-    specific_checkpoint = args.checkpoint_date
+    local_checkpoint = args.checkpoint_date
+    specific_checkpoint = args.checkpoint_time
+    
     
     with open(config_file, 'r') as f:
         config = json.load(f)
-        
-    dirs = setup_directories(base_dir, current_date, current_time, specific_checkpoint)
-    predict_logger = setup_logger("predict", dirs["predict_log_file"])
+    
+    dirs = setup_directories(base_dir = base_dir, 
+                             current_date = current_date, 
+                             current_time = current_time, 
+                             checkpoint_date = local_checkpoint,
+                             checkpoint_time = specific_checkpoint)
+    # predict_logger = setup_logger("predict", dirs["predict_log_file"])
     
     device = lock_and_load(config)
     
@@ -229,7 +231,7 @@ def run_prediction(config_file: str,
                                     root_dir=data_root_dir)
     
     callbacks = build_callbacks()
-    log_training_parameters(config, predict_logger)
+    log_training_parameters(config)
     
     trainer = Trainer(
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
@@ -250,7 +252,7 @@ def run_prediction(config_file: str,
         ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
 
         print(f"\n🔥 Loading model from {ckpt_file}...")
-        model = build_model(config=config, train_logger=predict_logger, device=device, ckpt_file=ckpt_file_dir)
+        model = build_model(config=config, device=device, ckpt_file=ckpt_file_dir)
         optimizer, scheduler = build_optimiser_and_scheduler(config=config, model=model, datamodule=datamodule)
         model.set_optimiser(optimizer, scheduler)
         model.to(device)
@@ -268,7 +270,6 @@ if __name__ == "__main__":
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     base_dir = os.path.dirname(os.path.realpath(__file__))
-    checkpoint_dir = os.path.join(base_dir, "checkpoints")
     
     start_time = time.time()
     run_prediction(config_file=os.path.join(config_dir, config_file),

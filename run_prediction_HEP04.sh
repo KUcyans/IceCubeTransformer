@@ -16,13 +16,16 @@ echo "Checking allocated GPU..."
 nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-CHECKPOINT_DATE="20250301"
+CHECKPOINT_DATE="20250304"
+CHECKPOINT_TIME="010044"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer
 
 nohup python -u run_prediction.py --date "$datestamp" --time "$timestamp" \
-                            --checkpoint_date "$CHECKPOINT_DATE" > "${logfile}" 2>&1 &
+                            --checkpoint_date "$CHECKPOINT_DATE"\
+                            --checkpoint_time "$CHECKPOINT_TIME"\
+                             > "${logfile}" 2>&1 &
 
 echo "Prediction job completed at $(date)"
 disown
