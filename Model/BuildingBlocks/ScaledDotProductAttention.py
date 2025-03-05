@@ -24,12 +24,15 @@ class ScaledDotProductAttention(nn.Module):
         
         batch_size, seq_len, input_dim = x.shape # batch size, sequence length, input dimension
         
-        mask = None
         if event_lengths is not None:
-            row_indices = torch.arange(seq_len, device=x.device).view(1, -1, 1)
-            col_indices = torch.arange(seq_len, device=x.device).view(1, 1, -1)
-            event_length_new = event_lengths.view(-1, 1, 1).to(x.device)
-            mask = (row_indices < event_length_new) & (col_indices < event_length_new)  # Shape: (batch_size, seq_len, seq_len)
+            # row_indices = torch.arange(seq_len, device=x.device).view(1, -1, 1)
+            # col_indices = torch.arange(seq_len, device=x.device).view(1, 1, -1)
+            row_indices = torch.arange(seq_len).view(1, -1, 1).to(x.device) # Shape: (1, seq_len, 1)
+            col_indices = torch.arange(seq_len).view(1, 1, -1).to(x.device) # Shape: (1, 1, seq_len)
+            event_length_new = event_lengths.view(-1, 1, 1).to(x.device) # Shape: (batch_size, 1, 1)
+            
+            mask = (row_indices < event_length_new) & (col_indices < event_length_new)  
+            # Shape: (batch_size, seq_len, seq_len)
             mask = ~mask  # Invert: False means attend, True means ignore
             mask = mask.unsqueeze(1)  # Shape: (batch_size, 1, seq_len, seq_len)
             

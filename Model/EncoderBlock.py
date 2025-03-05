@@ -34,8 +34,10 @@ class EncoderBlock(nn.Module):
         self.norm_ffn = nn.LayerNorm(self.d_model)
         
     def forward(self, x, event_length = None):
+        # x shape: (batch_size, seq_len, d_model)
         attn_output = self.attention(x, event_length = event_length)
         x = x + attn_output
+        # x shape: (batch_size, seq_len, d_model)
         x = self.norm_attention(x)
         
         ffn_output = self.ffn(x)

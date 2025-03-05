@@ -66,6 +66,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) # shape: (batch_size, seq_len, d_model)
         
         x = x + pos_emb
+        
+        # x shape: (batch_size, seq_len, d_model)
 
         for encoder in self.encoder_blocks:
             x = encoder(x, event_length = event_length)
