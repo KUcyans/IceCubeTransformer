@@ -1,376 +1,0 @@
-nohup: ignoring input
-wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.19.5 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.17.2
-wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250201_143602-kzpr9mei
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run restful-lion-1
-wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250201_143601%5DNeutrino%20Flavour%20Classification
-wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250201_143601%5DNeutrino%20Flavour%20Classification/runs/kzpr9mei
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-HPU available: False, using: 0 HPUs
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/checkpoints/20250201 exists and is not empty.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
-  warnings.warn(
-
-  | Name                        | Type       | Params | Mode 
--------------------------------------------------------------------
-0 | input_projection            | Linear     | 4.2 K  | train
-1 | encoder_blocks              | ModuleList | 397 K  | train
-2 | classification_output_layer | Linear     | 387    | train
--------------------------------------------------------------------
-402 K     Trainable params
-0         Non-trainable params
-402 K     Total params
-1.608     Total estimated model params size (MB)
-Number of GPUs available: 2
-GPU 0: NVIDIA GeForce RTX 3090
-GPU 1: NVIDIA GeForce RTX 3090
-------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
-------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
-Dataset split into train (24), val (3), and test (3)
-Class weights: tensor([0.1250, 0.1250, 0.1250])
-Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
-Sanity Checking:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  6.56it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] Batch 0: train_loss=1.1643
-Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  2.09it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.11it/s][A
-                                                                      [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.47it/s, v_num=9mei]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  1.47it/s, v_num=9mei]Metric val_acc improved. New best score: 0.333
-Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=1.0995
-Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.29it/s, v_num=9mei]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  3.28it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.89it/s][A
-                                                                      [AEpoch 1: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 1: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 1:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=1.0491
-Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.22it/s][A
-                                                                      [AEpoch 2: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 2: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 2:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=1.0329
-Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.18it/s][A
-                                                                      [AEpoch 3: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 3: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 3:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=1.0212
-Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.06it/s][A
-                                                                      [AEpoch 4: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 4: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 4:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=1.0060
-Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.86it/s][A
-                                                                      [AEpoch 5: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 5: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 5:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9849
-Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.78it/s][A
-                                                                      [AEpoch 6: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 6: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 6:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9630
-Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.38it/s][A
-                                                                      [AEpoch 7: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 7: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 7:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9437
-Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.62it/s][A
-                                                                      [AEpoch 8: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 8: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 8:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9303
-Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.08it/s][A
-                                                                      [AEpoch 9: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 9: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 9:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9232
-Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.90it/s][A
-                                                                      [AEpoch 10: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 10: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 10:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9200
-Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.07it/s][A
-                                                                      [AEpoch 11: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 11: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 11:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.9000
-Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.29it/s][A
-                                                                      [AEpoch 12: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 12: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 12:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8941
-Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.21it/s][A
-                                                                      [AEpoch 13: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 13: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 13:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8908
-Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.82it/s][A
-                                                                      [AEpoch 14: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 14: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 14:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8838
-Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.99it/s][A
-                                                                      [AEpoch 15: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 15: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 15:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8753
-Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.77it/s][A
-                                                                      [AEpoch 16: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 16: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 16:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8721
-Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 49.00it/s][A
-                                                                      [AEpoch 17: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 17: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 17:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8728
-Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.68it/s][A
-                                                                      [AEpoch 18: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 18: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 18:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8682
-Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.76it/s][A
-                                                                      [AEpoch 19: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 19: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 19:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8636
-Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.73it/s][A
-                                                                      [AEpoch 20: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 20: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 20:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8596
-Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.88it/s][A
-                                                                      [AEpoch 21: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 21: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 21:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8587
-Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.04it/s][A
-                                                                      [AEpoch 22: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 22: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 22:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8562
-Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.12it/s][A
-                                                                      [AEpoch 23: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 23: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 23:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8566
-Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.54it/s][A
-                                                                      [AEpoch 24: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 24: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s, v_num=9mei]Epoch 24:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8535
-Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.62it/s][A
-                                                                      [AEpoch 25: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 25: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 25:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8511
-Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.94it/s][A
-                                                                      [AEpoch 26: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 26: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 26:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8492
-Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.88it/s][A
-                                                                      [AEpoch 27: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 27: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 27:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8478
-Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.66it/s][A
-                                                                      [AEpoch 28: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 28: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 28:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8451
-Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.66it/s][A
-                                                                      [AEpoch 29: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 29: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 29:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 30:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8447
-Epoch 30: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 30: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.38it/s][A
-                                                                      [AEpoch 30: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 30: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 30:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 31:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8439
-Epoch 31: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]Epoch 31: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.07it/s][A
-                                                                      [AEpoch 31: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 31: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 31:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 32:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8402
-Epoch 32: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]Epoch 32: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.56it/s][A
-                                                                      [AEpoch 32: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 32: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 32:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 33:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8389
-Epoch 33: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 33: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.68it/s][A
-                                                                      [AEpoch 33: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 33: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 33:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 34:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8373
-Epoch 34: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]Epoch 34: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.13it/s][A
-                                                                      [AEpoch 34: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 34: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 34:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 35:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8376
-Epoch 35: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]Epoch 35: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.75it/s][A
-                                                                      [AEpoch 35: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 35: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 35:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 36:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8377
-Epoch 36: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 36: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.93it/s][A
-                                                                      [AEpoch 36: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 36: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 36:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 37:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8365
-Epoch 37: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]Epoch 37: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.58it/s][A
-                                                                      [AEpoch 37: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 37: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 37:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 38:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8328
-Epoch 38: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 38: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.36it/s][A
-                                                                      [AEpoch 38: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 38: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 38:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 39:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8326
-Epoch 39: 100%|██████████| 1/1 [00:00<00:00,  3.20it/s, v_num=9mei]Epoch 39: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.83it/s][A
-                                                                      [AEpoch 39: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 39: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 39:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 40:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8313
-Epoch 40: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]Epoch 40: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.84it/s][A
-                                                                      [AEpoch 40: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 40: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 40:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 41:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8290
-Epoch 41: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s, v_num=9mei]Epoch 41: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.50it/s][A
-                                                                      [AEpoch 41: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 41: 100%|██████████| 1/1 [00:00<00:00,  1.26it/s, v_num=9mei]Epoch 41:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 42:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8283
-Epoch 42: 100%|██████████| 1/1 [00:00<00:00,  3.16it/s, v_num=9mei]Epoch 42: 100%|██████████| 1/1 [00:00<00:00,  3.16it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.46it/s][A
-                                                                      [AEpoch 42: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 42: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 42:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 43:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8260
-Epoch 43: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]Epoch 43: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.09it/s][A
-                                                                      [AEpoch 43: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 43: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 43:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 44:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8260
-Epoch 44: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s, v_num=9mei]Epoch 44: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.77it/s][A
-                                                                      [AEpoch 44: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s, v_num=9mei]Epoch 44: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s, v_num=9mei]Epoch 44:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 45:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8264
-Epoch 45: 100%|██████████| 1/1 [00:00<00:00,  3.16it/s, v_num=9mei]Epoch 45: 100%|██████████| 1/1 [00:00<00:00,  3.16it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.59it/s][A
-                                                                      [AEpoch 45: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 45: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 45:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 46:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8233
-Epoch 46: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]Epoch 46: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 51.14it/s][A
-                                                                      [AEpoch 46: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 46: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 46:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 47:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8229
-Epoch 47: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]Epoch 47: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.71it/s][A
-                                                                      [AEpoch 47: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 47: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 47:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 48:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8235
-Epoch 48: 100%|██████████| 1/1 [00:00<00:00,  3.19it/s, v_num=9mei]Epoch 48: 100%|██████████| 1/1 [00:00<00:00,  3.18it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.71it/s][A
-                                                                      [AEpoch 48: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 48: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 48:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]        Epoch 49:   0%|          | 0/1 [00:00<?, ?it/s, v_num=9mei]Batch 0: train_loss=0.8228
-Epoch 49: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]Epoch 49: 100%|██████████| 1/1 [00:00<00:00,  3.17it/s, v_num=9mei]
-Validation: |          | 0/? [00:00<?, ?it/s][A
-Validation:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
-Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.05it/s][A
-                                                                      [AEpoch 49: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]Epoch 49: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]`Trainer.fit` stopped: `max_epochs=50` reached.
-Epoch 49: 100%|██████████| 1/1 [00:00<00:00,  1.25it/s, v_num=9mei]wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.008 MB uploadedwandb: | 0.008 MB of 0.008 MB uploadedwandb: / 0.008 MB of 0.008 MB uploadedwandb: - 0.016 MB of 0.029 MB uploadedwandb: \ 0.016 MB of 0.029 MB uploadedwandb: | 0.029 MB of 0.029 MB uploadedwandb:                                                                                
-wandb: 
-wandb: Run history:
-wandb:               epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:          train_loss █▇▆▅▅▄▄▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb: trainer/global_step ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
-wandb:             val_acc ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
-wandb:            val_loss ▁▁▁▂▃▄▄▅▆▆▆▆▇▇▇██▇▇▇████████████████████
-wandb: 
-wandb: Run summary:
-wandb:               epoch 49
-wandb:          train_loss 0.82279
-wandb: trainer/global_step 49
-wandb:             val_acc 0.33333
-wandb:            val_loss 1.99706
-wandb: 
-wandb: 🚀 View run restful-lion-1 at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250201_143601%5DNeutrino%20Flavour%20Classification/runs/kzpr9mei
-wandb: ⭐️ View project at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250201_143601%5DNeutrino%20Flavour%20Classification
-wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250201_143602-kzpr9mei/logs
-wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
-
-| Parameter       | Value               |
-|-----------------|---------------------|
-| attention       | Scaled Dot-Product |
-| d_model         | 128            |
-| n_heads         | 8              |
-| d_f             | 256            |
-| num_layers      | 3              |
-| d_input         | 32             |
-| num_classes     | 3              |
-| dropout         | 0.1            |
-| learning_rate   | 0.0001         |
-| epochs          | 50             |
-
-######## Execution time: 00:00:51 ########

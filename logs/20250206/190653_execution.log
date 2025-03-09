@@ -1,629 +1,0 @@
-nohup: ignoring input
-wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
-wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
-wandb: Tracking run with wandb version 0.19.5
-wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250206_190702-b2oa6fm1
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run toasty-water-24
-wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250206%5D%20Flavour%20Classification
-wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250206%5D%20Flavour%20Classification/runs/b2oa6fm1
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/connector.py:571: `precision=bf16` is supported for historical reasons but its usage is discouraged. Please set your precision to bf16-mixed instead!
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py --date 20250206 --time 1 ...
-Using bfloat16 Automatic Mixed Precision (AMP)
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-HPU available: False, using: 0 HPUs
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:652: Checkpoint directory /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/checkpoints/20250206 exists and is not empty.
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [1]
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:60: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
-  warnings.warn(
-
-  | Name                        | Type             | Params | Mode 
--------------------------------------------------------------------------
-0 | input_projection            | Linear           | 4.2 K  | train
-1 | encoder_blocks              | ModuleList       | 298 K  | train
-2 | pooling                     | Pooling          | 0      | train
-3 | classification_output_layer | OutputProjection | 16.9 K | train
--------------------------------------------------------------------------
-319 K     Trainable params
-0         Non-trainable params
-319 K     Total params
-1.279     Total estimated model params size (MB)
-Number of GPUs available: 2
-GPU 0: NVIDIA GeForce RTX 3090
-GPU 1: NVIDIA GeForce RTX 3090
-Number of GPUs available: 2
-GPU 0: NVIDIA GeForce RTX 3090
-GPU 1: NVIDIA GeForce RTX 3090
-------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
-------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
-Config validation passed.
-Dataset split into train (4800), val (600), and test (600)
-Class weights: tensor([0.0006, 0.0006, 0.0006])
-Sanity Checking: |          | 0/? [00:00<?, ?it/s]/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:475: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test dataloaders.
-Sanity Checking:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]Sanity Checking DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  2.10it/s]Sanity Checking DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  3.21it/s]                                                                           Training: |          | 0/? [00:00<?, ?it/s]Training:   0%|          | 0/300 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/300 [00:00<?, ?it/s]  learning rate0: 1.000000e-03
-Batch 0: train_loss=1.1235
-Epoch 0:   0%|          | 1/300 [00:00<01:46,  2.80it/s]Epoch 0:   0%|          | 1/300 [00:00<01:47,  2.79it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 1: train_loss=1.1721
-Epoch 0:   1%|          | 2/300 [00:00<01:19,  3.76it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:   1%|          | 2/300 [00:00<01:26,  3.45it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Batch 2: train_loss=1.1448
-Epoch 0:   1%|          | 3/300 [00:00<01:14,  3.99it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Epoch 0:   1%|          | 3/300 [00:00<01:19,  3.75it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 3: train_loss=1.2129
-Epoch 0:   1%|▏         | 4/300 [00:00<01:12,  4.11it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:   1%|▏         | 4/300 [00:01<01:15,  3.92it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Batch 4: train_loss=1.0613
-Epoch 0:   2%|▏         | 5/300 [00:01<01:10,  4.19it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Epoch 0:   2%|▏         | 5/300 [00:01<01:13,  4.03it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 5: train_loss=1.0928
-Epoch 0:   2%|▏         | 6/300 [00:01<01:09,  4.24it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:   2%|▏         | 6/300 [00:01<01:11,  4.10it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 6: train_loss=1.1204
-Epoch 0:   2%|▏         | 7/300 [00:01<01:08,  4.28it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:   2%|▏         | 7/300 [00:01<01:10,  4.16it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 7: train_loss=0.9839
-Epoch 0:   3%|▎         | 8/300 [00:01<01:07,  4.31it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:   3%|▎         | 8/300 [00:01<01:09,  4.20it/s, v_num=6fm1, train_loss=0.984, learning_rate=0.001]Batch 8: train_loss=1.2036
-Epoch 0:   3%|▎         | 9/300 [00:02<01:07,  4.33it/s, v_num=6fm1, train_loss=0.984, learning_rate=0.001]Epoch 0:   3%|▎         | 9/300 [00:02<01:08,  4.24it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Batch 9: train_loss=1.1228
-Epoch 0:   3%|▎         | 10/300 [00:02<01:06,  4.35it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Epoch 0:   3%|▎         | 10/300 [00:02<01:08,  4.26it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 10: train_loss=1.2283
-Epoch 0:   4%|▎         | 11/300 [00:02<01:06,  4.37it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:   4%|▎         | 11/300 [00:02<01:07,  4.29it/s, v_num=6fm1, train_loss=1.230, learning_rate=0.001]Batch 11: train_loss=1.1833
-Epoch 0:   4%|▍         | 12/300 [00:02<01:05,  4.38it/s, v_num=6fm1, train_loss=1.230, learning_rate=0.001]Epoch 0:   4%|▍         | 12/300 [00:02<01:06,  4.31it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 12: train_loss=1.2573
-Epoch 0:   4%|▍         | 13/300 [00:02<01:05,  4.39it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:   4%|▍         | 13/300 [00:03<01:06,  4.32it/s, v_num=6fm1, train_loss=1.260, learning_rate=0.001]Batch 13: train_loss=1.1321
-Epoch 0:   5%|▍         | 14/300 [00:03<01:04,  4.40it/s, v_num=6fm1, train_loss=1.260, learning_rate=0.001]Epoch 0:   5%|▍         | 14/300 [00:03<01:05,  4.34it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 14: train_loss=1.1216
-Epoch 0:   5%|▌         | 15/300 [00:03<01:04,  4.41it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:   5%|▌         | 15/300 [00:03<01:05,  4.35it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 15: train_loss=0.9976
-Epoch 0:   5%|▌         | 16/300 [00:03<01:04,  4.42it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:   5%|▌         | 16/300 [00:03<01:05,  4.36it/s, v_num=6fm1, train_loss=0.998, learning_rate=0.001]Batch 16: train_loss=0.9678
-Epoch 0:   6%|▌         | 17/300 [00:03<01:04,  4.42it/s, v_num=6fm1, train_loss=0.998, learning_rate=0.001]Epoch 0:   6%|▌         | 17/300 [00:03<01:04,  4.37it/s, v_num=6fm1, train_loss=0.968, learning_rate=0.001]Batch 17: train_loss=1.0532
-Epoch 0:   6%|▌         | 18/300 [00:04<01:03,  4.43it/s, v_num=6fm1, train_loss=0.968, learning_rate=0.001]Epoch 0:   6%|▌         | 18/300 [00:04<01:04,  4.38it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 18: train_loss=1.4397
-Epoch 0:   6%|▋         | 19/300 [00:04<01:03,  4.43it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:   6%|▋         | 19/300 [00:04<01:04,  4.38it/s, v_num=6fm1, train_loss=1.440, learning_rate=0.001]Batch 19: train_loss=1.1121
-Epoch 0:   7%|▋         | 20/300 [00:04<01:03,  4.44it/s, v_num=6fm1, train_loss=1.440, learning_rate=0.001]Epoch 0:   7%|▋         | 20/300 [00:04<01:03,  4.39it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 20: train_loss=1.2461
-Epoch 0:   7%|▋         | 21/300 [00:04<01:02,  4.44it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:   7%|▋         | 21/300 [00:04<01:03,  4.40it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Batch 21: train_loss=1.0754
-Epoch 0:   7%|▋         | 22/300 [00:04<01:02,  4.44it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Epoch 0:   7%|▋         | 22/300 [00:04<01:03,  4.40it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 22: train_loss=1.0234
-Epoch 0:   8%|▊         | 23/300 [00:05<01:02,  4.45it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:   8%|▊         | 23/300 [00:05<01:02,  4.41it/s, v_num=6fm1, train_loss=1.020, learning_rate=0.001]Batch 23: train_loss=1.0793
-Epoch 0:   8%|▊         | 24/300 [00:05<01:02,  4.45it/s, v_num=6fm1, train_loss=1.020, learning_rate=0.001]Epoch 0:   8%|▊         | 24/300 [00:05<01:02,  4.41it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 24: train_loss=1.0972
-Epoch 0:   8%|▊         | 25/300 [00:05<01:01,  4.45it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:   8%|▊         | 25/300 [00:05<01:02,  4.42it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 25: train_loss=1.2095
-Epoch 0:   9%|▊         | 26/300 [00:05<01:01,  4.46it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:   9%|▊         | 26/300 [00:05<01:01,  4.42it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Batch 26: train_loss=1.0854
-Epoch 0:   9%|▉         | 27/300 [00:06<01:01,  4.46it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Epoch 0:   9%|▉         | 27/300 [00:06<01:01,  4.42it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 27: train_loss=1.1077
-Epoch 0:   9%|▉         | 28/300 [00:06<01:00,  4.46it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:   9%|▉         | 28/300 [00:06<01:01,  4.43it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 28: train_loss=1.1760
-Epoch 0:  10%|▉         | 29/300 [00:06<01:00,  4.46it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  10%|▉         | 29/300 [00:06<01:01,  4.43it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 29: train_loss=1.0698
-Epoch 0:  10%|█         | 30/300 [00:06<01:00,  4.46it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:  10%|█         | 30/300 [00:06<01:00,  4.43it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Batch 30: train_loss=1.1343
-Epoch 0:  10%|█         | 31/300 [00:06<01:00,  4.47it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Epoch 0:  10%|█         | 31/300 [00:06<01:00,  4.44it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 31: train_loss=1.0824
-Epoch 0:  11%|█         | 32/300 [00:07<00:59,  4.47it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  11%|█         | 32/300 [00:07<01:00,  4.44it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 32: train_loss=1.1074
-Epoch 0:  11%|█         | 33/300 [00:07<00:59,  4.47it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  11%|█         | 33/300 [00:07<01:00,  4.44it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 33: train_loss=1.1591
-Epoch 0:  11%|█▏        | 34/300 [00:07<00:59,  4.47it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  11%|█▏        | 34/300 [00:07<00:59,  4.44it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 34: train_loss=1.2927
-Epoch 0:  12%|█▏        | 35/300 [00:07<00:59,  4.47it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  12%|█▏        | 35/300 [00:07<00:59,  4.44it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 35: train_loss=0.9827
-Epoch 0:  12%|█▏        | 36/300 [00:08<00:59,  4.47it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  12%|█▏        | 36/300 [00:08<00:59,  4.45it/s, v_num=6fm1, train_loss=0.983, learning_rate=0.001]Batch 36: train_loss=1.1766
-Epoch 0:  12%|█▏        | 37/300 [00:08<00:58,  4.47it/s, v_num=6fm1, train_loss=0.983, learning_rate=0.001]Epoch 0:  12%|█▏        | 37/300 [00:08<00:59,  4.45it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 37: train_loss=1.4042
-Epoch 0:  13%|█▎        | 38/300 [00:08<00:58,  4.47it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:  13%|█▎        | 38/300 [00:08<00:58,  4.45it/s, v_num=6fm1, train_loss=1.400, learning_rate=0.001]Batch 38: train_loss=1.0605
-Epoch 0:  13%|█▎        | 39/300 [00:08<00:58,  4.48it/s, v_num=6fm1, train_loss=1.400, learning_rate=0.001]Epoch 0:  13%|█▎        | 39/300 [00:08<00:58,  4.45it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 39: train_loss=1.1431
-Epoch 0:  13%|█▎        | 40/300 [00:08<00:58,  4.48it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  13%|█▎        | 40/300 [00:08<00:58,  4.45it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 40: train_loss=1.2261
-Epoch 0:  14%|█▎        | 41/300 [00:09<00:57,  4.48it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:  14%|█▎        | 41/300 [00:09<00:58,  4.46it/s, v_num=6fm1, train_loss=1.230, learning_rate=0.001]Batch 41: train_loss=1.1458
-Epoch 0:  14%|█▍        | 42/300 [00:09<00:57,  4.48it/s, v_num=6fm1, train_loss=1.230, learning_rate=0.001]Epoch 0:  14%|█▍        | 42/300 [00:09<00:57,  4.46it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Batch 42: train_loss=1.2642
-Epoch 0:  14%|█▍        | 43/300 [00:09<00:57,  4.48it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Epoch 0:  14%|█▍        | 43/300 [00:09<00:57,  4.46it/s, v_num=6fm1, train_loss=1.260, learning_rate=0.001]Batch 43: train_loss=1.1624
-Epoch 0:  15%|█▍        | 44/300 [00:09<00:57,  4.48it/s, v_num=6fm1, train_loss=1.260, learning_rate=0.001]Epoch 0:  15%|█▍        | 44/300 [00:09<00:57,  4.46it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 44: train_loss=0.9668
-Epoch 0:  15%|█▌        | 45/300 [00:10<00:56,  4.48it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  15%|█▌        | 45/300 [00:10<00:57,  4.46it/s, v_num=6fm1, train_loss=0.967, learning_rate=0.001]Batch 45: train_loss=1.3596
-Epoch 0:  15%|█▌        | 46/300 [00:10<00:56,  4.48it/s, v_num=6fm1, train_loss=0.967, learning_rate=0.001]Epoch 0:  15%|█▌        | 46/300 [00:10<00:56,  4.46it/s, v_num=6fm1, train_loss=1.360, learning_rate=0.001]Batch 46: train_loss=1.0789
-Epoch 0:  16%|█▌        | 47/300 [00:10<00:56,  4.48it/s, v_num=6fm1, train_loss=1.360, learning_rate=0.001]Epoch 0:  16%|█▌        | 47/300 [00:10<00:56,  4.46it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 47: train_loss=1.1731
-Epoch 0:  16%|█▌        | 48/300 [00:10<00:56,  4.48it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  16%|█▌        | 48/300 [00:10<00:56,  4.46it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Batch 48: train_loss=1.3201
-Epoch 0:  16%|█▋        | 49/300 [00:10<00:55,  4.48it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Epoch 0:  16%|█▋        | 49/300 [00:10<00:56,  4.47it/s, v_num=6fm1, train_loss=1.320, learning_rate=0.001]Batch 49: train_loss=1.0520
-Epoch 0:  17%|█▋        | 50/300 [00:11<00:55,  4.48it/s, v_num=6fm1, train_loss=1.320, learning_rate=0.001]Epoch 0:  17%|█▋        | 50/300 [00:11<00:55,  4.47it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 50: train_loss=1.1602
-Epoch 0:  17%|█▋        | 51/300 [00:11<00:55,  4.49it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:  17%|█▋        | 51/300 [00:11<00:55,  4.47it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 51: train_loss=1.0447
-Epoch 0:  17%|█▋        | 52/300 [00:11<00:55,  4.49it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  17%|█▋        | 52/300 [00:11<00:55,  4.47it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Batch 52: train_loss=1.1340
-Epoch 0:  18%|█▊        | 53/300 [00:11<00:55,  4.49it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Epoch 0:  18%|█▊        | 53/300 [00:11<00:55,  4.47it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 53: train_loss=1.1768
-Epoch 0:  18%|█▊        | 54/300 [00:12<00:54,  4.49it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  18%|█▊        | 54/300 [00:12<00:55,  4.47it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 54: train_loss=1.1519
-Epoch 0:  18%|█▊        | 55/300 [00:12<00:54,  4.49it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:  18%|█▊        | 55/300 [00:12<00:54,  4.47it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Batch 55: train_loss=1.0842
-Epoch 0:  19%|█▊        | 56/300 [00:12<00:54,  4.49it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Epoch 0:  19%|█▊        | 56/300 [00:12<00:54,  4.47it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 56: train_loss=1.1938
-Epoch 0:  19%|█▉        | 57/300 [00:12<00:54,  4.49it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  19%|█▉        | 57/300 [00:12<00:54,  4.47it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 57: train_loss=1.1208
-Epoch 0:  19%|█▉        | 58/300 [00:12<00:53,  4.49it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  19%|█▉        | 58/300 [00:12<00:54,  4.47it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 58: train_loss=1.1497
-Epoch 0:  20%|█▉        | 59/300 [00:13<00:53,  4.49it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  20%|█▉        | 59/300 [00:13<00:53,  4.47it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Batch 59: train_loss=1.0505
-Epoch 0:  20%|██        | 60/300 [00:13<00:53,  4.49it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Epoch 0:  20%|██        | 60/300 [00:13<00:53,  4.47it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 60: train_loss=1.1528
-Epoch 0:  20%|██        | 61/300 [00:13<00:53,  4.49it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:  20%|██        | 61/300 [00:13<00:53,  4.47it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Batch 61: train_loss=1.1672
-Epoch 0:  21%|██        | 62/300 [00:13<00:52,  4.49it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Epoch 0:  21%|██        | 62/300 [00:13<00:53,  4.48it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Batch 62: train_loss=1.2703
-Epoch 0:  21%|██        | 63/300 [00:14<00:52,  4.49it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Epoch 0:  21%|██        | 63/300 [00:14<00:52,  4.48it/s, v_num=6fm1, train_loss=1.270, learning_rate=0.001]Batch 63: train_loss=1.4092
-Epoch 0:  21%|██▏       | 64/300 [00:14<00:52,  4.49it/s, v_num=6fm1, train_loss=1.270, learning_rate=0.001]Epoch 0:  21%|██▏       | 64/300 [00:14<00:52,  4.48it/s, v_num=6fm1, train_loss=1.410, learning_rate=0.001]Batch 64: train_loss=1.2922
-Epoch 0:  22%|██▏       | 65/300 [00:14<00:52,  4.49it/s, v_num=6fm1, train_loss=1.410, learning_rate=0.001]Epoch 0:  22%|██▏       | 65/300 [00:14<00:52,  4.48it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 65: train_loss=1.3501
-Epoch 0:  22%|██▏       | 66/300 [00:14<00:52,  4.49it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  22%|██▏       | 66/300 [00:14<00:52,  4.48it/s, v_num=6fm1, train_loss=1.350, learning_rate=0.001]Batch 66: train_loss=1.2249
-Epoch 0:  22%|██▏       | 67/300 [00:14<00:51,  4.49it/s, v_num=6fm1, train_loss=1.350, learning_rate=0.001]Epoch 0:  22%|██▏       | 67/300 [00:14<00:52,  4.48it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Batch 67: train_loss=1.0374
-Epoch 0:  23%|██▎       | 68/300 [00:15<00:51,  4.49it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Epoch 0:  23%|██▎       | 68/300 [00:15<00:51,  4.48it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Batch 68: train_loss=1.0332
-Epoch 0:  23%|██▎       | 69/300 [00:15<00:51,  4.49it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Epoch 0:  23%|██▎       | 69/300 [00:15<00:51,  4.48it/s, v_num=6fm1, train_loss=1.030, learning_rate=0.001]Batch 69: train_loss=1.1294
-Epoch 0:  23%|██▎       | 70/300 [00:15<00:51,  4.49it/s, v_num=6fm1, train_loss=1.030, learning_rate=0.001]Epoch 0:  23%|██▎       | 70/300 [00:15<00:51,  4.48it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 70: train_loss=1.1636
-Epoch 0:  24%|██▎       | 71/300 [00:15<00:50,  4.49it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  24%|██▎       | 71/300 [00:15<00:51,  4.48it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 71: train_loss=1.0183
-Epoch 0:  24%|██▍       | 72/300 [00:16<00:50,  4.49it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  24%|██▍       | 72/300 [00:16<00:50,  4.48it/s, v_num=6fm1, train_loss=1.020, learning_rate=0.001]Batch 72: train_loss=1.0542
-Epoch 0:  24%|██▍       | 73/300 [00:16<00:50,  4.49it/s, v_num=6fm1, train_loss=1.020, learning_rate=0.001]Epoch 0:  24%|██▍       | 73/300 [00:16<00:50,  4.48it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 73: train_loss=1.0085
-Epoch 0:  25%|██▍       | 74/300 [00:16<00:50,  4.50it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:  25%|██▍       | 74/300 [00:16<00:50,  4.48it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Batch 74: train_loss=0.9414
-Epoch 0:  25%|██▌       | 75/300 [00:16<00:50,  4.50it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Epoch 0:  25%|██▌       | 75/300 [00:16<00:50,  4.48it/s, v_num=6fm1, train_loss=0.941, learning_rate=0.001]Batch 75: train_loss=1.0627
-Epoch 0:  25%|██▌       | 76/300 [00:16<00:49,  4.50it/s, v_num=6fm1, train_loss=0.941, learning_rate=0.001]Epoch 0:  25%|██▌       | 76/300 [00:16<00:49,  4.48it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 76: train_loss=1.2156
-Epoch 0:  26%|██▌       | 77/300 [00:17<00:49,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  26%|██▌       | 77/300 [00:17<00:49,  4.48it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Batch 77: train_loss=1.1738
-Epoch 0:  26%|██▌       | 78/300 [00:17<00:49,  4.50it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Epoch 0:  26%|██▌       | 78/300 [00:17<00:49,  4.48it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Batch 78: train_loss=1.3922
-Epoch 0:  26%|██▋       | 79/300 [00:17<00:49,  4.50it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Epoch 0:  26%|██▋       | 79/300 [00:17<00:49,  4.48it/s, v_num=6fm1, train_loss=1.390, learning_rate=0.001]Batch 79: train_loss=1.2874
-Epoch 0:  27%|██▋       | 80/300 [00:17<00:48,  4.50it/s, v_num=6fm1, train_loss=1.390, learning_rate=0.001]Epoch 0:  27%|██▋       | 80/300 [00:17<00:49,  4.48it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 80: train_loss=1.5320
-Epoch 0:  27%|██▋       | 81/300 [00:18<00:48,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  27%|██▋       | 81/300 [00:18<00:48,  4.49it/s, v_num=6fm1, train_loss=1.530, learning_rate=0.001]Batch 81: train_loss=1.4208
-Epoch 0:  27%|██▋       | 82/300 [00:18<00:48,  4.50it/s, v_num=6fm1, train_loss=1.530, learning_rate=0.001]Epoch 0:  27%|██▋       | 82/300 [00:18<00:48,  4.49it/s, v_num=6fm1, train_loss=1.420, learning_rate=0.001]Batch 82: train_loss=1.1847
-Epoch 0:  28%|██▊       | 83/300 [00:18<00:48,  4.50it/s, v_num=6fm1, train_loss=1.420, learning_rate=0.001]Epoch 0:  28%|██▊       | 83/300 [00:18<00:48,  4.49it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 83: train_loss=1.2545
-Epoch 0:  28%|██▊       | 84/300 [00:18<00:48,  4.50it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:  28%|██▊       | 84/300 [00:18<00:48,  4.49it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Batch 84: train_loss=1.4692
-Epoch 0:  28%|██▊       | 85/300 [00:18<00:47,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Epoch 0:  28%|██▊       | 85/300 [00:18<00:47,  4.49it/s, v_num=6fm1, train_loss=1.470, learning_rate=0.001]Batch 85: train_loss=1.3540
-Epoch 0:  29%|██▊       | 86/300 [00:19<00:47,  4.50it/s, v_num=6fm1, train_loss=1.470, learning_rate=0.001]Epoch 0:  29%|██▊       | 86/300 [00:19<00:47,  4.49it/s, v_num=6fm1, train_loss=1.350, learning_rate=0.001]Batch 86: train_loss=1.3301
-Epoch 0:  29%|██▉       | 87/300 [00:19<00:47,  4.50it/s, v_num=6fm1, train_loss=1.350, learning_rate=0.001]Epoch 0:  29%|██▉       | 87/300 [00:19<00:47,  4.49it/s, v_num=6fm1, train_loss=1.330, learning_rate=0.001]Batch 87: train_loss=1.0552
-Epoch 0:  29%|██▉       | 88/300 [00:19<00:47,  4.50it/s, v_num=6fm1, train_loss=1.330, learning_rate=0.001]Epoch 0:  29%|██▉       | 88/300 [00:19<00:47,  4.49it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 88: train_loss=1.0378
-Epoch 0:  30%|██▉       | 89/300 [00:19<00:46,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  30%|██▉       | 89/300 [00:19<00:47,  4.49it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Batch 89: train_loss=1.1826
-Epoch 0:  30%|███       | 90/300 [00:20<00:46,  4.50it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Epoch 0:  30%|███       | 90/300 [00:20<00:46,  4.49it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 90: train_loss=1.2028
-Epoch 0:  30%|███       | 91/300 [00:20<00:46,  4.50it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:  30%|███       | 91/300 [00:20<00:46,  4.49it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Batch 91: train_loss=1.3853
-Epoch 0:  31%|███       | 92/300 [00:20<00:46,  4.50it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Epoch 0:  31%|███       | 92/300 [00:20<00:46,  4.49it/s, v_num=6fm1, train_loss=1.390, learning_rate=0.001]Batch 92: train_loss=1.4678
-Epoch 0:  31%|███       | 93/300 [00:20<00:46,  4.50it/s, v_num=6fm1, train_loss=1.390, learning_rate=0.001]Epoch 0:  31%|███       | 93/300 [00:20<00:46,  4.49it/s, v_num=6fm1, train_loss=1.470, learning_rate=0.001]Batch 93: train_loss=0.9128
-Epoch 0:  31%|███▏      | 94/300 [00:20<00:45,  4.50it/s, v_num=6fm1, train_loss=1.470, learning_rate=0.001]Epoch 0:  31%|███▏      | 94/300 [00:20<00:45,  4.49it/s, v_num=6fm1, train_loss=0.913, learning_rate=0.001]Batch 94: train_loss=1.2722
-Epoch 0:  32%|███▏      | 95/300 [00:21<00:45,  4.50it/s, v_num=6fm1, train_loss=0.913, learning_rate=0.001]Epoch 0:  32%|███▏      | 95/300 [00:21<00:45,  4.49it/s, v_num=6fm1, train_loss=1.270, learning_rate=0.001]Batch 95: train_loss=1.2388
-Epoch 0:  32%|███▏      | 96/300 [00:21<00:45,  4.50it/s, v_num=6fm1, train_loss=1.270, learning_rate=0.001]Epoch 0:  32%|███▏      | 96/300 [00:21<00:45,  4.49it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Batch 96: train_loss=1.1836
-Epoch 0:  32%|███▏      | 97/300 [00:21<00:45,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Epoch 0:  32%|███▏      | 97/300 [00:21<00:45,  4.49it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Batch 97: train_loss=1.1619
-Epoch 0:  33%|███▎      | 98/300 [00:21<00:44,  4.50it/s, v_num=6fm1, train_loss=1.180, learning_rate=0.001]Epoch 0:  33%|███▎      | 98/300 [00:21<00:44,  4.49it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 98: train_loss=1.1941
-Epoch 0:  33%|███▎      | 99/300 [00:21<00:44,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  33%|███▎      | 99/300 [00:22<00:44,  4.49it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 99: train_loss=1.2129
-Epoch 0:  33%|███▎      | 100/300 [00:22<00:44,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  33%|███▎      | 100/300 [00:22<00:44,  4.49it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Batch 100: train_loss=1.1099
-Epoch 0:  34%|███▎      | 101/300 [00:22<00:44,  4.50it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Epoch 0:  34%|███▎      | 101/300 [00:22<00:44,  4.49it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 101: train_loss=1.2024
-Epoch 0:  34%|███▍      | 102/300 [00:22<00:43,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  34%|███▍      | 102/300 [00:22<00:44,  4.49it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Batch 102: train_loss=1.0945
-Epoch 0:  34%|███▍      | 103/300 [00:22<00:43,  4.50it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Epoch 0:  34%|███▍      | 103/300 [00:22<00:43,  4.49it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 103: train_loss=1.0679
-Epoch 0:  35%|███▍      | 104/300 [00:23<00:43,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  35%|███▍      | 104/300 [00:23<00:43,  4.49it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Batch 104: train_loss=1.0801
-Epoch 0:  35%|███▌      | 105/300 [00:23<00:43,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Epoch 0:  35%|███▌      | 105/300 [00:23<00:43,  4.49it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 105: train_loss=1.1157
-Epoch 0:  35%|███▌      | 106/300 [00:23<00:43,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  35%|███▌      | 106/300 [00:23<00:43,  4.49it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 106: train_loss=1.0894
-Epoch 0:  36%|███▌      | 107/300 [00:23<00:42,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  36%|███▌      | 107/300 [00:23<00:42,  4.49it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 107: train_loss=1.2197
-Epoch 0:  36%|███▌      | 108/300 [00:23<00:42,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  36%|███▌      | 108/300 [00:24<00:42,  4.49it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Batch 108: train_loss=1.0862
-Epoch 0:  36%|███▋      | 109/300 [00:24<00:42,  4.50it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Epoch 0:  36%|███▋      | 109/300 [00:24<00:42,  4.49it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 109: train_loss=1.0996
-Epoch 0:  37%|███▋      | 110/300 [00:24<00:42,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  37%|███▋      | 110/300 [00:24<00:42,  4.49it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 110: train_loss=1.0884
-Epoch 0:  37%|███▋      | 111/300 [00:24<00:41,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:  37%|███▋      | 111/300 [00:24<00:42,  4.49it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 111: train_loss=1.3274
-Epoch 0:  37%|███▋      | 112/300 [00:24<00:41,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  37%|███▋      | 112/300 [00:24<00:41,  4.49it/s, v_num=6fm1, train_loss=1.330, learning_rate=0.001]Batch 112: train_loss=1.3020
-Epoch 0:  38%|███▊      | 113/300 [00:25<00:41,  4.50it/s, v_num=6fm1, train_loss=1.330, learning_rate=0.001]Epoch 0:  38%|███▊      | 113/300 [00:25<00:41,  4.49it/s, v_num=6fm1, train_loss=1.300, learning_rate=0.001]Batch 113: train_loss=1.1162
-Epoch 0:  38%|███▊      | 114/300 [00:25<00:41,  4.50it/s, v_num=6fm1, train_loss=1.300, learning_rate=0.001]Epoch 0:  38%|███▊      | 114/300 [00:25<00:41,  4.49it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 114: train_loss=1.3042
-Epoch 0:  38%|███▊      | 115/300 [00:25<00:41,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  38%|███▊      | 115/300 [00:25<00:41,  4.49it/s, v_num=6fm1, train_loss=1.300, learning_rate=0.001]Batch 115: train_loss=1.2441
-Epoch 0:  39%|███▊      | 116/300 [00:25<00:40,  4.50it/s, v_num=6fm1, train_loss=1.300, learning_rate=0.001]Epoch 0:  39%|███▊      | 116/300 [00:25<00:40,  4.49it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Batch 116: train_loss=1.0559
-Epoch 0:  39%|███▉      | 117/300 [00:25<00:40,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Epoch 0:  39%|███▉      | 117/300 [00:26<00:40,  4.49it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 117: train_loss=1.2156
-Epoch 0:  39%|███▉      | 118/300 [00:26<00:40,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  39%|███▉      | 118/300 [00:26<00:40,  4.49it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Batch 118: train_loss=1.3628
-Epoch 0:  40%|███▉      | 119/300 [00:26<00:40,  4.50it/s, v_num=6fm1, train_loss=1.220, learning_rate=0.001]Epoch 0:  40%|███▉      | 119/300 [00:26<00:40,  4.49it/s, v_num=6fm1, train_loss=1.360, learning_rate=0.001]Batch 119: train_loss=1.1143
-Epoch 0:  40%|████      | 120/300 [00:26<00:39,  4.50it/s, v_num=6fm1, train_loss=1.360, learning_rate=0.001]Epoch 0:  40%|████      | 120/300 [00:26<00:40,  4.49it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 120: train_loss=1.0911
-Epoch 0:  40%|████      | 121/300 [00:26<00:39,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  40%|████      | 121/300 [00:26<00:39,  4.49it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 121: train_loss=1.1345
-Epoch 0:  41%|████      | 122/300 [00:27<00:39,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  41%|████      | 122/300 [00:27<00:39,  4.49it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 122: train_loss=1.0522
-Epoch 0:  41%|████      | 123/300 [00:27<00:39,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  41%|████      | 123/300 [00:27<00:39,  4.49it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 123: train_loss=1.0618
-Epoch 0:  41%|████▏     | 124/300 [00:27<00:39,  4.50it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:  41%|████▏     | 124/300 [00:27<00:39,  4.49it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 124: train_loss=1.1875
-Epoch 0:  42%|████▏     | 125/300 [00:27<00:38,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  42%|████▏     | 125/300 [00:27<00:38,  4.49it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 125: train_loss=1.2800
-Epoch 0:  42%|████▏     | 126/300 [00:27<00:38,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  42%|████▏     | 126/300 [00:28<00:38,  4.49it/s, v_num=6fm1, train_loss=1.280, learning_rate=0.001]Batch 126: train_loss=1.1667
-Epoch 0:  42%|████▏     | 127/300 [00:28<00:38,  4.50it/s, v_num=6fm1, train_loss=1.280, learning_rate=0.001]Epoch 0:  42%|████▏     | 127/300 [00:28<00:38,  4.49it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Batch 127: train_loss=1.2417
-Epoch 0:  43%|████▎     | 128/300 [00:28<00:38,  4.50it/s, v_num=6fm1, train_loss=1.170, learning_rate=0.001]Epoch 0:  43%|████▎     | 128/300 [00:28<00:38,  4.49it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Batch 128: train_loss=1.0652
-Epoch 0:  43%|████▎     | 129/300 [00:28<00:37,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Epoch 0:  43%|████▎     | 129/300 [00:28<00:38,  4.49it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Batch 129: train_loss=1.0149
-Epoch 0:  43%|████▎     | 130/300 [00:28<00:37,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Epoch 0:  43%|████▎     | 130/300 [00:28<00:37,  4.49it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Batch 130: train_loss=1.4163
-Epoch 0:  44%|████▎     | 131/300 [00:29<00:37,  4.50it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Epoch 0:  44%|████▎     | 131/300 [00:29<00:37,  4.49it/s, v_num=6fm1, train_loss=1.420, learning_rate=0.001]Batch 131: train_loss=1.1160
-Epoch 0:  44%|████▍     | 132/300 [00:29<00:37,  4.50it/s, v_num=6fm1, train_loss=1.420, learning_rate=0.001]Epoch 0:  44%|████▍     | 132/300 [00:29<00:37,  4.49it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 132: train_loss=1.0852
-Epoch 0:  44%|████▍     | 133/300 [00:29<00:37,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  44%|████▍     | 133/300 [00:29<00:37,  4.49it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 133: train_loss=1.1890
-Epoch 0:  45%|████▍     | 134/300 [00:29<00:36,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  45%|████▍     | 134/300 [00:29<00:36,  4.49it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 134: train_loss=1.2869
-Epoch 0:  45%|████▌     | 135/300 [00:29<00:36,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  45%|████▌     | 135/300 [00:30<00:36,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 135: train_loss=1.0488
-Epoch 0:  45%|████▌     | 136/300 [00:30<00:36,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  45%|████▌     | 136/300 [00:30<00:36,  4.50it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 136: train_loss=1.0120
-Epoch 0:  46%|████▌     | 137/300 [00:30<00:36,  4.50it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:  46%|████▌     | 137/300 [00:30<00:36,  4.50it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Batch 137: train_loss=1.0068
-Epoch 0:  46%|████▌     | 138/300 [00:30<00:35,  4.50it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Epoch 0:  46%|████▌     | 138/300 [00:30<00:36,  4.50it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Batch 138: train_loss=1.2937
-Epoch 0:  46%|████▋     | 139/300 [00:30<00:35,  4.50it/s, v_num=6fm1, train_loss=1.010, learning_rate=0.001]Epoch 0:  46%|████▋     | 139/300 [00:30<00:35,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 139: train_loss=1.1921
-Epoch 0:  47%|████▋     | 140/300 [00:31<00:35,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  47%|████▋     | 140/300 [00:31<00:35,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 140: train_loss=1.0728
-Epoch 0:  47%|████▋     | 141/300 [00:31<00:35,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  47%|████▋     | 141/300 [00:31<00:35,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Batch 141: train_loss=1.2588
-Epoch 0:  47%|████▋     | 142/300 [00:31<00:35,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Epoch 0:  47%|████▋     | 142/300 [00:31<00:35,  4.50it/s, v_num=6fm1, train_loss=1.260, learning_rate=0.001]Batch 142: train_loss=1.1394
-Epoch 0:  48%|████▊     | 143/300 [00:31<00:34,  4.50it/s, v_num=6fm1, train_loss=1.260, learning_rate=0.001]Epoch 0:  48%|████▊     | 143/300 [00:31<00:34,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 143: train_loss=1.2891
-Epoch 0:  48%|████▊     | 144/300 [00:31<00:34,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:  48%|████▊     | 144/300 [00:32<00:34,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 144: train_loss=1.1990
-Epoch 0:  48%|████▊     | 145/300 [00:32<00:34,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  48%|████▊     | 145/300 [00:32<00:34,  4.50it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Batch 145: train_loss=1.1372
-Epoch 0:  49%|████▊     | 146/300 [00:32<00:34,  4.50it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Epoch 0:  49%|████▊     | 146/300 [00:32<00:34,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 146: train_loss=1.1636
-Epoch 0:  49%|████▉     | 147/300 [00:32<00:33,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:  49%|████▉     | 147/300 [00:32<00:34,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 147: train_loss=1.2380
-Epoch 0:  49%|████▉     | 148/300 [00:32<00:33,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  49%|████▉     | 148/300 [00:32<00:33,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Batch 148: train_loss=1.0317
-Epoch 0:  50%|████▉     | 149/300 [00:33<00:33,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Epoch 0:  50%|████▉     | 149/300 [00:33<00:33,  4.50it/s, v_num=6fm1, train_loss=1.030, learning_rate=0.001]Batch 149: train_loss=1.1111
-Epoch 0:  50%|█████     | 150/300 [00:33<00:33,  4.50it/s, v_num=6fm1, train_loss=1.030, learning_rate=0.001]Epoch 0:  50%|█████     | 150/300 [00:33<00:33,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 150: train_loss=1.2947
-Epoch 0:  50%|█████     | 151/300 [00:33<00:33,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  50%|█████     | 151/300 [00:33<00:33,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Batch 151: train_loss=1.1348
-Epoch 0:  51%|█████     | 152/300 [00:33<00:32,  4.50it/s, v_num=6fm1, train_loss=1.290, learning_rate=0.001]Epoch 0:  51%|█████     | 152/300 [00:33<00:32,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 152: train_loss=1.1633
-Epoch 0:  51%|█████     | 153/300 [00:33<00:32,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  51%|█████     | 153/300 [00:34<00:32,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 153: train_loss=1.1370
-Epoch 0:  51%|█████▏    | 154/300 [00:34<00:32,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  51%|█████▏    | 154/300 [00:34<00:32,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 154: train_loss=1.2107
-Epoch 0:  52%|█████▏    | 155/300 [00:34<00:32,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:  52%|█████▏    | 155/300 [00:34<00:32,  4.50it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Batch 155: train_loss=1.2466
-Epoch 0:  52%|█████▏    | 156/300 [00:34<00:31,  4.50it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Epoch 0:  52%|█████▏    | 156/300 [00:34<00:32,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Batch 156: train_loss=1.2100
-Epoch 0:  52%|█████▏    | 157/300 [00:34<00:31,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Epoch 0:  52%|█████▏    | 157/300 [00:34<00:31,  4.50it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Batch 157: train_loss=1.1855
-Epoch 0:  53%|█████▎    | 158/300 [00:35<00:31,  4.50it/s, v_num=6fm1, train_loss=1.210, learning_rate=0.001]Epoch 0:  53%|█████▎    | 158/300 [00:35<00:31,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 158: train_loss=1.0610
-Epoch 0:  53%|█████▎    | 159/300 [00:35<00:31,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  53%|█████▎    | 159/300 [00:35<00:31,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 159: train_loss=1.4404
-Epoch 0:  53%|█████▎    | 160/300 [00:35<00:31,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  53%|█████▎    | 160/300 [00:35<00:31,  4.50it/s, v_num=6fm1, train_loss=1.440, learning_rate=0.001]Batch 160: train_loss=1.1633
-Epoch 0:  54%|█████▎    | 161/300 [00:35<00:30,  4.50it/s, v_num=6fm1, train_loss=1.440, learning_rate=0.001]Epoch 0:  54%|█████▎    | 161/300 [00:35<00:30,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 161: train_loss=1.1372
-Epoch 0:  54%|█████▍    | 162/300 [00:35<00:30,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  54%|█████▍    | 162/300 [00:36<00:30,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 162: train_loss=1.0891
-Epoch 0:  54%|█████▍    | 163/300 [00:36<00:30,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:  54%|█████▍    | 163/300 [00:36<00:30,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 163: train_loss=1.2524
-Epoch 0:  55%|█████▍    | 164/300 [00:36<00:30,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  55%|█████▍    | 164/300 [00:36<00:30,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Batch 164: train_loss=1.1384
-Epoch 0:  55%|█████▌    | 165/300 [00:36<00:29,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Epoch 0:  55%|█████▌    | 165/300 [00:36<00:30,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Batch 165: train_loss=1.4492
-Epoch 0:  55%|█████▌    | 166/300 [00:36<00:29,  4.50it/s, v_num=6fm1, train_loss=1.140, learning_rate=0.001]Epoch 0:  55%|█████▌    | 166/300 [00:36<00:29,  4.50it/s, v_num=6fm1, train_loss=1.450, learning_rate=0.001]Batch 166: train_loss=1.2742
-Epoch 0:  56%|█████▌    | 167/300 [00:37<00:29,  4.50it/s, v_num=6fm1, train_loss=1.450, learning_rate=0.001]Epoch 0:  56%|█████▌    | 167/300 [00:37<00:29,  4.50it/s, v_num=6fm1, train_loss=1.270, learning_rate=0.001]Batch 167: train_loss=1.1155
-Epoch 0:  56%|█████▌    | 168/300 [00:37<00:29,  4.50it/s, v_num=6fm1, train_loss=1.270, learning_rate=0.001]Epoch 0:  56%|█████▌    | 168/300 [00:37<00:29,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 168: train_loss=1.2378
-Epoch 0:  56%|█████▋    | 169/300 [00:37<00:29,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  56%|█████▋    | 169/300 [00:37<00:29,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Batch 169: train_loss=1.2017
-Epoch 0:  57%|█████▋    | 170/300 [00:37<00:28,  4.50it/s, v_num=6fm1, train_loss=1.240, learning_rate=0.001]Epoch 0:  57%|█████▋    | 170/300 [00:37<00:28,  4.50it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Batch 170: train_loss=1.2495
-Epoch 0:  57%|█████▋    | 171/300 [00:37<00:28,  4.50it/s, v_num=6fm1, train_loss=1.200, learning_rate=0.001]Epoch 0:  57%|█████▋    | 171/300 [00:38<00:28,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Batch 171: train_loss=1.0276
-Epoch 0:  57%|█████▋    | 172/300 [00:38<00:28,  4.50it/s, v_num=6fm1, train_loss=1.250, learning_rate=0.001]Epoch 0:  57%|█████▋    | 172/300 [00:38<00:28,  4.50it/s, v_num=6fm1, train_loss=1.030, learning_rate=0.001]Batch 172: train_loss=1.1279
-Epoch 0:  58%|█████▊    | 173/300 [00:38<00:28,  4.50it/s, v_num=6fm1, train_loss=1.030, learning_rate=0.001]Epoch 0:  58%|█████▊    | 173/300 [00:38<00:28,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 173: train_loss=1.1609
-Epoch 0:  58%|█████▊    | 174/300 [00:38<00:27,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  58%|█████▊    | 174/300 [00:38<00:28,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 174: train_loss=1.0361
-Epoch 0:  58%|█████▊    | 175/300 [00:38<00:27,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  58%|█████▊    | 175/300 [00:38<00:27,  4.50it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Batch 175: train_loss=1.1921
-Epoch 0:  59%|█████▊    | 176/300 [00:39<00:27,  4.50it/s, v_num=6fm1, train_loss=1.040, learning_rate=0.001]Epoch 0:  59%|█████▊    | 176/300 [00:39<00:27,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Batch 176: train_loss=1.1616
-Epoch 0:  59%|█████▉    | 177/300 [00:39<00:27,  4.50it/s, v_num=6fm1, train_loss=1.190, learning_rate=0.001]Epoch 0:  59%|█████▉    | 177/300 [00:39<00:27,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Batch 177: train_loss=1.0625
-Epoch 0:  59%|█████▉    | 178/300 [00:39<00:27,  4.50it/s, v_num=6fm1, train_loss=1.160, learning_rate=0.001]Epoch 0:  59%|█████▉    | 178/300 [00:39<00:27,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Batch 178: train_loss=1.0942
-Epoch 0:  60%|█████▉    | 179/300 [00:39<00:26,  4.50it/s, v_num=6fm1, train_loss=1.060, learning_rate=0.001]Epoch 0:  60%|█████▉    | 179/300 [00:39<00:26,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 179: train_loss=1.0879
-Epoch 0:  60%|██████    | 180/300 [00:39<00:26,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  60%|██████    | 180/300 [00:40<00:26,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 180: train_loss=1.1509
-Epoch 0:  60%|██████    | 181/300 [00:40<00:26,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  60%|██████    | 181/300 [00:40<00:26,  4.50it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Batch 181: train_loss=1.0457
-Epoch 0:  61%|██████    | 182/300 [00:40<00:26,  4.50it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Epoch 0:  61%|██████    | 182/300 [00:40<00:26,  4.50it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Batch 182: train_loss=1.1023
-Epoch 0:  61%|██████    | 183/300 [00:40<00:25,  4.50it/s, v_num=6fm1, train_loss=1.050, learning_rate=0.001]Epoch 0:  61%|██████    | 183/300 [00:40<00:26,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 183: train_loss=1.1106
-Epoch 0:  61%|██████▏   | 184/300 [00:40<00:25,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:  61%|██████▏   | 184/300 [00:40<00:25,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 184: train_loss=1.1243
-Epoch 0:  62%|██████▏   | 185/300 [00:41<00:25,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  62%|██████▏   | 185/300 [00:41<00:25,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 185: train_loss=1.0959
-Epoch 0:  62%|██████▏   | 186/300 [00:41<00:25,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  62%|██████▏   | 186/300 [00:41<00:25,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 186: train_loss=1.0793
-Epoch 0:  62%|██████▏   | 187/300 [00:41<00:25,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:  62%|██████▏   | 187/300 [00:41<00:25,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 187: train_loss=1.0708
-Epoch 0:  63%|██████▎   | 188/300 [00:41<00:24,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  63%|██████▎   | 188/300 [00:41<00:24,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Batch 188: train_loss=1.0898
-Epoch 0:  63%|██████▎   | 189/300 [00:41<00:24,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Epoch 0:  63%|██████▎   | 189/300 [00:42<00:24,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 189: train_loss=1.0991
-Epoch 0:  63%|██████▎   | 190/300 [00:42<00:24,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  63%|██████▎   | 190/300 [00:42<00:24,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 190: train_loss=1.0864
-Epoch 0:  64%|██████▎   | 191/300 [00:42<00:24,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:  64%|██████▎   | 191/300 [00:42<00:24,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Batch 191: train_loss=1.0994
-Epoch 0:  64%|██████▍   | 192/300 [00:42<00:23,  4.50it/s, v_num=6fm1, train_loss=1.090, learning_rate=0.001]Epoch 0:  64%|██████▍   | 192/300 [00:42<00:24,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 192: train_loss=1.0979
-Epoch 0:  64%|██████▍   | 193/300 [00:42<00:23,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:  64%|██████▍   | 193/300 [00:42<00:23,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Batch 193: train_loss=1.1079
-Epoch 0:  65%|██████▍   | 194/300 [00:43<00:23,  4.50it/s, v_num=6fm1, train_loss=1.100, learning_rate=0.001]Epoch 0:  65%|██████▍   | 194/300 [00:43<00:23,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Batch 194: train_loss=1.0840
-Epoch 0:  65%|██████▌   | 195/300 [00:43<00:23,  4.50it/s, v_num=6fm1, train_loss=1.110, learning_rate=0.001]Epoch 0:  65%|██████▌   | 195/300 [00:43<00:23,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 195: train_loss=1.1157
-Epoch 0:  65%|██████▌   | 196/300 [00:43<00:23,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  65%|██████▌   | 196/300 [00:43<00:23,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Batch 196: train_loss=1.1545
-Epoch 0:  66%|██████▌   | 197/300 [00:43<00:22,  4.50it/s, v_num=6fm1, train_loss=1.120, learning_rate=0.001]Epoch 0:  66%|██████▌   | 197/300 [00:43<00:22,  4.50it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Batch 197: train_loss=1.1267
-Epoch 0:  66%|██████▌   | 198/300 [00:43<00:22,  4.50it/s, v_num=6fm1, train_loss=1.150, learning_rate=0.001]Epoch 0:  66%|██████▌   | 198/300 [00:44<00:22,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Batch 198: train_loss=1.0776
-Epoch 0:  66%|██████▋   | 199/300 [00:44<00:22,  4.50it/s, v_num=6fm1, train_loss=1.130, learning_rate=0.001]Epoch 0:  66%|██████▋   | 199/300 [00:44<00:22,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Batch 199: train_loss=1.0713
-Epoch 0:  67%|██████▋   | 200/300 [00:44<00:22,  4.50it/s, v_num=6fm1, train_loss=1.080, learning_rate=0.001]Epoch 0:  67%|██████▋   | 200/300 [00:44<00:22,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 200: train_loss=nan
-Epoch 0:  67%|██████▋   | 201/300 [00:44<00:21,  4.50it/s, v_num=6fm1, train_loss=1.070, learning_rate=0.001]Epoch 0:  67%|██████▋   | 201/300 [00:44<00:22,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 201: train_loss=nan
-Epoch 0:  67%|██████▋   | 202/300 [00:44<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  67%|██████▋   | 202/300 [00:44<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 202: train_loss=nan
-Epoch 0:  68%|██████▊   | 203/300 [00:45<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  68%|██████▊   | 203/300 [00:45<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 203: train_loss=nan
-Epoch 0:  68%|██████▊   | 204/300 [00:45<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  68%|██████▊   | 204/300 [00:45<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 204: train_loss=nan
-Epoch 0:  68%|██████▊   | 205/300 [00:45<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  68%|██████▊   | 205/300 [00:45<00:21,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 205: train_loss=nan
-Epoch 0:  69%|██████▊   | 206/300 [00:45<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  69%|██████▊   | 206/300 [00:45<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 206: train_loss=nan
-Epoch 0:  69%|██████▉   | 207/300 [00:45<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  69%|██████▉   | 207/300 [00:46<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 207: train_loss=nan
-Epoch 0:  69%|██████▉   | 208/300 [00:46<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  69%|██████▉   | 208/300 [00:46<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 208: train_loss=nan
-Epoch 0:  70%|██████▉   | 209/300 [00:46<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  70%|██████▉   | 209/300 [00:46<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 209: train_loss=nan
-Epoch 0:  70%|███████   | 210/300 [00:46<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  70%|███████   | 210/300 [00:46<00:20,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 210: train_loss=nan
-Epoch 0:  70%|███████   | 211/300 [00:46<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  70%|███████   | 211/300 [00:46<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 211: train_loss=nan
-Epoch 0:  71%|███████   | 212/300 [00:47<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  71%|███████   | 212/300 [00:47<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 212: train_loss=nan
-Epoch 0:  71%|███████   | 213/300 [00:47<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  71%|███████   | 213/300 [00:47<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 213: train_loss=nan
-Epoch 0:  71%|███████▏  | 214/300 [00:47<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  71%|███████▏  | 214/300 [00:47<00:19,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 214: train_loss=nan
-Epoch 0:  72%|███████▏  | 215/300 [00:47<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  72%|███████▏  | 215/300 [00:47<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 215: train_loss=nan
-Epoch 0:  72%|███████▏  | 216/300 [00:47<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  72%|███████▏  | 216/300 [00:47<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 216: train_loss=nan
-Epoch 0:  72%|███████▏  | 217/300 [00:48<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  72%|███████▏  | 217/300 [00:48<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 217: train_loss=nan
-Epoch 0:  73%|███████▎  | 218/300 [00:48<00:18,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  73%|███████▎  | 218/300 [00:48<00:18,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 218: train_loss=nan
-Epoch 0:  73%|███████▎  | 219/300 [00:48<00:17,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  73%|███████▎  | 219/300 [00:48<00:17,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 219: train_loss=nan
-Epoch 0:  73%|███████▎  | 220/300 [00:48<00:17,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  73%|███████▎  | 220/300 [00:48<00:17,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 220: train_loss=nan
-Epoch 0:  74%|███████▎  | 221/300 [00:49<00:17,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  74%|███████▎  | 221/300 [00:49<00:17,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 221: train_loss=nan
-Epoch 0:  74%|███████▍  | 222/300 [00:49<00:17,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  74%|███████▍  | 222/300 [00:49<00:17,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 222: train_loss=nan
-Epoch 0:  74%|███████▍  | 223/300 [00:49<00:17,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  74%|███████▍  | 223/300 [00:49<00:17,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 223: train_loss=nan
-Epoch 0:  75%|███████▍  | 224/300 [00:49<00:16,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  75%|███████▍  | 224/300 [00:49<00:16,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 224: train_loss=nan
-Epoch 0:  75%|███████▌  | 225/300 [00:49<00:16,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  75%|███████▌  | 225/300 [00:49<00:16,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 225: train_loss=nan
-Epoch 0:  75%|███████▌  | 226/300 [00:50<00:16,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  75%|███████▌  | 226/300 [00:50<00:16,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 226: train_loss=nan
-Epoch 0:  76%|███████▌  | 227/300 [00:50<00:16,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  76%|███████▌  | 227/300 [00:50<00:16,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 227: train_loss=nan
-Epoch 0:  76%|███████▌  | 228/300 [00:50<00:15,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  76%|███████▌  | 228/300 [00:50<00:15,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 228: train_loss=nan
-Epoch 0:  76%|███████▋  | 229/300 [00:50<00:15,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  76%|███████▋  | 229/300 [00:50<00:15,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 229: train_loss=nan
-Epoch 0:  77%|███████▋  | 230/300 [00:51<00:15,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  77%|███████▋  | 230/300 [00:51<00:15,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 230: train_loss=nan
-Epoch 0:  77%|███████▋  | 231/300 [00:51<00:15,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  77%|███████▋  | 231/300 [00:51<00:15,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 231: train_loss=nan
-Epoch 0:  77%|███████▋  | 232/300 [00:51<00:15,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]Epoch 0:  77%|███████▋  | 232/300 [00:51<00:15,  4.50it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001]NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-NaN detected in Q!
-NaN detected in K!
-NaN detected in V!
-Batch 232: train_loss=nan
-Epoch 0:  78%|███████▊  | 233/300 [00:51<00:14,  4.51it/s, v_num=6fm1, train_loss=nan.0, learning_rate=0.001][rank: 0] Received SIGTERM: 15
-Traceback (most recent call last):
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 347, in <module>
-    main()
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 338, in main
-    execute()
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 334, in execute
-    run_training(base_dir, config, datamodule)
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 305, in run_training
-    trainer.fit(model, datamodule=datamodule)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 543, in fit
-    call._call_and_handle_interrupt(
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 44, in _call_and_handle_interrupt
-    return trainer_fn(*args, **kwargs)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 579, in _fit_impl
-    self._run(model, ckpt_path=ckpt_path)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _run
-    results = self._run_stage()
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1030, in _run_stage
-    self.fit_loop.run()
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 205, in run
-    self.advance()
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/fit_loop.py", line 363, in advance
-    self.epoch_loop.run(self._data_fetcher)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 140, in run
-    self.advance(data_fetcher)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/loops/training_epoch_loop.py", line 269, in advance
-    call._call_callback_hooks(trainer, "on_train_batch_end", batch_output, batch, batch_idx)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py", line 210, in _call_callback_hooks
-    fn(trainer, trainer.lightning_module, *args, **kwargs)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/progress/tqdm_progress.py", line 276, in on_train_batch_end
-    self.train_progress_bar.set_postfix(self.get_metrics(trainer, pl_module))
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/callbacks/progress/progress_bar.py", line 198, in get_metrics
-    pbar_metrics = trainer.progress_bar_metrics
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/trainer.py", line 1640, in progress_bar_metrics
-    return self._logger_connector.progress_bar_metrics
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/logger_connector/logger_connector.py", line 253, in progress_bar_metrics
-    metrics = self.metrics["pbar"]
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/logger_connector/logger_connector.py", line 234, in metrics
-    return self.trainer._results.metrics(on_step)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/logger_connector/result.py", line 498, in metrics
-    metrics["pbar"][forked_name] = convert_tensors_to_scalars(value)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/utilities/apply_func.py", line 129, in convert_tensors_to_scalars
-    return apply_to_collection(data, Tensor, to_item)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_utilities/core/apply_func.py", line 64, in apply_to_collection
-    return function(data, *args, **kwargs)
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/utilities/apply_func.py", line 127, in to_item
-    return value.item()
-  File "/groups/icecube/cyan/.local/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 67, in handler
-    _error_if_any_worker_fails()
-RuntimeError: DataLoader worker (pid 2361764) is killed by signal: Terminated. 
-[1;34mwandb[0m: 
-[1;34mwandb[0m: 🚀 View run [33mtoasty-water-24[0m at: [34mhttps://wandb.ai/cyans-k-benhavns-universitet/%5B20250206%5D%20Flavour%20Classification/runs/b2oa6fm1[0m
-[1;34mwandb[0m: Find logs at: [1;35m../../../../../lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250206_190702-b2oa6fm1/logs[0m

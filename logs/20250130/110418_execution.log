@@ -1,8 +1,0 @@
-nohup: ignoring input
-Traceback (most recent call last):
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 19, in <module>
-    from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder 
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/Model/FlavourClassificationTransformerEncoder.py", line 44
-    layer_idx=layer_idx=i) for i in range(self.num_layers)]
-                       ^
-SyntaxError: invalid syntax

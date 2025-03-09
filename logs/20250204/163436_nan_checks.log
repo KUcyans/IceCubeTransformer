@@ -1,3 +1,0 @@
-2025-02-04 16:34:46,988 - INFO - ==============Entering Encoder Block 0==============
-2025-02-04 16:34:47,097 - INFO - ---------- attention(xFormers) ---------- 
-2025-02-04 16:34:47,101 - INFO - attn_output has NaN: False

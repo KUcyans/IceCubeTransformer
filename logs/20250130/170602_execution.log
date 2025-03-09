@@ -1,37 +1,0 @@
-nohup: ignoring input
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
-  result = getattr(ufunc, method)(*inputs, **kwargs)
-wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.19.5 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.17.2
-wandb: Run data is saved locally in /lustre/hpc/icecube/cyan/factory/IceCubeTransformer/wandb/run-20250130_170615-djflbnlu
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run youthful-night-1
-wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_170613%5DNeutrino%20Flavour%20Classification
-wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_170613%5DNeutrino%20Flavour%20Classification/runs/djflbnlu
-/groups/icecube/cyan/.local/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.9 TrainingDebuggingYard.py ...
-GPU available: True (cuda), used: True
-TPU available: False, using: 0 TPU cores
-HPU available: False, using: 0 HPUs
-Number of GPUs available: 2
-GPU 0: NVIDIA GeForce RTX 3090
-GPU 1: NVIDIA GeForce RTX 3090
-------------- Multi-Flavour Shard (Energy Band: ER_1_PEV_100_PEV, Part: 1, Shard: 1) -------------
-Traceback (most recent call last):
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 216, in <module>
-    main()
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 213, in main
-    execute()
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 209, in execute
-    trainer = runTraining(root_dir, config, dm_PeV_1_1)
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/TrainingDebuggingYard.py", line 71, in runTraining
-    train_dataloader = datamodule.train_dataloader()
-  File "/lustre/hpc/icecube/cyan/factory/IceCubeTransformer/DataSocket/PMTfiedDataModule.py", line 65, in train_dataloader
-    return DataLoader(self.train_dataset,
-AttributeError: 'PMTfiedDataModule' object has no attribute 'train_dataset'
-wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.008 MB uploadedwandb: | 0.008 MB of 0.008 MB uploadedwandb: / 0.015 MB of 0.023 MB uploadedwandb: - 0.023 MB of 0.023 MB uploadedwandb: 🚀 View run youthful-night-1 at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_170613%5DNeutrino%20Flavour%20Classification/runs/djflbnlu
-wandb: ⭐️ View project at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250130_170613%5DNeutrino%20Flavour%20Classification
-wandb: Synced 5 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250130_170615-djflbnlu/logs
-wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.

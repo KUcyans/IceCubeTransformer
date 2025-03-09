@@ -1,6 +1,0 @@
-2025-01-30 09:48:18,610 - INFO - ==============Entering Encoder Block 0==============
-2025-01-30 09:48:18,610 - INFO - ==============Entering Encoder Block 0==============
-2025-01-30 09:48:18,833 - INFO - ---------- attention(scaled dot-product) ---------- 
-2025-01-30 09:48:18,833 - INFO - ---------- attention(scaled dot-product) ---------- 
-2025-01-30 09:48:19,906 - INFO - attn_output hasn't nan: True
-2025-01-30 09:48:19,908 - INFO - attn_output hasn't nan: True
