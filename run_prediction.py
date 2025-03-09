@@ -86,6 +86,7 @@ def build_model(config: dict,
         seq_len=config['event_length'],
         attention_type=config['attention'],
         dropout=config['dropout'],
+        map_location=device
     )
     return model
 

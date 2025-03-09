@@ -107,6 +107,9 @@ def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodu
         weight_decay=optimizer_config['weight_decay'],
         amsgrad=optimizer_config['amsgrad']
     )
+    # steps_per_epoch = max(len(datamodule.train_dataloader()), 1)  # Prevent division by zero
+    # total_N_steps = config["n_epochs"] * steps_per_epoch
+
     total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
     scheduler = {
         'scheduler': torch.optim.lr_scheduler.OneCycleLR(
@@ -114,6 +117,7 @@ def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodu
             max_lr=optimizer_config['lr_max'],
             epochs=config['n_epochs'],
             total_steps=total_N_steps,
+            # steps_per_epoch= steps_per_epoch,
             pct_start=optimizer_config['pct_start'],
             div_factor=optimizer_config['div_factor'],
             max_momentum=optimizer_config['max_momentum'],
@@ -216,8 +220,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
     # ✅ Build Optimizer (after DataModule setup to get train_dataloader_length)
     optimiser, scheduler = build_optimiser_and_scheduler(config=config, 
                                 model=model, 
-                                datamodule=datamodule
-                                )
+                                datamodule=datamodule)
 
     # ✅ Assign optimizer to DataModule
     model.set_optimiser(optimiser, scheduler)
@@ -240,6 +243,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=config['gpu'],
         log_every_n_steps=1000, 
+        # limit_train_batches=1
     )
 
     trainer.fit(model, datamodule=datamodule)
