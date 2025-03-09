@@ -1,43 +1,0 @@
-nohup: ignoring input
-Importing libraries
-All is imported
-wandb: Currently logged in as: cyans (cyans-k-benhavns-universitet). Use `wandb login --relogin` to force relogin
-wandb: wandb version 0.19.6 is available!  To upgrade, please run:
-wandb:  $ pip install wandb --upgrade
-wandb: Tracking run with wandb version 0.17.5
-wandb: Run data is saved locally in ./wandb/run-20250217_120045-e98naknm
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run floral-glade-3
-wandb: ⭐️ View project at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification
-wandb: 🚀 View run at https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification/runs/e98naknm
-Total events: [400561, 222514, 331040]
-Cumulative event counts 1: [400561]
-Cumulative event counts 2: [222514]
-Cumulative event counts 3: [331040]
-Traceback (most recent call last):
-  File "/lustre/hpc/icecube/cyan/IceCube_project_share/icecube-projects/luc/training_script.py", line 74, in <module>
-    val_set_total = PMTfiedDatasetPyArrow(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "/lustre/hpc/icecube/cyan/IceCube_project_share/icecube-projects/luc/dataset_multifile_flavours.py", line 118, in __init__
-    truth = pq.read_table(path)
-            ^^^^^^^^^^^^^^^^^^^
-  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pyarrow/parquet/core.py", line 1793, in read_table
-    dataset = ParquetDataset(
-              ^^^^^^^^^^^^^^^
-  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pyarrow/parquet/core.py", line 1371, in __init__
-    self._dataset = ds.dataset(path_or_paths, filesystem=filesystem,
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pyarrow/dataset.py", line 794, in dataset
-    return _filesystem_dataset(source, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pyarrow/dataset.py", line 476, in _filesystem_dataset
-    fs, paths_or_selector = _ensure_single_source(source, filesystem)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/groups/icecube/cyan/.local/lib/python3.12/site-packages/pyarrow/dataset.py", line 441, in _ensure_single_source
-    raise FileNotFoundError(path)
-FileNotFoundError: /lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Snowstorm/22017/truth_4.parquet
-wandb: - 0.008 MB of 0.008 MB uploadedwandb: \ 0.008 MB of 0.008 MB uploadedwandb: | 0.008 MB of 0.008 MB uploadedwandb: / 0.008 MB of 0.008 MB uploadedwandb: - 0.014 MB of 0.026 MB uploaded (0.002 MB deduped)wandb: \ 0.026 MB of 0.026 MB uploaded (0.002 MB deduped)wandb: 🚀 View run floral-glade-3 at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification/runs/e98naknm
-wandb: ⭐️ View project at: https://wandb.ai/cyans-k-benhavns-universitet/%5B20250217%5D%20Flavour%20Classification
-wandb: Synced 6 W&B file(s), 0 media file(s), 2 artifact file(s) and 0 other file(s)
-wandb: Find logs at: ./wandb/run-20250217_120045-e98naknm/logs
-wandb: WARNING The new W&B backend becomes opt-out in version 0.18.0; try it out with `wandb.require("core")`! See https://wandb.me/wandb-core for more information.
