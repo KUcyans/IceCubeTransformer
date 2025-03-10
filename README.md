@@ -1,6 +1,7 @@
 [![Apache Licensed](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)  
 
 # Transformer Workshop for Neutrino Flavour Classification
+![alt text](image-1.png)  
 This Transformer Encoder model and its data socket are designed to classify the neutrino flavour based on the IceCube Neutrino Observatory data. The data which the model is suited for are DOM-wisely summarised data. The processing of the data is described in [PMTfication github](https://github.com/KUcyans/PMTfication). Thus it requires a characteristic way of storing the data.
 ![alt text](image.png)
 
@@ -87,7 +88,11 @@ local_idx = local_idx % len(self.datasets[dataset_idx])  # Wraps around if out o
 
 ---
 
+## Transformer Encoder structure
+
+
+
 * TODO
   * consider moving the optimiser to the datamodule from the model
     * training script needs to be changed
-  * 
+  * The model description
