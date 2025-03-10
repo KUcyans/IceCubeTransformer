@@ -1,5 +1,6 @@
 import time
 import json
+import re
 import os
 import torch
 import logging
@@ -19,11 +20,12 @@ def parse_args():
     
     return parser.parse_args()
 
-def setup_directories(base_dir: str, current_date: str, current_time: str, checkpoint_date: str, checkpoint_time: str):
+def setup_directories(base_dir: str, config_dir: str, current_date: str, current_time: str, checkpoint_date: str, checkpoint_time: str):
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
-        "predict_dir": os.path.join(base_dir, "predictions", current_date, f"model_{checkpoint_date}", current_time),
+        "predict_dir": os.path.join(base_dir, "predictions", current_date, f"model_{checkpoint_date}_{checkpoint_time}", current_time),
         "checkpoint_dir": os.path.join(base_dir, "checkpoints", checkpoint_date, checkpoint_time),
+        "config_history": os.path.join(config_dir, "history"),
     }
     for path in paths.values():
         os.makedirs(path, exist_ok=True)
@@ -69,19 +71,30 @@ def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Lo
         logger.addHandler(handler)
     return logger
 
+def load_model_config(dirs, checkpoint_date, checkpoint_time):
+    """Load the correct config from config/history/ based on the checkpoint date and time."""
+    config_file = os.path.join(dirs["config_history"], f"{checkpoint_date}_{checkpoint_time}_config.json")
 
-def build_model(config: dict, 
-                device: torch.device,
-                ckpt_file: str = None
-                ):
+    if not os.path.exists(config_file):
+        raise FileNotFoundError(f"❌ Config file not found: {config_file}")
+
+    with open(config_file, "r") as f:
+        config = json.load(f)
+    
+    print(f"✅ Loaded config from: {config_file}")
+    return config
+
+
+def build_model(config: dict, device: torch.device, ckpt_file: str):
+    """Load model from checkpoint."""
     model = FlavourClassificationTransformerEncoder.load_from_checkpoint(
         checkpoint_path=ckpt_file,
-        strict = False,
+        strict=False,
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
         d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
-        d_input= config['d_input'],
+        d_input=config['d_input'],
         num_classes=config['output_dim'],
         seq_len=config['event_length'],
         attention_type=config['attention'],
@@ -107,36 +120,36 @@ def build_data_module(config: dict,
     datamodule.setup(stage='predict')
     return datamodule
 
-def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodule: MultiPartDataModule):
-    """Build and return the optimizer and learning rate scheduler."""
-    optimizer_config = config['optimizer']
-    optimizer = torch.optim.Adam(
-        model.parameters(),
-        lr=optimizer_config['lr_max']/optimizer_config['div_factor'],
-        betas=tuple(optimizer_config['betas']),
-        eps=optimizer_config['eps'],
-        weight_decay=optimizer_config['weight_decay'],
-        amsgrad=optimizer_config['amsgrad']
-    )
-    total_N_steps = config['n_epochs'] * len(datamodule.predict_dataloader())
-    scheduler = {
-        'scheduler': torch.optim.lr_scheduler.OneCycleLR(
-            optimizer,
-            max_lr=optimizer_config['lr_max'],
-            epochs=config['n_epochs'],
-            total_steps=total_N_steps,
-            pct_start=optimizer_config['pct_start'],
-            div_factor=optimizer_config['div_factor'],
-            max_momentum=optimizer_config['max_momentum'],
-            base_momentum=optimizer_config['base_momentum'],
-            final_div_factor=optimizer_config['final_div_factor'],
-            anneal_strategy=optimizer_config['anneal_strategy']
-        ),
-        'interval': optimizer_config['interval'],
-        'frequency': optimizer_config['frequency'],
-    }
+# def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodule: MultiPartDataModule):
+#     """Build and return the optimizer and learning rate scheduler."""
+#     optimizer_config = config['optimizer']
+#     optimizer = torch.optim.Adam(
+#         model.parameters(),
+#         lr=optimizer_config['lr_max']/optimizer_config['div_factor'],
+#         betas=tuple(optimizer_config['betas']),
+#         eps=optimizer_config['eps'],
+#         weight_decay=optimizer_config['weight_decay'],
+#         amsgrad=optimizer_config['amsgrad']
+#     )
+#     total_N_steps = config['n_epochs'] * len(datamodule.predict_dataloader())
+#     scheduler = {
+#         'scheduler': torch.optim.lr_scheduler.OneCycleLR(
+#             optimizer,
+#             max_lr=optimizer_config['lr_max'],
+#             epochs=config['n_epochs'],
+#             total_steps=total_N_steps,
+#             pct_start=optimizer_config['pct_start'],
+#             div_factor=optimizer_config['div_factor'],
+#             max_momentum=optimizer_config['max_momentum'],
+#             base_momentum=optimizer_config['base_momentum'],
+#             final_div_factor=optimizer_config['final_div_factor'],
+#             anneal_strategy=optimizer_config['anneal_strategy']
+#         ),
+#         'interval': optimizer_config['interval'],
+#         'frequency': optimizer_config['frequency'],
+#     }
 
-    return optimizer, scheduler
+#     return optimizer, scheduler
 
 def build_callbacks():
     callbacks = [
@@ -200,31 +213,41 @@ def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: 
         "pred_class": pred_classes.numpy(),
         "target_class": target_classes.numpy(),
     })
-
-    checkpoint_name = os.path.basename(ckpt_file).replace(".ckpt", "")
-    csv_name = os.path.join(prediction_dir, f"predictions_{checkpoint_name}.csv")
+    epoch, val_loss = parse_checkpoint_name(ckpt_file)
+    csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_val_loss_{val_loss}.csv")
     df.to_csv(csv_name, index=False)
     print(f"Predictions saved to.. \n{csv_name}")
 
+def parse_checkpoint_name(ckpt_file):
+    """Extract epoch and validation loss from checkpoint filename."""
+    ckpt_name = os.path.basename(ckpt_file).replace(".ckpt", "")
 
-def run_prediction(config_file: str, 
-                   base_dir: str, 
-                   data_root_dir: str):
+    if "last" in ckpt_name:
+        return "last", "last"
+
+    # Match epoch and validation loss from different delimiter styles
+    match = re.search(r"epoch[=_](\d+).*?val_loss[=_]([\d.]+)", ckpt_name)
+    if match:
+        epoch, val_loss = match.groups()
+        return epoch, val_loss
+    return "unknown", "unknown"  # Fallback in case of unexpected filename format
+
+
+
+def run_prediction(config_dir: str, base_dir: str, data_root_dir: str):
     args = parse_args()
     current_date, current_time = args.date, args.time
     local_checkpoint = args.checkpoint_date
     specific_checkpoint = args.checkpoint_time
     
-    
-    with open(config_file, 'r') as f:
-        config = json.load(f)
-    
     dirs = setup_directories(base_dir = base_dir, 
+                             config_dir = config_dir,
                              current_date = current_date, 
                              current_time = current_time, 
                              checkpoint_date = local_checkpoint,
                              checkpoint_time = specific_checkpoint)
     # predict_logger = setup_logger("predict", dirs["predict_log_file"])
+    config = load_model_config(dirs)
     
     device = lock_and_load(config)
     
@@ -254,8 +277,8 @@ def run_prediction(config_file: str,
 
         print(f"\n🔥 Loading model from {ckpt_file}...")
         model = build_model(config=config, device=device, ckpt_file=ckpt_file_dir)
-        optimizer, scheduler = build_optimiser_and_scheduler(config=config, model=model, datamodule=datamodule)
-        model.set_optimiser(optimizer, scheduler)
+        # optimizer, scheduler = build_optimiser_and_scheduler(config=config, model=model, datamodule=datamodule)
+        # model.set_optimiser(optimizer, scheduler)
         model.to(device)
 
         print("🚀 Running predictions...")
@@ -266,14 +289,16 @@ def run_prediction(config_file: str,
 
 
 if __name__ == "__main__":
-    config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
-    config_file = "config_predict.json"
+    
+    base_dir = os.path.dirname(os.path.realpath(__file__))
+    config_dir = os.path.join(base_dir, "config")
+    # config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
+    # config_file = "config_predict.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    base_dir = os.path.dirname(os.path.realpath(__file__))
     
     start_time = time.time()
-    run_prediction(config_file=os.path.join(config_dir, config_file),
+    run_prediction(config_dir=config_dir,
                  base_dir=base_dir,
                  data_root_dir=data_root_dir)
     end_time = time.time()

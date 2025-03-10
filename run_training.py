@@ -32,9 +32,9 @@ def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Lo
     return logger
 
 
-def init_wandb(config: dict, project_name: str):
+def init_wandb(config: dict, project_name: str, run_name: str):
     """Initialize Weights & Biases logging."""
-    wandb.init(project=project_name, config=config)
+    wandb.init(project=project_name, config=config, name=run_name)
 
 
 def log_training_parameters(config: dict):
@@ -180,12 +180,13 @@ def lock_and_load(config):
 
 
 
-def setup_directories(base_dir: str, current_date: str, current_time: str):
+def setup_directories(base_dir: str, config_dir:str, current_date: str, current_time: str):
     """Create and return directories for logs and checkpoints with a timestamped subdirectory."""
     
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
         "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date, current_time),
+        "config_history": os.path.join(config_dir, "history"),
     }
 
     for path in paths.values():
@@ -195,7 +196,7 @@ def setup_directories(base_dir: str, current_date: str, current_time: str):
 
 
 
-def run_training(config_file: str, training_dir: str, data_root_dir: str):
+def run_training(config_dir: str, config_file: str, training_dir: str, data_root_dir: str):
     args = parse_args()
     current_date, current_time = args.date, args.time
     
@@ -205,9 +206,11 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
         config = json.load(f)
 
     # ✅ Setup directories and loggers
-    dirs = setup_directories(training_dir, current_date, current_time)
-    
-    # ✅ Secure GPU/CPU
+    dirs = setup_directories(training_dir, config_dir, current_date, current_time)
+    with open(os.path.join(dirs["config_history"], f"{current_date}_{current_time}_config.json"), "w") as f:
+        json.dump(config, f, indent=4)
+
+    # ✅ Secure GPU/CPU!
     device = lock_and_load(config)
 
     # ✅ Build DataModule (without optimizer first)
@@ -229,7 +232,7 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
     callbacks = build_callbacks(config=config, callback_dir=dirs["checkpoint_dir"])
 
     # ✅ Initialize WandB Logger
-    init_wandb(config=config, project_name=project_name)
+    init_wandb(config=config, project_name=project_name, run_name=current_time)
     wandb_logger = WandbLogger(project=project_name, config=config)
 
     # ✅ Log Training Parameters
@@ -250,13 +253,15 @@ def run_training(config_file: str, training_dir: str, data_root_dir: str):
 
 
 if __name__ == "__main__":
-    config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
+    training_dir = os.path.dirname(os.path.realpath(__file__))
+    config_dir = os.path.join(training_dir, "config")
+    # config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_training_innocent.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    training_dir = os.path.dirname(os.path.realpath(__file__))
     start_time = time.time()
-    run_training(config_file=os.path.join(config_dir, config_file),
+    run_training(config_dir=config_dir,
+                config_file=os.path.join(config_dir, config_file),
                  training_dir=training_dir,
                  data_root_dir=data_root_dir)
     end_time = time.time()
