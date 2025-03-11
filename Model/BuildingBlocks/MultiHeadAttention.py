@@ -29,38 +29,26 @@ class MultiHeadAttention(nn.Module):
         #     attention_cls = XFormersAttention
         else:
             raise ValueError(f"Unknown attention type: {attention_type}")
-        
-        self.q_proj = nn.Linear(d_model, d_model)
-        self.k_proj = nn.Linear(d_model, d_model)
-        self.v_proj = nn.Linear(d_model, d_model)
-        
-        self.multi_head_attention = nn.ModuleList(
-            [attention_cls(head_dim=self.head_dim, 
-                           dropout=dropout) for _ in range(n_heads)]
-        )
-
+        self.attention_head = attention_cls(head_dim=self.head_dim, dropout=dropout)
+        self.qkv_proj = nn.Linear(d_model, 3 * d_model)
         self.dropout = nn.Dropout(dropout)
+
 
     def forward(self, x, event_length=None):
         batch_size, seq_len, _ = x.shape
 
-        # Project input to queries, keys, and values
-        q = self.q_proj(x)  # (batch_size, seq_len, d_model)
-        k = self.k_proj(x)  # (batch_size, seq_len, d_model)
-        v = self.v_proj(x)  # (batch_size, seq_len, d_model)
+        # Project input into Q, K, V
+        qkv = self.qkv_proj(x).view(batch_size, seq_len, self.n_heads, 3 * self.head_dim)
+        q, k, v = qkv.chunk(3, dim=-1)  # q, k, v shape: (batch, seq, heads, head_dim)
 
-        # Reshape into multiple heads and reorder dimensions
-        q = q.view(batch_size, seq_len, self.n_heads, self.head_dim).permute(0, 2, 1, 3)  # (batch_size, n_heads, seq_len, head_dim)
-        k = k.view(batch_size, seq_len, self.n_heads, self.head_dim).permute(0, 2, 1, 3)
-        v = v.view(batch_size, seq_len, self.n_heads, self.head_dim).permute(0, 2, 1, 3)
+        # ✅ Permute q, k, v before passing to attention
+        q = q.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
+        k = k.permute(0, 2, 3, 1)  # (batch, heads, head_dim, seq)
+        v = v.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
 
-        # Apply multi-head attention independently for each head
-        head_outputs = [head(q[:, i], k[:, i], v[:, i], event_length) 
-                        for i, head in enumerate(self.multi_head_attention)]
-        
-        # Concatenate the output of all heads
-        multi_head_output = torch.cat(head_outputs, dim=-1)  # (batch_size, seq_len, d_model)
+        # ✅ Now q, k, v are ready to go
+        attention_output = self.attention_head(q, k, v, event_length)
+        attention_output = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
 
-        output = self.dropout(multi_head_output)
-
-        return output
+        attention_output = self.dropout(attention_output)
+        return attention_output

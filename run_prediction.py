@@ -72,16 +72,14 @@ def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Lo
     return logger
 
 def load_model_config(dirs, checkpoint_date, checkpoint_time):
-    """Load the correct config from config/history/ based on the checkpoint date and time."""
     config_file = os.path.join(dirs["config_history"], f"{checkpoint_date}_{checkpoint_time}_config.json")
-
+    
     if not os.path.exists(config_file):
-        raise FileNotFoundError(f"❌ Config file not found: {config_file}")
+        config_file = os.path.join(os.path.dirname(dirs["config_history"]), "config_predict.json")
 
     with open(config_file, "r") as f:
         config = json.load(f)
     
-    print(f"✅ Loaded config from: {config_file}")
     return config
 
 
@@ -247,7 +245,7 @@ def run_prediction(config_dir: str, base_dir: str, data_root_dir: str):
                              checkpoint_date = local_checkpoint,
                              checkpoint_time = specific_checkpoint)
     # predict_logger = setup_logger("predict", dirs["predict_log_file"])
-    config = load_model_config(dirs)
+    config = load_model_config(dirs, local_checkpoint, specific_checkpoint)
     
     device = lock_and_load(config)
     

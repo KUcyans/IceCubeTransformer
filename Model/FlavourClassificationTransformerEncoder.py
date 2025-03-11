@@ -62,24 +62,27 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         batch_size, seq_len, input_dim = x.size()
 
         x = self.input_projection(x).to(x.device)
+        # x shape: (batch_size, seq_len, d_model)
         pos_emb = self.position_embedding(torch.arange(seq_len, device=x.device))
-        pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) # shape: (batch_size, seq_len, d_model)
-        
+        pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) 
+        # shape: (batch_size, seq_len, d_model)        
         x = x + pos_emb
         
-        # x shape: (batch_size, seq_len, d_model)
-
         for encoder in self.encoder_blocks:
             x = encoder(x, event_length = event_length)
         
-        batch_size, seq_len, d_model = x.size()
-        row_indices = torch.arange(seq_len).view(1, -1, 1)  # Shape: (1, seq_dim, 1)
-        row_indices = row_indices.expand(batch_size, -1, d_model)
-        row_indices = row_indices.to(x.device)
+        mask = torch.arange(seq_len, device=x.device).expand(batch_size, -1) < event_length.unsqueeze(1)
+        x = x.masked_fill(~mask.unsqueeze(-1), 0)
+        # mask shape : (batch_size, seq_len)
+        # batch_size, seq_len, d_model = x.size()
         
-        mask = row_indices < event_length.view(-1, 1, 1).to(x.device) # Shape: (batch_size, seq_dim, emb_dim)
+        # row_indices = torch.arange(seq_len).view(1, -1, 1)  # Shape: (1, seq_dim, 1)
+        # row_indices = row_indices.expand(batch_size, -1, d_model)
+        # row_indices = row_indices.to(x.device)
         
-        x = x.masked_fill(mask==0, 0)
+        # mask = row_indices < event_length.view(-1, 1, 1).to(x.device) # Shape: (batch_size, seq_dim, emb_dim)
+        # x = x.masked_fill(mask==0, 0)
+        
         x = self.pooling(x, mask)
         
         logit = self.classification_output_layer(x)
@@ -88,8 +91,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
     def _calculate_accuracy(self, logit, target):
         """Calculate accuracy given model probabilities and true labels."""
-        predicted_labels = torch.argmax(logit, dim=1).detach().cpu()
-        true_labels = torch.argmax(target, dim=1).detach().cpu()
+        predicted_labels = torch.argmax(logit, dim=1).cpu()
+        true_labels = torch.argmax(target, dim=1).cpu()
         accuracy = torch.eq(predicted_labels, true_labels).float().mean()
         return accuracy, predicted_labels, true_labels
 
@@ -98,19 +101,19 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         loss, logit = self(x, target=target, event_length=event_length)
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
 
-        # ✅ Log training loss and accuracy
         self.log("train_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("train_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
 
-        # ✅ Log current learning rate
-        current_lr = self.optimiser.param_groups[0]['lr']
-        self.log("lr", current_lr, prog_bar=True, on_step=True, on_epoch=False)
+        self.log("lr", self.optimiser.param_groups[0]['lr'], prog_bar=True, on_step=True, on_epoch=False)
+
 
         # ✅ Periodic logging for detailed monitoring
         period = max(1, len(self.trainer.train_dataloader) // 3)
         if batch_idx % period == 0:
+            current_lr = self.optimiser.param_groups[0]['lr']
             print(f"\n[Epoch {self.current_epoch} | Batch {batch_idx}]")
             print(f"Train Loss: {loss.item():.4f} | Train Accuracy: {accuracy.item():.4f} | LR: {current_lr:.6e}")
+
 
             # Display predictions for debugging
             softmax_logit = F.softmax(logit, dim=1)
@@ -166,7 +169,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 self.validation_targets.extend(true_labels.tolist())
         
         return loss
-
 
     def predict_step(self, batch, batch_idx):
         x, target, event_length = batch

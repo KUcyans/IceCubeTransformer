@@ -9,29 +9,28 @@ class InnocentAttention(nn.Module):
         super().__init__()
         self.head_dim = head_dim  
 
-        # Output projection remains
-        self.out_proj = nn.Linear(head_dim, head_dim)
+        # self.out_proj = nn.Linear(head_dim, head_dim)
 
         self.scale = torch.sqrt(torch.tensor(head_dim).float())
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, q, k, v, event_length=None):
-        batch_size, seq_len, head_dim = q.shape
+        batch_size, n_heads, seq_len, head_dim = q.shape
+        attention_weights = torch.einsum("b h s d, b h d q -> b h s q", q, k) / self.scale
 
-        # Compute attention scores
-        attention_weights = torch.matmul(q, k.transpose(-2, -1)) / self.scale
-
-        # Apply masking if event_length is provided
         if event_length is not None:
-            row_indices = torch.arange(seq_len).view(1, -1, 1).to(q.device)
-            col_indices = torch.arange(seq_len).view(1, 1, -1).to(q.device)
-            expanded_event_length = event_length.view(-1, 1, 1).to(q.device)
+            row_indices = torch.arange(seq_len).view(1, 1, -1, 1).to(q.device)  # (1, 1, seq_len, 1)
+            col_indices = torch.arange(seq_len).view(1, 1, 1, -1).to(q.device)  # (1, 1, 1, seq_len)
+
+            expanded_event_length = event_length.view(batch_size, 1, 1, 1).to(q.device)  # (batch_size, 1, 1, 1)
+
             mask = (row_indices < expanded_event_length) & (col_indices < expanded_event_length)
-            attention_weights = attention_weights.masked_fill(~mask, float('-1e9'))
+            attention_weights = attention_weights.masked_fill(~mask, float('-inf'))
 
         attention_weights = F.softmax(attention_weights, dim=-1)
         attention_weights = self.dropout(attention_weights)
 
-        output = torch.matmul(attention_weights, v)
+        # ✅ Direct einsum without permute
+        output = torch.einsum("b h s q, b h q d -> b h s d", attention_weights, v)
 
         return output
