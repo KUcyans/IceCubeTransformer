@@ -43,7 +43,8 @@ class MultiHeadAttention(nn.Module):
 
         # ✅ Permute q, k, v before passing to attention
         q = q.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
-        k = k.permute(0, 2, 3, 1)  # (batch, heads, head_dim, seq)
+        # k = k.permute(0, 2, 3, 1)  # (batch, heads, head_dim, seq)
+        k = k.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
         v = v.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
 
         # ✅ Now q, k, v are ready to go

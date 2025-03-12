@@ -10,8 +10,9 @@ class ScaledDotProductAttention(nn.Module):
 
     def forward(self, q, k, v, event_length=None):
         """
+        from the MultiHeadAttention class
         q: batch_size, num_heads, seq_len, head_dim
-        k: batch_size, num_heads, head_dim, seq_len
+        k: batch_size, num_heads, seq_len, head_dim
         v: batch_size, num_heads, seq_len, head_dim
         event_length: batch_size
         """
@@ -32,7 +33,6 @@ class ScaledDotProductAttention(nn.Module):
             attn_mask = torch.zeros((batch_size, 1, seq_len, seq_len), dtype=torch.float32, device=q.device)
             attn_mask.masked_fill_(~mask, float("-inf"))  # Invalidate unwanted positions
 
-        # Use the optimised attention function
         output = F.scaled_dot_product_attention(q, k, v, attn_mask, dropout_p=self.dropout.p)
 
         return output

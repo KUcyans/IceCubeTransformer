@@ -256,7 +256,7 @@ if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
     # config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
-    config_file = "config_training_spd.json"
+    config_file = "config_training_sdp.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()

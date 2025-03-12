@@ -15,7 +15,15 @@ class InnocentAttention(nn.Module):
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, q, k, v, event_length=None):
+        """
+        from the MultiHeadAttention class
+        q: batch_size, num_heads, seq_len, head_dim
+        k: batch_size, num_heads, seq_len, head_dim
+        v: batch_size, num_heads, seq_len, head_dim
+        event_length: batch_size
+        """
         batch_size, n_heads, seq_len, head_dim = q.shape
+        k = k.transpose(-2, -1)  # Ensure k is (batch_size, num_heads, head_dim, seq_len)
         attention_weights = torch.einsum("b h s d, b h d q -> b h s q", q, k) / self.scale
 
         if event_length is not None:
