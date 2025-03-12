@@ -1,59 +1,0 @@
-=== Starting Benchmark ===
-Job ID: 50010060
-Node Name: node161.cluster
-CPU Info: Model name:                         AMD Ryzen Threadripper 3960X 24-Core Processor
-Total CPUs: 4
-Memory Info:                total        used        free      shared  buff/cache   available
-Mem:            62Gi       4.5Gi        51Gi       1.3Gi       8.1Gi        57Gi
-Swap:           31Gi          0B        31Gi
-Date and Time: Thu Feb 20 09:22:54 PM CET 2025
-Starting Benchmark Script
-Running log_system_info()
-
-=== System Information ===
-Date and Time: 2025-02-20 21:23:00
-Node Name: node161.cluster
-System: Linux 5.14.0-427.24.1.el9_4.x86_64 (#1 SMP PREEMPT_DYNAMIC Mon Jul 8 17:47:19 UTC 2024)
-Machine: x86_64
-Processor: x86_64
-CPU Count: 48 (Logical), 24 (Physical)
-Total Memory: 62.15 GB
-Python Version: 3.12.9
-
-=== GPU Information ===
-CUDA Version: 12.6
-GPU Name: NVIDIA GeForce RTX 3070
-GPU Memory Total: 7.69 GB
-GPU Device Count: 1
-
-
-===================== DATA: first three parts of 22012 =====================
-22012/truth_1.parquet
-22012/truth_2.parquet
-22012/truth_3.parquet
-
-
-===================== BENCHMARKING NEWS =====================
-
-
-Building Existing dataset
-Total events: [22774, 22417, 22308]
-Cumulative event counts 1: [22774]
-Cumulative event counts 2: [22417]
-Cumulative event counts 3: [22308]
-Benchmarking Existing dataset
-Existing Dataset:   0%|          | 0/66924 [00:00<?, ?it/s]Existing Dataset:  15%|█▍        | 10000/66924 [00:07<00:43, 1321.30it/s]Existing Dataset:  30%|██▉       | 20000/66924 [00:15<00:35, 1334.96it/s]Existing Dataset:  45%|████▍     | 30000/66924 [00:22<00:27, 1337.78it/s]Existing Dataset:  60%|█████▉    | 40000/66924 [00:29<00:20, 1341.52it/s]Existing Dataset:  75%|███████▍  | 50000/66924 [00:37<00:12, 1342.99it/s]Existing Dataset:  90%|████████▉ | 60000/66924 [00:44<00:05, 1341.11it/s]Existing Dataset: 66926it [00:49, 1339.37it/s]                           
-
-===================== Benchmark Results for Existing Dataset =====================
-Dataset Length: 66924
-Total Time Taken: 49.9726 seconds
-Average Events per Second: 1339.2136
-Building Snowy dataset
-Benchmarking Snowy dataset
-Snowy Dataset:   0%|          | 0/67499 [00:00<?, ?it/s]Snowy Dataset:  15%|█▍        | 10000/67499 [00:04<00:28, 2038.78it/s]Snowy Dataset:  30%|██▉       | 20000/67499 [00:09<00:23, 2052.65it/s]Snowy Dataset:  44%|████▍     | 30000/67499 [00:14<00:18, 2046.27it/s]Snowy Dataset:  59%|█████▉    | 40000/67499 [00:19<00:13, 2040.47it/s]Snowy Dataset:  74%|███████▍  | 50000/67499 [00:24<00:08, 2041.81it/s]Snowy Dataset:  89%|████████▉ | 60000/67499 [00:29<00:03, 2042.16it/s]Snowy Dataset: 100%|██████████| 67499/67499 [00:33<00:00, 2043.99it/s]
-
-===================== Benchmark Results for Snowy Dataset =====================
-Dataset Length: 67499
-Total Time Taken: 33.0234 seconds
-Average Events per Second: 2043.9762
-=== Benchmark Completed ===
