@@ -48,7 +48,6 @@ class MultiPartDataModule(pl.LightningDataModule):
             first_event, _ = self.train_dataset[0]
             print("Feature Dimension (Train):", first_event.shape[1])
             self.index_order_by = self.train_dataset.datasets[0].column_indices[self.order_by_this_column]
-            
 
         elif stage == 'predict':
             self.predict_dataset = MultiPartDataset(

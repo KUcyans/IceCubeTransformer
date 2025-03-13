@@ -14,6 +14,9 @@ from Model.FlavourClassificationTransformerEncoder import FlavourClassificationT
 from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
 from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
 
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Training Script with Timestamped Logs")
     parser.add_argument("--date", type=str, required=True, help="Execution date in YYYYMMDD format")
@@ -255,7 +258,6 @@ def run_training(config_dir: str, config_file: str, training_dir: str, data_root
 if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
-    # config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
     config_file = "config_training_sdp.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
