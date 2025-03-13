@@ -12,10 +12,37 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, Ea
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
 from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
-from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
+from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
+from Enum.EnergyRange import EnergyRange
+from Enum.Flavour import Flavour
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
+
+def lock_and_load(config):
+    """Set CUDA device based on config['gpu'] if available, else use CPU."""
+    print("torch.cuda.is_available():", torch.cuda.is_available())
+    available_devices = list(range(torch.cuda.device_count()))
+    print(f"Available CUDA devices: {available_devices}")
+
+    if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
+        selected_gpu = int(config['gpu'][0])
+
+        if selected_gpu in available_devices:
+            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
+            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
+            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
+            torch.set_float32_matmul_precision('highest')
+            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
+        else:
+            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
+            device = torch.device('cpu')
+    else:
+        device = torch.device('cpu')
+        print("CUDA not available. Using CPU.")
+
+    print(f"Selected device: {device}")
+    return device
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Training Script with Timestamped Logs")
@@ -63,6 +90,40 @@ def log_training_parameters(config: dict):
     print("Starting training with the following parameters:")
     print(message)
 
+def build_callbacks(config: dict, callback_dir: str):
+    """Build and return training callbacks."""
+    callbacks = [
+        EarlyStopping(monitor='mean_val_loss_epoch', 
+                      patience=config['patience'], 
+                      verbose=True),
+        ModelCheckpoint(dirpath=
+                        callback_dir,
+                        filename="{epoch:03d}_{val_loss:.4f}",
+                        save_top_k=1, 
+                        save_last=True, 
+                        monitor='mean_val_loss_epoch', 
+                        mode='min'),
+        LocalMinimumCheckpoint(checkpoint_dir=callback_dir, monitor="mean_val_loss_epoch"),
+
+        LearningRateMonitor(logging_interval='step'),
+        TQDMProgressBar(refresh_rate=1000),
+    ]   
+    return callbacks
+
+def setup_directories(base_dir: str, config_dir:str, current_date: str, current_time: str):
+    """Create and return directories for logs and checkpoints with a timestamped subdirectory."""
+    
+    paths = {
+        "log_dir": os.path.join(base_dir, "logs", current_date),
+        "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date, current_time),
+        "config_history": os.path.join(config_dir, "history"),
+    }
+
+    for path in paths.values():
+        os.makedirs(path, exist_ok=True)
+
+    return paths
+
 
 def build_model(config: dict, 
                 device: torch.device,):
@@ -81,25 +142,28 @@ def build_model(config: dict,
     return model.to(device)
 
 
-def build_data_module(config: dict, 
-                      root_dir:str):
+def build_data_module(config: dict, er: EnergyRange, root_dir: str):
     """Build and return the datamodule."""
-    datamodule = MultiPartDataModule(
+    datamodule = MultiFlavourDataModule(
         root_dir=root_dir,
-        subdirectory_parts_train=config['train_data'],
-        subdirectory_parts_val=config['validate_data'],
-        subdirectory_parts_test=config['predict_data'],
+        er=er,
+        N_events_nu_e=config['N_events_nu_e'],
+        N_events_nu_mu=config['N_events_nu_mu'],
+        N_events_nu_tau=config['N_events_nu_tau'],
         event_length=config['event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
-        sample_weights_train=config.get('sample_weights'),
-        sample_weights_val=config.get('sample_weights'),
+        frac_train=config['frac_train'],
+        frac_val=config['frac_val'],
+        frac_test=config['frac_test'],
     )
-    datamodule.setup(stage='fit')
+    datamodule.setup(stage="fit")
     return datamodule
 
-
-def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodule: MultiPartDataModule):
+    
+def build_optimiser_and_scheduler(config: dict, 
+                                model: torch.nn.Module, 
+                                datamodule: MultiFlavourDataModule):
     """Build and return the optimizer and learning rate scheduler."""
     optimizer_config = config['optimizer']
     optimizer = torch.optim.AdamW(
@@ -134,71 +198,11 @@ def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodu
 
     return optimizer, scheduler
 
-
-def build_callbacks(config: dict, callback_dir: str):
-    """Build and return training callbacks."""
-    callbacks = [
-        EarlyStopping(monitor='mean_val_loss_epoch', 
-                      patience=config['patience'], 
-                      verbose=True),
-        ModelCheckpoint(dirpath=
-                        callback_dir,
-                        filename="{epoch:03d}_{val_loss:.4f}",
-                        save_top_k=1, 
-                        save_last=True, 
-                        monitor='mean_val_loss_epoch', 
-                        mode='min'),
-        LocalMinimumCheckpoint(checkpoint_dir=callback_dir, monitor="mean_val_loss_epoch"),
-
-        LearningRateMonitor(logging_interval='step'),
-        TQDMProgressBar(refresh_rate=1000),
-    ]   
-    return callbacks
-
-
-def lock_and_load(config):
-    """Set CUDA device based on config['gpu'] if available, else use CPU."""
-    print("torch.cuda.is_available():", torch.cuda.is_available())
-    available_devices = list(range(torch.cuda.device_count()))
-    print(f"Available CUDA devices: {available_devices}")
-
-    if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        selected_gpu = int(config['gpu'][0])
-
-        if selected_gpu in available_devices:
-            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
-            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
-            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
-            torch.set_float32_matmul_precision('highest')
-            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
-        else:
-            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
-            device = torch.device('cpu')
-    else:
-        device = torch.device('cpu')
-        print("CUDA not available. Using CPU.")
-
-    print(f"Selected device: {device}")
-    return device
-
-
-
-def setup_directories(base_dir: str, config_dir:str, current_date: str, current_time: str):
-    """Create and return directories for logs and checkpoints with a timestamped subdirectory."""
-    
-    paths = {
-        "log_dir": os.path.join(base_dir, "logs", current_date),
-        "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date, current_time),
-        "config_history": os.path.join(config_dir, "history"),
-    }
-
-    for path in paths.values():
-        os.makedirs(path, exist_ok=True)
-
-    return paths
-
-
-def run_training(config_dir: str, config_file: str, training_dir: str, data_root_dir: str):
+def run_training(config_dir: str, 
+                 config_file: str, 
+                 training_dir: str, 
+                 data_root_dir: str,
+                 er: EnergyRange):
     args = parse_args()
     current_date, current_time = args.date, args.time
     
@@ -217,6 +221,7 @@ def run_training(config_dir: str, config_file: str, training_dir: str, data_root
 
     # ✅ Build DataModule (without optimizer first)
     datamodule = build_data_module(config=config, 
+                                   er=er,
                                    root_dir=data_root_dir)
     # ✅ Build Model
     model = build_model(config=config, 
@@ -248,7 +253,6 @@ def run_training(config_dir: str, config_file: str, training_dir: str, data_root
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=config['gpu'],
         log_every_n_steps=1000, 
-        # limit_train_batches=1
     )
 
     trainer.fit(model, datamodule=datamodule)
@@ -257,14 +261,15 @@ def run_training(config_dir: str, config_file: str, training_dir: str, data_root
 if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
-    config_file = "config_training_sdp.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
+    config_file = "config.json"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()
+    er = EnergyRange.ER_10_TEV_1_PEV
     run_training(config_dir=config_dir,
-                config_file=os.path.join(config_dir, config_file),
-                 training_dir=training_dir,
-                 data_root_dir=data_root_dir)
+                    config_file=os.path.join(config_dir, config_file),
+                    training_dir=training_dir,
+                    data_root_dir=data_root_dir
+                    er=er)
     end_time = time.time()
     print(f"Training completed in {time.strftime('%d:%H:%M:%S', time.gmtime(end_time - start_time))}")
 
