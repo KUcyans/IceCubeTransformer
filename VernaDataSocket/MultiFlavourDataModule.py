@@ -94,6 +94,10 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         batch_events = torch.stack(padded_events)
         batch_targets = torch.stack(targets)
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
+        if torch.isnan(batch_events).any():
+            print(f"⚠️ NaN detected in batch! Batch shape: {batch_events.shape}")
+            print(f"Indices of NaNs: {torch.where(torch.isnan(batch_events))}")
+            raise ValueError("NaN detected in dataset!")
 
         return batch_events, batch_targets, batch_event_length
     
@@ -111,7 +115,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             shuffle=False,
             num_workers=self.num_workers,
             collate_fn=self.custom_collate_fn,
-            persistent_workers=self.num_workers > 0,
+            persistent_workers=True,
             pin_memory=True
         )
         
@@ -122,7 +126,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             shuffle=False,
             num_workers=self.num_workers,
             collate_fn=self.custom_collate_fn,
-            persistent_workers=self.num_workers > 0,
+            persistent_workers=True,
             pin_memory=True
         )
         
@@ -133,6 +137,6 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             shuffle=False,
             num_workers=self.num_workers,
             collate_fn=self.custom_collate_fn,
-            persistent_workers=self.num_workers > 0,
+            persistent_workers=True,
             pin_memory=True
         )

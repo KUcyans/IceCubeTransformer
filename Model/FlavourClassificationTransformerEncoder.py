@@ -23,7 +23,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  num_classes: int, 
                  seq_len: int,  
                  attention_type: str,  
-                 dropout: float = 0.1):
+                 dropout: float = 0.1,
+                 lr: float = 1e-6):
         super().__init__()
         self.d_model = d_model
         self.n_heads = n_heads
@@ -33,6 +34,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         self.num_classes = num_classes
         self.dropout = dropout
+        self.lr = lr
         self.attention_type = attention_type  
         self.seq_len = seq_len
 
@@ -73,19 +75,11 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         
         mask = torch.arange(seq_len, device=x.device).expand(batch_size, -1) < event_length.unsqueeze(1)
         x = x.masked_fill(~mask.unsqueeze(-1), 0)
-        # mask shape : (batch_size, seq_len)
-        # batch_size, seq_len, d_model = x.size()
-        
-        # row_indices = torch.arange(seq_len).view(1, -1, 1)  # Shape: (1, seq_dim, 1)
-        # row_indices = row_indices.expand(batch_size, -1, d_model)
-        # row_indices = row_indices.to(x.device)
-        
-        # mask = row_indices < event_length.view(-1, 1, 1).to(x.device) # Shape: (batch_size, seq_dim, emb_dim)
-        # x = x.masked_fill(mask==0, 0)
         
         x = self.pooling(x, mask)
         
         logit = self.classification_output_layer(x)
+        logit = torch.clamp(logit, min=-50, max=50) # will this help avoid NaNs?
         loss = F.mse_loss(logit.squeeze(), target.squeeze())
         return loss, logit
 
@@ -100,20 +94,17 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         x, target, event_length = batch
         loss, logit = self(x, target=target, event_length=event_length)
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
+        current_lr = self.trainer.optimizers[0].param_groups[0]['lr']
 
         self.log("train_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("train_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
-
-        self.log("lr", self.optimiser.param_groups[0]['lr'], prog_bar=True, on_step=True, on_epoch=False)
-
+        self.log("lr", current_lr, prog_bar=True, on_step=True, on_epoch=False)
 
         # ✅ Periodic logging for detailed monitoring
         period = max(1, len(self.trainer.train_dataloader) // 3)
         if batch_idx % period == 0:
-            current_lr = self.optimiser.param_groups[0]['lr']
             print(f"\n[Epoch {self.current_epoch} | Batch {batch_idx}]")
             print(f"Train Loss: {loss.item():.4f} | Train Accuracy: {accuracy.item():.4f} | LR: {current_lr:.6e}")
-
 
             # Display predictions for debugging
             softmax_logit = F.softmax(logit, dim=1)
@@ -350,13 +341,22 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         print(f"GPU Memory Cached: {torch.cuda.memory_reserved() / 1024 ** 2:.2f} MB")
 
     def set_optimiser(self, optimiser, scheduler):
-        self.optimiser = optimiser
-        self.scheduler = scheduler
+        self.custom_optimizers = [optimiser]
+        self.custom_schedulers = [scheduler]
 
     def configure_optimizers(self):
-        """Return the optimizer or use a default if not set."""
-        if self.optimiser is not None:
-            return [self.optimiser], [self.scheduler]
+        if hasattr(self, "custom_optimizers") and self.custom_optimizers:
+            optimizer = self.custom_optimizers[0]
+            scheduler = self.custom_schedulers[0]
+
+            return {"optimizer": optimizer, "lr_scheduler": scheduler}
+
         else:
-            return torch.optim.AdamW(self.parameters(), lr=1e-3)
+            print("⚠️ Warning: Using default optimizer (AdamW) as none was set.")
+            optimizer = torch.optim.AdamW(self.parameters(), lr=self.lr)
+            return optimizer
+
+
+
+
 

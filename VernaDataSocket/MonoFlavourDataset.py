@@ -58,16 +58,13 @@ class MonoFlavourDataset(Dataset):
         self.truth_files = sorted(
             [os.path.join(self.truth_file_dir, f) for f in os.listdir(self.truth_file_dir)
             if f.startswith("truth_") and f.endswith(".parquet")],
-            key=extract_part_number  # ✅ Uses only filenames now!
+            key=extract_part_number
         )
 
         # ✅ Remove incorrectly sorted files (if they exist)
         self.truth_files = [f for f in self.truth_files if extract_part_number(os.path.basename(f)) != float("inf")]
         for truth_file in self.truth_files:
-            try:
-                truth_table = pq.read_table(truth_file, columns=self.REQUIRED_COLUMNS, memory_map=True)
-            except Exception as e:
-                continue  # ✅ Skip unreadable files
+            truth_table = pq.read_table(truth_file, columns=self.REQUIRED_COLUMNS, memory_map=True)
 
             # ✅ Extract only the required columns
             event_nos = np.array(truth_table.column("event_no"))
@@ -118,8 +115,6 @@ class MonoFlavourDataset(Dataset):
 
         return self.truth_current
 
-
-
     def __len__(self):
         return len(self.selected_events)
 
@@ -144,7 +139,13 @@ class MonoFlavourDataset(Dataset):
         # ✅ Extract event features
         features_table = self.current_features.slice(offset, N_doms).drop(['event_no', 'original_event_no'])
         features_np = np.column_stack([np.array(features_table[col]) for col in features_table.column_names])
+        if np.isnan(features_np).any():
+            print(f"⚠️ NaN detected in event {event_no} from file {feature_file}")
+            raise ValueError(f"NaN detected in event {event_no}!")
         features_np = self.transform(features_np, features_table.column_names)
+        if np.isnan(features_np).any():
+            print(f"⚠️ NaN introduced after normalisation! Event: {event_no}")
+            raise ValueError(f"NaN introduced in normalisation!")
         features_tensor = torch.tensor(features_np, dtype=torch.float32)
 
         # ✅ Encode target

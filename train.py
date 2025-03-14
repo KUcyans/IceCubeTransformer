@@ -9,6 +9,7 @@ import argparse
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping, TQDMProgressBar
+from pytorch_lightning.tuner.tuning import Tuner
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
 from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
@@ -62,11 +63,6 @@ def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Lo
     return logger
 
 
-def init_wandb(config: dict, project_name: str, run_name: str):
-    """Initialize Weights & Biases logging."""
-    wandb.init(project=project_name, config=config, name=run_name)
-
-
 def log_training_parameters(config: dict):
     """Log training parameters for debugging and reproducibility."""
     def flatten_dict(d, parent_key='', sep=' -> '):
@@ -89,6 +85,7 @@ def log_training_parameters(config: dict):
 
     print("Starting training with the following parameters:")
     print(message)
+
 
 def build_callbacks(config: dict, callback_dir: str):
     """Build and return training callbacks."""
@@ -239,7 +236,7 @@ def run_training(config_dir: str,
     callbacks = build_callbacks(config=config, callback_dir=dirs["checkpoint_dir"])
 
     # ✅ Initialize WandB Logger
-    init_wandb(config=config, project_name=project_name, run_name=current_time)
+    wandb.init(project=project_name, config=config, name=current_time)
     wandb_logger = WandbLogger(project=project_name, config=config)
 
     # ✅ Log Training Parameters
@@ -253,16 +250,18 @@ def run_training(config_dir: str,
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=config['gpu'],
         log_every_n_steps=1000, 
+        gradient_clip_algorithm='norm',
+        gradient_clip_val=1.0,
     )
-
     trainer.fit(model, datamodule=datamodule)
-
 
 if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
-    config_file = "config.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    # config_file = "config.json"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    config_file = "config_35.json"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()
     er = EnergyRange.ER_10_TEV_1_PEV
     run_training(config_dir=config_dir,

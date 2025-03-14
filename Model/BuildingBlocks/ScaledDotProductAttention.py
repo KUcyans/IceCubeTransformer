@@ -31,7 +31,7 @@ class ScaledDotProductAttention(nn.Module):
 
             # Convert the mask to match PyTorch’s expected format for scaled_dot_product_attention
             attn_mask = torch.zeros((batch_size, 1, seq_len, seq_len), dtype=torch.float32, device=q.device)
-            attn_mask.masked_fill_(~mask, float("-inf"))  # Invalidate unwanted positions
+            attn_mask.masked_fill_(~mask, float("-1e9"))  # Invalidate unwanted positions
 
         output = F.scaled_dot_product_attention(q, k, v, attn_mask, dropout_p=self.dropout.p)
 
