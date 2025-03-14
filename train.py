@@ -268,7 +268,7 @@ if __name__ == "__main__":
     run_training(config_dir=config_dir,
                     config_file=os.path.join(config_dir, config_file),
                     training_dir=training_dir,
-                    data_root_dir=data_root_dir
+                    data_root_dir=data_root_dir,
                     er=er)
     end_time = time.time()
     print(f"Training completed in {time.strftime('%d:%H:%M:%S', time.gmtime(end_time - start_time))}")

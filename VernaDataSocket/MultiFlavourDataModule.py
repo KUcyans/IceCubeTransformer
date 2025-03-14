@@ -5,7 +5,7 @@ import pytorch_lightning as pl
 from Enum.Flavour import Flavour
 from Enum.EnergyRange import EnergyRange
 
-class MultiPartDataModule(pl.LightningDataModule):
+class MultiFlavourDataModule(pl.LightningDataModule):
     def __init__(self, 
                  root_dir, 
                  er: EnergyRange,
