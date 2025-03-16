@@ -74,13 +74,19 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             x = encoder(x, event_length = event_length)
         
         mask = torch.arange(seq_len, device=x.device).expand(batch_size, -1) < event_length.unsqueeze(1)
-        x = x.masked_fill(~mask.unsqueeze(-1), 0)
+        x = x.masked_fill(~mask.unsqueeze(-1), 0) # shape (batch_size, seq_len, d_model)
+        # mask shape: (batch_size, seq_len)
         
         x = self.pooling(x, mask)
         
         logit = self.classification_output_layer(x)
         logit = torch.clamp(logit, min=-50, max=50) # will this help avoid NaNs?
         loss = F.mse_loss(logit.squeeze(), target.squeeze())
+        if torch.isnan(x).any():
+            print("⚠️ NaN detected in Transformer Encoder output!")
+            print("Feature stats:", x.min().item(), x.max().item())
+            raise ValueError("NaN detected before classification layer!")
+
         return loss, logit
 
     def _calculate_accuracy(self, logit, target):

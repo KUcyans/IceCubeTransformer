@@ -4,6 +4,9 @@ import os
 import torch
 import logging
 import argparse
+import copy
+import numpy as np
+import matplotlib.pyplot as plt
 
 import pytorch_lightning as pl
 from pytorch_lightning.tuner.tuning import Tuner
@@ -14,6 +17,9 @@ from Enum.EnergyRange import EnergyRange
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
+sys.path.append('/groups/icecube/cyan/Utils')
+from PlotUtils import setMplParam, getColour, getHistoParam 
+from ExternalFunctions import nice_string_output, add_text_to_ax
 
 def lock_and_load(config):
     """Set CUDA device based on config['gpu'] if available, else use CPU."""
@@ -85,7 +91,7 @@ def setup_directories(base_dir: str, current_date: str):
     
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
-        "best_lr_dir": os.path.join(base_dir, "best_lr", current_date),
+        "best_lr_dir": os.path.join(base_dir, "lr_find", current_date),
     }
 
     for path in paths.values():
@@ -129,16 +135,48 @@ def build_data_module(config: dict, er: EnergyRange, root_dir: str):
     datamodule.setup(stage="fit")
     return datamodule
 
+def read_config(config_file: str):
+    with open(config_file, 'r') as f:
+        original_config = json.load(f)    
+    config = copy.deepcopy(original_config) 
+    return config
     
-def run_best_lr(config_dir: str, config_file: str, training_dir: str, data_root_dir: str, er: EnergyRange):
+def save_lr_plot(lr_finder, config, save_dir):
+    setMplParam()
+    fig, ax = plt.subplots(figsize=(13, 9))
+    lrs = np.array(lr_finder.results["lr"])
+    losses = np.array(lr_finder.results["loss"])
+    ax.plot(lrs, losses, label = "Loss", color = getColour(0), linewidth = 2)
+    best_lr = lr_finder.suggestion()
+    best_idx = (np.abs(lrs - best_lr)).argmin()
+    loss_at_best_lr = losses[best_idx]
+    ax.scatter(best_lr, loss_at_best_lr, s=75, c=getColour(2), label = f"Best LR: {best_lr:.4e}")
+    ax.set_ylim(0.0, 1.0)  # Set y-axis range
+    ax.set_xscale("log")
+    ax.set_xlabel("Learning Rate", fontsize=16)
+    ax.set_ylabel("Loss", fontsize=16)
+    ax.legend()
+    d = {"best_lr" : f"{lr_finder.suggestion():.4e}",
+         "loss at best_lr" : f"{loss_at_best_lr:.4f}",
+         }
+    add_text_to_ax(0.45, 0.85, nice_string_output(d), ax, fontsize=12)
+
+    title = f"batch{config['batch_size']}_dim{config['embedding_dim']}_layers{config['n_layers']}_seq{config['event_length']}_heads{config['n_heads']}"
+    ax.set_title(f"Learning Rate Finder: {title}", fontsize=20)
+    
+    fig_path = os.path.join(save_dir, f"{title}.pdf")
+    fig.savefig(fig_path, format="pdf", dpi=300)
+    print(f"📁 Best LR plot saved at: {fig_path}")
+
+    
+def run_best_lr(config_file: str, training_dir: str, data_root_dir: str, er: EnergyRange):
     """Find the best learning rate and save the plot."""
     args = parse_args()
     current_date = args.date
 
-    # ✅ Load Configuration
-    with open(config_file, 'r') as f:
-        config = json.load(f)
+    config = read_config(config_file)
     log_training_parameters(config)
+    
     # ✅ Setup directories
     dirs = setup_directories(base_dir=training_dir, 
                              current_date=current_date)
@@ -162,24 +200,20 @@ def run_best_lr(config_dir: str, config_file: str, training_dir: str, data_root_
     print(f"🚀 Suggested Learning Rate: {best_lr:.7e}")
 
     # ✅ Save LR Finder Plot
-    fig = lr_finder.plot(suggest=True)
-    fig_title = f"batch{config['batch_size']}_dim{config['embedding_dim']}_layers{config['n_layers']}_seq{config['event_length']}_heads{config['n_heads']}"
-    fig.suptitle(fig_title)
-    fig_path = os.path.join(dirs["best_lr_dir"], f"{fig_title}.pdf")
-    fig.savefig(fig_path, format="pdf", dpi=300)
-    print(f"📁 Best LR plot saved at: {fig_path}")
+    save_lr_plot(lr_finder, config, dirs["best_lr_dir"])
 
 
 if __name__ == "__main__":
-    training_dir = os.path.dirname(os.path.realpath(__file__))
-    config_dir = os.path.join(training_dir, "config")
-    config_file = "config.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    this_dir = os.path.dirname(os.path.realpath(__file__))
+    config_dir = os.path.join(this_dir, "config")
+    # config_file = "config.json"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    config_file = "config_35.json"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()
     er = EnergyRange.ER_10_TEV_1_PEV
-    run_best_lr(config_dir=config_dir,
-                    config_file=os.path.join(config_dir, config_file),
-                    training_dir=training_dir,
+    run_best_lr(config_file=os.path.join(config_dir, config_file),
+                    training_dir=this_dir,
                     data_root_dir=data_root_dir,
                     er=er)
     end_time = time.time()

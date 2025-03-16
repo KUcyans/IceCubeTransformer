@@ -33,7 +33,7 @@ class InnocentAttention(nn.Module):
             expanded_event_length = event_length.view(batch_size, 1, 1, 1).to(q.device)  # (batch_size, 1, 1, 1)
 
             mask = (row_indices < expanded_event_length) & (col_indices < expanded_event_length)
-            attention_weights = attention_weights.masked_fill(~mask, float('-inf'))
+            attention_weights = attention_weights.masked_fill(~mask, -1e9)
 
         attention_weights = F.softmax(attention_weights, dim=-1)
         attention_weights = self.dropout(attention_weights)

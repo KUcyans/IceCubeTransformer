@@ -49,6 +49,11 @@ class MultiHeadAttention(nn.Module):
 
         # ✅ Now q, k, v are ready to go
         attention_output = self.attention_head(q, k, v, event_length)
+        if torch.isnan(attention_output).any():
+            print(f"🚨 NaN detected AFTER attention!")
+            print(f"🔍 Attention Output min/max: {attention_output.min().item()} / {attention_output.max().item()}")
+            raise ValueError("NaN detected in attention output!")
+        
         attention_output = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
 
         attention_output = self.dropout(attention_output)

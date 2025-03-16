@@ -7,9 +7,17 @@ import logging
 import argparse
 import pandas as pd
 from pytorch_lightning import Trainer
+
 from pytorch_lightning.callbacks import TQDMProgressBar
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
-from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
+from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
+from Enum.EnergyRange import EnergyRange
+from Enum.Flavour import Flavour
+
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Prediction Script with Timestamped Logs")
@@ -37,29 +45,31 @@ def setup_directories(base_dir: str, config_dir: str, current_date: str, current
 
 
 def lock_and_load(config):
-    """Set CUDA device based on config['gpu'] if available, else use CPU."""
+    """Set CUDA device dynamically based on availability, adjusting if needed."""
     print("torch.cuda.is_available():", torch.cuda.is_available())
     available_devices = list(range(torch.cuda.device_count()))
     print(f"Available CUDA devices: {available_devices}")
 
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        selected_gpu = int(config['gpu'][0])
+        requested_gpus = config['gpu']
+        valid_gpus = [gpu for gpu in requested_gpus if gpu in available_devices]
 
-        if selected_gpu in available_devices:
-            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
-            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
-            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
+        if valid_gpus:
+            selected_gpu = valid_gpus[0]  # Use the first available valid GPU
+            print(f"🔥 LOCK AND LOAD! Using GPU {selected_gpu} (cuda:{selected_gpu})!")
+            device = torch.device(f"cuda:{selected_gpu}")
+            torch.cuda.set_device(selected_gpu)  # Set device explicitly
             torch.set_float32_matmul_precision('highest')
-            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
         else:
-            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
+            print(f"⚠️ Warning: Requested GPUs {requested_gpus} not available. Using CPU instead.")
             device = torch.device('cpu')
     else:
         device = torch.device('cpu')
         print("CUDA not available. Using CPU.")
 
     print(f"Selected device: {device}")
-    return device
+    return device, valid_gpus if valid_gpus else [0]  # Return valid GPU list for Trainer
+
 
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
@@ -75,7 +85,7 @@ def load_model_config(dirs, checkpoint_date, checkpoint_time):
     config_file = os.path.join(dirs["config_history"], f"{checkpoint_date}_{checkpoint_time}_config.json")
     
     if not os.path.exists(config_file):
-        config_file = os.path.join(os.path.dirname(dirs["config_history"]), "config_predict.json")
+        print(f"Config file not found: {config_file}")
 
     with open(config_file, "r") as f:
         config = json.load(f)
@@ -102,52 +112,22 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
     return model
 
 
-def build_data_module(config: dict, 
-                      root_dir:str):
-    datamodule = MultiPartDataModule(
+def build_data_module(config: dict, er: EnergyRange, root_dir: str):
+    datamodule = MultiFlavourDataModule(
         root_dir=root_dir,
-        subdirectory_parts_train=config['train_data'],
-        subdirectory_parts_val=config['validate_data'],
-        subdirectory_parts_test=config['predict_data'],
+        er = er,
+        N_events_nu_e=config['N_events_nu_e'],
+        N_events_nu_mu=config['N_events_nu_mu'],
+        N_events_nu_tau=config['N_events_nu_tau'],
         event_length=config['event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
-        sample_weights_train=config.get('sample_weights'),
-        sample_weights_val=config.get('sample_weights'),
+        frac_train=config['frac_train'],
+        frac_val=config['frac_val'],
+        frac_test=config['frac_test'],
     )
     datamodule.setup(stage='predict')
     return datamodule
-
-# def build_optimiser_and_scheduler(config: dict, model: torch.nn.Module, datamodule: MultiPartDataModule):
-#     """Build and return the optimizer and learning rate scheduler."""
-#     optimizer_config = config['optimizer']
-#     optimizer = torch.optim.Adam(
-#         model.parameters(),
-#         lr=optimizer_config['lr_max']/optimizer_config['div_factor'],
-#         betas=tuple(optimizer_config['betas']),
-#         eps=optimizer_config['eps'],
-#         weight_decay=optimizer_config['weight_decay'],
-#         amsgrad=optimizer_config['amsgrad']
-#     )
-#     total_N_steps = config['n_epochs'] * len(datamodule.predict_dataloader())
-#     scheduler = {
-#         'scheduler': torch.optim.lr_scheduler.OneCycleLR(
-#             optimizer,
-#             max_lr=optimizer_config['lr_max'],
-#             epochs=config['n_epochs'],
-#             total_steps=total_N_steps,
-#             pct_start=optimizer_config['pct_start'],
-#             div_factor=optimizer_config['div_factor'],
-#             max_momentum=optimizer_config['max_momentum'],
-#             base_momentum=optimizer_config['base_momentum'],
-#             final_div_factor=optimizer_config['final_div_factor'],
-#             anneal_strategy=optimizer_config['anneal_strategy']
-#         ),
-#         'interval': optimizer_config['interval'],
-#         'frequency': optimizer_config['frequency'],
-#     }
-
-#     return optimizer, scheduler
 
 def build_callbacks():
     callbacks = [
@@ -221,7 +201,7 @@ def parse_checkpoint_name(ckpt_file):
     ckpt_name = os.path.basename(ckpt_file).replace(".ckpt", "")
 
     if "last" in ckpt_name:
-        return "last", ""
+        return "last", "last"
 
     # Match epoch and validation loss from different delimiter styles
     match = re.search(r"epoch[=_](\d+).*?val_loss[=_]([\d.]+)", ckpt_name)
@@ -232,7 +212,7 @@ def parse_checkpoint_name(ckpt_file):
 
 
 
-def run_prediction(config_dir: str, base_dir: str, data_root_dir: str):
+def run_prediction(config_dir: str, base_dir: str, data_root_dir: str, er: EnergyRange):
     args = parse_args()
     current_date, current_time = args.date, args.time
     local_checkpoint = args.checkpoint_date
@@ -247,17 +227,18 @@ def run_prediction(config_dir: str, base_dir: str, data_root_dir: str):
     # predict_logger = setup_logger("predict", dirs["predict_log_file"])
     config = load_model_config(dirs, local_checkpoint, specific_checkpoint)
     
-    device = lock_and_load(config)
+    device, valid_gpus = lock_and_load(config)
     
     datamodule = build_data_module(config=config,
-                                    root_dir=data_root_dir)
+                                    root_dir=data_root_dir,
+                                    er=er)
     
     callbacks = build_callbacks()
     log_training_parameters(config)
     
     trainer = Trainer(
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
-        devices=config['gpu'],
+        devices=valid_gpus,
         callbacks=callbacks,
         log_every_n_steps=1,
         logger=None,
@@ -275,30 +256,25 @@ def run_prediction(config_dir: str, base_dir: str, data_root_dir: str):
 
         print(f"\n🔥 Loading model from {ckpt_file}...")
         model = build_model(config=config, device=device, ckpt_file=ckpt_file_dir)
-        # optimizer, scheduler = build_optimiser_and_scheduler(config=config, model=model, datamodule=datamodule)
-        # model.set_optimiser(optimizer, scheduler)
         model.to(device)
 
         print("🚀 Running predictions...")
-        predictions = trainer.predict(model=model, dataloaders=datamodule.predict_dataloader())
+        predictions = trainer.predict(model=model, dataloaders=datamodule.test_dataloader())
 
         print("💾 Saving predictions...")
         save_predictions(predictions, dirs["predict_dir"], ckpt_file)
 
-
 if __name__ == "__main__":
-    
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
-    # config_dir = "/groups/icecube/cyan/factory/IceCubeTransformer/config/"
-    # config_file = "config_predict.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/PureNu/"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    er = EnergyRange.ER_10_TEV_1_PEV
     start_time = time.time()
     run_prediction(config_dir=config_dir,
                  base_dir=base_dir,
-                 data_root_dir=data_root_dir)
+                 data_root_dir=data_root_dir,
+                 er=er)
     end_time = time.time()
     print(f"Prediction completed in {end_time - start_time:.2f} seconds.")
     

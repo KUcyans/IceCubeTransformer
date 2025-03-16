@@ -5,6 +5,7 @@ import wandb
 import torch
 import logging
 import argparse
+import copy
 
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
@@ -109,7 +110,6 @@ def build_callbacks(config: dict, callback_dir: str):
 
 def setup_directories(base_dir: str, config_dir:str, current_date: str, current_time: str):
     """Create and return directories for logs and checkpoints with a timestamped subdirectory."""
-    
     paths = {
         "log_dir": os.path.join(base_dir, "logs", current_date),
         "checkpoint_dir": os.path.join(base_dir, "checkpoints", current_date, current_time),
@@ -195,6 +195,16 @@ def build_optimiser_and_scheduler(config: dict,
 
     return optimizer, scheduler
 
+def read_and_copy_config(config_file: str, config_copy_path: str):
+    with open(config_file, 'r') as f:
+        original_config = json.load(f)    
+    config = copy.deepcopy(original_config) 
+    
+    with open(config_copy_path, "w") as f:
+        json.dump(config, f, indent=4)
+    return config
+     
+
 def run_training(config_dir: str, 
                  config_file: str, 
                  training_dir: str, 
@@ -202,17 +212,15 @@ def run_training(config_dir: str,
                  er: EnergyRange):
     args = parse_args()
     current_date, current_time = args.date, args.time
-    
-    # ✅ Load Configuration
     project_name = f"[{current_date}] Flavour Classification"
-    with open(config_file, 'r') as f:
-        config = json.load(f)
-
+    
     # ✅ Setup directories and loggers
     dirs = setup_directories(training_dir, config_dir, current_date, current_time)
-    with open(os.path.join(dirs["config_history"], f"{current_date}_{current_time}_config.json"), "w") as f:
-        json.dump(config, f, indent=4)
-
+    
+    # ✅ Load Configuration
+    config_copy_path = os.path.join(dirs["config_history"], f"{current_date}_{current_time}_config.json")
+    config = read_and_copy_config(config_file, config_copy_path)
+    
     # ✅ Secure GPU/CPU!
     device = lock_and_load(config)
 

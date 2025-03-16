@@ -36,11 +36,21 @@ class EncoderBlock(nn.Module):
     def forward(self, x, event_length = None):
         # x shape: (batch_size, seq_len, d_model)
         attn_output = self.attention(x, event_length = event_length)
+        if torch.isnan(x).any():
+            print(f"🚨 NaN detected AFTER ATTENTION in layer {self.layer_idx}!")
+            print(f"🔍 Min/Max: {x.min().item()} / {x.max().item()}")
+            raise ValueError("NaN detected after attention!")
+        
         x = x + attn_output
         # x shape: (batch_size, seq_len, d_model)
         x = self.norm_attention(x)
         
         ffn_output = self.ffn(x)
+        if torch.isnan(x).any():
+            print(f"🚨 NaN detected AFTER FFN in layer {self.layer_idx}!")
+            print(f"🔍 Min/Max: {x.min().item()} / {x.max().item()}")
+            raise ValueError("NaN detected after FFN!")
+        
         x = x + ffn_output
         x = self.norm_ffn(x)
         return x

@@ -8,8 +8,6 @@
 #SBATCH --mem=60G
 #SBATCH --time=120:00:00
 #SBATCH --signal=B:USR1@60
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=cyan.jo@proton.me
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
 
