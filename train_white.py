@@ -6,6 +6,7 @@ import torch
 import logging
 import argparse
 import copy
+from pathlib import Path
 
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import WandbLogger
@@ -31,7 +32,6 @@ def lock_and_load(config):
         selected_gpu = int(config['gpu'][0])
 
         if selected_gpu in available_devices:
-            torch.cuda.empty_cache()
             print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
             device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
             torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
@@ -193,6 +193,7 @@ def build_optimiser_and_scheduler(config: dict,
         'interval': optimizer_config['interval'],
         'frequency': optimizer_config['frequency'],
     }
+
     return optimizer, scheduler
 
 def read_and_copy_config(config_file: str, config_copy_path: str):
@@ -267,7 +268,8 @@ if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
     config_file = "config.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    data_root_dir = Path("/home/cyan_white_tower/project/IceCubeTransformer/PMTfied_filtered/Snowstorm/CC_CRclean_Contained")
     # config_file = "config_35.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()

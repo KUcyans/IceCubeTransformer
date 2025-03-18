@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=predict_script_%j
-#SBATCH --partition=icecube_gpu
+#SBATCH --partition=gr10_gpu
 #SBATCH --ntasks=1
-#SBATCH --nodelist=node161
+#SBATCH --nodelist=node071
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=60G
@@ -29,8 +29,8 @@ echo "Checking allocated GPU..."
 nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-CHECKPOINT_DATE="20250315"
-CHECKPOINT_TIME="214058"
+CHECKPOINT_DATE="20250317"
+CHECKPOINT_TIME="075058"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer

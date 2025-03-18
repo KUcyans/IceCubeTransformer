@@ -267,7 +267,7 @@ def run_prediction(config_dir: str, base_dir: str, data_root_dir: str, er: Energ
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     er = EnergyRange.ER_10_TEV_1_PEV
     start_time = time.time()

@@ -216,13 +216,12 @@ class classification_Transformer(nn.Module):
         device = x.device
 
         input_emb = self.input_embedding(x).to(device)
-        #print("Input emb shape: ", input_emb.shape)
+        # print("Input emb shape: ", input_emb.shape)
         pos_emb = self.position_embedding(torch.arange(seq_dim_x, device=device))
-        pos_emb = pos_emb.unsqueeze(0).expand(x.shape[0], -1, -1)	# Shape: (batch_size, seq_dim, emb_dim)
+        pos_emb = pos_emb.unsqueeze(0).expand(x.shape[0], -1, -1)
+        # Shape: (batch_size, seq_dim, emb_dim)
         
         x = input_emb + pos_emb
-
-        #print("Final emb shape: ", x.shape)
 
         for layer in self.layers:
             x = layer(x, event_lengths=event_lengths)

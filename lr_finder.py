@@ -206,12 +206,13 @@ def run_best_lr(config_file: str, training_dir: str, data_root_dir: str, er: Ene
 if __name__ == "__main__":
     this_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(this_dir, "config")
-    # config_file = "config.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    config_file = "config_35.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    config_file = "config.json"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    # config_file = "config_35.json"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()
-    er = EnergyRange.ER_10_TEV_1_PEV
+    # er = EnergyRange.ER_10_TEV_1_PEV
+    er = EnergyRange.ER_1_PEV_100_PEV
     run_best_lr(config_file=os.path.join(config_dir, config_file),
                     training_dir=this_dir,
                     data_root_dir=data_root_dir,
