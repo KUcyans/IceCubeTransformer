@@ -32,5 +32,20 @@
         "anneal_strategy": "cos",
         "interval": "step",
         "frequency": 1
+    },
+    "verna_scheduler": {
+        "lr_max": 1e-4,
+        "lr_min": 1e-6,
+        "n_sections": 8,
+        "frequency_per_section":4,
+        "lr_decay": "exponential"
+    },
+    "katsura_scheduler": {
+        "first_cycle_steps":26000,
+        "cycle_mult": 1.0,
+        "max_lr": 1e-4,
+        "min_lr": 3e-7,
+        "warmup_steps": 2000,
+        "gamma": 0.66,
     }
 }

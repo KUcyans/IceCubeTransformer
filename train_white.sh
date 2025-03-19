@@ -25,8 +25,8 @@ conda activate icecube_transformer
 export PATH="/usr/local/cuda/bin:$PATH"
 export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
-# Run the script with nohup and disown to detach
-nohup python -u train_white.py --date "$datestamp" --time "$timestamp" > "${logfile}" 2>&1 &
+# Run the script using an interactive bash shell to ensure Conda is activated
+nohup bash -i -c "python -u train_white.py --date \"$datestamp\" --time \"$timestamp\"" > "${logfile}" 2>&1 &
 
 # Capture the PID of the background process
 JOB_PID=$!

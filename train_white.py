@@ -14,7 +14,7 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, Ea
 from pytorch_lightning.tuner.tuning import Tuner
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
-from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
+from TrainingUtils.LocalMinimumCheckpoint import LocalMinimumCheckpoint
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour

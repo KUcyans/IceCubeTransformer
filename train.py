@@ -13,10 +13,13 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, Ea
 from pytorch_lightning.tuner.tuning import Tuner
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
-from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
+from TrainingUtils.LocalMinimumCheckpoint import LocalMinimumCheckpoint
+from TrainingUtils.VernaCosineAnnealingWarmRestarts import VernaCosineAnnealingWarmRestarts
+from TrainingUtils.KatsuraCosineAnnealingWarmupRestarts import CosineAnnealingWarmupRestarts
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
+from Enum.VernaLRDecayMode import LrDecay
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -166,33 +169,62 @@ def build_optimiser_and_scheduler(config: dict,
     optimizer_config = config['optimizer']
     optimizer = torch.optim.AdamW(
         model.parameters(),
-        lr=optimizer_config['lr_max']/optimizer_config['div_factor'],
+        lr=optimizer_config['lr_max'],
         betas=tuple(optimizer_config['betas']),
         eps=optimizer_config['eps'],
         weight_decay=optimizer_config['weight_decay'],
         amsgrad=optimizer_config['amsgrad']
     )
-    # steps_per_epoch = max(len(datamodule.train_dataloader()), 1)  # Prevent division by zero
-    # total_N_steps = config["n_epochs"] * steps_per_epoch
+    steps_per_epoch = max(len(datamodule.train_dataloader()), 1)  # Prevent division by zero
+    total_N_steps = config["n_epochs"] * steps_per_epoch
 
-    total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
+    # total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
+    # scheduler = {
+    #     'scheduler': torch.optim.lr_scheduler.OneCycleLR(
+    #         optimizer,
+    #         max_lr=optimizer_config['lr_max'],
+    #         epochs=config['n_epochs'],
+    #         total_steps=total_N_steps,
+    #         # steps_per_epoch= steps_per_epoch,
+    #         pct_start=optimizer_config['pct_start'],
+    #         div_factor=optimizer_config['div_factor'],
+    #         max_momentum=optimizer_config['max_momentum'],
+    #         base_momentum=optimizer_config['base_momentum'],
+    #         final_div_factor=optimizer_config['final_div_factor'],
+    #         anneal_strategy=optimizer_config['anneal_strategy']
+    #     ),
+    #     'interval': optimizer_config['interval'],
+    #     'frequency': optimizer_config['frequency'],
+    # }
+    # verna_scheduler_config = config['verna_scheduler']
+    # scheduler = {
+    #     'scheduler': VernaCosineAnnealingWarmRestarts(
+    #         optimizer, 
+    #         lr_max=verna_scheduler_config['lr_max'],
+    #         lr_min=verna_scheduler_config['lr_min'],
+    #         total_steps=total_N_steps,
+    #         frequency_per_section=verna_scheduler_config['frequency_per_section'],
+    #         n_sections=verna_scheduler_config['n_sections'],
+    #         lr_decay=LrDecay.from_str(verna_scheduler_config['lr_decay']),
+    #     ),
+    #     'interval': 'epoch',
+    #     'frequency': 1,
+    # }
+    katsura_scheduler_config = config['katsura_scheduler']
     scheduler = {
-        'scheduler': torch.optim.lr_scheduler.OneCycleLR(
-            optimizer,
-            max_lr=optimizer_config['lr_max'],
-            epochs=config['n_epochs'],
-            total_steps=total_N_steps,
-            # steps_per_epoch= steps_per_epoch,
-            pct_start=optimizer_config['pct_start'],
-            div_factor=optimizer_config['div_factor'],
-            max_momentum=optimizer_config['max_momentum'],
-            base_momentum=optimizer_config['base_momentum'],
-            final_div_factor=optimizer_config['final_div_factor'],
-            anneal_strategy=optimizer_config['anneal_strategy']
+        'scheduler': CosineAnnealingWarmupRestarts(
+            optimizer, 
+            first_cycle_steps=katsura_scheduler_config['first_cycle_steps'],
+            cycle_mult=katsura_scheduler_config['cycle_mult'],
+            max_lr=katsura_scheduler_config['max_lr'],
+            min_lr=katsura_scheduler_config['min_lr'],
+            warmup_steps=katsura_scheduler_config['warmup_steps'],
+            gamma=katsura_scheduler_config['gamma'],
         ),
-        'interval': optimizer_config['interval'],
-        'frequency': optimizer_config['frequency'],
+        'interval': 'step',
+        'frequency': 1,
     }
+
     return optimizer, scheduler
 
 def read_and_copy_config(config_file: str, config_copy_path: str):

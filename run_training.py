@@ -11,7 +11,7 @@ from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, EarlyStopping, TQDMProgressBar
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
-from Model.LocalMinimumCheckpoint import LocalMinimumCheckpoint
+from factory.IceCubeTransformer.TrainingUtils.LocalMinimumCheckpoint import LocalMinimumCheckpoint
 from SnowyDataSocket.MultiPartDataModule import MultiPartDataModule
 
 import sys
