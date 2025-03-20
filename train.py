@@ -19,7 +19,7 @@ from TrainingUtils.KatsuraCosineAnnealingWarmupRestarts import CosineAnnealingWa
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
-from factory.IceCubeTransformer.Enum.LrDecayMode import LrDecay
+from Enum.LrDecayMode import LrDecayMode
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -175,42 +175,37 @@ def build_optimiser_and_scheduler(config: dict,
         weight_decay=optimizer_config['weight_decay'],
         amsgrad=optimizer_config['amsgrad']
     )
-    steps_per_epoch = max(len(datamodule.train_dataloader()), 1)  # Prevent division by zero
-    total_N_steps = config["n_epochs"] * steps_per_epoch
+    # steps_per_epoch = max(len(datamodule.train_dataloader()), 1)  # Prevent division by zero
+    # total_N_steps = config["n_epochs"] * steps_per_epoch
 
-    # total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
-    # scheduler = {
-    #     'scheduler': torch.optim.lr_scheduler.OneCycleLR(
-    #         optimizer,
-    #         max_lr=optimizer_config['lr_max'],
-    #         epochs=config['n_epochs'],
-    #         total_steps=total_N_steps,
-    #         # steps_per_epoch= steps_per_epoch,
-    #         pct_start=optimizer_config['pct_start'],
-    #         div_factor=optimizer_config['div_factor'],
-    #         max_momentum=optimizer_config['max_momentum'],
-    #         base_momentum=optimizer_config['base_momentum'],
-    #         final_div_factor=optimizer_config['final_div_factor'],
-    #         anneal_strategy=optimizer_config['anneal_strategy']
-    #     ),
-    #     'interval': optimizer_config['interval'],
-    #     'frequency': optimizer_config['frequency'],
-    # }
-    
-    equinox_scheduler_config = config['equinox_scheduler']
+    total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
     scheduler = {
-        'scheduler': EquinoxDecayingAsymmetricSinusoidal(
-            optimizer, 
-            lr_max=equinox_scheduler_config['lr_max'],
-            lr_min=equinox_scheduler_config['lr_min'],
+        'scheduler': torch.optim.lr_scheduler.OneCycleLR(
+            optimizer,
+            max_lr=optimizer_config['lr_max'],
+            epochs=config['n_epochs'],
             total_steps=total_N_steps,
-            frequency_per_section=equinox_scheduler_config['frequency_per_section'],
-            n_sections=equinox_scheduler_config['n_sections'],
-            lr_decay=LrDecay.from_str(equinox_scheduler_config['lr_decay']),
+            pct_start=optimizer_config['pct_start'],
+            div_factor=optimizer_config['div_factor'],
+            max_momentum=optimizer_config['max_momentum'],
+            base_momentum=optimizer_config['base_momentum'],
+            final_div_factor=optimizer_config['final_div_factor'],
+            anneal_strategy=optimizer_config['anneal_strategy']
         ),
-        'interval': 'step',
-        'frequency': 1,
     }
+    
+    # equinox_scheduler_config = config['equinox_scheduler']
+    # scheduler = {
+    #     'scheduler': EquinoxDecayingAsymmetricSinusoidal(
+    #         optimizer, 
+    #         lr_max=equinox_scheduler_config['lr_max'],
+    #         lr_min=equinox_scheduler_config['lr_min'],
+    #         total_steps=total_N_steps,
+    #         frequency_per_section=equinox_scheduler_config['frequency_per_section'],
+    #         n_sections=equinox_scheduler_config['n_sections'],
+    #         lr_decay=LrDecayMode.from_str(equinox_scheduler_config['lr_decay']),
+    #     ),
+    # }
     
     # katsura_scheduler_config = config['katsura_scheduler']
     # scheduler = {
@@ -223,14 +218,12 @@ def build_optimiser_and_scheduler(config: dict,
     #         warmup_steps=katsura_scheduler_config['warmup_steps'],
     #         gamma=katsura_scheduler_config['gamma'],
     #     ),
-    #     'interval': 'step',
-    #     'frequency': 1,
     # }
     return {"optimizer": optimizer, 
             "lr_scheduler": {
                 "scheduler": scheduler['scheduler'],
-                "interval": "step",
-                "frequency": 1,
+                "interval": optimizer_config['interval'],
+                "frequency": optimizer_config['frequency'],
             }
     }
 
@@ -305,10 +298,10 @@ def run_training(config_dir: str,
 if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
-    config_file = "config.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    # config_file = "config_35.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    # config_file = "config.json"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    config_file = "config_35.json"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()
     # er = EnergyRange.ER_10_TEV_1_PEV
     er = EnergyRange.ER_1_PEV_100_PEV

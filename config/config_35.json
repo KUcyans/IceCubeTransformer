@@ -1,19 +1,19 @@
 {
     "batch_size": 64,
     "num_workers": 4,
-    "embedding_dim": 512,
+    "embedding_dim": 256,
     "d_input": 35,
     "event_length": 128,
-    "n_layers": 10,
-    "n_heads": 8,
+    "n_layers": 8,
+    "n_heads": 4,
     "output_dim": 3,
-    "n_epochs": 50,
-    "patience": 50,
+    "n_epochs": 500,
+    "patience": 500,
     "dropout": 0.01,
-    "attention": "innocent",
-    "N_events_nu_e": 100000,
-    "N_events_nu_mu": 100000,
-    "N_events_nu_tau": 100000,
+    "attention": "scaled_dot",
+    "N_events_nu_e": 20000,
+    "N_events_nu_mu": 20000,
+    "N_events_nu_tau": 20000,
     "frac_train": 0.7,
     "frac_val": 0.2,
     "frac_test": 0.1,
@@ -32,5 +32,20 @@
         "anneal_strategy": "cos",
         "interval": "step",
         "frequency": 1
+    },
+    "equinox_scheduler": {
+        "lr_max": 3e-4,
+        "lr_min": 3e-7,
+        "n_sections": 10,
+        "frequency_per_section":4,
+        "lr_decay": "linear"
+    },
+    "katsura_scheduler": {
+        "first_cycle_steps":26000,
+        "cycle_mult": 1.0,
+        "max_lr": 1e-4,
+        "min_lr": 3e-7,
+        "warmup_steps": 2000,
+        "gamma": 0.66
     }
 }
