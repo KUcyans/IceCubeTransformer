@@ -2,7 +2,7 @@ from enum import Enum
 class LrDecayMode(Enum):
     LINEAR = 'linear'
     EXPONENTIAL = 'exponential'
-    COSINE = 'cosine'
+    COSINE = 'cos'
     
     @staticmethod
     def from_str(value: str) -> 'LrDecayMode':

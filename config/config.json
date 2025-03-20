@@ -27,24 +27,24 @@
         "eps": 1e-8,
         "weight_decay": 0,
         "amsgrad": true, 
-        "base_momentum": 0.85,
-        "max_momentum": 0.95,
-        "anneal_strategy": "cos",
         "interval": "step",
         "frequency": 1
     },
-    "onecycle_scheduler":{
+    "one_cycle_scheduler":{
         "pct_start": 0.025,
         "lr_max": 3e-4,
         "div_factor": 5,
         "final_div_factor": 1e2,
+        "anneal_strategy": "cos",
+        "base_momentum": 0.85,
+        "max_momentum": 0.95,
     },
     "equinox_scheduler": {
         "lr_max": 1e-4,
         "lr_min": 3e-7,
         "n_sections": 6,
         "frequency_per_section":4,
-        "lr_decay": "cosine"
+        "lr_decay": "cos"
     },
     "katsura_scheduler": {
         "first_cycle_steps":26000,

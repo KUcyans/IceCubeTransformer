@@ -179,18 +179,20 @@ def build_optimiser_and_scheduler(config: dict,
     # total_N_steps = config["n_epochs"] * steps_per_epoch
 
     total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
+    
+    one_cycle_scheduler_config = config['one_cycle_scheduler']
     scheduler = {
         'scheduler': torch.optim.lr_scheduler.OneCycleLR(
             optimizer,
-            max_lr=optimizer_config['lr_max'],
             epochs=config['n_epochs'],
             total_steps=total_N_steps,
-            pct_start=optimizer_config['pct_start'],
-            div_factor=optimizer_config['div_factor'],
-            max_momentum=optimizer_config['max_momentum'],
-            base_momentum=optimizer_config['base_momentum'],
-            final_div_factor=optimizer_config['final_div_factor'],
-            anneal_strategy=optimizer_config['anneal_strategy']
+            pct_start=one_cycle_scheduler_config['pct_start'],
+            max_lr=one_cycle_scheduler_config['lr_max'],
+            div_factor=one_cycle_scheduler_config['div_factor'],
+            final_div_factor=one_cycle_scheduler_config['final_div_factor'],
+            max_momentum=one_cycle_scheduler_config['max_momentum'],
+            base_momentum=one_cycle_scheduler_config['base_momentum'],
+            anneal_strategy=one_cycle_scheduler_config['anneal_strategy']
         ),
     }
     
@@ -298,10 +300,10 @@ def run_training(config_dir: str,
 if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
-    # config_file = "config.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    config_file = "config_35.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    config_file = "config.json"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    # config_file = "config_35.json"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     start_time = time.time()
     # er = EnergyRange.ER_10_TEV_1_PEV
     er = EnergyRange.ER_1_PEV_100_PEV
