@@ -17,8 +17,6 @@ from Enum.Flavour import Flavour
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Prediction Script with Timestamped Logs")
     parser.add_argument("--date", type=str, required=True, help="Execution date in YYYYMMDD format")
@@ -267,9 +265,10 @@ def run_prediction(config_dir: str, base_dir: str, data_root_dir: str, er: Energ
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
-    er = EnergyRange.ER_10_TEV_1_PEV
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    # er = EnergyRange.ER_10_TEV_1_PEV
+    er = EnergyRange.ER_1_PEV_100_PEV
     start_time = time.time()
     run_prediction(config_dir=config_dir,
                  base_dir=base_dir,

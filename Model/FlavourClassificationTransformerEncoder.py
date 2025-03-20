@@ -346,23 +346,32 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         print(f"GPU Memory Allocated: {torch.cuda.memory_allocated() / 1024 ** 2:.2f} MB")
         print(f"GPU Memory Cached: {torch.cuda.memory_reserved() / 1024 ** 2:.2f} MB")
 
-    def set_optimiser(self, optimiser, scheduler):
-        self.custom_optimizers = [optimiser]
-        self.custom_schedulers = [scheduler]
+    def set_optimiser(self, optimiser_and_scheduler):
+        """Save the optimizer and scheduler with interval & frequency."""
+        self.custom_optimizers = [optimiser_and_scheduler["optimizer"]]
+        self.custom_schedulers = [optimiser_and_scheduler["lr_scheduler"]["scheduler"]]
+        self.custom_interval = optimiser_and_scheduler["lr_scheduler"]["interval"]  # ✅ Store interval
+        self.custom_frequency = optimiser_and_scheduler["lr_scheduler"]["frequency"]  # ✅ Store frequency
 
     def configure_optimizers(self):
+        """PyTorch Lightning calls this function to get the optimizer & scheduler."""
         if hasattr(self, "custom_optimizers") and self.custom_optimizers:
             optimizer = self.custom_optimizers[0]
             scheduler = self.custom_schedulers[0]
 
-            return {"optimizer": optimizer, "lr_scheduler": scheduler}
+            config = {
+                "optimizer": optimizer,
+                "lr_scheduler": {
+                    "scheduler": scheduler,  # ✅ Use the stored scheduler
+                    "interval": self.custom_interval,  # ✅ Use stored interval
+                    "frequency": self.custom_frequency  # ✅ Use stored frequency
+                }
+            }
+            
+            print(f"⚡ DEBUG: Optimizer & Scheduler returned -> {config}")
+            return config
 
         else:
             print("⚠️ Warning: Using default optimizer (AdamW) as none was set.")
             optimizer = torch.optim.AdamW(self.parameters(), lr=self.lr)
             return optimizer
-
-
-
-
-

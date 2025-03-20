@@ -14,12 +14,12 @@ from pytorch_lightning.tuner.tuning import Tuner
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
 from TrainingUtils.LocalMinimumCheckpoint import LocalMinimumCheckpoint
-from TrainingUtils.VernaCosineAnnealingWarmRestarts import VernaCosineAnnealingWarmRestarts
+from TrainingUtils.EquinoxDecayingAsymmetricSinusoidal import EquinoxDecayingAsymmetricSinusoidal
 from TrainingUtils.KatsuraCosineAnnealingWarmupRestarts import CosineAnnealingWarmupRestarts
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
-from Enum.VernaLRDecayMode import LrDecay
+from factory.IceCubeTransformer.Enum.LrDecayMode import LrDecay
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -134,7 +134,7 @@ def build_model(config: dict,
         n_heads=config['n_heads'],
         d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
-        d_input= config['d_input'],
+        d_input=config['d_input'],
         num_classes=config['output_dim'],
         seq_len=config['event_length'],
         attention_type=config['attention'],
@@ -196,36 +196,43 @@ def build_optimiser_and_scheduler(config: dict,
     #     'interval': optimizer_config['interval'],
     #     'frequency': optimizer_config['frequency'],
     # }
-    # verna_scheduler_config = config['verna_scheduler']
-    # scheduler = {
-    #     'scheduler': VernaCosineAnnealingWarmRestarts(
-    #         optimizer, 
-    #         lr_max=verna_scheduler_config['lr_max'],
-    #         lr_min=verna_scheduler_config['lr_min'],
-    #         total_steps=total_N_steps,
-    #         frequency_per_section=verna_scheduler_config['frequency_per_section'],
-    #         n_sections=verna_scheduler_config['n_sections'],
-    #         lr_decay=LrDecay.from_str(verna_scheduler_config['lr_decay']),
-    #     ),
-    #     'interval': 'epoch',
-    #     'frequency': 1,
-    # }
-    katsura_scheduler_config = config['katsura_scheduler']
+    
+    equinox_scheduler_config = config['equinox_scheduler']
     scheduler = {
-        'scheduler': CosineAnnealingWarmupRestarts(
+        'scheduler': EquinoxDecayingAsymmetricSinusoidal(
             optimizer, 
-            first_cycle_steps=katsura_scheduler_config['first_cycle_steps'],
-            cycle_mult=katsura_scheduler_config['cycle_mult'],
-            max_lr=katsura_scheduler_config['max_lr'],
-            min_lr=katsura_scheduler_config['min_lr'],
-            warmup_steps=katsura_scheduler_config['warmup_steps'],
-            gamma=katsura_scheduler_config['gamma'],
+            lr_max=equinox_scheduler_config['lr_max'],
+            lr_min=equinox_scheduler_config['lr_min'],
+            total_steps=total_N_steps,
+            frequency_per_section=equinox_scheduler_config['frequency_per_section'],
+            n_sections=equinox_scheduler_config['n_sections'],
+            lr_decay=LrDecay.from_str(equinox_scheduler_config['lr_decay']),
         ),
         'interval': 'step',
         'frequency': 1,
     }
-
-    return optimizer, scheduler
+    
+    # katsura_scheduler_config = config['katsura_scheduler']
+    # scheduler = {
+    #     'scheduler': CosineAnnealingWarmupRestarts(
+    #         optimizer, 
+    #         first_cycle_steps=katsura_scheduler_config['first_cycle_steps'],
+    #         cycle_mult=katsura_scheduler_config['cycle_mult'],
+    #         max_lr=katsura_scheduler_config['max_lr'],
+    #         min_lr=katsura_scheduler_config['min_lr'],
+    #         warmup_steps=katsura_scheduler_config['warmup_steps'],
+    #         gamma=katsura_scheduler_config['gamma'],
+    #     ),
+    #     'interval': 'step',
+    #     'frequency': 1,
+    # }
+    return {"optimizer": optimizer, 
+            "lr_scheduler": {
+                "scheduler": scheduler['scheduler'],
+                "interval": "step",
+                "frequency": 1,
+            }
+    }
 
 def read_and_copy_config(config_file: str, config_copy_path: str):
     with open(config_file, 'r') as f:
@@ -265,12 +272,12 @@ def run_training(config_dir: str,
                         device=device,)
 
     # ✅ Build Optimizer (after DataModule setup to get train_dataloader_length)
-    optimiser, scheduler = build_optimiser_and_scheduler(config=config, 
+    optimiser_and_scheduler = build_optimiser_and_scheduler(config=config, 
                                 model=model, 
                                 datamodule=datamodule)
 
     # ✅ Assign optimizer to DataModule
-    model.set_optimiser(optimiser, scheduler)
+    model.set_optimiser(optimiser_and_scheduler)
 
     # ✅ Build Callbacks
     callbacks = build_callbacks(config=config, callback_dir=dirs["checkpoint_dir"])
