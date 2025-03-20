@@ -368,7 +368,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 }
             }
             
-            print(f"⚡ DEBUG: Optimizer & Scheduler returned -> {config}")
             return config
 
         else:

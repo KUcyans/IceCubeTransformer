@@ -180,34 +180,34 @@ def build_optimiser_and_scheduler(config: dict,
 
     total_N_steps = config['n_epochs'] * len(datamodule.train_dataloader())
     
-    one_cycle_scheduler_config = config['one_cycle_scheduler']
-    scheduler = {
-        'scheduler': torch.optim.lr_scheduler.OneCycleLR(
-            optimizer,
-            epochs=config['n_epochs'],
-            total_steps=total_N_steps,
-            pct_start=one_cycle_scheduler_config['pct_start'],
-            max_lr=one_cycle_scheduler_config['lr_max'],
-            div_factor=one_cycle_scheduler_config['div_factor'],
-            final_div_factor=one_cycle_scheduler_config['final_div_factor'],
-            max_momentum=one_cycle_scheduler_config['max_momentum'],
-            base_momentum=one_cycle_scheduler_config['base_momentum'],
-            anneal_strategy=one_cycle_scheduler_config['anneal_strategy']
-        ),
-    }
-    
-    # equinox_scheduler_config = config['equinox_scheduler']
+    # one_cycle_scheduler_config = config['one_cycle_scheduler']
     # scheduler = {
-    #     'scheduler': EquinoxDecayingAsymmetricSinusoidal(
-    #         optimizer, 
-    #         lr_max=equinox_scheduler_config['lr_max'],
-    #         lr_min=equinox_scheduler_config['lr_min'],
+    #     'scheduler': torch.optim.lr_scheduler.OneCycleLR(
+    #         optimizer,
+    #         epochs=config['n_epochs'],
     #         total_steps=total_N_steps,
-    #         frequency_per_section=equinox_scheduler_config['frequency_per_section'],
-    #         n_sections=equinox_scheduler_config['n_sections'],
-    #         lr_decay=LrDecayMode.from_str(equinox_scheduler_config['lr_decay']),
+    #         pct_start=one_cycle_scheduler_config['pct_start'],
+    #         max_lr=one_cycle_scheduler_config['lr_max'],
+    #         div_factor=one_cycle_scheduler_config['div_factor'],
+    #         final_div_factor=one_cycle_scheduler_config['final_div_factor'],
+    #         max_momentum=one_cycle_scheduler_config['max_momentum'],
+    #         base_momentum=one_cycle_scheduler_config['base_momentum'],
+    #         anneal_strategy=one_cycle_scheduler_config['anneal_strategy']
     #     ),
     # }
+    
+    equinox_scheduler_config = config['equinox_scheduler']
+    scheduler = {
+        'scheduler': EquinoxDecayingAsymmetricSinusoidal(
+            optimizer, 
+            lr_max=equinox_scheduler_config['lr_max'],
+            lr_min=equinox_scheduler_config['lr_min'],
+            total_steps=total_N_steps,
+            frequency_per_section=equinox_scheduler_config['frequency_per_section'],
+            n_sections=equinox_scheduler_config['n_sections'],
+            lr_decay=LrDecayMode.from_str(equinox_scheduler_config['lr_decay']),
+        ),
+    }
     
     # katsura_scheduler_config = config['katsura_scheduler']
     # scheduler = {
@@ -304,9 +304,9 @@ if __name__ == "__main__":
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     # config_file = "config_35.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
-    start_time = time.time()
     # er = EnergyRange.ER_10_TEV_1_PEV
     er = EnergyRange.ER_1_PEV_100_PEV
+    start_time = time.time()
     run_training(config_dir=config_dir,
                     config_file=os.path.join(config_dir, config_file),
                     training_dir=training_dir,

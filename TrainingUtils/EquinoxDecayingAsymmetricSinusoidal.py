@@ -81,17 +81,18 @@ class EquinoxDecayingAsymmetricSinusoidal(_LRScheduler):
     def _get_section_floor(self, section_index: int):
         return self._get_section_ceiling(section_index + 1)
     
+    # asymmetric sinusoidal core
     def adapted_asymmetric_sinusoidal(self, n, x, amplitude, height):
         y = self.asymmetric_sinusoidal_unit(n, x)
         return height + y * amplitude
 
-    def asymmetric_sinusoidal_core(self, n, x, shift=0):
+    def asymmetric_sinusoidal_core(self, n, x, wavelength=1, shift=0):
         total = np.zeros_like(x, dtype=np.float64)
         bin_coeff_denominator = math.comb(2 * n, n)
 
         for k in range(1, n + 1):
             bin_coeff = math.comb(2 * n, n - k)
-            term = (bin_coeff / (bin_coeff_denominator * k)) * np.sin(k * (x + shift))
+            term = (bin_coeff / (bin_coeff_denominator * k)) * np.sin(k * wavelength *(x + shift))
             total += term
 
         return total
