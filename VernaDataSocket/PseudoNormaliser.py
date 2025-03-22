@@ -18,7 +18,7 @@ class PseudoNormaliser:
         return features_np
 
     def _log10_charge(self, features_np: np.ndarray, column_names: list[str]) -> np.ndarray:
-        q_columns = ['q1', 'q2', 'q3', 'q4', 'q5', 'Q25', 'Q75', 'Qtotal']
+        q_columns = ['q1', 'q2', 'q3', 'q4', 'q5', 'Q25', 'Q75', 'Qtotal', 'Q_halftime']
         for col_name in q_columns:
             if col_name in column_names:
                 idx = column_names.index(col_name)
@@ -26,7 +26,8 @@ class PseudoNormaliser:
         return features_np
 
     def _pseudo_normalise_dom_pos(self, features_np: np.ndarray, column_names: list[str]) -> np.ndarray:
-        pos_columns = ['dom_x', 'dom_y', 'dom_z', 'dom_x_rel', 'dom_y_rel', 'dom_z_rel']
+        pos_columns = ['dom_x', 'dom_y', 'dom_z', 'dom_x_rel', 'dom_y_rel', 'dom_z_rel', 
+                       'eccentricity_PCA', 'aspect_contrast_PCA', 'hypotenuse']
         for col_name in pos_columns:
             if col_name in column_names:
                 idx = column_names.index(col_name)
@@ -34,8 +35,9 @@ class PseudoNormaliser:
         return features_np
 
     def _pseudo_normalise_time(self, features_np: np.ndarray, column_names: list[str]) -> np.ndarray:
-        t_columns_shift = ['t1', 't2', 't3']
-        t_columns_scale = ['t1', 't2', 't3', 'T10', 'T50', 'sigmaT']
+        t_columns_shift = ['t1', 't2', 't3', 't4', 't5', 't_qmax', 't_qmax_secondhalf']
+        t_columns_scale = ['t1', 't2', 't3', 't4', 't5', 't_qmax', 't_qmax_secondhalf', 
+                           'T10', 'T50', 'T70', 'T90', 'sigmaT']
 
         # Time shift first
         for col_name in t_columns_shift:
