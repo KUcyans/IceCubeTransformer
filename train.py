@@ -302,10 +302,12 @@ if __name__ == "__main__":
     config_dir = os.path.join(training_dir, "config")
     # config_file = "config.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    config_file = "config_35.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
-    er = EnergyRange.ER_10_TEV_1_PEV
-    # er = EnergyRange.ER_1_PEV_100_PEV
+    # config_file = "config_35.json"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    config_file = "config_40.json"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
+    # er = EnergyRange.ER_10_TEV_1_PEV
+    er = EnergyRange.ER_1_PEV_100_PEV
     start_time = time.time()
     run_training(config_dir=config_dir,
                     config_file=os.path.join(config_dir, config_file),
