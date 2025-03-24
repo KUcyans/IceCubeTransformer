@@ -20,6 +20,7 @@ from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
 from Enum.LrDecayMode import LrDecayMode
+from Enum.ClassificationMode import ClassificationMode
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -143,7 +144,7 @@ def build_model(config: dict,
     return model.to(device)
 
 
-def build_data_module(config: dict, er: EnergyRange, root_dir: str):
+def build_data_module(config: dict, er: EnergyRange, root_dir: str, root_dir_corsika: str = None):
     """Build and return the datamodule."""
     datamodule = MultiFlavourDataModule(
         root_dir=root_dir,
@@ -151,12 +152,15 @@ def build_data_module(config: dict, er: EnergyRange, root_dir: str):
         N_events_nu_e=config['N_events_nu_e'],
         N_events_nu_mu=config['N_events_nu_mu'],
         N_events_nu_tau=config['N_events_nu_tau'],
+        N_events_noise=config['N_events_noise'],
         event_length=config['event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
         frac_train=config['frac_train'],
         frac_val=config['frac_val'],
         frac_test=config['frac_test'],
+        classification_mode=ClassificationMode.from_string(config['classification_mode']),
+        root_dir_corsika=root_dir_corsika,
     )
     datamodule.setup(stage="fit")
     return datamodule
@@ -243,6 +247,7 @@ def run_training(config_dir: str,
                  config_file: str, 
                  training_dir: str, 
                  data_root_dir: str,
+                 data_root_dir_corsika: str,
                  er: EnergyRange):
     args = parse_args()
     current_date, current_time = args.date, args.time
@@ -261,7 +266,8 @@ def run_training(config_dir: str,
     # ✅ Build DataModule (without optimizer first)
     datamodule = build_data_module(config=config, 
                                    er=er,
-                                   root_dir=data_root_dir)
+                                   root_dir=data_root_dir,
+                                   root_dir_corsika=data_root_dir_corsika)
     # ✅ Build Model
     model = build_model(config=config, 
                         device=device,)
@@ -302,17 +308,24 @@ if __name__ == "__main__":
     config_dir = os.path.join(training_dir, "config")
     # config_file = "config.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
+    
     # config_file = "config_35.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second_round/Corsika"
+    
     config_file = "config_40.json"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
-    # er = EnergyRange.ER_10_TEV_1_PEV
-    er = EnergyRange.ER_1_PEV_100_PEV
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_third/Corsika"
+    
+    er = EnergyRange.ER_10_TEV_1_PEV
+    # er = EnergyRange.ER_1_PEV_100_PEV
     start_time = time.time()
     run_training(config_dir=config_dir,
                     config_file=os.path.join(config_dir, config_file),
                     training_dir=training_dir,
                     data_root_dir=data_root_dir,
+                    data_root_dir_corsika=data_root_dir_corsika,
                     er=er)
     end_time = time.time()
     print(f"Training completed in {time.strftime('%d:%H:%M:%S', time.gmtime(end_time - start_time))}")

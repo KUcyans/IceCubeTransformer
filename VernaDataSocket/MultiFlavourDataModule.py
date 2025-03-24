@@ -4,6 +4,7 @@ from torch.utils.data import DataLoader
 import pytorch_lightning as pl
 from Enum.Flavour import Flavour
 from Enum.EnergyRange import EnergyRange
+from Enum.ClassificationMode import ClassificationMode
 
 class MultiFlavourDataModule(pl.LightningDataModule):
     def __init__(self, 
@@ -12,12 +13,15 @@ class MultiFlavourDataModule(pl.LightningDataModule):
                  N_events_nu_e: int,
                  N_events_nu_mu: int,
                  N_events_nu_tau: int,
+                 N_events_noise: int,
                  event_length: int,
                  batch_size: int,
                  num_workers: int, 
                  frac_train: float,
                  frac_val: float,
                  frac_test: float,
+                 classification_mode: ClassificationMode = ClassificationMode.MULTIFLAVOUR,
+                 root_dir_corsika=None,
                  selection=None, 
                  order_by_this_column="Qtotal"):
         super().__init__()
@@ -26,10 +30,13 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         self.N_events_nu_e = N_events_nu_e
         self.N_events_nu_mu = N_events_nu_mu
         self.N_events_nu_tau = N_events_nu_tau
+        self.N_events_noise = N_events_noise
         self.event_length = event_length
         self.batch_size = batch_size
         self.num_workers = num_workers
         self._build_frac(frac_train, frac_val, frac_test)
+        self.classification_mode = classification_mode
+        self.root_dir_corsika = root_dir_corsika
         self.selection = selection
         self.order_by_this_column = order_by_this_column
 
@@ -44,6 +51,9 @@ class MultiFlavourDataModule(pl.LightningDataModule):
                 N_events_nu_e=self.N_events_nu_e,
                 N_events_nu_mu=self.N_events_nu_mu,
                 N_events_nu_tau=self.N_events_nu_tau,
+                N_events_noise=self.N_events_noise,
+                classification_mode=self.classification_mode,
+                root_dir_corsika=self.root_dir_corsika,
                 selection=self.selection
             )
 

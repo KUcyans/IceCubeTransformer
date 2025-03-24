@@ -35,5 +35,4 @@ source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer
 python -u train.py --date "$datestamp" --time "$timestamp"
 
-
 echo "Job completed at $(date)"

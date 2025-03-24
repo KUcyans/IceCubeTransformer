@@ -8,28 +8,21 @@ from torch.utils.data import Dataset
 from .PseudoNormaliser import PseudoNormaliser
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
-from Enum.ClassificationMode import ClassificationMode
 
-class MonoFlavourDataset(Dataset):
-    """Dataset for a single neutrino flavour spanning multiple truth files with two-file caching."""
-
+class NoiseDataset(Dataset):
     IDENTIFICATION = ["event_no", "offset", "shard_no", "N_doms"]
     TARGET = ["pid"]
     REQUIRED_COLUMNS = IDENTIFICATION + TARGET
 
     def __init__(self, 
-                 root_dir: str,
-                 er: EnergyRange,
-                 flavour: Flavour,
-                 N_events_monodataset: int,
-                 classification_mode: ClassificationMode = ClassificationMode.MULTIFLAVOUR,
+                 root_dir: str, # CORSIKA
+                 N_events_noise: int,
                  selection: list = None) -> None:
         self.root_dir = root_dir
-        self.subdirectory_no = EnergyRange.get_subdir(er, flavour)
-        self.N_events_monodataset = N_events_monodataset
+        self.N_events_noise = N_events_noise
+        self.subdirectory_no = "0003000-0003999"
         self.truth_file_dir = os.path.join(self.root_dir, f"{self.subdirectory_no}")
         self.transform = PseudoNormaliser()
-        self.classification_mode = classification_mode
         self.selection = selection
 
         self.truth_files = sorted(
@@ -151,32 +144,10 @@ class MonoFlavourDataset(Dataset):
         features_tensor = torch.tensor(features_np, dtype=torch.float32)
 
         # ✅ Encode target
-        if self.classification_mode == ClassificationMode.MULTIFLAVOUR:
-            target = self._encode_target_multiflavour(row.column("pid")[0].as_py())
-        elif self.classification_mode == ClassificationMode.TRACK_CASCADE_BINARY:
-            target = self._encode_target_track_cascade_binary(row.column("pid")[0].as_py())
-        elif self.classification_mode == ClassificationMode.SIGNAL_NOISE_BINARY:
-            target = self._encode_target_signal_noise_binary(row.column("pid")[0].as_py())
-        else:
-            raise ValueError(f"Invalid classification mode: {self.classification_mode}")
+        target = self._encode_target_signal_noise_binary(row.column("pid")[0].as_py())
 
         return features_tensor, target
 
-    def _encode_target_multiflavour(self, pid):
-        """Encode particle ID as a one-hot vector."""
-        pid_to_one_hot = {
-            12: [1, 0, 0], -12: [1, 0, 0],
-            14: [0, 1, 0], -14: [0, 1, 0],
-            16: [0, 0, 1], -16: [0, 0, 1]
-        }
-        return torch.tensor(pid_to_one_hot.get(pid, [0, 0, 0]), dtype=torch.float32)
-    
-    def _encode_target_track_cascade_binary(self, pid):
-        pid_to_one_hot = {
-            12: [1, 0], -12: [1, 0],
-            14: [0, 1], -14: [0, 1],
-        }
-        return torch.tensor(pid_to_one_hot.get(pid, [0, 0]), dtype=torch.float32)
     
     def _encode_target_signal_noise_binary(self, pid):
         pid_to_one_hot = {

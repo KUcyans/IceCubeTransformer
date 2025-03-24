@@ -3,8 +3,10 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 from .MonoFlavourDataset import MonoFlavourDataset
+from .NoiseDataset import NoiseDataset
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
+from Enum.ClassificationMode import ClassificationMode
 
 class MultiFlavourDataset(Dataset):
     def __init__(self, 
@@ -13,6 +15,9 @@ class MultiFlavourDataset(Dataset):
                  N_events_nu_e: int,
                  N_events_nu_mu: int,
                  N_events_nu_tau: int,
+                 N_events_noise: int,
+                 classification_mode: ClassificationMode = ClassificationMode.MULTIFLAVOUR,
+                 root_dir_corsika: str = None,
                  selection=None) -> None:
         """
         Dataset that stacks three MonoFlavourDatasets in a cyclic way.
@@ -25,21 +30,29 @@ class MultiFlavourDataset(Dataset):
             selection (list, optional): List of event numbers to include.
         """
         self.root_dir = root_dir
+        self.root_dir_corsika = root_dir_corsika
         self.selection = selection
 
         # ✅ Step 1: Load individual MonoFlavourDatasets (each handles its own caching)
         self.nu_e_dataset = MonoFlavourDataset(
             root_dir=root_dir, er=er, flavour=Flavour.E, 
-            N_events_monodataset=N_events_nu_e, selection=selection
+            N_events_monodataset=N_events_nu_e, 
+            classification_mode=classification_mode,
+            selection=selection
         )
         self.nu_mu_dataset = MonoFlavourDataset(
             root_dir=root_dir, er=er, flavour=Flavour.MU, 
-            N_events_monodataset=N_events_nu_mu, selection=selection
+            N_events_monodataset=N_events_nu_mu, 
+            classification_mode=classification_mode,
+            selection=selection
         )
         self.nu_tau_dataset = MonoFlavourDataset(
             root_dir=root_dir, er=er, flavour=Flavour.TAU, 
-            N_events_monodataset=N_events_nu_tau, selection=selection
+            N_events_monodataset=N_events_nu_tau, 
+            classification_mode=classification_mode,
+            selection=selection
         )
+        self.noise_dataset = NoiseDataset(root_dir_corsika, N_events_noise, selection=selection)
 
         # ✅ Step 2: Stack the datasets in a cyclic fashion
         self.datasets = [self.nu_e_dataset, self.nu_mu_dataset, self.nu_tau_dataset]

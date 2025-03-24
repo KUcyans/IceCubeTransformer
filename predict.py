@@ -59,8 +59,10 @@ def lock_and_load(config):
             torch.cuda.set_device(selected_gpu)  # Set device explicitly
             torch.set_float32_matmul_precision('highest')
         else:
-            print(f"⚠️ Warning: Requested GPUs {requested_gpus} not available. Using CPU instead.")
-            device = torch.device('cpu')
+            print(f"⚠️NO GPU {requested_gpus} AVAILABLE! Using GPU[0] instead!")
+            device = torch.device(f"cuda:0")
+            torch.cuda.set_device(0)  # Set device explicitly
+            torch.set_float32_matmul_precision('highest')
     else:
         device = torch.device('cpu')
         print("CUDA not available. Using CPU.")
@@ -155,44 +157,54 @@ def log_training_parameters(config: dict):
 
     print(message)
 
-
 def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: str):
     pred_classes = []
     target_classes = []
     pred_one_hot = []
     target_one_hot = []
+    logits_list = []
+    probs_list = []
+
     for i in range(len(predictions)):
-        prob = predictions[i]['probs']  # ✅ Corrected key
+        logit = predictions[i]['logits']
+        prob = predictions[i]['probs']
         target = predictions[i].get('target', None)  # Optional, if available
 
         pred_class = torch.argmax(prob, dim=-1)
         target_class = torch.argmax(target, dim=-1)
-        
+
         pred_one_hot_vec = torch.nn.functional.one_hot(pred_class, num_classes=3).tolist()
         target_one_hot_vec = torch.nn.functional.one_hot(target_class, num_classes=3).tolist()
 
         pred_classes.append(pred_class)
         pred_one_hot.extend(pred_one_hot_vec)
-        
+
         target_classes.append(target_class)
         target_one_hot.extend(target_one_hot_vec)
+
+        logits_list.extend(logit.tolist())
+        probs_list.extend(prob.tolist())
 
     pred_classes = torch.cat(pred_classes, dim=0)
     target_classes = torch.cat(target_classes, dim=0)
 
-    print('Predictions shape:', pred_classes.shape)  # Should be (num_samples,)
-    print('Targets shape:', target_classes.shape)  # Should be (num_samples,)
-    
+    print('Predictions shape:', pred_classes.shape)
+    print('Targets shape:', target_classes.shape)
+
     df = pd.DataFrame({
         "pred_one_hot_pid": pred_one_hot,
         "target_one_hot_pid": target_one_hot,
         "pred_class": pred_classes.numpy(),
         "target_class": target_classes.numpy(),
+        "logits": logits_list,
+        "probs": probs_list,
     })
+
     epoch, val_loss = parse_checkpoint_name(ckpt_file)
     csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_val_loss_{val_loss}.csv")
     df.to_csv(csv_name, index=False)
     print(f"Predictions saved to.. \n{csv_name}")
+
 
 def parse_checkpoint_name(ckpt_file):
     """Extract epoch and validation loss from checkpoint filename."""
@@ -266,7 +278,8 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     er = EnergyRange.ER_10_TEV_1_PEV
     # er = EnergyRange.ER_1_PEV_100_PEV
     start_time = time.time()
