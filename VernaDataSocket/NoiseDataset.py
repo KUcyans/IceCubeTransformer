@@ -76,10 +76,10 @@ class NoiseDataset(Dataset):
         return event_index
 
     def _select_events(self):
-        """Selects the first N_events_monodataset events from the event index."""
+        """Selects the first N_events_noise events from the event index."""
         if not self.event_index:
             return []
-        return self.event_index[:self.N_events_monodataset]
+        return self.event_index[:self.N_events_noise]
 
     def _load_truth_file(self, truth_file):
         """Loads a truth file and manages cache efficiently."""
