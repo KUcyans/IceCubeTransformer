@@ -6,7 +6,6 @@
     "event_length": 128,
     "n_layers": 10,
     "n_heads": 8,
-    "output_dim": 3,
     "n_epochs": 100,
     "patience": 100,
     "dropout": 0.01,

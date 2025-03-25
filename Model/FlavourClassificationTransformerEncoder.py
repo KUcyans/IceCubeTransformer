@@ -80,7 +80,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         x = self.pooling(x, mask)
         
         logit = self.classification_output_layer(x)
-        logit = torch.clamp(logit, min=-50, max=50) # will this help avoid NaNs?
+        # logit = torch.clamp(logit, min=-50, max=50) # will this help avoid NaNs?
         loss = F.mse_loss(logit.squeeze(), target.squeeze())
         if torch.isnan(x).any():
             print("⚠️ NaN detected in Transformer Encoder output!")
@@ -204,21 +204,25 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.train_start_time = time.time()
         self.training_predictions = []
         self.training_targets = []
-        self.training_conf_matrix = torchmetrics.ConfusionMatrix(task="multiclass", num_classes=self.num_classes)
+        self.training_conf_matrix = self.get_confusion_matrix()
         
     def on_validation_epoch_start(self):
         self.val_start_time = time.time()
         self.validation_predictions = []
         self.validation_targets = []
-        self.validation_conf_matrix = torchmetrics.ConfusionMatrix(task="multiclass", num_classes=self.num_classes)
+        self.validation_conf_matrix = self.get_confusion_matrix()
         
     def on_test_epoch_start(self):
         self.test_accuracies = []
-        self.test_conf_matrix = torchmetrics.ConfusionMatrix(task="multiclass", num_classes=self.num_classes)
+        self.test_conf_matrix = self.get_confusion_matrix()
         self.test_predictions = []
         self.test_targets = []
-        self.mini_conf_matrix = torchmetrics.ConfusionMatrix(task="multiclass", num_classes=self.num_classes)
 
+    def get_confusion_matrix(self):
+        task_type = "binary" if self.num_classes == 2 else "multiclass"
+        return torchmetrics.ConfusionMatrix(task=task_type, num_classes=self.num_classes)
+
+    
     def on_train_epoch_end(self):
         mean_loss = self.trainer.callback_metrics.get("train_loss", None)
         mean_accuracy = self.trainer.callback_metrics.get("train_accuracy", None)

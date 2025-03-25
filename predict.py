@@ -13,6 +13,7 @@ from Model.FlavourClassificationTransformerEncoder import FlavourClassificationT
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
+from Enum.ClassificationMode import ClassificationMode
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -95,6 +96,8 @@ def load_model_config(dirs, checkpoint_date, checkpoint_time):
 
 def build_model(config: dict, device: torch.device, ckpt_file: str):
     """Load model from checkpoint."""
+    classification_mode = ClassificationMode.from_string(config['classification_mode'])
+    num_classes = classification_mode.num_classes
     model = FlavourClassificationTransformerEncoder.load_from_checkpoint(
         checkpoint_path=ckpt_file,
         strict=False,
@@ -103,7 +106,7 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
         d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
         d_input=config['d_input'],
-        num_classes=config['output_dim'],
+        num_classes=num_classes,
         seq_len=config['event_length'],
         attention_type=config['attention'],
         dropout=config['dropout'],
@@ -112,21 +115,26 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
     return model
 
 
-def build_data_module(config: dict, er: EnergyRange, root_dir: str):
+def build_data_module(config: dict, er: EnergyRange, root_dir: str, root_dir_corsika: str = None):
+    """Build and return the datamodule."""
+    classification_mode = ClassificationMode.from_string(config['classification_mode'])
     datamodule = MultiFlavourDataModule(
         root_dir=root_dir,
-        er = er,
+        er=er,
         N_events_nu_e=config['N_events_nu_e'],
         N_events_nu_mu=config['N_events_nu_mu'],
         N_events_nu_tau=config['N_events_nu_tau'],
+        N_events_noise=config['N_events_noise'],
         event_length=config['event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
         frac_train=config['frac_train'],
         frac_val=config['frac_val'],
         frac_test=config['frac_test'],
+        classification_mode=classification_mode,
+        root_dir_corsika=root_dir_corsika,
     )
-    datamodule.setup(stage='predict')
+    datamodule.setup(stage="predict")
     return datamodule
 
 def build_callbacks():
@@ -220,9 +228,11 @@ def parse_checkpoint_name(ckpt_file):
         return epoch, val_loss
     return "unknown", "unknown"  # Fallback in case of unexpected filename format
 
-
-
-def run_prediction(config_dir: str, base_dir: str, data_root_dir: str, er: EnergyRange):
+def run_prediction(config_dir: str, 
+                base_dir: str, 
+                data_root_dir: str, 
+                data_root_dir_corsika: str,
+                er: EnergyRange):
     args = parse_args()
     current_date, current_time = args.date, args.time
     local_checkpoint = args.checkpoint_date
@@ -241,6 +251,7 @@ def run_prediction(config_dir: str, base_dir: str, data_root_dir: str, er: Energ
     
     datamodule = build_data_module(config=config,
                                     root_dir=data_root_dir,
+                                    root_dir_corsika=data_root_dir_corsika,
                                     er=er)
     
     callbacks = build_callbacks()
@@ -280,12 +291,14 @@ if __name__ == "__main__":
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_third/Corsika"
     er = EnergyRange.ER_10_TEV_1_PEV
     # er = EnergyRange.ER_1_PEV_100_PEV
     start_time = time.time()
     run_prediction(config_dir=config_dir,
                  base_dir=base_dir,
                  data_root_dir=data_root_dir,
+                data_root_dir_corsika=data_root_dir_corsika,
                  er=er)
     end_time = time.time()
     print(f"Prediction completed in {end_time - start_time:.2f} seconds.")

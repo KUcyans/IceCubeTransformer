@@ -130,13 +130,15 @@ def setup_directories(base_dir: str, config_dir:str, current_date: str, current_
 def build_model(config: dict, 
                 device: torch.device,):
     """Build and return the model."""
+    classification_mode = ClassificationMode.from_string(config['classification_mode'])
+    num_classes = classification_mode.num_classes
     model = FlavourClassificationTransformerEncoder(
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
         d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
         d_input=config['d_input'],
-        num_classes=config['output_dim'],
+        num_classes=num_classes,
         seq_len=config['event_length'],
         attention_type=config['attention'],
         dropout=config['dropout'],
@@ -146,6 +148,7 @@ def build_model(config: dict,
 
 def build_data_module(config: dict, er: EnergyRange, root_dir: str, root_dir_corsika: str = None):
     """Build and return the datamodule."""
+    classification_mode = ClassificationMode.from_string(config['classification_mode'])
     datamodule = MultiFlavourDataModule(
         root_dir=root_dir,
         er=er,
@@ -159,7 +162,7 @@ def build_data_module(config: dict, er: EnergyRange, root_dir: str, root_dir_cor
         frac_train=config['frac_train'],
         frac_val=config['frac_val'],
         frac_test=config['frac_test'],
-        classification_mode=ClassificationMode.from_string(config['classification_mode']),
+        classification_mode=classification_mode,
         root_dir_corsika=root_dir_corsika,
     )
     datamodule.setup(stage="fit")
@@ -315,7 +318,8 @@ if __name__ == "__main__":
     
     config_file = "config_40.json"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_third/Corsika"
     
     er = EnergyRange.ER_10_TEV_1_PEV
