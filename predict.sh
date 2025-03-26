@@ -5,7 +5,7 @@
 #SBATCH --nodelist=node161
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=60G
+#SBATCH --mem=30G
 #SBATCH --time=02:00:00
 #SBATCH --signal=B:USR1@60
 #SBATCH --output=/dev/null
@@ -29,8 +29,8 @@ echo "Checking allocated GPU..."
 nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-CHECKPOINT_DATE="20250324"
-CHECKPOINT_TIME="232809"
+CHECKPOINT_DATE="20250325"
+CHECKPOINT_TIME="105236"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer

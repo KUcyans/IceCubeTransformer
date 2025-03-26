@@ -5,7 +5,7 @@
 #SBATCH --nodelist=node071
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=60G
+#SBATCH --mem=30G
 #SBATCH --time=120:00:00
 #SBATCH --signal=B:USR1@60
 #SBATCH --mail-type=END,FAIL
