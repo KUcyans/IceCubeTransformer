@@ -15,7 +15,10 @@ class MonoFlavourDataset(Dataset):
 
     IDENTIFICATION = ["event_no", "offset", "shard_no", "N_doms"]
     TARGET = ["pid"]
-    REQUIRED_COLUMNS = IDENTIFICATION + TARGET
+    ANALYSIS = ["energy", "zenith", "azimuth", "elasticity", 
+                "dbang_decay_length", "track_length", 
+                "energy_GNHighestEDaughter", "energy_GNHighestEInIceParticle"]
+    REQUIRED_COLUMNS = IDENTIFICATION + TARGET + ANALYSIS
 
     def __init__(self, 
                  root_dir: str,
@@ -36,6 +39,7 @@ class MonoFlavourDataset(Dataset):
             [os.path.join(self.truth_file_dir, f) for f in os.listdir(self.truth_file_dir) 
             if f.startswith("truth_") and f.endswith(".parquet")]
         )
+        
         self.event_index = self._build_event_index()
         self.selected_events = self._select_events()
 
@@ -159,8 +163,12 @@ class MonoFlavourDataset(Dataset):
             target = self._encode_target_signal_noise_binary(row.column("pid")[0].as_py())
         else:
             raise ValueError(f"Invalid classification mode: {self.classification_mode}")
+        
+        analysis_truth = np.array(
+            [row.column(col)[0].as_py() for col in self.IDENTIFICATION+self.ANALYSIS]
+            )
 
-        return features_tensor, target
+        return features_tensor, target, analysis_truth
 
     def _encode_target_multiflavour(self, pid):
         """Encode particle ID as a one-hot vector."""
@@ -184,4 +192,4 @@ class MonoFlavourDataset(Dataset):
             14: [1, 0], -14: [1, 0],
             16: [1, 0], -16: [1, 0],
         }
-        return torch.tensor(pid_to_one_hot.get(pid, [0, 1]), dtype=torch.float32)
+        return torch.tensor(pid_to_one_hot.get(pid, [0, 1]), dtype=torch.float32) # 0 for noise, 1 for signal

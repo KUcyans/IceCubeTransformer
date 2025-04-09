@@ -16,13 +16,13 @@ class ScaledDotProductAttention(nn.Module):
         v: batch_size, num_heads, seq_len, head_dim
         event_length: batch_size
         """
-        batch_size, num_heads, seq_len, _ = q.shape
+        batch_size, _, seq_len, _ = q.shape
         attn_mask = None
         
-        clamp_value = 1e2
-        q = torch.clamp(q, -clamp_value, clamp_value)
-        k = torch.clamp(k, -clamp_value, clamp_value)
-        v = torch.clamp(v, -clamp_value, clamp_value)
+        # clamp_value = 1e2
+        # q = torch.clamp(q, -clamp_value, clamp_value)
+        # k = torch.clamp(k, -clamp_value, clamp_value)
+        # v = torch.clamp(v, -clamp_value, clamp_value)
         
         if event_length is not None:
             row_indices = torch.arange(seq_len, device=q.device).view(1, 1, -1, 1)  # (1, 1, seq_len, 1)
@@ -35,6 +35,9 @@ class ScaledDotProductAttention(nn.Module):
             attn_mask = torch.zeros((batch_size, 1, seq_len, seq_len), dtype=torch.float32, device=q.device)
             attn_mask.masked_fill_(~mask, float("-1e9"))  # Invalidate unwanted positions
 
-        output = F.scaled_dot_product_attention(q, k, v, attn_mask, dropout_p=self.dropout.p)
+        output = F.scaled_dot_product_attention(query=q, key=k, value=v,
+                                                attn_mask=attn_mask,
+                                                dropout_p=self.dropout.p)
+        # scale factor is 1/qrt(head_dim) by default in scaled_dot_product_attention
 
         return output

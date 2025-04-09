@@ -11,6 +11,7 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import TQDMProgressBar
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
+from VernaDataSocket.MonoFlavourDataset import MonoFlavourDataset
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
 from Enum.ClassificationMode import ClassificationMode
@@ -165,24 +166,28 @@ def log_training_parameters(config: dict):
 
     print(message)
 
-def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: str):
+def save_predictions(config: dict, predictions: torch.Tensor, prediction_dir: str, ckpt_file: str):
     pred_classes = []
     target_classes = []
     pred_one_hot = []
     target_one_hot = []
     logits_list = []
     probs_list = []
+    analysis_list = []
+
+    num_class = ClassificationMode.from_string(config['classification_mode']).num_classes
 
     for i in range(len(predictions)):
         logit = predictions[i]['logits']
         prob = predictions[i]['probs']
-        target = predictions[i].get('target', None)  # Optional, if available
+        target = predictions[i].get('target', None)
+        analysis = predictions[i].get("analysis", None)
 
-        pred_class = torch.argmax(prob, dim=-1)
+        pred_class = torch.argmax(prob, dim=-1) #
         target_class = torch.argmax(target, dim=-1)
 
-        pred_one_hot_vec = torch.nn.functional.one_hot(pred_class, num_classes=3).tolist()
-        target_one_hot_vec = torch.nn.functional.one_hot(target_class, num_classes=3).tolist()
+        pred_one_hot_vec = torch.nn.functional.one_hot(pred_class, num_classes=num_class).tolist()
+        target_one_hot_vec = torch.nn.functional.one_hot(target_class, num_classes=num_class).tolist()
 
         pred_classes.append(pred_class)
         pred_one_hot.extend(pred_one_hot_vec)
@@ -193,20 +198,26 @@ def save_predictions(predictions: torch.Tensor, prediction_dir: str, ckpt_file: 
         logits_list.extend(logit.tolist())
         probs_list.extend(prob.tolist())
 
+        analysis_list.extend(analysis.cpu().numpy().tolist())
+
     pred_classes = torch.cat(pred_classes, dim=0)
     target_classes = torch.cat(target_classes, dim=0)
 
     print('Predictions shape:', pred_classes.shape)
     print('Targets shape:', target_classes.shape)
-
+    
     df = pd.DataFrame({
-        "pred_one_hot_pid": pred_one_hot,
-        "target_one_hot_pid": target_one_hot,
-        "pred_class": pred_classes.numpy(),
+        
         "target_class": target_classes.numpy(),
+        "pred_class": pred_classes.numpy(),
+        "target_one_hot_pid": target_one_hot,
+        "pred_one_hot_pid": pred_one_hot,
         "logits": logits_list,
         "probs": probs_list,
     })
+    analysis_columns = MonoFlavourDataset.IDENTIFICATION + MonoFlavourDataset.ANALYSIS
+    analysis_df = pd.DataFrame(analysis_list, columns=analysis_columns)
+    df = pd.concat([df, analysis_df], axis=1)
 
     epoch, val_loss = parse_checkpoint_name(ckpt_file)
     csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_val_loss_{val_loss}.csv")
@@ -283,20 +294,23 @@ def run_prediction(config_dir: str,
         predictions = trainer.predict(model=model, dataloaders=datamodule.test_dataloader())
 
         print("💾 Saving predictions...")
-        save_predictions(predictions, dirs["predict_dir"], ckpt_file)
+        save_predictions(config=config, 
+                         predictions=predictions,
+                        prediction_dir=dirs["predict_dir"],
+                        ckpt_file=ckpt_file_dir)
 
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
-    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
+    data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
-    data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_third/Corsika"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_third/Corsika"
     
     print(f"data_root_dir: {data_root_dir}")
     print(f"data_root_dir_corsika: {data_root_dir_corsika}")

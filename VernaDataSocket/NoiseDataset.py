@@ -12,7 +12,10 @@ from Enum.Flavour import Flavour
 class NoiseDataset(Dataset):
     IDENTIFICATION = ["event_no", "offset", "shard_no", "N_doms"]
     TARGET = ["pid"]
-    REQUIRED_COLUMNS = IDENTIFICATION + TARGET
+    ANALYSIS = ["energy", "zenith", "azimuth", "elasticity", 
+                "dbang_decay_length", "track_length", 
+                "energy_GNHighestEDaughter", "energy_GNHighestEInIceParticle"]
+    REQUIRED_COLUMNS = IDENTIFICATION + TARGET + ANALYSIS
 
     def __init__(self, 
                  root_dir: str, # CORSIKA
@@ -145,10 +148,12 @@ class NoiseDataset(Dataset):
 
         # ✅ Encode target
         target = self._encode_target_signal_noise_binary(row.column("pid")[0].as_py())
+        analysis_truth = np.array([
+            row.column(col)[0].as_py() for col in self.ANALYSIS
+        ])
 
-        return features_tensor, target
+        return features_tensor, target, analysis_truth
 
-    
     def _encode_target_signal_noise_binary(self, pid):
         pid_to_one_hot = {
             12: [1, 0], -12: [1, 0],

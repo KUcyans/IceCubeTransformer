@@ -97,7 +97,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return accuracy, predicted_labels, true_labels
 
     def training_step(self, batch, batch_idx):
-        x, target, event_length = batch
+        x, target, event_length, analysis = batch
         loss, logit = self(x, target=target, event_length=event_length)
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
         current_lr = self.trainer.optimizers[0].param_groups[0]['lr']
@@ -133,10 +133,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         return loss
 
-
-
     def validation_step(self, batch, batch_idx):
-        x, target, event_length = batch
+        x, target, event_length, analysis = batch
         loss, logit = self(x, target=target, event_length=event_length)
         
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
@@ -168,15 +166,15 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return loss
 
     def predict_step(self, batch, batch_idx):
-        x, target, event_length = batch
+        x, target, event_length, analysis = batch
         with torch.no_grad():
             loss, logit = self(x, target=target, event_length=event_length)
             probs = F.softmax(logit, dim=1)
-        return {"logits": logit, "probs": probs, "target": target}
+        return {"logits": logit, "probs": probs, "target": target, "analysis": analysis}
 
 
     def test_step(self, batch, batch_idx):
-        x, target, event_length = batch
+        x, target, event_length, analysis = batch
         loss, logit = self(x, target=target, event_length=event_length)
 
         period = 5000

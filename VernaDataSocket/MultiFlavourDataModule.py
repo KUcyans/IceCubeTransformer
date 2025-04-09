@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 from .MultiFlavourDataset import MultiFlavourDataset
 from torch.utils.data import DataLoader
@@ -67,7 +68,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             self.test_dataset = torch.utils.data.Subset(self.dataset, range(train_size + val_size, total_size))
 
             # ✅ Get column index dynamically
-            first_event, _ = self.train_dataset[0]
+            first_event = self.train_dataset[0][0]
             self.index_order_by = self._get_order_by_index()
             print(f"Feature Dimension: {first_event.shape[1]}")
     
@@ -96,6 +97,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         """Collate function to pad or truncate sequences."""
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
+        analysis = [item[2] for item in batch]
 
         # Pad or truncate using the specified column name
         padded_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
@@ -104,12 +106,13 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         batch_events = torch.stack(padded_events)
         batch_targets = torch.stack(targets)
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
-        if torch.isnan(batch_events).any():
-            print(f"⚠️ NaN detected in batch! Batch shape: {batch_events.shape}")
-            print(f"Indices of NaNs: {torch.where(torch.isnan(batch_events))}")
-            raise ValueError("NaN detected in dataset!")
+        # if torch.isnan(batch_events).any():
+        #     print(f"⚠️ NaN detected in batch! Batch shape: {batch_events.shape}")
+        #     print(f"Indices of NaNs: {torch.where(torch.isnan(batch_events))}")
+        #     raise ValueError("NaN detected in dataset!")
+        analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
 
-        return batch_events, batch_targets, batch_event_length
+        return batch_events, batch_targets, batch_event_length, analysis_tensor
     
     def _build_frac(self, frac_train, frac_val, frac_test):
         """Builds the fraction for each dataset."""
