@@ -8,6 +8,7 @@ from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
 from Enum.ClassificationMode import ClassificationMode
 
+
 class MultiFlavourDataset(Dataset):
     def __init__(self, 
                  root_dir: str,
@@ -19,65 +20,99 @@ class MultiFlavourDataset(Dataset):
                  classification_mode: ClassificationMode = ClassificationMode.MULTIFLAVOUR,
                  root_dir_corsika: str = None,
                  selection=None) -> None:
-        """
-        Dataset that stacks three MonoFlavourDatasets in a cyclic way.
-
-        Args:
-            root_dir (str): Root directory of the dataset.
-            N_events_nu_e (int): Number of electron neutrino events.
-            N_events_nu_mu (int): Number of muon neutrino events.
-            N_events_nu_tau (int): Number of tau neutrino events.
-            selection (list, optional): List of event numbers to include.
-        """
+        self.classification_mode = classification_mode
+        self.selection = selection
         self.root_dir = root_dir
         self.root_dir_corsika = root_dir_corsika
-        self.selection = selection
+        
+        self.er = er    
+        self.N_events_nu_e = N_events_nu_e
+        self.N_events_nu_mu = N_events_nu_mu
+        self.N_events_nu_tau = N_events_nu_tau
+        self.N_events_noise = N_events_noise
 
-        # ✅ Step 1: Load individual MonoFlavourDatasets (each handles its own caching)
-        self.nu_e_dataset = MonoFlavourDataset(
-            root_dir=root_dir, er=er, flavour=Flavour.E, 
-            N_events_monodataset=N_events_nu_e, 
-            classification_mode=classification_mode,
-            selection=selection
-        )
-        self.nu_mu_dataset = MonoFlavourDataset(
-            root_dir=root_dir, er=er, flavour=Flavour.MU, 
-            N_events_monodataset=N_events_nu_mu, 
-            classification_mode=classification_mode,
-            selection=selection
-        )
-        self.nu_tau_dataset = MonoFlavourDataset(
-            root_dir=root_dir, er=er, flavour=Flavour.TAU, 
-            N_events_monodataset=N_events_nu_tau, 
-            classification_mode=classification_mode,
-            selection=selection
-        )
-        self.noise_dataset = NoiseDataset(root_dir=root_dir_corsika,
-                                        N_events_noise=N_events_noise,
-                                        selection=selection)
+        self._build_dataset()
 
-        # ✅ Step 2: Stack the datasets in a cyclic fashion
-        self.datasets = [self.nu_e_dataset, self.nu_mu_dataset, self.nu_tau_dataset, self.noise_dataset]
-        self.flavour_mapped_indices = self._create_cyclic_index()
+        self.flavour_mapped_indices = self._create_index()
 
-    def _create_cyclic_index(self):
-        """Creates a global cyclic index mapping events from different datasets."""
+    def _build_dataset(self):
+        flavour_event_map = {
+            Flavour.E: self.N_events_nu_e,
+            Flavour.MU: self.N_events_nu_mu,
+            Flavour.TAU: self.N_events_nu_tau
+        }
+
+        # Determine which flavours to include
+        if self.classification_mode == ClassificationMode.TRACK_CASCADE_BINARY:
+            selected_flavours = [Flavour.E, Flavour.MU]
+        elif self.classification_mode in (ClassificationMode.MULTIFLAVOUR, ClassificationMode.SIGNAL_NOISE_BINARY):
+            selected_flavours = [Flavour.E, Flavour.MU, Flavour.TAU]
+        else:
+            raise ValueError(f"Unsupported classification mode: {self.classification_mode}")
+
+        self.datasets = [
+            MonoFlavourDataset(
+                root_dir=self.root_dir,
+                er=self.er,
+                flavour=flavour,
+                N_events_monodataset=flavour_event_map[flavour],
+                classification_mode=self.classification_mode,
+                selection=self.selection
+            )
+            for flavour in selected_flavours
+        ]
+
+        # Add noise dataset only for SIGNAL_NOISE_BINARY
+        if self.classification_mode == ClassificationMode.SIGNAL_NOISE_BINARY:
+            self.noise_dataset = NoiseDataset(
+                root_dir=self.root_dir_corsika,
+                N_events_noise=self.N_events_noise,
+                selection=self.selection
+            )
+
+    def _create_index(self):
+        """Interleave indices based on classification mode."""
+        if self.classification_mode == ClassificationMode.SIGNAL_NOISE_BINARY:
+            return self._interleave_signal_noise()
+        else:
+            return self._cyclic_interleave()
+
+    def _cyclic_interleave(self):
+        """Standard round-robin interleaving."""
         cyclic_indices = []
         dataset_lengths = [len(ds) for ds in self.datasets]
         max_length = max(dataset_lengths)
-
-        # ✅ Interleave events cyclically
         for i in range(max_length):
-            for ds_idx, ds in enumerate(self.datasets):
-                if i < dataset_lengths[ds_idx]:
+            for ds_idx, ds_len in enumerate(dataset_lengths):
+                if i < ds_len:
                     cyclic_indices.append((ds_idx, i))
-
         return cyclic_indices
+
+    def _interleave_signal_noise(self):
+        """Interleaves e, noise, mu, noise, tau, noise..."""
+        signal_datasets = self.datasets
+        noise_dataset = self.noise_dataset
+
+        signal_lengths = [len(ds) for ds in signal_datasets]
+        noise_length = len(noise_dataset)
+
+        # Determine max available balanced interleave steps
+        max_steps = min(min(signal_lengths), noise_length // len(signal_datasets))
+
+        interleaved = []
+        for i in range(max_steps):
+            for j, signal_ds in enumerate(signal_datasets):
+                interleaved.append((j, i))                      # signal
+                interleaved.append((len(signal_datasets), i * len(signal_datasets) + j))  # corresponding noise
+
+        return interleaved
 
     def __len__(self):
         return len(self.flavour_mapped_indices)
 
     def __getitem__(self, idx):
-        """Retrieve cyclically stacked event based on global index."""
         ds_idx, local_idx = self.flavour_mapped_indices[idx]
-        return self.datasets[ds_idx][local_idx]
+        if ds_idx < len(self.datasets):
+            return self.datasets[ds_idx][local_idx]
+        else:
+            return self.noise_dataset[local_idx]

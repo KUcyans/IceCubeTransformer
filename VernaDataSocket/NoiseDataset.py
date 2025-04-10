@@ -149,7 +149,7 @@ class NoiseDataset(Dataset):
         # ✅ Encode target
         target = self._encode_target_signal_noise_binary(row.column("pid")[0].as_py())
         analysis_truth = np.array([
-            row.column(col)[0].as_py() for col in self.ANALYSIS
+            row.column(col)[0].as_py() for col in self.IDENTIFICATION+self.ANALYSIS
         ])
 
         return features_tensor, target, analysis_truth
