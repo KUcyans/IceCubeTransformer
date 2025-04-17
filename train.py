@@ -309,26 +309,16 @@ def run_training(config_dir: str,
 if __name__ == "__main__":
     training_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(training_dir, "config")
-    # config_file = "config.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_Contained"
     
-    # config_file = "config_35.json"
-    # config_file = "config_35_tc_binary.json"
-    config_file = "config_35_sn_binary.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
+    config_file = "config_2203x_multiflavour.json"
+    # config_file = "config_2203x_signal_noise.json"
+    # config_file = "config_2203x_track_cascade.json"
+    
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
-    # config_file = "config_40.json"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_Contained"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
-    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_third/Corsika"
-    
-    # er = EnergyRange.ER_100_GEV_10_TEV
-    er = EnergyRange.ER_10_TEV_1_PEV
-    # er = EnergyRange.ER_1_PEV_100_PEV
+    er = EnergyRange.ER_100_TEV_100_PEV
     
     print(f"data_root_dir: {data_root_dir}")
     print(f"data_root_dir_corsika: {data_root_dir_corsika}")

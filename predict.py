@@ -302,10 +302,15 @@ def run_prediction(config_dir: str,
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
+    
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
-    data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
+    
+    data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Corsika"
+    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_0m"
     # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_third_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
@@ -315,8 +320,8 @@ if __name__ == "__main__":
     print(f"data_root_dir: {data_root_dir}")
     print(f"data_root_dir_corsika: {data_root_dir_corsika}")
     
-    er = EnergyRange.ER_10_TEV_1_PEV
-    # er = EnergyRange.ER_1_PEV_100_PEV
+    # er = EnergyRange.ER_10_TEV_1_PEV
+    er = EnergyRange.ER_1_PEV_100_PEV
     start_time = time.time()
     run_prediction(config_dir=config_dir,
                  base_dir=base_dir,

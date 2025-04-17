@@ -1,0 +1,55 @@
+{
+    "batch_size": 128,
+    "num_workers": 4,
+    "embedding_dim": 512,
+    "d_input": 35,
+    "event_length": 128,
+    "n_layers": 10,
+    "n_heads": 8,
+    "n_epochs": 100,
+    "patience": 100,
+    "dropout": 0.01,
+    "attention": "scaled_dot",
+    "N_events_nu_e": 40000, 
+    "N_events_nu_mu": 40000,
+    "N_events_nu_tau": 40000,
+    "N_events_noise": 0,
+    "frac_train": 0.7,
+    "frac_val": 0.2,
+    "frac_test": 0.1,
+    "classification_mode": "Multiflavour",
+    "gpu": [0],
+    "optimizer": {
+        "lr_max": 1e-4,
+        "betas": [0.9, 0.999],
+        "eps": 1e-8,
+        "weight_decay": 0,
+        "amsgrad": true, 
+        "interval": "step",
+        "frequency": 1
+    },
+    "one_cycle_scheduler":{
+        "pct_start": 0.05,
+        "lr_max": 1e-4,
+        "div_factor": 5,
+        "final_div_factor": 1e2,
+        "anneal_strategy": "cos",
+        "base_momentum": 0.85,
+        "max_momentum": 0.95
+    },
+    "equinox_scheduler": {
+        "lr_max": 1e-4,
+        "lr_min": 1e-6,
+        "n_sections": 4,
+        "frequency_per_section":2.8,
+        "lr_decay": "cos"
+    },
+    "katsura_scheduler": {
+        "first_cycle_steps":26000,
+        "cycle_mult": 1.0,
+        "max_lr": 1e-4,
+        "min_lr": 3e-7,
+        "warmup_steps": 2000,
+        "gamma": 0.66
+    }
+}
