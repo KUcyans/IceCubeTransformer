@@ -3,9 +3,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class ScaledDotProductAttention(nn.Module):
-    def __init__(self, head_dim: int, dropout: float = 0.1):
+    def __init__(self, 
+                 head_dim: int, 
+                 n_heads: int,
+                 dropout: float = 0.01):
         super().__init__()
         self.head_dim = head_dim
+        self.n_heads = n_heads
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, q, k, v, event_length=None):

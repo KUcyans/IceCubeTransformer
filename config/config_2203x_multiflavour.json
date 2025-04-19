@@ -9,7 +9,7 @@
     "n_epochs": 100,
     "patience": 100,
     "dropout": 0.01,
-    "attention": "scaled_dot",
+    "attention": "t5",
     "N_events_nu_e": 40000, 
     "N_events_nu_mu": 40000,
     "N_events_nu_tau": 40000,

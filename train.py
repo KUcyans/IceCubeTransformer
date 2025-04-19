@@ -333,3 +333,4 @@ if __name__ == "__main__":
     end_time = time.time()
     print(f"Training completed in {time.strftime('%d:%H:%M:%S', time.gmtime(end_time - start_time))}")
 
+# squeue -w node071,node072,node161,node162 -o "%.18i %.8u %.2t %.10M %.6D %R"

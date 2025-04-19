@@ -2,7 +2,7 @@
 #SBATCH --job-name=train_script_%j
 #SBATCH --partition=gr10_gpu
 #SBATCH --ntasks=1
-#SBATCH --nodelist=node072
+#SBATCH --nodelist=node071
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=30G

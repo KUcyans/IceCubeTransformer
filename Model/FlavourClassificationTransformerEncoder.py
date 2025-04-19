@@ -40,7 +40,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         # Input projection layer
         self.input_projection = nn.Linear(self.d_input, self.d_model)
-        self.position_embedding = nn.Embedding(self.seq_len, self.d_model)
+        # self.position_embedding = nn.Embedding(self.seq_len, self.d_model)
 
         # Stacked encoder blocks
         self.encoder_blocks = nn.ModuleList(
@@ -62,13 +62,14 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         
     def forward(self, x, target=None, mask=None, event_length=None):
         batch_size, seq_len, input_dim = x.size()
-
         x = self.input_projection(x).to(x.device)
         # x shape: (batch_size, seq_len, d_model)
-        pos_emb = self.position_embedding(torch.arange(seq_len, device=x.device))
-        pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) 
-        # shape: (batch_size, seq_len, d_model)        
-        x = x + pos_emb
+
+        # Learned Absolute Positional Encoding
+        # pos_emb = self.position_embedding(torch.arange(seq_len, device=x.device))
+        # pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) 
+        # # shape: (batch_size, seq_len, d_model)        
+        # x = x + pos_emb
         
         for encoder in self.encoder_blocks:
             x = encoder(x, event_length = event_length)

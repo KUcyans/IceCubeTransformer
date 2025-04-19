@@ -106,10 +106,6 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         batch_events = torch.stack(padded_events)
         batch_targets = torch.stack(targets)
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
-        # if torch.isnan(batch_events).any():
-        #     print(f"⚠️ NaN detected in batch! Batch shape: {batch_events.shape}")
-        #     print(f"Indices of NaNs: {torch.where(torch.isnan(batch_events))}")
-        #     raise ValueError("NaN detected in dataset!")
         analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
 
         return batch_events, batch_targets, batch_event_length, analysis_tensor

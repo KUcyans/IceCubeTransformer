@@ -5,11 +5,11 @@ import torch.nn.functional as F
 class InnocentAttention(nn.Module):
     def __init__(self, 
                  head_dim: int, 
-                 dropout: float = 0.1):
+                 n_heads: int,
+                 dropout: float = 0.01):
         super().__init__()
         self.head_dim = head_dim  
-
-        # self.out_proj = nn.Linear(head_dim, head_dim)
+        self.n_heads = n_heads
 
         self.scale = torch.sqrt(torch.tensor(head_dim).float())
         self.dropout = nn.Dropout(dropout)
