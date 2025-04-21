@@ -4,13 +4,16 @@ import torch.nn as nn
 from Model.BuildingBlocks.MultiHeadAttention import MultiHeadAttention
 from Model.BuildingBlocks.LayerNormalisation import LayerNormalisation
 from Model.BuildingBlocks.FFN import FFN
+from Enum.AttentionType import AttentionType
+from Enum.PositionalEncodingType import PositionalEncodingType
 
 class EncoderBlock(nn.Module):
     def __init__(self, 
                  d_model: int,
                  n_heads: int,
                  d_f: int,
-                 attention_type: str, 
+                 attention_type: AttentionType,
+                 positional_encoding_type: PositionalEncodingType,
                  dropout: float = 0.1,
                 layer_idx: int = 0,):
         super().__init__()
@@ -19,11 +22,14 @@ class EncoderBlock(nn.Module):
         self.d_f = d_f
         self.layer_idx = layer_idx
         self.dropout = nn.Dropout(dropout)
+        self.attention_type = attention_type
+        self.positional_encoding_type = positional_encoding_type
         
         self.attention = MultiHeadAttention(
             d_model=self.d_model,
             n_heads=self.n_heads,
-            attention_type=attention_type,
+            attention_type=self.attention_type,
+            positional_encoding_type=self.positional_encoding_type,
             dropout=dropout,
         )
         

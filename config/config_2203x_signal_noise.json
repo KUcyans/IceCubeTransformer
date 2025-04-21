@@ -10,6 +10,7 @@
     "patience": 100,
     "dropout": 0.01,
     "attention": "scaled_dot",
+    "positional_encoding": "rope",
     "N_events_nu_e": 40000,
     "N_events_nu_mu": 40000,
     "N_events_nu_tau": 40000,

@@ -30,8 +30,8 @@ echo "Checking allocated GPU..."
 nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-CHECKPOINT_DATE="20250413"
-CHECKPOINT_TIME="164043"
+CHECKPOINT_DATE="20250417"
+CHECKPOINT_TIME="124449"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer

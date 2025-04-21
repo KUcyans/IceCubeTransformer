@@ -1,6 +1,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from Enum.AttentionType import AttentionType
+from Enum.PositionalEncodingType import PositionalEncodingType
+
 from .ScaledDotProductAttention import ScaledDotProductAttention
 from .InnocentAttention import InnocentAttention
 from .ALiBiAttention import ALiBiAttention
@@ -12,7 +15,8 @@ class MultiHeadAttention(nn.Module):
     def __init__(self,
                  d_model: int, 
                  n_heads: int, 
-                 attention_type: str = "scaled_dot", 
+                 attention_type: AttentionType = AttentionType.SDP,
+                 positional_encoding_type: PositionalEncodingType = PositionalEncodingType.ABSOLUTE,
                  dropout: float = 0.01):
         super().__init__()
         assert d_model % n_heads == 0, "d_model must be divisible by n_heads"
@@ -22,13 +26,13 @@ class MultiHeadAttention(nn.Module):
         self.head_dim = d_model // n_heads
         self.attention_type = attention_type
         
-        if self.attention_type == "scaled_dot":
+        if self.attention_type == AttentionType.SDP:
             attention_cls = ScaledDotProductAttention
-        elif self.attention_type == "innocent":
+        elif self.attention_type == AttentionType.INNOCENT:
             attention_cls = InnocentAttention
-        elif self.attention_type == "alibi":
+        elif self.attention_type == AttentionType.ALIBI:
             attention_cls = ALiBiAttention
-        elif self.attention_type == "t5":
+        elif self.attention_type == AttentionType.T5:
             attention_cls = T5Attention
         # elif attention_type == "xformers":
         #     attention_cls = XFormersAttention
@@ -38,9 +42,13 @@ class MultiHeadAttention(nn.Module):
                                             n_heads=self.n_heads,
                                             dropout=dropout)
         self.qkv_proj = nn.Linear(d_model, 3 * d_model)
+        self.out_proj = nn.Linear(d_model, d_model)
+        
+        self.positional_encoding_type = positional_encoding_type
+        if self.positional_encoding_type == PositionalEncodingType.ROPE:
+            self.rope = RotaryEmbedding(dim=self.head_dim, use_xpos=True)
+        
         self.dropout = nn.Dropout(dropout)
-
-        self.rope = RotaryEmbedding(dim=self.head_dim, use_xpos=True)
 
     def forward(self, x, event_length=None):
         batch_size, seq_len, _ = x.shape
@@ -55,10 +63,11 @@ class MultiHeadAttention(nn.Module):
         k = k.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
         v = v.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
         
-        # ✅ Apply rotary embeddings
-        if self.attention_type not in ("alibi","t5"): 
+        ## ✅ Apply rotary embeddings
+        if self.positional_encoding_type == PositionalEncodingType.ROPE and self.rope is not None: 
+            self.rope = self.rope.to(q.device)
             q, k = self.rope.rotate_queries_and_keys(q, k)
-
+        
         # ✅ Now q, k, v are ready to go
         attention_output = self.attention_head(q, k, v, event_length)
         if torch.isnan(attention_output).any():
@@ -66,7 +75,8 @@ class MultiHeadAttention(nn.Module):
             print(f"🔍 Attention Output min/max: {attention_output.min().item()} / {attention_output.max().item()}")
             raise ValueError("NaN detected in attention output!")
         
-        attention_output = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
+        concatenated_attention = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
+        attention_output = self.out_proj(concatenated_attention)
 
         attention_output = self.dropout(attention_output)
         return attention_output

@@ -9,6 +9,8 @@ from pytorch_lightning import LightningModule
 from .EncoderBlock import EncoderBlock
 from .BuildingBlocks.Pooling import Pooling
 from .BuildingBlocks.OutputProjection import OutputProjection
+from Enum.AttentionType import AttentionType
+from Enum.PositionalEncodingType import PositionalEncodingType
 
 import psutil
 import os
@@ -22,7 +24,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  d_input: int,
                  num_classes: int, 
                  seq_len: int,  
-                 attention_type: str,  
+                 attention_type: AttentionType,
+                 positional_encoding_type: PositionalEncodingType,
                  dropout: float = 0.1,
                  lr: float = 1e-6):
         super().__init__()
@@ -36,11 +39,12 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.dropout = dropout
         self.lr = lr
         self.attention_type = attention_type  
+        self.positional_encoding_type = positional_encoding_type
         self.seq_len = seq_len
 
         # Input projection layer
         self.input_projection = nn.Linear(self.d_input, self.d_model)
-        # self.position_embedding = nn.Embedding(self.seq_len, self.d_model)
+        
 
         # Stacked encoder blocks
         self.encoder_blocks = nn.ModuleList(
@@ -48,7 +52,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 d_model=self.d_model, 
                 n_heads=self.n_heads, 
                 d_f=self.d_f, 
-                attention_type=self.attention_type,  
+                attention_type=self.attention_type, 
+                positional_encoding_type=self.positional_encoding_type, 
                 dropout=self.dropout, 
                 layer_idx=i) for i in range(self.num_layers)]
         )
@@ -66,10 +71,12 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         # x shape: (batch_size, seq_len, d_model)
 
         # Learned Absolute Positional Encoding
-        # pos_emb = self.position_embedding(torch.arange(seq_len, device=x.device))
-        # pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) 
-        # # shape: (batch_size, seq_len, d_model)        
-        # x = x + pos_emb
+        if self.positional_encoding_type == PositionalEncodingType.ABSOLUTE:
+            # shape: (batch_size, seq_len, d_model)        
+            self.position_embedding = nn.Embedding(self.seq_len, self.d_model)
+            pos_emb = self.position_embedding(torch.arange(seq_len, device=x.device))
+            pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) 
+            x = x + pos_emb
         
         for encoder in self.encoder_blocks:
             x = encoder(x, event_length = event_length)
