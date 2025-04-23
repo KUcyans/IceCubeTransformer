@@ -10,7 +10,7 @@
     "patience": 100,
     "dropout": 0.01,
     "attention": "scaled_dot",
-    "positional_encoding": "rope",
+    "positional_encoding": "absolute",
     "N_events_nu_e": 20000, 
     "N_events_nu_mu": 20000,
     "N_events_nu_tau": 20000,
@@ -21,7 +21,7 @@
     "classification_mode": "Multiflavour",
     "gpu": [0],
     "optimizer": {
-        "lr_max": 1e-4,
+        "lr_max": 3e-4,
         "betas": [0.9, 0.999],
         "eps": 1e-8,
         "weight_decay": 0,
@@ -31,9 +31,9 @@
     },
     "one_cycle_scheduler":{
         "pct_start": 0.05,
-        "lr_max": 1e-4,
+        "lr_max": 3e-4,
         "div_factor": 5,
-        "final_div_factor": 1e2,
+        "final_div_factor": 100,
         "anneal_strategy": "cos",
         "base_momentum": 0.85,
         "max_momentum": 0.95

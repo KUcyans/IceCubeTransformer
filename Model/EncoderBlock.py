@@ -14,8 +14,8 @@ class EncoderBlock(nn.Module):
                  d_f: int,
                  attention_type: AttentionType,
                  positional_encoding_type: PositionalEncodingType,
-                 dropout: float = 0.1,
-                layer_idx: int = 0,):
+                 dropout: float = 0.01,
+                 layer_idx: int = 0):
         super().__init__()
         self.d_model = d_model
         self.n_heads = n_heads

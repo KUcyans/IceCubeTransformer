@@ -15,6 +15,8 @@ from VernaDataSocket.MonoFlavourDataset import MonoFlavourDataset
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
 from Enum.ClassificationMode import ClassificationMode
+from Enum.AttentionType import AttentionType
+from Enum.PositionalEncodingType import PositionalEncodingType
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -99,6 +101,8 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
     """Load model from checkpoint."""
     classification_mode = ClassificationMode.from_string(config['classification_mode'])
     num_classes = classification_mode.num_classes
+    attention_type = AttentionType.from_string(config['attention'])
+    positional_encoding_type = PositionalEncodingType.from_string(config['positional_encoding'])
     model = FlavourClassificationTransformerEncoder.load_from_checkpoint(
         checkpoint_path=ckpt_file,
         strict=False,
@@ -109,7 +113,8 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
         d_input=config['d_input'],
         num_classes=num_classes,
         seq_len=config['event_length'],
-        attention_type=config['attention'],
+        attention_type=attention_type,
+        positional_encoding_type=positional_encoding_type,
         dropout=config['dropout'],
         map_location=device
     )
@@ -304,9 +309,11 @@ if __name__ == "__main__":
     config_dir = os.path.join(base_dir, "config")
     
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
-    er = EnergyRange.ER_100_TEV_100_PEV
+    # er = EnergyRange.ER_100_TEV_100_PEV
+    er = EnergyRange.ER_1_PEV_100_PEV
     
     print(f"data_root_dir: {data_root_dir}")
     print(f"data_root_dir_corsika: {data_root_dir_corsika}")

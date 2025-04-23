@@ -15,8 +15,8 @@ class MultiHeadAttention(nn.Module):
     def __init__(self,
                  d_model: int, 
                  n_heads: int, 
-                 attention_type: AttentionType = AttentionType.SDP,
-                 positional_encoding_type: PositionalEncodingType = PositionalEncodingType.ABSOLUTE,
+                 attention_type: AttentionType,
+                 positional_encoding_type: PositionalEncodingType,
                  dropout: float = 0.01):
         super().__init__()
         assert d_model % n_heads == 0, "d_model must be divisible by n_heads"
@@ -64,7 +64,7 @@ class MultiHeadAttention(nn.Module):
         v = v.permute(0, 2, 1, 3)  # (batch, heads, seq, head_dim)
         
         ## ✅ Apply rotary embeddings
-        if self.positional_encoding_type == PositionalEncodingType.ROPE and self.rope is not None: 
+        if self.positional_encoding_type == PositionalEncodingType.ROPE: 
             self.rope = self.rope.to(q.device)
             q, k = self.rope.rotate_queries_and_keys(q, k)
         
@@ -75,8 +75,9 @@ class MultiHeadAttention(nn.Module):
             print(f"🔍 Attention Output min/max: {attention_output.min().item()} / {attention_output.max().item()}")
             raise ValueError("NaN detected in attention output!")
         
-        concatenated_attention = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
-        attention_output = self.out_proj(concatenated_attention)
+        # concatenate heads
+        attention_output = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
+        # attention_output = self.out_proj(attention_output)
 
         attention_output = self.dropout(attention_output)
         return attention_output

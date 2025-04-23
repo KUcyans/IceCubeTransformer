@@ -319,10 +319,12 @@ if __name__ == "__main__":
     # config_file = "config_2203x_signal_noise.json"
     # config_file = "config_2203x_track_cascade.json"
     
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
-    er = EnergyRange.ER_100_TEV_100_PEV
+    # er = EnergyRange.ER_100_TEV_100_PEV
+    er = EnergyRange.ER_1_PEV_100_PEV
     
     print(f"data_root_dir: {data_root_dir}")
     print(f"data_root_dir_corsika: {data_root_dir_corsika}")

@@ -20,7 +20,7 @@ timestamp=$(date +"%H%M%S")   # ✅ Removed spaces around '='
 
 # ✅ Create directories properly
 mkdir -p "${LOG_ROOT_DIR}/${datestamp}"
-logfile="${LOG_ROOT_DIR}/${datestamp}/${timestamp}_execution.log"
+logfile="${LOG_ROOT_DIR}/${datestamp}/${timestamp}_training.log"
 
 # ✅ Redirect stdout and stderr
 exec > "${logfile}" 2>&1

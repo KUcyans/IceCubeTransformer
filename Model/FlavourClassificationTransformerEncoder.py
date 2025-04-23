@@ -26,7 +26,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  seq_len: int,  
                  attention_type: AttentionType,
                  positional_encoding_type: PositionalEncodingType,
-                 dropout: float = 0.1,
+                 dropout: float = 0.01,
                  lr: float = 1e-6):
         super().__init__()
         self.d_model = d_model
@@ -39,12 +39,15 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.dropout = dropout
         self.lr = lr
         self.attention_type = attention_type  
+        print(f"The model was told that Attention type is {self.attention_type.name}")
         self.positional_encoding_type = positional_encoding_type
+        print(f"The model was told that Positional Encoding type is {self.positional_encoding_type.name}")
         self.seq_len = seq_len
 
         # Input projection layer
         self.input_projection = nn.Linear(self.d_input, self.d_model)
-        
+        if self.positional_encoding_type == PositionalEncodingType.ABSOLUTE: 
+            self.position_embedding = nn.Embedding(self.seq_len, self.d_model)
 
         # Stacked encoder blocks
         self.encoder_blocks = nn.ModuleList(
@@ -67,19 +70,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         
     def forward(self, x, target=None, mask=None, event_length=None):
         batch_size, seq_len, input_dim = x.size()
+        
         x = self.input_projection(x).to(x.device)
         # x shape: (batch_size, seq_len, d_model)
-
         # Learned Absolute Positional Encoding
-        if self.positional_encoding_type == PositionalEncodingType.ABSOLUTE:
+        if self.positional_encoding_type == PositionalEncodingType.ABSOLUTE: 
             # shape: (batch_size, seq_len, d_model)        
-            self.position_embedding = nn.Embedding(self.seq_len, self.d_model)
             pos_emb = self.position_embedding(torch.arange(seq_len, device=x.device))
-            pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1) 
+            pos_emb = pos_emb.unsqueeze(0).expand(batch_size, -1, -1)
             x = x + pos_emb
-        
+            
         for encoder in self.encoder_blocks:
-            x = encoder(x, event_length = event_length)
+            x = encoder(x, event_length=event_length)
         
         mask = torch.arange(seq_len, device=x.device).expand(batch_size, -1) < event_length.unsqueeze(1)
         x = x.masked_fill(~mask.unsqueeze(-1), 0) # shape (batch_size, seq_len, d_model)
@@ -91,8 +93,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         # logit = torch.clamp(logit, min=-50, max=50) # will this help avoid NaNs?
         loss = F.mse_loss(logit.squeeze(), target.squeeze())
         if torch.isnan(x).any():
-            print("⚠️ NaN detected in Transformer Encoder output!")
             print("Feature stats:", x.min().item(), x.max().item())
+            print("⚠️ NaN detected in Transformer Encoder output!")
             raise ValueError("NaN detected before classification layer!")
 
         return loss, logit
@@ -228,7 +230,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         task_type = "binary" if self.num_classes == 2 else "multiclass"
         return torchmetrics.ConfusionMatrix(task=task_type, num_classes=self.num_classes)
 
-    
     def on_train_epoch_end(self):
         mean_loss = self.trainer.callback_metrics.get("train_loss", None)
         mean_accuracy = self.trainer.callback_metrics.get("train_accuracy", None)
