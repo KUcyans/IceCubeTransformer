@@ -92,24 +92,30 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             event = torch.cat([event, padding], dim=0)
 
         return event, seq_length
-
-    def custom_collate_fn(self, batch):
-        """Collate function to pad or truncate sequences."""
+    
+    def train_validate_collate_fn(self, batch):
+        features = [item[0] for item in batch]
+        targets = [item[1] for item in batch]
+        batch_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
+        batch_events = torch.stack(batch_events)
+        batch_targets = torch.stack(targets)
+        batch_event_length = torch.tensor(event_length, dtype=torch.int64)
+        
+        return batch_events, batch_targets, batch_event_length
+    
+    def predict_collate_fn(self, batch):
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
         analysis = [item[2] for item in batch]
-
-        # Pad or truncate using the specified column name
-        padded_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
-
-        # Stack everything into tensors
-        batch_events = torch.stack(padded_events)
+        batch_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
+        batch_events = torch.stack(batch_events)
         batch_targets = torch.stack(targets)
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
         analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
-
+        
         return batch_events, batch_targets, batch_event_length, analysis_tensor
-    
+
+
     def _build_frac(self, frac_train, frac_val, frac_test):
         """Builds the fraction for each dataset."""
         total_frac = frac_train + frac_val + frac_test
@@ -123,7 +129,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             batch_size=self.batch_size,
             shuffle=False,
             num_workers=self.num_workers,
-            collate_fn=self.custom_collate_fn,
+            collate_fn=self.train_validate_collate_fn,
             persistent_workers=True,
             pin_memory=True
         )
@@ -134,7 +140,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             batch_size=self.batch_size,
             shuffle=False,
             num_workers=self.num_workers,
-            collate_fn=self.custom_collate_fn,
+            collate_fn=self.train_validate_collate_fn,
             persistent_workers=True,
             pin_memory=True
         )
@@ -145,7 +151,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             batch_size=self.batch_size,
             shuffle=False,
             num_workers=self.num_workers,
-            collate_fn=self.custom_collate_fn,
+            collate_fn=self.predict_collate_fn,
             persistent_workers=True,
             pin_memory=True
         )

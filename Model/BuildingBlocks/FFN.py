@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 class FFN(nn.Module):
-    def __init__(self, d_model, d_f, dropout=0.1,):
+    def __init__(self, d_model, d_f, dropout=0.01,):
         super().__init__()
         self.d_model = d_model
         self.d_f = d_f

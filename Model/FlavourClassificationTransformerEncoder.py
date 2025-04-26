@@ -90,7 +90,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         x = self.pooling(x, mask)
         
         logit = self.classification_output_layer(x)
-        # logit = torch.clamp(logit, min=-50, max=50) # will this help avoid NaNs?
         loss = F.mse_loss(logit.squeeze(), target.squeeze())
         if torch.isnan(x).any():
             print("Feature stats:", x.min().item(), x.max().item())
@@ -107,7 +106,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return accuracy, predicted_labels, true_labels
 
     def training_step(self, batch, batch_idx):
-        x, target, event_length, analysis = batch
+        assert len(batch) == 3, f"[Training]Batch {batch_idx} has unexpected length: {len(batch)}"
+        x, target, event_length = batch
         loss, logit = self(x, target=target, event_length=event_length)
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
         current_lr = self.trainer.optimizers[0].param_groups[0]['lr']
@@ -124,7 +124,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
             # Display predictions for debugging
             softmax_logit = F.softmax(logit, dim=1)
-            num_samples = min(5, x.size(0))  # Show at most 5 samples
+            num_samples = min(6, x.size(0))  # Show at most 6 samples
 
             print("\nlogit    \t\t softmax(logit) \t\t prediction \t target")
             for i in range(num_samples):
@@ -144,7 +144,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return loss
 
     def validation_step(self, batch, batch_idx):
-        x, target, event_length, analysis = batch
+        assert len(batch) == 3, f"[Validation]Batch {batch_idx} has unexpected length: {len(batch)}"
+        x, target, event_length = batch
         loss, logit = self(x, target=target, event_length=event_length)
         
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
@@ -157,7 +158,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             print(f"Validation Loss: {loss.item():.4f} | Validation Accuracy: {accuracy.item():.4f}")
             softmax_logit = F.softmax(logit, dim=1)
             
-            how_many = 5
+            how_many = 6
             print("\nlogit    \t\t softmax(logit) \t\t prediction \t target")
             for i in range(min(how_many, x.size(0))):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]
@@ -176,6 +177,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return loss
 
     def predict_step(self, batch, batch_idx):
+        assert len(batch) == 4, f"[Predict]Batch {batch_idx} has unexpected length: {len(batch)}"
         x, target, event_length, analysis = batch
         with torch.no_grad():
             loss, logit = self(x, target=target, event_length=event_length)
@@ -196,7 +198,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             self.log(f"test_accuracy_{str(period)}", accuracy, prog_bar=True, on_step=True, on_epoch=True)
 
             softmax_logit = F.softmax(logit, dim=1)
-            how_many = 5
+            how_many = 6
             print("\nlogit    \t softmax(logit) \t prediction \t target")
             for i in range(min(how_many, x.size(0))):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]

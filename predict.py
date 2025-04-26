@@ -69,11 +69,11 @@ def lock_and_load(config):
             torch.set_float32_matmul_precision('highest')
     else:
         device = torch.device('cpu')
+        valid_gpus = [0]
         print("CUDA not available. Using CPU.")
 
     print(f"Selected device: {device}")
-    return device, valid_gpus if valid_gpus else [0]  # Return valid GPU list for Trainer
-
+    return device, valid_gpus  # Return valid GPU list for Trainer
 
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
@@ -308,8 +308,8 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
     
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
     # er = EnergyRange.ER_100_TEV_100_PEV

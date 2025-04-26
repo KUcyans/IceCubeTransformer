@@ -77,7 +77,7 @@ class MultiHeadAttention(nn.Module):
         
         # concatenate heads
         attention_output = attention_output.permute(0, 2, 1, 3).contiguous().view(batch_size, seq_len, self.d_model)
-        # attention_output = self.out_proj(attention_output)
+        attention_output = self.out_proj(attention_output)
 
         attention_output = self.dropout(attention_output)
         return attention_output
