@@ -45,35 +45,33 @@ def setup_directories(base_dir: str, config_dir: str, current_date: str, current
         "predict_log_file": os.path.join(paths["log_dir"], f"{current_time}_predict.log"),
     }
 
-
 def lock_and_load(config):
-    """Set CUDA device dynamically based on availability, adjusting if needed."""
+    """Set CUDA device based on config['gpu'] if available, else use CPU."""
     print("torch.cuda.is_available():", torch.cuda.is_available())
     available_devices = list(range(torch.cuda.device_count()))
     print(f"Available CUDA devices: {available_devices}")
 
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        requested_gpus = config['gpu']
-        valid_gpus = [gpu for gpu in requested_gpus if gpu in available_devices]
+        # selected_gpu = int(config['gpu'][0])
+        requested_gpus = config.get('gpu', [])
+        selected_gpu = int(requested_gpus[0]) if requested_gpus else 0
 
-        if valid_gpus:
-            selected_gpu = valid_gpus[0]  # Use the first available valid GPU
-            print(f"🔥 LOCK AND LOAD! Using GPU {selected_gpu} (cuda:{selected_gpu})!")
-            device = torch.device(f"cuda:{selected_gpu}")
-            torch.cuda.set_device(selected_gpu)  # Set device explicitly
+        if selected_gpu in available_devices:
+            torch.cuda.empty_cache()
+            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
+            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
+            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
             torch.set_float32_matmul_precision('highest')
+            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
         else:
-            print(f"⚠️NO GPU {requested_gpus} AVAILABLE! Using GPU[0] instead!")
-            device = torch.device(f"cuda:0")
-            torch.cuda.set_device(0)  # Set device explicitly
-            torch.set_float32_matmul_precision('highest')
+            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
+            device = torch.device('cpu')
     else:
         device = torch.device('cpu')
-        valid_gpus = [0]
         print("CUDA not available. Using CPU.")
 
     print(f"Selected device: {device}")
-    return device, valid_gpus  # Return valid GPU list for Trainer
+    return device
 
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)
@@ -263,7 +261,7 @@ def run_prediction(config_dir: str,
     # predict_logger = setup_logger("predict", dirs["predict_log_file"])
     config = load_model_config(dirs, local_checkpoint, specific_checkpoint)
     
-    device, valid_gpus = lock_and_load(config)
+    device = lock_and_load(config)
     
     datamodule = build_data_module(config=config,
                                     root_dir=data_root_dir,
@@ -275,12 +273,12 @@ def run_prediction(config_dir: str,
     
     trainer = Trainer(
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
-        devices=valid_gpus,
+        devices=[device.index] if device.type == 'cuda' else 1,
         callbacks=callbacks,
         log_every_n_steps=1,
         logger=None,
     )
-    
+
     specific_checkpoint_dir = dirs["checkpoint_dir"]
     ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
 
@@ -308,8 +306,8 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")
     
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
-    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
+    data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
     # er = EnergyRange.ER_100_TEV_100_PEV

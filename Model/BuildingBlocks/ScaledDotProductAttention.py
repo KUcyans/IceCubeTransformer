@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from .AttentionHeadBase import AttentionHeadBase
 
-class ScaledDotProductAttention(nn.Module):
+class ScaledDotProductAttention(AttentionHeadBase):
     def __init__(self, 
                  head_dim: int, 
                  n_heads: int,
@@ -22,11 +23,6 @@ class ScaledDotProductAttention(nn.Module):
         """
         batch_size, _, seq_len, _ = q.shape
         attn_mask = None
-        
-        # clamp_value = 1e2
-        # q = torch.clamp(q, -clamp_value, clamp_value)
-        # k = torch.clamp(k, -clamp_value, clamp_value)
-        # v = torch.clamp(v, -clamp_value, clamp_value)
         
         if event_length is not None:
             row_indices = torch.arange(seq_len, device=q.device).view(1, 1, -1, 1)  # (1, 1, seq_len, 1)

@@ -34,7 +34,9 @@ def lock_and_load(config):
     print(f"Available CUDA devices: {available_devices}")
 
     if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        selected_gpu = int(config['gpu'][0])
+        # selected_gpu = int(config['gpu'][0])
+        requested_gpus = config.get('gpu', [])
+        selected_gpu = int(requested_gpus[0]) if requested_gpus else 0
 
         if selected_gpu in available_devices:
             torch.cuda.empty_cache()
@@ -308,6 +310,7 @@ def run_training(config_dir: str,
         log_every_n_steps=100, 
         gradient_clip_algorithm='norm',
         gradient_clip_val=1.0,
+        precision="bf16-mixed"
     )
     trainer.fit(model, datamodule=datamodule)
 

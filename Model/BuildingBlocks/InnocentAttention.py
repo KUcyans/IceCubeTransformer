@@ -1,8 +1,14 @@
+# not truly “per-head” instances
+# just operate over the full (B, H, S, D) tensor,
+# and rely on vectorisation. 
+# more efficient than looping over heads.
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from .AttentionHeadBase import AttentionHeadBase
 
-class InnocentAttention(nn.Module):
+class InnocentAttention(AttentionHeadBase):
     def __init__(self, 
                  head_dim: int, 
                  n_heads: int,

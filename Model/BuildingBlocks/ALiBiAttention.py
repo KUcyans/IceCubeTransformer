@@ -2,8 +2,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+from .AttentionHeadBase import AttentionHeadBase
 
-class ALiBiAttention(nn.Module):
+class ALiBiAttention(AttentionHeadBase):
     def __init__(self, 
                  head_dim: int, 
                  n_heads: int,

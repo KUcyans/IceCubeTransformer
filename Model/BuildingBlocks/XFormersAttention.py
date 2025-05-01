@@ -1,29 +1,49 @@
 import torch
 import torch.nn as nn
 import xformers.ops as xops
-from xformers.ops import fmha
 
 class XFormersAttention(nn.Module):
-    def __init__(self, d_model: int, 
-                # d_qk: int,
-                # d_v: int,
-                 n_heads: int, 
-                 dropout: float = 0.1):
+    def __init__(self, 
+                 head_dim: int, 
+                 n_heads: int,
+                 dropout: float = 0.01):
         super().__init__()
-        self.d_model = d_model
+        self.head_dim = head_dim
         self.n_heads = n_heads
-        self.head_dim = d_model // n_heads
-        self.scale = self.head_dim ** -0.5
+        self.dropout = dropout
+    
+    def forward(self, q, k, v, event_length=None):
+        """
+        from the MultiHeadAttention class
+        q: batch_size, num_heads, seq_len, head_dim
+        k: batch_size, num_heads, seq_len, head_dim
+        v: batch_size, num_heads, seq_len, head_dim
+        event_length: batch_size
+        """
+        batch_size, num_heads, seq_len, head_dim = q.shape
+        assert num_heads == self.n_heads and head_dim == self.head_dim
 
-        self.q_proj = nn.Linear(d_model, d_model)
-        self.k_proj = nn.Linear(d_model, d_model)
-        self.v_proj = nn.Linear(d_model, d_model)
-        self.out_proj = nn.Linear(d_model, d_model)
+        # permute the input tensors to (batch_size, seq_len, num_heads, head_dim)
+        q = q.permute(0, 2, 1, 3).contiguous()
+        k = k.permute(0, 2, 1, 3).contiguous()
+        v = v.permute(0, 2, 1, 3).contiguous()
 
-    def forward(self, x, mask=None):
-        Q = self.q_proj(x)
-        K = self.k_proj(x)
-        V = self.v_proj(x)
+        # Optionally create an attention mask based on event_length
+        attn_bias = None
+        if event_length is not None:
+            mask = torch.arange(seq_len, device=q.device).unsqueeze(0) < event_length.unsqueeze(1)
 
-        attn_output = xops.memory_efficient_attention(Q, K, V)
-        return self.out_proj(attn_output)
+            attn_mask_bool = mask.unsqueeze(2) & mask.unsqueeze(1) #(batch_size, seq_len, seq_len)
+
+            attn_mask_bool = attn_mask_bool.unsqueeze(1).expand(-1, num_heads, -1, -1) #(batch_size, num_heads, seq_len, seq_len)
+
+            attn_bias = torch.zeros_like(attn_mask_bool, dtype=q.dtype, device=q.device)
+            attn_bias.masked_fill_(~attn_mask_bool, -torch.inf)
+
+        output = xops.memory_efficient_attention(
+            query=q, key=k, value=v,
+            attn_bias=attn_bias,
+            p=self.dropout
+        )
+        output = output.permute(0, 2, 1, 3).contiguous() 
+        return output

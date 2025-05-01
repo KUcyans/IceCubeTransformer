@@ -8,7 +8,7 @@ from .ScaledDotProductAttention import ScaledDotProductAttention
 from .InnocentAttention import InnocentAttention
 from .ALiBiAttention import ALiBiAttention
 from .T5Attention import T5Attention
-# from .XFormersAttention import XFormersAttention
+from .XFormersAttention import XFormersAttention
 from rotary_embedding_torch import RotaryEmbedding
 
 class MultiHeadAttention(nn.Module):
@@ -34,8 +34,8 @@ class MultiHeadAttention(nn.Module):
             attention_cls = ALiBiAttention
         elif self.attention_type == AttentionType.T5:
             attention_cls = T5Attention
-        # elif attention_type == "xformers":
-        #     attention_cls = XFormersAttention
+        elif self.attention_type == AttentionType.XFORMERS:
+            attention_cls = XFormersAttention
         else:
             raise ValueError(f"Unknown attention type: {attention_type}")
         self.attention_head = attention_cls(head_dim=self.head_dim, 
