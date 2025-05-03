@@ -106,7 +106,7 @@ def build_callbacks(config: dict, callback_dir: str):
         ModelCheckpoint(dirpath=
                         callback_dir,
                         filename="{epoch:03d}_{val_loss:.4f}",
-                        save_top_k=1, 
+                        save_top_k=3, 
                         save_last=True, 
                         monitor='mean_val_loss_epoch', 
                         mode='min'),

@@ -46,32 +46,31 @@ def setup_directories(base_dir: str, config_dir: str, current_date: str, current
     }
 
 def lock_and_load(config):
-    """Set CUDA device based on config['gpu'] if available, else use CPU."""
+    """Set CUDA device based on config['gpu'] if available, else fallback to any available GPU, else CPU."""
     print("torch.cuda.is_available():", torch.cuda.is_available())
     available_devices = list(range(torch.cuda.device_count()))
     print(f"Available CUDA devices: {available_devices}")
 
-    if torch.cuda.is_available() and len(config.get('gpu', [])) > 0:
-        # selected_gpu = int(config['gpu'][0])
-        requested_gpus = config.get('gpu', [])
-        selected_gpu = int(requested_gpus[0]) if requested_gpus else 0
+    requested_gpus = config.get('gpu', [])
 
-        if selected_gpu in available_devices:
-            torch.cuda.empty_cache()
-            print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
-            device = torch.device(f"cuda:{selected_gpu}")  # ✅ Use the correct index
-            torch.cuda.set_device(selected_gpu)  # ✅ Explicitly set device
-            torch.set_float32_matmul_precision('highest')
-            print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
-        else:
-            print(f"⚠️ Warning: GPU {selected_gpu} is not available. Using CPU instead.")
-            device = torch.device('cpu')
+    if torch.cuda.is_available() and available_devices:
+        # Try to use one of the requested GPUs if it's available
+        usable_gpus = [int(g) for g in requested_gpus if int(g) in available_devices]
+        selected_gpu = usable_gpus[0] if usable_gpus else available_devices[0]
+
+        torch.cuda.empty_cache()
+        print("🔥 LOCK AND LOAD! GPU ENGAGED! 🔥")
+        device = torch.device(f"cuda:{selected_gpu}")
+        torch.cuda.set_device(selected_gpu)
+        torch.set_float32_matmul_precision('highest')
+        print(f"Using GPU: {selected_gpu} (cuda:{selected_gpu})")
     else:
         device = torch.device('cpu')
-        print("CUDA not available. Using CPU.")
+        print("⚠️ CUDA not available or no GPUs detected. Using CPU.")
 
     print(f"Selected device: {device}")
     return device
+
 
 def setup_logger(name: str, log_filename: str, level=logging.INFO) -> logging.Logger:
     logger = logging.getLogger(name)

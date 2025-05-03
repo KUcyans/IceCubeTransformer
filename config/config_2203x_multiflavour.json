@@ -3,11 +3,11 @@
     "num_workers": 4,
     "embedding_dim": 512,
     "d_input": 35,
-    "event_length": 128,
+    "event_length": 256,
     "n_layers": 10,
     "n_heads": 8,
-    "n_epochs": 100,
-    "patience": 100,
+    "n_epochs": 75,
+    "patience": 75,
     "dropout": 0.01,
     "attention": "xformers",
     "positional_encoding": "absolute",
@@ -30,10 +30,10 @@
         "frequency": 1
     },
     "one_cycle_scheduler":{
-        "pct_start": 0.05,
+        "pct_start": 0.10,
         "lr_max": 2e-4,
         "div_factor": 25,
-        "final_div_factor": 100,
+        "final_div_factor": 33,
         "anneal_strategy": "cos",
         "base_momentum": 0.85,
         "max_momentum": 0.95
