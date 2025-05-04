@@ -23,6 +23,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  num_layers: int, 
                  d_input: int,
                  num_classes: int, 
+                 n_output_layers: int,
                  seq_len: int,  
                  attention_type: AttentionType,
                  positional_encoding_type: PositionalEncodingType,
@@ -34,6 +35,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.d_f = d_f
         self.num_layers = num_layers
         self.d_input = d_input
+        self.n_output_layers = n_output_layers
 
         self.num_classes = num_classes
         self.dropout = dropout
@@ -63,16 +65,10 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
         self.pooling = Pooling(pooling_type="mean")
 
-        # Classification head
-        # self.classification_output_layer = nn.Sequential(
-        #         nn.Linear(self.d_model, self.d_model),
-        #         nn.ReLU(),
-        #         nn.Dropout(self.dropout),
-        #         nn.Linear(self.d_model, self.num_classes)
-        #     )
         self.classification_output_layer = OutputProjection(d_model=self.d_model, 
                                                   d_f=self.d_f,
                                                   num_classes=self.num_classes, 
+                                                  num_layers = self.n_output_layers,
                                                   dropout=self.dropout)
         
         

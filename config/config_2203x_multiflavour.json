@@ -6,8 +6,9 @@
     "event_length": 256,
     "n_layers": 10,
     "n_heads": 8,
-    "n_epochs": 75,
-    "patience": 75,
+    "n_output_layers": 8,
+    "n_epochs": 50,
+    "patience": 50,
     "dropout": 0.01,
     "attention": "xformers",
     "positional_encoding": "absolute",
@@ -19,7 +20,7 @@
     "frac_val": 0.2,
     "frac_test": 0.1,
     "classification_mode": "Multiflavour",
-    "gpu": [0],
+    "gpu": [1],
     "optimizer": {
         "lr_max": 2e-4,
         "betas": [0.9, 0.999],
@@ -32,8 +33,8 @@
     "one_cycle_scheduler":{
         "pct_start": 0.10,
         "lr_max": 2e-4,
-        "div_factor": 25,
-        "final_div_factor": 33,
+        "div_factor": 10,
+        "final_div_factor": 25,
         "anneal_strategy": "cos",
         "base_momentum": 0.85,
         "max_momentum": 0.95

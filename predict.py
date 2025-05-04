@@ -108,6 +108,7 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
         d_f=config['embedding_dim'] * 4,
         num_layers=config['n_layers'],
         d_input=config['d_input'],
+        n_output_layers=config['n_output_layers'],
         num_classes=num_classes,
         seq_len=config['event_length'],
         attention_type=attention_type,
