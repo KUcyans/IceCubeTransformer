@@ -31,7 +31,7 @@ nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
 CHECKPOINT_DATE="20250504"
-CHECKPOINT_TIME="121205"
+CHECKPOINT_TIME="233119"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer
