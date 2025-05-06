@@ -99,18 +99,31 @@ def log_training_parameters(config: dict):
 
 def build_callbacks(config: dict, callback_dir: str):
     """Build and return training callbacks."""
+    # One saves best model by validation loss
+    checkpoint_loss = ModelCheckpoint(
+        dirpath=callback_dir,
+        monitor="val_loss",
+        mode="min",
+        save_last=True, 
+        save_top_k=3,
+        filename="best-loss-{epoch}-{val_loss:.4f}"
+    )
+
+    checkpoint_tau = ModelCheckpoint(
+        dirpath=callback_dir,
+        monitor="val_tau_lg_085_tau",
+        mode="max",
+        save_top_k=3,
+        save_last=True, 
+        filename="best-tau-{epoch}-{val_tau_lg_085_tau:.4f}"
+    )
+    
     callbacks = [
-        EarlyStopping(monitor='mean_val_loss_epoch', 
+        EarlyStopping(monitor='val_loss', 
                       patience=config['patience'], 
                       verbose=True),
-        ModelCheckpoint(dirpath=
-                        callback_dir,
-                        filename="{epoch:03d}_{val_loss:.4f}",
-                        save_top_k=3, 
-                        save_last=True, 
-                        monitor='mean_val_loss_epoch', 
-                        mode='min'),
-        # LocalMinimumCheckpoint(checkpoint_dir=callback_dir, monitor="mean_val_loss_epoch"),
+        checkpoint_loss,
+        checkpoint_tau,
 
         LearningRateMonitor(logging_interval='step'),
         TQDMProgressBar(refresh_rate=1000),
@@ -165,6 +178,7 @@ def build_data_module(config: dict, er: EnergyRange, root_dir: str, root_dir_cor
         N_events_nu_tau=config['N_events_nu_tau'],
         N_events_noise=config['N_events_noise'],
         event_length=config['event_length'],
+        inference_event_length=config['inference_event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
         frac_train=config['frac_train'],

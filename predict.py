@@ -130,6 +130,7 @@ def build_data_module(config: dict, er: EnergyRange, root_dir: str, root_dir_cor
         N_events_nu_tau=config['N_events_nu_tau'],
         N_events_noise=config['N_events_noise'],
         event_length=config['event_length'],
+        inference_event_length=config['inference_event_length'],
         batch_size=config['batch_size'],
         num_workers=config['num_workers'],
         frac_train=config['frac_train'],
@@ -324,5 +325,6 @@ if __name__ == "__main__":
                 data_root_dir_corsika=data_root_dir_corsika,
                  er=er)
     end_time = time.time()
-    print(f"Prediction completed in {time.strftime('%d:%H:%M:%S', time.gmtime(end_time - start_time))}")
+    # elapsed time in HH:MM:SS with full two digits
+    print(f"Elapsed time: {time.strftime('%H:%M:%S', time.gmtime(end_time - start_time))}")
     

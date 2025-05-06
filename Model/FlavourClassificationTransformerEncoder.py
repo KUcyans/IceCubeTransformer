@@ -115,10 +115,14 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         loss, logit = self(x, target=target, event_length=event_length)
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
         current_lr = self.trainer.optimizers[0].param_groups[0]['lr']
-
         self.log("train_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("train_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
         self.log("lr", current_lr, prog_bar=True, on_step=True, on_epoch=False)
+        if self.num_classes == 3:
+            batch_size = logit.shape[0]
+            tau_logit = logit[:, 2].detach().cpu()
+            for i in range(batch_size):
+                self.train_tau_logits[i % 3].append(tau_logit[i])
 
         # ✅ Periodic logging for detailed monitoring
         period = max(1, len(self.trainer.train_dataloader) // 3)
@@ -156,6 +160,12 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.log("val_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("val_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
 
+        if self.num_classes == 3:
+            batch_size = logit.shape[0]
+            tau_logit = logit[:, 2].detach().cpu()
+            for i in range(batch_size):
+                self.val_tau_logits[i % 3].append(tau_logit[i])
+                
         period = max(1, len(self.trainer.val_dataloaders) // 3)
         if batch_idx % period == 0:
             print(f"\nValidation: Epoch {self.current_epoch}, Batch {batch_idx}:")
@@ -171,7 +181,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                 # Convert logit to a string with all class scores
                 logit_str = " ".join([f"{score.item():.4f}" for score in logit[i]])
                 softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_logit[i]])
-                
                 print(f"{logit_str} \t {softmax_str} \t {pred_one_hot} \t {true_one_hot}")
 
             if self.validation_predictions is not None and self.validation_targets is not None:
@@ -218,17 +227,22 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.train_start_time = time.time()
         self.training_predictions = []
         self.training_targets = []
-        self.training_conf_matrix = self.get_confusion_matrix()
+        # self.training_conf_matrix = self.get_confusion_matrix()
+        if self.num_classes == 3:
+            self.train_tau_logits = [[], [], []]
         
     def on_validation_epoch_start(self):
         self.val_start_time = time.time()
         self.validation_predictions = []
         self.validation_targets = []
-        self.validation_conf_matrix = self.get_confusion_matrix()
+        # self.validation_conf_matrix = self.get_confusion_matrix()
+        self.nu_tau_logits = []
+        if self.num_classes == 3:
+            self.val_tau_logits = [[], [], []]  # nu_e, nu_mu, nu_tau
         
     def on_test_epoch_start(self):
         self.test_accuracies = []
-        self.test_conf_matrix = self.get_confusion_matrix()
+        # self.test_conf_matrix = self.get_confusion_matrix()
         self.test_predictions = []
         self.test_targets = []
 
@@ -237,27 +251,30 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return torchmetrics.ConfusionMatrix(task=task_type, num_classes=self.num_classes)
 
     def on_train_epoch_end(self):
-        mean_loss = self.trainer.callback_metrics.get("train_loss", None)
-        mean_accuracy = self.trainer.callback_metrics.get("train_accuracy", None)
-
-        if mean_loss is not None:
-            self.log("mean_train_loss_epoch", mean_loss, prog_bar=True, on_epoch=True)
-        if mean_accuracy is not None:
-            self.log("mean_train_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
+        # mean_loss = self.trainer.callback_metrics.get("train_loss", None)
+        # mean_accuracy = self.trainer.callback_metrics.get("train_accuracy", None)
+        # self.log("mean_train_loss_epoch", mean_loss, prog_bar=True, on_epoch=True)
+        # self.log("mean_train_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
 
         # Log confusion matrix and other metrics
         self.log_epoch_end_metrics(stage="train")
+        if self.num_classes == 3 and hasattr(self, "train_tau_logits"):
+            self._log_tau_metrics(self.train_tau_logits[2], "train")
+            del self.train_tau_logits
 
     def on_validation_epoch_end(self):
-        mean_loss = self.trainer.callback_metrics.get("val_loss", None)
-        mean_accuracy = self.trainer.callback_metrics.get("val_accuracy", None)
+        # mean_loss = self.trainer.callback_metrics.get("val_loss", None)
+        # mean_accuracy = self.trainer.callback_metrics.get("val_accuracy", None)
 
-        if mean_loss is not None:
-            self.log("mean_val_loss_epoch", mean_loss, prog_bar=True, on_epoch=True)
-        if mean_accuracy is not None:
-            self.log("mean_val_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
+        # self.log("mean_val_loss_epoch", mean_loss, prog_bar=True, on_epoch=True)
+        # self.log("mean_val_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
 
         self.log_epoch_end_metrics(stage="val")
+        
+        if self.num_classes == 3 and hasattr(self, "val_tau_logits"):
+            self._log_tau_metrics(self.val_tau_logits[2], "val")
+            del self.val_tau_logits
+
 
     def on_test_epoch_end(self):
         mean_loss = self.trainer.callback_metrics.get("test_loss", None)
@@ -298,25 +315,34 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             print(f"\nTest duration(Epoch {self.current_epoch}): {minute}m {seconds:.2f}s")
         
         # Log confusion matrix and related statistics
-        if len(predictions) > 0 and len(targets) > 0:
-            self.log_confusion_matrix(predictions, targets, stage=stage)
+        # if len(predictions) > 0 and len(targets) > 0:
+        #     self.log_confusion_matrix(predictions, targets, stage=stage)
             
         # 🚽 flush 
         if stage == "train":
             self.training_predictions.clear()
             self.training_targets.clear()
             del self.train_start_time
-            del self.training_conf_matrix
+            # del self.training_conf_matrix
         elif stage == "val":
             self.validation_predictions.clear()
             self.validation_targets.clear()
             del self.val_start_time
-            del self.validation_conf_matrix
+            # del self.validation_conf_matrix
         elif stage == "test":
             self.test_predictions.clear()
             self.test_targets.clear()
             del self.test_start_time
-            del self.test_conf_matrix
+            # del self.test_conf_matrix
+            
+    def _log_tau_metrics(self, tau_logits, prefix):
+        if len(tau_logits) > 0:
+            logits = torch.tensor(tau_logits)
+            threshold = 0.85
+            frac_above = (logits > threshold).float().mean().item()
+            median = logits.median().item()
+            self.log(f"{prefix}_tau_lg_085_tau", frac_above, prog_bar=True, on_epoch=True)
+            self.log(f"{prefix}_tau_lg_median_tau", median, prog_bar=True, on_epoch=True)
 
     def log_confusion_matrix(self, predictions, targets, stage="train"):
         """Logs the confusion matrix with global normalisation and .3f formatting."""

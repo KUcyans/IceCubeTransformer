@@ -51,3 +51,19 @@ class AttentionHeadBase(nn.Module, ABC):
             torch.Tensor: Attention output tensor, shape (batch_size, n_heads, seq_len_q, head_dim)
         """
         pass
+    
+    @staticmethod
+    def make_attention_mask(batch_event_length, max_len):
+        """
+        Constructs a binary mask for attention based on per-batch event lengths.
+
+        Args:
+            batch_event_length (Tensor): shape (B,), actual lengths
+            max_len (int): maximum length (typically sequence length)
+
+        Returns:
+            Tensor: shape (B, 1, 1, max_len), where True indicates keep.
+        """
+        mask = torch.arange(max_len, device=batch_event_length.device).expand(len(batch_event_length), max_len)
+        mask = mask < batch_event_length.unsqueeze(1)
+        return mask.unsqueeze(1).unsqueeze(2)

@@ -16,6 +16,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
                  N_events_nu_tau: int,
                  N_events_noise: int,
                  event_length: int,
+                 inference_event_length: int,
                  batch_size: int,
                  num_workers: int, 
                  frac_train: float,
@@ -33,6 +34,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         self.N_events_nu_tau = N_events_nu_tau
         self.N_events_noise = N_events_noise
         self.event_length = event_length
+        self.inference_event_length = inference_event_length
         self.batch_size = batch_size
         self.num_workers = num_workers
         self._build_frac(frac_train, frac_val, frac_test)
@@ -93,6 +95,18 @@ class MultiFlavourDataModule(pl.LightningDataModule):
 
         return event, seq_length
     
+    def pad_or_truncate_inference(self, event: torch.Tensor):
+        seq_length = event.size(0)
+
+        if seq_length > self.inference_event_length:
+            event = event[event[:, self.index_order_by].argsort(descending=True)][:self.inference_event_length]
+        else:
+            padding = torch.zeros((self.inference_event_length - seq_length, event.size(1)))
+            event = torch.cat([event, padding], dim=0)
+
+        return event, seq_length
+
+    
     def train_validate_collate_fn(self, batch):
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
@@ -113,6 +127,17 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
         analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
         
+        return batch_events, batch_targets, batch_event_length, analysis_tensor
+    
+    def long_predict_collate_fn(self, batch):
+        features = [item[0] for item in batch]
+        targets = [item[1] for item in batch]
+        analysis = [item[2] for item in batch]
+        batch_events, event_length = zip(*[self.pad_or_truncate_inference(event) for event in features])
+        batch_events = torch.stack(batch_events)
+        batch_targets = torch.stack(targets)
+        batch_event_length = torch.tensor(event_length, dtype=torch.int64)
+        analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
         return batch_events, batch_targets, batch_event_length, analysis_tensor
 
 
