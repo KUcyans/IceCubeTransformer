@@ -106,7 +106,7 @@ def build_callbacks(config: dict, callback_dir: str):
         mode="min",
         save_last=True, 
         save_top_k=3,
-        filename="best-loss-{epoch}-{val_loss:.4f}"
+        filename="{epoch}_val_loss={val_loss:.4f}"
     )
 
     checkpoint_tau = ModelCheckpoint(
@@ -115,7 +115,7 @@ def build_callbacks(config: dict, callback_dir: str):
         mode="max",
         save_top_k=3,
         save_last=True, 
-        filename="best-tau-{epoch}-{val_tau_lg_085_tau:.4f}"
+        filename="{epoch}_tau_085={val_tau_lg_085_tau:.4f}"
     )
     
     callbacks = [

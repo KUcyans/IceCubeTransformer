@@ -119,10 +119,11 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.log("train_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
         self.log("lr", current_lr, prog_bar=True, on_step=True, on_epoch=False)
         if self.num_classes == 3:
-            batch_size = logit.shape[0]
-            tau_logit = logit[:, 2].detach().cpu()
-            for i in range(batch_size):
-                self.train_tau_logits[i % 3].append(tau_logit[i])
+            target_labels = torch.argmax(target, dim=1)
+            tau_indices = (target_labels == 2)
+            tau_logits = logit[tau_indices, 2].detach().cpu()
+            self.train_tau_logits.extend(tau_logits.tolist())
+
 
         # ✅ Periodic logging for detailed monitoring
         period = max(1, len(self.trainer.train_dataloader) // 3)
@@ -161,10 +162,11 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.log("val_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
 
         if self.num_classes == 3:
-            batch_size = logit.shape[0]
-            tau_logit = logit[:, 2].detach().cpu()
-            for i in range(batch_size):
-                self.val_tau_logits[i % 3].append(tau_logit[i])
+            target_labels = torch.argmax(target, dim=1)
+            tau_indices = (target_labels == 2)
+            tau_logits = logit[tau_indices, 2].detach().cpu()
+            self.val_tau_logits.extend(tau_logits.tolist())
+
                 
         period = max(1, len(self.trainer.val_dataloaders) // 3)
         if batch_idx % period == 0:
@@ -229,7 +231,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.training_targets = []
         # self.training_conf_matrix = self.get_confusion_matrix()
         if self.num_classes == 3:
-            self.train_tau_logits = [[], [], []]
+            self.train_tau_logits = []
         
     def on_validation_epoch_start(self):
         self.val_start_time = time.time()
@@ -238,7 +240,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         # self.validation_conf_matrix = self.get_confusion_matrix()
         self.nu_tau_logits = []
         if self.num_classes == 3:
-            self.val_tau_logits = [[], [], []]  # nu_e, nu_mu, nu_tau
+            self.val_tau_logits = []
         
     def on_test_epoch_start(self):
         self.test_accuracies = []
@@ -259,7 +261,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         # Log confusion matrix and other metrics
         self.log_epoch_end_metrics(stage="train")
         if self.num_classes == 3 and hasattr(self, "train_tau_logits"):
-            self._log_tau_metrics(self.train_tau_logits[2], "train")
+            self._log_tau_metrics(self.train_tau_logits, "train")
             del self.train_tau_logits
 
     def on_validation_epoch_end(self):
@@ -272,7 +274,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.log_epoch_end_metrics(stage="val")
         
         if self.num_classes == 3 and hasattr(self, "val_tau_logits"):
-            self._log_tau_metrics(self.val_tau_logits[2], "val")
+            self._log_tau_metrics(self.val_tau_logits, "val")
             del self.val_tau_logits
 
 
@@ -343,6 +345,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             median = logits.median().item()
             self.log(f"{prefix}_tau_lg_085_tau", frac_above, prog_bar=True, on_epoch=True)
             self.log(f"{prefix}_tau_lg_median_tau", median, prog_bar=True, on_epoch=True)
+
 
     def log_confusion_matrix(self, predictions, targets, stage="train"):
         """Logs the confusion matrix with global normalisation and .3f formatting."""

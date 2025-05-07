@@ -7,7 +7,9 @@ class XFormersAttention(nn.Module):
                  head_dim: int, 
                  n_heads: int,
                  dropout: float = 0.01):
-        super().__init__()
+        super().__init__(head_dim=head_dim, 
+                         n_heads=n_heads, 
+                         dropout=dropout)
         self.head_dim = head_dim
         self.n_heads = n_heads
         self.dropout = dropout
