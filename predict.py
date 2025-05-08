@@ -223,31 +223,38 @@ def save_predictions(config: dict, predictions: torch.Tensor, prediction_dir: st
     analysis_df = pd.DataFrame(analysis_list, columns=analysis_columns)
     df = pd.concat([df, analysis_df], axis=1)
 
-    epoch, val_loss = parse_checkpoint_name(ckpt_file)
-    csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_val_loss_{val_loss}.csv")
+    epoch, val_value, val_name = parse_checkpoint_name(ckpt_file)
+
+    if val_name == "val_loss":
+        csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_val_loss_{val_value}.csv")
+    elif val_name == "val_tau_lg_085_tau":
+        csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_tau085_{val_value}.csv")
+    else:
+        csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}.csv")
     df.to_csv(csv_name, index=False)
     print(f"Predictions saved to.. \n{csv_name}")
 
-
 def parse_checkpoint_name(ckpt_file: str):
-    """Parse checkpoint filename in form: epoch=12_val_loss=0.1077.ckpt or epoch=25_keep.ckpt"""
+    """Parse checkpoint filenames and return epoch, metric value, and metric name."""
     ckpt_name = os.path.basename(ckpt_file).replace(".ckpt", "")
 
-    if "last" in ckpt_name:
-        return "last", "last"
+    if ckpt_name.startswith("last"):
+        return ckpt_name, "last", "last"
 
-    # Match typical format: epoch=12_val_loss=0.1077 or epoch=47_tau_085=0.5495
-    match_metric = re.match(r"epoch=(\d+)_.*=([\d\.]+)", ckpt_name)
-    if match_metric:
-        return match_metric.group(1), match_metric.group(2)
+    # Match: epoch=46_tau_085=val_tau_lg_085_tau=0.5472
+    match = re.match(r"epoch=(\d+).*?([a-zA-Z0-9_]+)=([\d.]+)$", ckpt_name)
+    if match:
+        return match.group(1), match.group(3), match.group(2)
 
-    # Match manually saved files: epoch=25_keep
+    match_simple = re.match(r"epoch=(\d+)$", ckpt_name)
+    if match_simple:
+        return match_simple.group(1), "none", "none"
+
     match_keep = re.match(r"epoch=(\d+)_keep", ckpt_name)
     if match_keep:
-        return match_keep.group(1), "keep"
+        return match_keep.group(1), "keep", "keep"
 
     raise ValueError(f"Unrecognised checkpoint filename: {ckpt_name}")
-
 
 def run_prediction(config_dir: str, 
                 base_dir: str, 

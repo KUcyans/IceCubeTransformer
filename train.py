@@ -105,7 +105,7 @@ def build_callbacks(config: dict, callback_dir: str):
         monitor="val_loss",
         mode="min",
         save_last=True, 
-        save_top_k=3,
+        save_top_k=2,
         filename="{epoch}"
     )
 
@@ -113,8 +113,8 @@ def build_callbacks(config: dict, callback_dir: str):
         dirpath=callback_dir,
         monitor="val_tau_lg_085_tau",
         mode="max",
-        save_top_k=3,
-        save_last=True, 
+        save_top_k=2,
+        save_last=False, 
         filename="{epoch}"
     )
     

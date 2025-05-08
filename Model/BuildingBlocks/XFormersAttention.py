@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
 import xformers.ops as xops
+from .AttentionHeadBase import AttentionHeadBase
 
-class XFormersAttention(nn.Module):
+class XFormersAttention(AttentionHeadBase):
     def __init__(self, 
                  head_dim: int, 
                  n_heads: int,
