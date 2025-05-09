@@ -83,7 +83,7 @@ class MonoFlavourDataset(Dataset):
                     (event_no, truth_file, row_idx, shard_nos[row_idx], offsets[row_idx], N_doms[row_idx])
                 )
 
-        event_index.sort(key=lambda x: x[0])  # Sort for deterministic access
+        # event_index.sort(key=lambda x: x[0])  # Sort for deterministic access
         return event_index
 
     def _select_events(self):

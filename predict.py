@@ -325,7 +325,6 @@ if __name__ == "__main__":
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
     
     er = EnergyRange.ER_100_TEV_100_PEV
-    # er = EnergyRange.ER_1_PEV_100_PEV
     
     print(f"data_root_dir: {data_root_dir}")
     print(f"data_root_dir_corsika: {data_root_dir_corsika}")
