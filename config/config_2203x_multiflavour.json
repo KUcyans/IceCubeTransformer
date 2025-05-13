@@ -12,7 +12,7 @@
     "patience": 100,
     "dropout": 0.01,
     "attention": "xformers",
-    "positional_encoding": "absolute",
+    "positional_encoding": "rope",
     "N_events_nu_e": 100000, 
     "N_events_nu_mu": 100000,
     "N_events_nu_tau": 100000,
@@ -21,7 +21,7 @@
     "frac_val": 0.2,
     "frac_test": 0.1,
     "classification_mode": "Multiflavour",
-    "gpu": [1],
+    "gpu": [0],
     "optimizer": {
         "lr_max": 1e-4,
         "betas": [0.9, 0.999],

@@ -192,13 +192,15 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return loss
 
     def predict_step(self, batch, batch_idx):
-        assert len(batch) == 4, f"[Predict]Batch {batch_idx} has unexpected length: {len(batch)}"
-        x, target, event_length, analysis = batch
-        with torch.no_grad():
-            loss, logit = self(x, target=target, event_length=event_length)
-            probs = F.softmax(logit, dim=1)
-        return {"logits": logit, "probs": probs, "target": target, "analysis": analysis}
+        x, target, event_length = batch
+        _, logits = self(x, target=target, event_length=event_length)  # <- fix here
+        preds = torch.argmax(logits, dim=-1)
 
+        return {
+            "target": target.cpu(),  # fixed key name for consistency
+            "pred_class": preds.cpu().numpy(),
+            "logits": logits.cpu().numpy(),
+        }
 
     def test_step(self, batch, batch_idx):
         x, target, event_length, analysis = batch
@@ -253,11 +255,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         return torchmetrics.ConfusionMatrix(task=task_type, num_classes=self.num_classes)
 
     def on_train_epoch_end(self):
-        # mean_loss = self.trainer.callback_metrics.get("train_loss", None)
-        # mean_accuracy = self.trainer.callback_metrics.get("train_accuracy", None)
-        # self.log("mean_train_loss_epoch", mean_loss, prog_bar=True, on_epoch=True)
-        # self.log("mean_train_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
-
         # Log confusion matrix and other metrics
         self.log_epoch_end_metrics(stage="train")
         if self.num_classes == 3 and hasattr(self, "train_tau_logits"):
@@ -265,18 +262,11 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             del self.train_tau_logits
 
     def on_validation_epoch_end(self):
-        # mean_loss = self.trainer.callback_metrics.get("val_loss", None)
-        # mean_accuracy = self.trainer.callback_metrics.get("val_accuracy", None)
-
-        # self.log("mean_val_loss_epoch", mean_loss, prog_bar=True, on_epoch=True)
-        # self.log("mean_val_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
-
         self.log_epoch_end_metrics(stage="val")
         
         if self.num_classes == 3 and hasattr(self, "val_tau_logits"):
             self._log_tau_metrics(self.val_tau_logits, "val")
             del self.val_tau_logits
-
 
     def on_test_epoch_end(self):
         mean_loss = self.trainer.callback_metrics.get("test_loss", None)
@@ -288,7 +278,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             self.log("mean_test_accuracy_epoch", mean_accuracy, prog_bar=True, on_epoch=True)
 
         self.log_epoch_end_metrics(stage="test")
-
 
     def log_epoch_end_metrics(self, stage="train"):
         """Log confusion matrix and statistics at the end of each epoch."""

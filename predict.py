@@ -170,69 +170,95 @@ def log_training_parameters(config: dict):
 
     print(message)
 
-def save_predictions(config: dict, predictions: torch.Tensor, prediction_dir: str, ckpt_file: str):
-    pred_classes = []
-    target_classes = []
-    pred_one_hot = []
-    target_one_hot = []
-    logits_list = []
-    probs_list = []
-    analysis_list = []
+def build_predictions(config: dict, predictions: list, prediction_dir: str, ckpt_file: str):
+    all_preds = {
+        "target_class": [],
+        "pred_class": [],
+        "target_one_hot_pid": [],
+        "pred_one_hot_pid": [],
+        "logits": [],
+    }
 
     num_class = ClassificationMode.from_string(config['classification_mode']).num_classes
+    for i, batch in enumerate(predictions):
+        logits = batch['logits']
+        targets = batch.get('target', None)
 
-    for i in range(len(predictions)):
-        logit = predictions[i]['logits']
-        prob = predictions[i]['probs']
-        target = predictions[i].get('target', None)
-        analysis = predictions[i].get("analysis", None)
+        if not isinstance(logits, torch.Tensor):
+            logits = torch.tensor(logits)
+        if not isinstance(targets, torch.Tensor):
+            targets = torch.tensor(targets)
 
-        pred_class = torch.argmax(prob, dim=-1) #
-        target_class = torch.argmax(target, dim=-1)
+        pred_class = torch.argmax(logits, dim=-1)
+        target_class = torch.argmax(targets, dim=-1)
 
-        pred_one_hot_vec = torch.nn.functional.one_hot(pred_class, num_classes=num_class).tolist()
-        target_one_hot_vec = torch.nn.functional.one_hot(target_class, num_classes=num_class).tolist()
+        all_preds["pred_class"].extend(pred_class.tolist())
+        all_preds["target_class"].extend(target_class.tolist())
 
-        pred_classes.append(pred_class)
-        pred_one_hot.extend(pred_one_hot_vec)
+        pred_one_hot = torch.nn.functional.one_hot(pred_class, num_classes=num_class).tolist()
+        target_one_hot = torch.nn.functional.one_hot(target_class, num_classes=num_class).tolist()
 
-        target_classes.append(target_class)
-        target_one_hot.extend(target_one_hot_vec)
-
-        logits_list.extend(logit.tolist())
-        probs_list.extend(prob.tolist())
-
-        analysis_list.extend(analysis.cpu().numpy().tolist())
-
-    pred_classes = torch.cat(pred_classes, dim=0)
-    target_classes = torch.cat(target_classes, dim=0)
-
-    print('Predictions shape:', pred_classes.shape)
-    print('Targets shape:', target_classes.shape)
-    
+        all_preds["pred_one_hot_pid"].extend(pred_one_hot)
+        all_preds["target_one_hot_pid"].extend(target_one_hot)
+        all_preds["logits"].extend(logits.tolist())
+    # Construct dataframe
     df = pd.DataFrame({
-        
-        "target_class": target_classes.numpy(),
-        "pred_class": pred_classes.numpy(),
-        "target_one_hot_pid": target_one_hot,
-        "pred_one_hot_pid": pred_one_hot,
-        "logits": logits_list,
-        "probs": probs_list,
+        "target_class": all_preds["target_class"],
+        "pred_class": all_preds["pred_class"],
+        "target_one_hot_pid": all_preds["target_one_hot_pid"],
+        "pred_one_hot_pid": all_preds["pred_one_hot_pid"],
+        "logits": all_preds["logits"],
     })
+
+    return df
+
+def build_analysis_df(test_dataset):
+    """Extracts the analysis columns from the unbatched dataset (no collate interference)."""
+    analysis_list = []
+
+    for idx in range(len(test_dataset)):
+        _, _, analysis = test_dataset[idx]
+        analysis_list.append(list(analysis))
+
     analysis_columns = MonoFlavourDataset.IDENTIFICATION + MonoFlavourDataset.ANALYSIS
-    analysis_df = pd.DataFrame(analysis_list, columns=analysis_columns)
-    df = pd.concat([df, analysis_df], axis=1)
+    return pd.DataFrame(analysis_list, columns=analysis_columns)
 
+
+def save_predictions(df_predictions: pd.DataFrame, df_analysis: pd.DataFrame, prediction_dir: str, ckpt_file: str):
+    # Determine filename
     epoch, val_value, val_name = parse_checkpoint_name(ckpt_file)
-
     if val_name == "val_loss":
         csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_val_loss_{val_value}.csv")
     elif val_name == "val_tau_lg_085_tau":
         csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}_tau085_{val_value}.csv")
     else:
         csv_name = os.path.join(prediction_dir, f"predictions_epoch_{epoch}.csv")
-    df.to_csv(csv_name, index=False)
-    print(f"Predictions saved to.. \n{csv_name}")
+
+    # Combine predictions and analysis
+    if len(df_predictions) != len(df_analysis):
+        raise ValueError(f"Mismatch: {len(df_predictions)} predictions vs {len(df_analysis)} analysis rows.")
+
+    df_combined = pd.concat([df_predictions, df_analysis], axis=1)
+
+    # Optional: Uniqueness check
+    if "event_no" in df_combined.columns:
+        df_combined["event_no"] = df_combined["event_no"].astype(int)
+        n_unique = df_combined["event_no"].nunique()
+        n_total = len(df_combined)
+        print(f"🧠 Unique event_no: {n_unique} / {n_total} total rows")
+
+        dupes = df_combined[df_combined["event_no"].duplicated(keep=False)]
+        if not dupes.empty:
+            print(f"⚠️ {len(dupes)} duplicated rows found based on event_no!")
+            print(dupes["event_no"].value_counts().head())
+        else:
+            print("✅ All event_no values are unique.")
+
+    # Save to CSV
+    df_combined.to_csv(csv_name, index=False)
+    print(f"✅ Predictions saved to:\n{csv_name}")
+    
+
 
 def parse_checkpoint_name(ckpt_file: str):
     """Parse checkpoint filenames and return epoch, metric value, and metric name."""
@@ -241,7 +267,6 @@ def parse_checkpoint_name(ckpt_file: str):
     if ckpt_name.startswith("last"):
         return ckpt_name, "last", "last"
 
-    # Match: epoch=46_tau_085=val_tau_lg_085_tau=0.5472
     match = re.match(r"epoch=(\d+).*?([a-zA-Z0-9_]+)=([\d.]+)$", ckpt_name)
     if match:
         return match.group(1), match.group(3), match.group(2)
@@ -254,7 +279,13 @@ def parse_checkpoint_name(ckpt_file: str):
     if match_keep:
         return match_keep.group(1), "keep", "keep"
 
+    # Match mid-epoch files like "17-mid" or "20-mid"
+    match_mid = re.match(r"(\d+)-mid", ckpt_name)
+    if match_mid:
+        return match_mid.group(1), "mid", "mid"
+
     raise ValueError(f"Unrecognised checkpoint filename: {ckpt_name}")
+
 
 def run_prediction(config_dir: str, 
                 base_dir: str, 
@@ -295,7 +326,8 @@ def run_prediction(config_dir: str,
 
     specific_checkpoint_dir = dirs["checkpoint_dir"]
     ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
-
+    
+    df_analysis = build_analysis_df(datamodule.test_dataloader().dataset)
     for ckpt_file in ckpt_files:
         ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
 
@@ -306,16 +338,23 @@ def run_prediction(config_dir: str,
         print(f"\n🔥 Loading model from {ckpt_file}...")
         model = build_model(config=config, device=device, ckpt_file=ckpt_file_dir)
         model.to(device)
-
+        
         print("🚀 Running predictions...")
         predictions = trainer.predict(model=model, dataloaders=datamodule.test_dataloader())
+        # returned shape: [batch_size, num_classes]
 
         print("💾 Saving predictions...")
-        save_predictions(config=config, 
-                         predictions=predictions,
-                        prediction_dir=dirs["predict_dir"],
-                        ckpt_file=ckpt_file_dir)
-
+        df_predictions = build_predictions(config=config,
+                                            predictions=predictions,
+                                            prediction_dir=dirs["predict_dir"],
+                                            ckpt_file=ckpt_file_dir)
+        
+        save_predictions(df_predictions=df_predictions,
+                          df_analysis=df_analysis,
+                          prediction_dir=dirs["predict_dir"],
+                          ckpt_file=ckpt_file_dir)
+        print("✅ Predictions saved successfully.")
+        
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
     config_dir = os.path.join(base_dir, "config")

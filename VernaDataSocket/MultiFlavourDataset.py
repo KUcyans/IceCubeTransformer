@@ -34,6 +34,12 @@ class MultiFlavourDataset(Dataset):
         self._build_dataset()
 
         self.flavour_mapped_indices = self._create_index()
+        # [(0, 0), (1, 0), (2, 0), (0, 1), (1, 1), (2, 1), ...]
+        # where 0, 1, 2 are the dataset indices and 0, 1, ... are the local indices within each dataset
+        # This will be used to access the datasets in a round-robin fashion 
+        # flavour_mapped_indices[0] = (0, 0) -> first event from the first dataset
+        # flavour_mapped_indices[1] = (1, 0) -> first event from the second dataset
+        # flavour_mapped_indices[2] = (2, 0) -> first event from the third dataset
 
     def _build_dataset(self):
         flavour_event_map = {
@@ -81,8 +87,8 @@ class MultiFlavourDataset(Dataset):
         """Standard round-robin interleaving."""
         cyclic_indices = []
         dataset_lengths = [len(ds) for ds in self.datasets]
-        max_length = max(dataset_lengths)
-        for i in range(max_length):
+        common_length = min(dataset_lengths)
+        for i in range(common_length):
             for ds_idx, ds_len in enumerate(dataset_lengths):
                 if i < ds_len:
                     cyclic_indices.append((ds_idx, i))
@@ -112,7 +118,13 @@ class MultiFlavourDataset(Dataset):
 
     def __getitem__(self, idx):
         ds_idx, local_idx = self.flavour_mapped_indices[idx]
+        
         if ds_idx < len(self.datasets):
-            return self.datasets[ds_idx][local_idx]
+            sample = self.datasets[ds_idx][local_idx]
         else:
-            return self.noise_dataset[local_idx]
+            sample = self.noise_dataset[local_idx]
+
+        # event_no = int(sample[2][0])  # first column of analysis_truth
+        # print(f"ds_idx: {ds_idx}, local_idx: {local_idx}, event_no: {event_no}")
+        
+        return sample

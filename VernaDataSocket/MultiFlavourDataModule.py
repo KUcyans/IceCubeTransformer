@@ -116,29 +116,25 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
         
         return batch_events, batch_targets, batch_event_length
-    
+
     def predict_collate_fn(self, batch):
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
-        analysis = [item[2] for item in batch]
         batch_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
         batch_events = torch.stack(batch_events)
         batch_targets = torch.stack(targets)
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
-        analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
-        
-        return batch_events, batch_targets, batch_event_length, analysis_tensor
-    
+
+        return batch_events, batch_targets, batch_event_length
+
     def long_predict_collate_fn(self, batch):
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
-        analysis = [item[2] for item in batch]
         batch_events, event_length = zip(*[self.pad_or_truncate_inference(event) for event in features])
         batch_events = torch.stack(batch_events)
         batch_targets = torch.stack(targets)
         batch_event_length = torch.tensor(event_length, dtype=torch.int64)
-        analysis_tensor = torch.tensor(np.stack(analysis), dtype=torch.float32)
-        return batch_events, batch_targets, batch_event_length, analysis_tensor
+        return batch_events, batch_targets, batch_event_length
 
 
     def _build_frac(self, frac_train, frac_val, frac_test):
@@ -177,6 +173,6 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             shuffle=False,
             num_workers=self.num_workers,
             collate_fn=self.predict_collate_fn,
-            persistent_workers=True,
-            pin_memory=True
+            persistent_workers=False,
+            pin_memory=False
         )
