@@ -172,7 +172,7 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             batch_size=self.batch_size,
             shuffle=False,
             num_workers=self.num_workers,
-            collate_fn=self.predict_collate_fn,
+            collate_fn=self.long_predict_collate_fn,
             persistent_workers=False,
             pin_memory=False
         )

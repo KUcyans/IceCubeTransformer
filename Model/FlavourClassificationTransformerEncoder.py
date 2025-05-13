@@ -93,18 +93,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         
         x = self.pooling(x, mask)
         
-        logit = self.classification_output_layer(x)
-        loss = F.mse_loss(logit.squeeze(), target.squeeze())
+        model_output = self.classification_output_layer(x)
+        loss = F.mse_loss(model_output.squeeze(), target.squeeze())
         if torch.isnan(x).any():
             print("Feature stats:", x.min().item(), x.max().item())
             print("⚠️ NaN detected in Transformer Encoder output!")
             raise ValueError("NaN detected before classification layer!")
 
-        return loss, logit
+        return loss, model_output
 
-    def _calculate_accuracy(self, logit, target):
+    def _calculate_accuracy(self, model_output, target):
         """Calculate accuracy given model probabilities and true labels."""
-        predicted_labels = torch.argmax(logit, dim=1).cpu()
+        predicted_labels = torch.argmax(model_output, dim=1).cpu()
         true_labels = torch.argmax(target, dim=1).cpu()
         accuracy = torch.eq(predicted_labels, true_labels).float().mean()
         return accuracy, predicted_labels, true_labels
@@ -112,8 +112,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def training_step(self, batch, batch_idx):
         assert len(batch) == 3, f"[Training]Batch {batch_idx} has unexpected length: {len(batch)}"
         x, target, event_length = batch
-        loss, logit = self(x, target=target, event_length=event_length)
-        accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
+        loss, model_output = self(x, target=target, event_length=event_length)
+        accuracy, predicted_labels, true_labels = self._calculate_accuracy(model_output, target)
         current_lr = self.trainer.optimizers[0].param_groups[0]['lr']
         self.log("train_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("train_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
@@ -121,8 +121,8 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         if self.num_classes == 3:
             target_labels = torch.argmax(target, dim=1)
             tau_indices = (target_labels == 2)
-            tau_logits = logit[tau_indices, 2].detach().cpu()
-            self.train_tau_logits.extend(tau_logits.tolist())
+            tau_model_outputs = model_output[tau_indices, 2].detach().cpu()
+            self.train_tau_model_outputs.extend(tau_model_outputs.tolist())
 
 
         # ✅ Periodic logging for detailed monitoring
@@ -132,18 +132,18 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             print(f"Train Loss: {loss.item():.4f} | Train Accuracy: {accuracy.item():.4f} | LR: {current_lr:.6e}")
 
             # Display predictions for debugging
-            softmax_logit = F.softmax(logit, dim=1)
+            softmax_model_output = F.softmax(model_output, dim=1)
             num_samples = min(6, x.size(0))  # Show at most 6 samples
 
-            print("\nlogit    \t\t softmax(logit) \t\t prediction \t target")
+            print("\nmodel_output    \t\t softmax(model_output) \t\t prediction \t target")
             for i in range(num_samples):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]
                 true_one_hot = target[i].to(torch.int32).tolist()
 
-                logit_str = " ".join([f"{score.item():.4f}" for score in logit[i]])
-                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_logit[i]])
+                model_output_str = " ".join([f"{score.item():.4f}" for score in model_output[i]])
+                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_model_output[i]])
 
-                print(f"{logit_str}\t{softmax_str}\t{pred_one_hot}\t{true_one_hot}")
+                print(f"{model_output_str}\t{softmax_str}\t{pred_one_hot}\t{true_one_hot}")
 
             # ✅ Store predictions if tracking history
             if self.training_predictions is not None and self.training_targets is not None:
@@ -155,35 +155,35 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def validation_step(self, batch, batch_idx):
         assert len(batch) == 3, f"[Validation]Batch {batch_idx} has unexpected length: {len(batch)}"
         x, target, event_length = batch
-        loss, logit = self(x, target=target, event_length=event_length)
+        loss, model_output = self(x, target=target, event_length=event_length)
         
-        accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
+        accuracy, predicted_labels, true_labels = self._calculate_accuracy(model_output, target)
         self.log("val_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("val_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
 
         if self.num_classes == 3:
             target_labels = torch.argmax(target, dim=1)
             tau_indices = (target_labels == 2)
-            tau_logits = logit[tau_indices, 2].detach().cpu()
-            self.val_tau_logits.extend(tau_logits.tolist())
+            tau_model_outputs = model_output[tau_indices, 2].detach().cpu()
+            self.val_tau_model_outputs.extend(tau_model_outputs.tolist())
 
                 
         period = max(1, len(self.trainer.val_dataloaders) // 3)
         if batch_idx % period == 0:
             print(f"\nValidation: Epoch {self.current_epoch}, Batch {batch_idx}:")
             print(f"Validation Loss: {loss.item():.4f} | Validation Accuracy: {accuracy.item():.4f}")
-            softmax_logit = F.softmax(logit, dim=1)
+            softmax_model_output = F.softmax(model_output, dim=1)
             
             how_many = 6
-            print("\nlogit    \t\t softmax(logit) \t\t prediction \t target")
+            print("\nmodel_output    \t\t softmax(model_output) \t\t prediction \t target")
             for i in range(min(how_many, x.size(0))):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]
                 true_one_hot = target[i].to(torch.int32).tolist()
                 
-                # Convert logit to a string with all class scores
-                logit_str = " ".join([f"{score.item():.4f}" for score in logit[i]])
-                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_logit[i]])
-                print(f"{logit_str} \t {softmax_str} \t {pred_one_hot} \t {true_one_hot}")
+                # Convert model_output to a string with all class scores
+                model_output_str = " ".join([f"{score.item():.4f}" for score in model_output[i]])
+                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_model_output[i]])
+                print(f"{model_output_str} \t {softmax_str} \t {pred_one_hot} \t {true_one_hot}")
 
             if self.validation_predictions is not None and self.validation_targets is not None:
                 self.validation_predictions.extend(predicted_labels.tolist())
@@ -193,39 +193,39 @@ class FlavourClassificationTransformerEncoder(LightningModule):
 
     def predict_step(self, batch, batch_idx):
         x, target, event_length = batch
-        _, logits = self(x, target=target, event_length=event_length)  # <- fix here
-        preds = torch.argmax(logits, dim=-1)
+        _, model_outputs = self(x, target=target, event_length=event_length)  # <- fix here
+        preds = torch.argmax(model_outputs, dim=-1)
 
         return {
             "target": target.cpu(),  # fixed key name for consistency
             "pred_class": preds.cpu().numpy(),
-            "logits": logits.cpu().numpy(),
+            "model_outputs": model_outputs.cpu().numpy(),
         }
 
     def test_step(self, batch, batch_idx):
         x, target, event_length, analysis = batch
-        loss, logit = self(x, target=target, event_length=event_length)
+        loss, model_output = self(x, target=target, event_length=event_length)
 
         period = 5000
         if batch_idx  % period == 0:
-            accuracy, predicted_labels, true_labels = self._calculate_accuracy(logit, target)
+            accuracy, predicted_labels, true_labels = self._calculate_accuracy(model_output, target)
             print(f"\nTest: Epoch {self.current_epoch}, Batch {batch_idx}:")
             print(f"test_loss_{str(period)}={loss.item():.4f}, test_accuracy_{str(period)}={accuracy.item():.4f}")
             self.log(f"test_loss_{str(period)}", loss, prog_bar=True, on_step=True, on_epoch=True)
             self.log(f"test_accuracy_{str(period)}", accuracy, prog_bar=True, on_step=True, on_epoch=True)
 
-            softmax_logit = F.softmax(logit, dim=1)
+            softmax_model_output = F.softmax(model_output, dim=1)
             how_many = 6
-            print("\nlogit    \t softmax(logit) \t prediction \t target")
+            print("\nmodel_output    \t softmax(model_output) \t prediction \t target")
             for i in range(min(how_many, x.size(0))):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]
                 true_one_hot = target[i].to(torch.int32).tolist()
                 
-                # Convert logit to a string with all class scores
-                logit_str = " ".join([f"{score.item():.4f}" for score in logit[i]])
-                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_logit[i]])
+                # Convert model_output to a string with all class scores
+                model_output_str = " ".join([f"{score.item():.4f}" for score in model_output[i]])
+                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_model_output[i]])
                 
-                print(f"{logit_str} \t {softmax_str} \t {pred_one_hot} \t {true_one_hot}")
+                print(f"{model_output_str} \t {softmax_str} \t {pred_one_hot} \t {true_one_hot}")
 
     def on_train_epoch_start(self):
         self.train_start_time = time.time()
@@ -233,16 +233,16 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.training_targets = []
         # self.training_conf_matrix = self.get_confusion_matrix()
         if self.num_classes == 3:
-            self.train_tau_logits = []
+            self.train_tau_model_outputs = []
         
     def on_validation_epoch_start(self):
         self.val_start_time = time.time()
         self.validation_predictions = []
         self.validation_targets = []
         # self.validation_conf_matrix = self.get_confusion_matrix()
-        self.nu_tau_logits = []
+        self.nu_tau_model_outputs = []
         if self.num_classes == 3:
-            self.val_tau_logits = []
+            self.val_tau_model_outputs = []
         
     def on_test_epoch_start(self):
         self.test_accuracies = []
@@ -257,16 +257,16 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def on_train_epoch_end(self):
         # Log confusion matrix and other metrics
         self.log_epoch_end_metrics(stage="train")
-        if self.num_classes == 3 and hasattr(self, "train_tau_logits"):
-            self._log_tau_metrics(self.train_tau_logits, "train")
-            del self.train_tau_logits
+        if self.num_classes == 3 and hasattr(self, "train_tau_model_outputs"):
+            self._log_tau_metrics(self.train_tau_model_outputs, "train")
+            del self.train_tau_model_outputs
 
     def on_validation_epoch_end(self):
         self.log_epoch_end_metrics(stage="val")
         
-        if self.num_classes == 3 and hasattr(self, "val_tau_logits"):
-            self._log_tau_metrics(self.val_tau_logits, "val")
-            del self.val_tau_logits
+        if self.num_classes == 3 and hasattr(self, "val_tau_model_outputs"):
+            self._log_tau_metrics(self.val_tau_model_outputs, "val")
+            del self.val_tau_model_outputs
 
     def on_test_epoch_end(self):
         mean_loss = self.trainer.callback_metrics.get("test_loss", None)
@@ -326,14 +326,14 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             del self.test_start_time
             # del self.test_conf_matrix
             
-    def _log_tau_metrics(self, tau_logits, prefix):
-        if len(tau_logits) > 0:
-            logits = torch.tensor(tau_logits)
+    def _log_tau_metrics(self, tau_model_outputs, prefix):
+        if len(tau_model_outputs) > 0:
+            model_outputs = torch.tensor(tau_model_outputs)
             threshold = 0.85
-            frac_above = (logits > threshold).float().mean().item()
-            median = logits.median().item()
-            self.log(f"{prefix}_tau_lg_085_tau", frac_above, prog_bar=True, on_epoch=True)
-            self.log(f"{prefix}_tau_lg_median_tau", median, prog_bar=True, on_epoch=True)
+            frac_above = (model_outputs > threshold).float().mean().item()
+            median = model_outputs.median().item()
+            self.log(f"{prefix}_tau_output_085_tau", frac_above, prog_bar=True, on_epoch=True)
+            self.log(f"{prefix}_tau_output_median_tau", median, prog_bar=True, on_epoch=True)
 
 
     def log_confusion_matrix(self, predictions, targets, stage="train"):

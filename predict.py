@@ -176,20 +176,20 @@ def build_predictions(config: dict, predictions: list, prediction_dir: str, ckpt
         "pred_class": [],
         "target_one_hot_pid": [],
         "pred_one_hot_pid": [],
-        "logits": [],
+        "model_outputs": [],
     }
 
     num_class = ClassificationMode.from_string(config['classification_mode']).num_classes
     for i, batch in enumerate(predictions):
-        logits = batch['logits']
+        model_outputs = batch['model_outputs']
         targets = batch.get('target', None)
 
-        if not isinstance(logits, torch.Tensor):
-            logits = torch.tensor(logits)
+        if not isinstance(model_outputs, torch.Tensor):
+            model_outputs = torch.tensor(model_outputs)
         if not isinstance(targets, torch.Tensor):
             targets = torch.tensor(targets)
 
-        pred_class = torch.argmax(logits, dim=-1)
+        pred_class = torch.argmax(model_outputs, dim=-1)
         target_class = torch.argmax(targets, dim=-1)
 
         all_preds["pred_class"].extend(pred_class.tolist())
@@ -200,16 +200,21 @@ def build_predictions(config: dict, predictions: list, prediction_dir: str, ckpt
 
         all_preds["pred_one_hot_pid"].extend(pred_one_hot)
         all_preds["target_one_hot_pid"].extend(target_one_hot)
-        all_preds["logits"].extend(logits.tolist())
+        all_preds["model_outputs"].extend(model_outputs.tolist())
+
     # Construct dataframe
     df = pd.DataFrame({
         "target_class": all_preds["target_class"],
         "pred_class": all_preds["pred_class"],
         "target_one_hot_pid": all_preds["target_one_hot_pid"],
         "pred_one_hot_pid": all_preds["pred_one_hot_pid"],
-        "logits": all_preds["logits"],
+        "model_outputs": all_preds["model_outputs"],
     })
-
+    model_outputs_tensor = torch.tensor(df['model_outputs'].tolist())
+    prob_softmax_tensor = torch.nn.functional.softmax(model_outputs_tensor, dim=-1)
+    logit_softmax_tensor = torch.log(prob_softmax_tensor) - torch.log(1 - prob_softmax_tensor)
+    df['prob_softmax'] = prob_softmax_tensor.tolist()
+    df['logit_softmax'] = logit_softmax_tensor.tolist()
     return df
 
 def build_analysis_df(test_dataset):
