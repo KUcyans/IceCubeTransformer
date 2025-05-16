@@ -24,6 +24,7 @@ from Enum.LrDecayMode import LrDecayMode
 from Enum.ClassificationMode import ClassificationMode
 from Enum.AttentionType import AttentionType
 from Enum.PositionalEncodingType import PositionalEncodingType
+from Enum.LossType import LossType
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -124,7 +125,6 @@ def build_callbacks(config: dict, callback_dir: str):
                       verbose=True),
         checkpoint_loss,
         checkpoint_mid,
-
         LearningRateMonitor(logging_interval='step'),
         TQDMProgressBar(refresh_rate=1000),
     ]   
@@ -151,6 +151,7 @@ def build_model(config: dict,
     num_classes = classification_mode.num_classes
     attention_type = AttentionType.from_string(config['attention'])
     positional_encoding_type = PositionalEncodingType.from_string(config['positional_encoding'])
+    loss_type = LossType.from_string(config['loss'])
     model = FlavourClassificationTransformerEncoder(
         d_model=config['embedding_dim'],
         n_heads=config['n_heads'],
@@ -160,6 +161,7 @@ def build_model(config: dict,
         n_output_layers=config['n_output_layers'],
         num_classes=num_classes,
         seq_len=config['event_length'],
+        loss_type=loss_type,
         attention_type=attention_type,
         positional_encoding_type=positional_encoding_type,
         dropout=config['dropout'],
@@ -336,6 +338,8 @@ if __name__ == "__main__":
     config_file = "config_2203x_multiflavour.json"
     # config_file = "config_2203x_signal_noise.json"
     # config_file = "config_2203x_track_cascade.json"
+    # # config_file  = "config_multiflavour_mse.json"
+    # config_file  = "config_multiflavour_ce.json"
     
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"

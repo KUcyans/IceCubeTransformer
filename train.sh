@@ -3,7 +3,7 @@
 #SBATCH --partition=gr10_gpu
 ##SBATCH --partition=icecube_gpu
 #SBATCH --ntasks=1
-#SBATCH --nodelist=node071
+#SBATCH --nodelist=node072
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=30G

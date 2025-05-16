@@ -4,6 +4,7 @@ class PositionalEncodingType(Enum):
     ROPE = 1
     T5 = 2
     ALIBI = 3
+    EMPTY = 4 # no positional encoding
 
     @classmethod
     def from_string(cls, string: str):
@@ -13,6 +14,7 @@ class PositionalEncodingType(Enum):
             "rope": cls.ROPE,
             "t5": cls.T5,
             "alibi": cls.ALIBI,
+            "empty": cls.EMPTY,
         }
         if string in name_map:
             return name_map[string]

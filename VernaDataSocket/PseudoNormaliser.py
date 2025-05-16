@@ -4,7 +4,7 @@ import pyarrow as pa
 class PseudoNormaliser:
     def __init__(self):
         self.position_scaler = 2e-3
-        self.t_scaler = 3e-4
+        self.t_scaler = 3e-4 # 1/(3e-4) = 3333.33
         self.t_shifter = 1e4
         self.Q_shifter = 2
 
@@ -26,8 +26,7 @@ class PseudoNormaliser:
         return features_np
 
     def _pseudo_normalise_dom_pos(self, features_np: np.ndarray, column_names: list[str]) -> np.ndarray:
-        pos_columns = ['dom_x', 'dom_y', 'dom_z', 'dom_x_rel', 'dom_y_rel', 'dom_z_rel', 
-                       'eccentricity_PCA', 'aspect_contrast_PCA', 'hypotenuse']
+        pos_columns = ['dom_x', 'dom_y', 'dom_z', 'dom_x_rel', 'dom_y_rel', 'dom_z_rel', 'hypotenuse']
         for col_name in pos_columns:
             if col_name in column_names:
                 idx = column_names.index(col_name)

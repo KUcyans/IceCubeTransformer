@@ -22,4 +22,6 @@ class OutputProjection(nn.Module):
         self.projection = nn.Sequential(*layers)
 
     def forward(self, x):
+        # x shape: (batch_size, d_model)
+        # returning shape: (batch_size, num_classes)
         return self.projection(x)

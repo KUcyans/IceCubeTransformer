@@ -11,6 +11,7 @@ from .BuildingBlocks.Pooling import Pooling
 from .BuildingBlocks.OutputProjection import OutputProjection
 from Enum.AttentionType import AttentionType
 from Enum.PositionalEncodingType import PositionalEncodingType
+from Enum.LossType import LossType
 
 import psutil
 import os
@@ -25,6 +26,7 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                  num_classes: int, 
                  n_output_layers: int,
                  seq_len: int,  
+                 loss_type: LossType,
                  attention_type: AttentionType,
                  positional_encoding_type: PositionalEncodingType,
                  dropout: float = 0.01,
@@ -40,10 +42,13 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.num_classes = num_classes
         self.dropout = dropout
         self.lr = lr
+        self.loss_type = loss_type
+        print(f"The model was told that Loss type is {self.loss_type.description}")        
         self.attention_type = attention_type  
-        print(f"The model was told that Attention type is {self.attention_type.name}")
+        print(f"The model was told that Attention type is {self.attention_type.description}")
         self.positional_encoding_type = positional_encoding_type
         print(f"The model was told that Positional Encoding type is {self.positional_encoding_type.name}")
+        
         self.seq_len = seq_len
 
         # Input projection layer
@@ -71,7 +76,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
                                                   num_layers = self.n_output_layers,
                                                   dropout=self.dropout)
         
-        
     def forward(self, x, target=None, mask=None, event_length=None):
         batch_size, seq_len, input_dim = x.size()
         
@@ -92,15 +96,35 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         # mask shape: (batch_size, seq_len)
         
         x = self.pooling(x, mask)
+        # x shape: (batch_size, d_model)
         
         model_output = self.classification_output_layer(x)
-        loss = F.mse_loss(model_output.squeeze(), target.squeeze())
+        # output shape: (batch_size, num_classes)
+        # squeezed output model_output.squeeze() shape:
+        
+        loss = self.compute_loss(model_output.squeeze(), target.squeeze())
+
         if torch.isnan(x).any():
             print("Feature stats:", x.min().item(), x.max().item())
             print("⚠️ NaN detected in Transformer Encoder output!")
             raise ValueError("NaN detected before classification layer!")
 
         return loss, model_output
+
+    def compute_loss(self, output, target):
+        loss = None
+        if self.loss_type == LossType.CROSSENTROPY:
+            # Expect target to be integer class indices
+            if target.dim() == 2:  # convert one-hot to class indices
+                target = torch.argmax(target, dim=-1)
+            if target.dtype != torch.long:
+                target = target.long()
+            loss = F.cross_entropy(output, target)
+        elif self.loss_type == LossType.MSE:
+            loss = F.mse_loss(output, target)
+        else:
+            raise ValueError(f"Unsupported loss type: {self.loss_type}")
+        return loss
 
     def _calculate_accuracy(self, model_output, target):
         """Calculate accuracy given model probabilities and true labels."""

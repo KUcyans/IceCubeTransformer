@@ -5,7 +5,7 @@ class AttentionType(Enum):
     INNOCENT = (1, "innocent", "Explicit tensor product")
     T5 = (2, "t5", "Text-to-Text Transfer Transformer")
     ALIBI = (3, "alibi", "Attention with LInear BIas")
-    XFORMERS = (4, "xformers", "XFormers library")
+    XFORMERS = (4, "xformers", "xformers.ops.memory_efficient_attention")
     
     def __init__(self, value: int, name: str, description: str):
         self._value_ = value

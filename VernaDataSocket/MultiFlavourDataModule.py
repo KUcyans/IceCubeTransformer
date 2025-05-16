@@ -85,10 +85,11 @@ class MultiFlavourDataModule(pl.LightningDataModule):
     def pad_or_truncate(self, event: torch.Tensor):
         """Pads or truncates events to `event_length` based on sorting by `order_by_this_column`."""
         seq_length = event.size(0)
+        event = event[event[:, self.index_order_by].argsort(descending=True)]
 
         # Truncate if too long
         if seq_length > self.event_length:
-            event = event[event[:, self.index_order_by].argsort(descending=True)][:self.event_length]
+            event = event[:self.event_length]
         else:
             padding = torch.zeros((self.event_length - seq_length, event.size(1)))
             event = torch.cat([event, padding], dim=0)
@@ -97,14 +98,40 @@ class MultiFlavourDataModule(pl.LightningDataModule):
     
     def pad_or_truncate_inference(self, event: torch.Tensor):
         seq_length = event.size(0)
+        event = event[event[:, self.index_order_by].argsort(descending=True)]
 
         if seq_length > self.inference_event_length:
-            event = event[event[:, self.index_order_by].argsort(descending=True)][:self.inference_event_length]
+            # event = event[event[:, self.index_order_by].argsort(descending=True)][:self.inference_event_length]
+            event = event[:self.inference_event_length]
         else:
             padding = torch.zeros((self.inference_event_length - seq_length, event.size(1)))
             event = torch.cat([event, padding], dim=0)
 
         return event, seq_length
+    
+    # def pad_or_truncate(self, event: torch.Tensor):
+    #     """Pads or truncates events to `event_length` based on sorting by `order_by_this_column`."""
+    #     seq_length = event.size(0)
+
+    #     # Truncate if too long
+    #     if seq_length > self.event_length:
+    #         event = event[event[:, self.index_order_by].argsort(descending=True)][:self.event_length]
+    #     else:
+    #         padding = torch.zeros((self.event_length - seq_length, event.size(1)))
+    #         event = torch.cat([event, padding], dim=0)
+
+    #     return event, seq_length
+    
+    # def pad_or_truncate_inference(self, event: torch.Tensor):
+    #     seq_length = event.size(0)
+
+    #     if seq_length > self.inference_event_length:
+    #         event = event[event[:, self.index_order_by].argsort(descending=True)][:self.inference_event_length]
+    #     else:
+    #         padding = torch.zeros((self.inference_event_length - seq_length, event.size(1)))
+    #         event = torch.cat([event, padding], dim=0)
+
+    #     return event, seq_length
 
     
     def train_validate_collate_fn(self, batch):

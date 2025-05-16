@@ -17,6 +17,7 @@ from Enum.Flavour import Flavour
 from Enum.ClassificationMode import ClassificationMode
 from Enum.AttentionType import AttentionType
 from Enum.PositionalEncodingType import PositionalEncodingType
+from Enum.LossType import LossType
 
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
@@ -100,6 +101,7 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
     num_classes = classification_mode.num_classes
     attention_type = AttentionType.from_string(config['attention'])
     positional_encoding_type = PositionalEncodingType.from_string(config['positional_encoding'])
+    loss_type = LossType.from_string(config['loss'])
     model = FlavourClassificationTransformerEncoder.load_from_checkpoint(
         checkpoint_path=ckpt_file,
         strict=False,
@@ -111,6 +113,7 @@ def build_model(config: dict, device: torch.device, ckpt_file: str):
         n_output_layers=config['n_output_layers'],
         num_classes=num_classes,
         seq_len=config['event_length'],
+        loss_type=loss_type,
         attention_type=attention_type,
         positional_encoding_type=positional_encoding_type,
         dropout=config['dropout'],
@@ -210,11 +213,15 @@ def build_predictions(config: dict, predictions: list, prediction_dir: str, ckpt
         "pred_one_hot_pid": all_preds["pred_one_hot_pid"],
         "model_outputs": all_preds["model_outputs"],
     })
-    model_outputs_tensor = torch.tensor(df['model_outputs'].tolist())
-    prob_softmax_tensor = torch.nn.functional.softmax(model_outputs_tensor, dim=-1)
-    logit_softmax_tensor = torch.log(prob_softmax_tensor) - torch.log(1 - prob_softmax_tensor)
-    df['prob_softmax'] = prob_softmax_tensor.tolist()
-    df['logit_softmax'] = logit_softmax_tensor.tolist()
+    if config['loss'] == "mse":
+        model_outputs = torch.tensor(df['model_outputs'].tolist())
+        model_outputs = torch.clamp(model_outputs, min=0) # ensure non-negative
+        probs = model_outputs / model_outputs.sum(dim=-1, keepdim=True) # manual normalisation
+        df['prob'] = probs.tolist()
+    elif config['loss'] == "ce":
+        model_outputs = torch.tensor(df['model_outputs'].tolist()) # logits
+        probs = torch.nn.functional.softmax(model_outputs, dim=-1) # softmax
+        df['prob'] = probs.tolist()
     return df
 
 def build_analysis_df(test_dataset):
@@ -262,6 +269,7 @@ def save_predictions(df_predictions: pd.DataFrame, df_analysis: pd.DataFrame, pr
     # Save to CSV
     df_combined.to_csv(csv_name, index=False)
     print(f"✅ Predictions saved to:\n{csv_name}")
+    return csv_name
     
 
 
@@ -333,6 +341,7 @@ def run_prediction(config_dir: str,
     ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
     
     df_analysis = build_analysis_df(datamodule.test_dataloader().dataset)
+    csvs = []
     for ckpt_file in ckpt_files:
         ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
 
@@ -354,11 +363,13 @@ def run_prediction(config_dir: str,
                                             prediction_dir=dirs["predict_dir"],
                                             ckpt_file=ckpt_file_dir)
         
-        save_predictions(df_predictions=df_predictions,
+        csv_file = save_predictions(df_predictions=df_predictions,
                           df_analysis=df_analysis,
                           prediction_dir=dirs["predict_dir"],
                           ckpt_file=ckpt_file_dir)
+        csvs.append(csv_file)
         print("✅ Predictions saved successfully.")
+        
         
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))
