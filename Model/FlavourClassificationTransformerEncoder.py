@@ -114,17 +114,55 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def compute_loss(self, output, target):
         loss = None
         if self.loss_type == LossType.CROSSENTROPY:
-            # Expect target to be integer class indices
-            if target.dim() == 2:  # convert one-hot to class indices
+            if target.dim() == 2:
                 target = torch.argmax(target, dim=-1)
             if target.dtype != torch.long:
                 target = target.long()
             loss = F.cross_entropy(output, target)
+
         elif self.loss_type == LossType.MSE:
             loss = F.mse_loss(output, target)
+
+        elif self.loss_type == LossType.TAUPURITYMSE:
+            probs = self.compute_probs(output)
+
+            # Compute tau purity (normalised + smooth by tanh)
+            batch_size = probs.shape[0]
+            tau_purity = self._get_tau_purity(probs, target, batch_size)
+
+            loss = F.mse_loss(output, target)*(1 - tau_purity)
+
         else:
             raise ValueError(f"Unsupported loss type: {self.loss_type}")
         return loss
+
+    def compute_probs(self, output: torch.Tensor) -> torch.Tensor:
+        # output shape: (batch_size, num_classes)
+        if self.loss_type == LossType.CROSSENTROPY:
+            return F.softmax(output, dim=1)
+        elif self.loss_type in [LossType.MSE, LossType.TAUPURITYMSE]:
+            probs = torch.clamp(output, min=0)
+            return probs / probs.sum(dim=-1, keepdim=True)
+        else:
+            raise ValueError(f"No prob rule for {self.loss_type}")
+
+    def _get_tau_purity(self, probs: torch.Tensor, target: torch.Tensor, batch_size: int) -> torch.Tensor:
+        threshold = 0.9
+        tau_idx = 2  # hardcoded index for ν_τ
+        target_class = torch.argmax(target, dim=1)
+
+        tau_probs = probs[:, tau_idx]
+        is_tau = (target_class == tau_idx)
+        is_non_tau = ~is_tau
+
+        num_tau_high = (tau_probs[is_tau] > threshold).float().sum()
+        num_non_tau_high = (tau_probs[is_non_tau] > threshold).float().sum()
+
+        # Normalised difference
+        purity_score = (num_tau_high - num_non_tau_high) / batch_size
+
+        # Smooth bounded penalty (between -1 and 1)
+        return torch.tanh(purity_score)
 
     def _calculate_accuracy(self, model_output, target):
         """Calculate accuracy given model probabilities and true labels."""
@@ -138,15 +176,17 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         x, target, event_length = batch
         loss, model_output = self(x, target=target, event_length=event_length)
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(model_output, target)
+        if self.loss_type == LossType.TAUPURITYMSE:
+            probs = self.compute_probs(model_output)
+            tau_purity = self._get_tau_purity(probs, target, x.size(0))
+            mse_loss = F.mse_loss(model_output, target)
+            self.log("train_mse", mse_loss, prog_bar=True, on_step=False, on_epoch=True)
+            self.log("train_tau_purity", tau_purity, prog_bar=True, on_step=False, on_epoch=True)
+        
         current_lr = self.trainer.optimizers[0].param_groups[0]['lr']
         self.log("train_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("train_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
         self.log("lr", current_lr, prog_bar=True, on_step=True, on_epoch=False)
-        if self.num_classes == 3:
-            target_labels = torch.argmax(target, dim=1)
-            tau_indices = (target_labels == 2)
-            tau_model_outputs = model_output[tau_indices, 2].detach().cpu()
-            self.train_tau_model_outputs.extend(tau_model_outputs.tolist())
 
 
         # ✅ Periodic logging for detailed monitoring
@@ -156,18 +196,20 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             print(f"Train Loss: {loss.item():.4f} | Train Accuracy: {accuracy.item():.4f} | LR: {current_lr:.6e}")
 
             # Display predictions for debugging
-            softmax_model_output = F.softmax(model_output, dim=1)
-            num_samples = min(6, x.size(0))  # Show at most 6 samples
-
-            print("\nmodel_output    \t\t softmax(model_output) \t\t prediction \t target")
-            for i in range(num_samples):
+            # softmax_model_output = F.softmax(model_output, dim=1)
+            probs = self.compute_probs(model_output)
+            how_many = 12
+            print("\nmodel_output    \t\t prob \t\t prediction \t target")
+            for i in range(min(how_many, x.size(0))):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]
                 true_one_hot = target[i].to(torch.int32).tolist()
 
                 model_output_str = " ".join([f"{score.item():.4f}" for score in model_output[i]])
-                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_model_output[i]])
-
-                print(f"{model_output_str}\t{softmax_str}\t{pred_one_hot}\t{true_one_hot}")
+                prob_str = " ".join([f"{score.item():.4f}" for score in probs[i]])
+                print(f"{model_output_str} \t {prob_str} \t {pred_one_hot} \t {true_one_hot}")
+            
+            if self.loss_type == LossType.TAUPURITYMSE:
+                print(f"tau_purity = {tau_purity.item():.4f}")
 
             # ✅ Store predictions if tracking history
             if self.training_predictions is not None and self.training_targets is not None:
@@ -184,30 +226,33 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         accuracy, predicted_labels, true_labels = self._calculate_accuracy(model_output, target)
         self.log("val_loss", loss, prog_bar=True, on_step=False, on_epoch=True)
         self.log("val_accuracy", accuracy, prog_bar=True, on_step=False, on_epoch=True)
+        
+        if self.loss_type == LossType.TAUPURITYMSE:
+            probs = self.compute_probs(model_output)
+            tau_purity = self._get_tau_purity(probs, target, x.size(0))
+            mse_loss = F.mse_loss(model_output, target)
+            self.log("val_mse", mse_loss, prog_bar=True, on_step=False, on_epoch=True)
+            self.log("val_tau_purity", tau_purity, prog_bar=True, on_step=False, on_epoch=True)
 
-        if self.num_classes == 3:
-            target_labels = torch.argmax(target, dim=1)
-            tau_indices = (target_labels == 2)
-            tau_model_outputs = model_output[tau_indices, 2].detach().cpu()
-            self.val_tau_model_outputs.extend(tau_model_outputs.tolist())
-
-                
         period = max(1, len(self.trainer.val_dataloaders) // 3)
         if batch_idx % period == 0:
             print(f"\nValidation: Epoch {self.current_epoch}, Batch {batch_idx}:")
             print(f"Validation Loss: {loss.item():.4f} | Validation Accuracy: {accuracy.item():.4f}")
-            softmax_model_output = F.softmax(model_output, dim=1)
             
-            how_many = 6
-            print("\nmodel_output    \t\t softmax(model_output) \t\t prediction \t target")
+            probs = self.compute_probs(model_output)
+            how_many = 12
+            print("\nmodel_output    \t\t prob \t\t prediction \t target")
             for i in range(min(how_many, x.size(0))):
                 pred_one_hot = [1 if j == predicted_labels[i].item() else 0 for j in range(self.num_classes)]
                 true_one_hot = target[i].to(torch.int32).tolist()
                 
                 # Convert model_output to a string with all class scores
                 model_output_str = " ".join([f"{score.item():.4f}" for score in model_output[i]])
-                softmax_str = " ".join([f"{score.item():.4f}" for score in softmax_model_output[i]])
-                print(f"{model_output_str} \t {softmax_str} \t {pred_one_hot} \t {true_one_hot}")
+                prob_str = " ".join([f"{score.item():.4f}" for score in probs[i]])
+                print(f"{model_output_str} \t {prob_str} \t {pred_one_hot} \t {true_one_hot}")
+
+            if self.loss_type == LossType.TAUPURITYMSE:
+                print(f"tau_purity = {tau_purity.item():.4f}")
 
             if self.validation_predictions is not None and self.validation_targets is not None:
                 self.validation_predictions.extend(predicted_labels.tolist())
@@ -256,17 +301,12 @@ class FlavourClassificationTransformerEncoder(LightningModule):
         self.training_predictions = []
         self.training_targets = []
         # self.training_conf_matrix = self.get_confusion_matrix()
-        if self.num_classes == 3:
-            self.train_tau_model_outputs = []
         
     def on_validation_epoch_start(self):
         self.val_start_time = time.time()
         self.validation_predictions = []
         self.validation_targets = []
         # self.validation_conf_matrix = self.get_confusion_matrix()
-        self.nu_tau_model_outputs = []
-        if self.num_classes == 3:
-            self.val_tau_model_outputs = []
         
     def on_test_epoch_start(self):
         self.test_accuracies = []
@@ -281,16 +321,9 @@ class FlavourClassificationTransformerEncoder(LightningModule):
     def on_train_epoch_end(self):
         # Log confusion matrix and other metrics
         self.log_epoch_end_metrics(stage="train")
-        if self.num_classes == 3 and hasattr(self, "train_tau_model_outputs"):
-            self._log_tau_metrics(self.train_tau_model_outputs, "train")
-            del self.train_tau_model_outputs
 
     def on_validation_epoch_end(self):
         self.log_epoch_end_metrics(stage="val")
-        
-        if self.num_classes == 3 and hasattr(self, "val_tau_model_outputs"):
-            self._log_tau_metrics(self.val_tau_model_outputs, "val")
-            del self.val_tau_model_outputs
 
     def on_test_epoch_end(self):
         mean_loss = self.trainer.callback_metrics.get("test_loss", None)
@@ -349,16 +382,6 @@ class FlavourClassificationTransformerEncoder(LightningModule):
             self.test_targets.clear()
             del self.test_start_time
             # del self.test_conf_matrix
-            
-    def _log_tau_metrics(self, tau_model_outputs, prefix):
-        if len(tau_model_outputs) > 0:
-            model_outputs = torch.tensor(tau_model_outputs)
-            threshold = 0.85
-            frac_above = (model_outputs > threshold).float().mean().item()
-            median = model_outputs.median().item()
-            self.log(f"{prefix}_tau_output_085_tau", frac_above, prog_bar=True, on_epoch=True)
-            self.log(f"{prefix}_tau_output_median_tau", median, prog_bar=True, on_epoch=True)
-
 
     def log_confusion_matrix(self, predictions, targets, stage="train"):
         """Logs the confusion matrix with global normalisation and .3f formatting."""

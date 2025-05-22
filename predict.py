@@ -8,6 +8,7 @@ import argparse
 import pandas as pd
 from pytorch_lightning import Trainer
 
+
 from pytorch_lightning.callbacks import TQDMProgressBar
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
@@ -19,6 +20,7 @@ from Enum.AttentionType import AttentionType
 from Enum.PositionalEncodingType import PositionalEncodingType
 from Enum.LossType import LossType
 
+from InferenceUtil import plot_all_metrics, extend_extract_metrics_for_all_flavours
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -28,6 +30,8 @@ def parse_args():
     parser.add_argument("--time", type=str, required=True, help="Execution time in HHMMSS format")
     parser.add_argument("--checkpoint_date", type=str, required=True, help="Date of the checkpoint in YYYYMMDD format")
     parser.add_argument("--checkpoint_time", type=str, required=True, help="Time of the checkpoint in HHMMSS format")
+    # add an optionl argument --runID where it can be empty
+    parser.add_argument("--runID", type=str, default="", help="Run ID for the prediction")
     
     return parser.parse_args()
 
@@ -214,10 +218,30 @@ def build_predictions(config: dict, predictions: list, prediction_dir: str, ckpt
         "model_outputs": all_preds["model_outputs"],
     })
     if config['loss'] == "mse":
+        # model_outputs = torch.tensor(df['model_outputs'].tolist())
+        # model_outputs = torch.clamp(model_outputs, min=0) # ensure non-negative
+        # probs = model_outputs / model_outputs.sum(dim=-1, keepdim=True) # manual normalisation
+        # df['prob'] = probs.tolist()
         model_outputs = torch.tensor(df['model_outputs'].tolist())
-        model_outputs = torch.clamp(model_outputs, min=0) # ensure non-negative
-        probs = model_outputs / model_outputs.sum(dim=-1, keepdim=True) # manual normalisation
+        model_outputs = torch.clamp(model_outputs, min=0)
+
+        row_sums = model_outputs.sum(dim=-1, keepdim=True)
+        row_sums[row_sums == 0] = 1  # prevent division by zero
+
+        probs = model_outputs / row_sums
         df['prob'] = probs.tolist()
+
+    elif config['loss'] == "tau":
+        # model_outputs = torch.tensor(df['mode
+        model_outputs = torch.tensor(df['model_outputs'].tolist())
+        model_outputs = torch.clamp(model_outputs, min=0)
+
+        row_sums = model_outputs.sum(dim=-1, keepdim=True)
+        row_sums[row_sums == 0] = 1  # prevent division by zero
+
+        probs = model_outputs / row_sums
+        df['prob'] = probs.tolist()
+
     elif config['loss'] == "ce":
         model_outputs = torch.tensor(df['model_outputs'].tolist()) # logits
         probs = torch.nn.functional.softmax(model_outputs, dim=-1) # softmax
@@ -269,7 +293,7 @@ def save_predictions(df_predictions: pd.DataFrame, df_analysis: pd.DataFrame, pr
     # Save to CSV
     df_combined.to_csv(csv_name, index=False)
     print(f"✅ Predictions saved to:\n{csv_name}")
-    return csv_name
+    return df_combined
     
 
 
@@ -299,7 +323,30 @@ def parse_checkpoint_name(ckpt_file: str):
 
     raise ValueError(f"Unrecognised checkpoint filename: {ckpt_name}")
 
+def extract_epoch(ckpt_filename: str) -> int:
+    """Extract the integer epoch number from a checkpoint filename."""
+    ckpt_name = os.path.basename(ckpt_filename).replace(".ckpt", "")
 
+    if ckpt_name == "last":
+        epoch = 49
+    elif ckpt_name.startswith("epoch="):
+        match = re.match(r"epoch=(\d+)", ckpt_name)
+        if match:
+            epoch = int(match.group(1))
+        else:
+            raise ValueError(f"Invalid format after 'epoch=': {ckpt_filename}")
+    elif "-mid" in ckpt_name:
+        match = re.match(r"(\d+)-mid", ckpt_name)
+        if match:
+            epoch = int(match.group(1))
+        else:
+            raise ValueError(f"Invalid '-mid' format: {ckpt_filename}")
+    else:
+        raise ValueError(f"Unrecognised checkpoint format: {ckpt_filename}")
+
+    return epoch
+
+################################## MAIN FUNCTION ##################################
 def run_prediction(config_dir: str, 
                 base_dir: str, 
                 data_root_dir: str, 
@@ -310,6 +357,11 @@ def run_prediction(config_dir: str,
     local_checkpoint = args.checkpoint_date
     specific_checkpoint = args.checkpoint_time
     
+    if args.runID:
+        model_id = f"{args.runID}"
+    else:
+        model_id = f"{args.checkpoint_date}_{args.checkpoint_time}"
+    print(f"Model ID: {model_id}")
     dirs = setup_directories(base_dir = base_dir, 
                              config_dir = config_dir,
                              current_date = current_date, 
@@ -341,7 +393,9 @@ def run_prediction(config_dir: str,
     ckpt_files = [f for f in os.listdir(specific_checkpoint_dir) if f.endswith(".ckpt")]
     
     df_analysis = build_analysis_df(datamodule.test_dataloader().dataset)
-    csvs = []
+    
+    summary_metrics = []
+
     for ckpt_file in ckpt_files:
         ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
 
@@ -363,13 +417,25 @@ def run_prediction(config_dir: str,
                                             prediction_dir=dirs["predict_dir"],
                                             ckpt_file=ckpt_file_dir)
         
-        csv_file = save_predictions(df_predictions=df_predictions,
+        df_combined = save_predictions(df_predictions=df_predictions,
                           df_analysis=df_analysis,
                           prediction_dir=dirs["predict_dir"],
                           ckpt_file=ckpt_file_dir)
-        csvs.append(csv_file)
+        # Create plot filename based on checkpoint
+        epoch = extract_epoch(ckpt_file)
+        plot_dir = os.path.join("Plot_inference", model_id)
+        os.makedirs(plot_dir, exist_ok=True)
+
+        pdf_file = os.path.join(plot_dir, f"{epoch}.pdf")
+        plot_all_metrics(df_combined, pdf_path=pdf_file, run_id=model_id, epoch=epoch)
+        metrics = extend_extract_metrics_for_all_flavours(df_combined, run_id=model_id, epoch=epoch)
+        summary_metrics.append(metrics)
         print("✅ Predictions saved successfully.")
-        
+    summary_df = pd.DataFrame(summary_metrics)
+    summary_path = os.path.join("Plot_inference", model_id, "summary.csv")
+    summary_df.to_csv(summary_path, index=False)
+    print(f"Summary metrics saved to {summary_path}")
+    print("✅ All predictions completed successfully.")
         
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.realpath(__file__))

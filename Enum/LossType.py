@@ -1,8 +1,9 @@
 from enum import Enum
 
 class LossType(Enum):
-    MSE = (0, 'mse', "mean_squared_error")
+    MSE          = (0, 'mse', "mean_squared_error")
     CROSSENTROPY = (1, 'ce', "cross_entropy")
+    TAUPURITYMSE = (2, 'tau', "mse wih tau_purity term")
     
     def __init__(self, value, alias, description):
         self._value_ = value

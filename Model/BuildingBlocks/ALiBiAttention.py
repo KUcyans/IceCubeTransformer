@@ -8,7 +8,7 @@ class ALiBiAttention(AttentionHeadBase):
     def __init__(self, 
                  head_dim: int, 
                  n_heads: int,
-                 dropout: float = 0.1):
+                 dropout: float = 0.01):
         super().__init__(head_dim=head_dim, 
                          n_heads=n_heads, 
                          dropout=dropout)
@@ -67,6 +67,9 @@ class ALiBiAttention(AttentionHeadBase):
                 extra = self._get_alibi_slopes(2 * closest_power)[0::2][:n - closest_power]
                 return torch.cat([base, extra], dim=0)
         return get_slopes(n_heads)
+    
+    # alibi slope in latex : m_h = 2^{-(2^{(\log_2(h) - 3)}})}
+    
 
     def _get_alibi_bias(self, seq_len: int) -> torch.Tensor:
         """Compute the ALiBi bias term for attention logits."""

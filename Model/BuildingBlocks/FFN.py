@@ -9,8 +9,8 @@ class FFN(nn.Module):
         self.W_f = nn.Linear(self.d_f, self.d_model)
         
         # self.activation = nn.ReLU()
-        # self.activation = nn.GELU()
-        self.activation = nn.SiLU()
+        self.activation = nn.GELU()
+        # self.activation = nn.SiLU()
         self.dropout = nn.Dropout(dropout)
         
     def forward(self, x):

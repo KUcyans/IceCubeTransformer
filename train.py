@@ -13,14 +13,14 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, Ea
 from pytorch_lightning.tuner.tuning import Tuner
 
 from Model.FlavourClassificationTransformerEncoder import FlavourClassificationTransformerEncoder
-from TrainingUtils.LocalMinimumCheckpoint import LocalMinimumCheckpoint
+# from TrainingUtils.LocalMinimumCheckpoint import LocalMinimumCheckpoint
 from TrainingUtils.MidEpochCheckPoint import MidEpochCheckpoint
-from TrainingUtils.EquinoxDecayingAsymmetricSinusoidal import EquinoxDecayingAsymmetricSinusoidal
-from TrainingUtils.KatsuraCosineAnnealingWarmupRestarts import CosineAnnealingWarmupRestarts
+# from TrainingUtils.EquinoxDecayingAsymmetricSinusoidal import EquinoxDecayingAsymmetricSinusoidal
+# from TrainingUtils.KatsuraCosineAnnealingWarmupRestarts import CosineAnnealingWarmupRestarts
+# from Enum.LrDecayMode import LrDecayMode
 from VernaDataSocket.MultiFlavourDataModule import MultiFlavourDataModule
 from Enum.EnergyRange import EnergyRange
 from Enum.Flavour import Flavour
-from Enum.LrDecayMode import LrDecayMode
 from Enum.ClassificationMode import ClassificationMode
 from Enum.AttentionType import AttentionType
 from Enum.PositionalEncodingType import PositionalEncodingType
@@ -107,18 +107,18 @@ def build_callbacks(config: dict, callback_dir: str):
         monitor="val_loss",
         mode="min",
         save_last=True, 
-        save_top_k=2,
-        filename="{epoch}"
+        save_top_k=4,
+        filename="{epoch}-{val_loss:.3f}"
     )
     
     checkpoint_mid = MidEpochCheckpoint(
         dirpath=callback_dir,
         max_epochs=config['n_epochs'],
-        window=(17, 33),
+        window=(17, 35),
         save_interval=3,
         filename="{epoch}-mid.ckpt"
     )
-    
+
     callbacks = [
         EarlyStopping(monitor='val_loss', 
                       patience=config['patience'], 
@@ -127,7 +127,18 @@ def build_callbacks(config: dict, callback_dir: str):
         checkpoint_mid,
         LearningRateMonitor(logging_interval='step'),
         TQDMProgressBar(refresh_rate=1000),
-    ]   
+    ]
+    
+    if LossType.from_string(config['loss']) == LossType.TAUPURITYMSE:
+        checkpoint_tau = ModelCheckpoint(
+            dirpath=callback_dir,
+            monitor="val_tau_purity",
+            mode="max",
+            save_last=False, 
+            save_top_k=2,
+            filename="{epoch}-{val_tau_purity:.3f}"
+            )
+        callbacks.append(checkpoint_tau)
     return callbacks
 
 def setup_directories(base_dir: str, config_dir:str, current_date: str, current_time: str):

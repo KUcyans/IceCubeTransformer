@@ -14,7 +14,8 @@ class OutputProjection(nn.Module):
         for i in range(num_layers):
             layers.append(nn.Linear(in_dim, d_f))
             # layers.append(nn.ReLU())
-            layers.append(nn.SiLU())
+            layers.append(nn.GELU())
+            # layers.append(nn.SiLU())
             layers.append(nn.Dropout(dropout))
             in_dim = d_f
         layers.append(nn.LayerNorm(d_f))

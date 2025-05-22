@@ -3,7 +3,7 @@
 #SBATCH --partition=gr10_gpu
 ##SBATCH --partition=icecube_gpu
 #SBATCH --ntasks=1
-#SBATCH --nodelist=node071
+#SBATCH --nodelist=node072
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=10G
@@ -16,6 +16,8 @@
 LOG_ROOT_DIR="logs"
 datestamp=$(date +"%Y%m%d")
 timestamp=$(date +"%H%M%S")
+RUN_ID=""
+
 
 # ✅ Create directories
 mkdir -p "${LOG_ROOT_DIR}/${datestamp}"
@@ -30,13 +32,24 @@ echo "Checking allocated GPU..."
 nvidia-smi
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 
-CHECKPOINT_DATE="20250516"
-CHECKPOINT_TIME="010821"
+CHECKPOINT_DATE="20250518"
+CHECKPOINT_TIME="152548"
+RUN_ID="1"
 
 source /groups/icecube/cyan/miniconda3/etc/profile.d/conda.sh
 conda activate icecube_transformer
-python -u predict.py --date "$datestamp" --time "$timestamp" \
-                            --checkpoint_date "$CHECKPOINT_DATE" \
-                            --checkpoint_time "$CHECKPOINT_TIME"
-
+if [ -n "$RUN_ID" ]; then
+    python -u predict.py \
+        --date "$datestamp" \
+        --time "$timestamp" \
+        --checkpoint_date "$CHECKPOINT_DATE" \
+        --checkpoint_time "$CHECKPOINT_TIME" \
+        --runID "$RUN_ID"
+else
+    python -u predict.py \
+        --date "$datestamp" \
+        --time "$timestamp" \
+        --checkpoint_date "$CHECKPOINT_DATE" \
+        --checkpoint_time "$CHECKPOINT_TIME"
+fi
 echo "Prediction job completed at $(date)"
