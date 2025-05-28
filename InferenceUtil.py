@@ -7,7 +7,8 @@ import pandas as pd
 import ast
 from Enum.Flavour import Flavour
 from matplotlib.backends.backend_pdf import PdfPages
-import re
+import matplotlib
+# matplotlib.use("Agg")
 
 sys.path.append('/groups/icecube/cyan/Utils')
 from PlotUtils import setMplParam, getColour, getHistoParam 
@@ -15,7 +16,7 @@ from PlotUtils import setMplParam, getColour, getHistoParam
 # Nbins, binwidth, bins, counts, bin_centers  = 
 from DB_lister import list_content, list_tables
 from ExternalFunctions import nice_string_output, add_text_to_ax
-setMplParam()
+setMplParam(isVaryLineStyle=False)
 
 def get_nu_prob(df: pd.DataFrame, flavour: Flavour) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """it returns the probability of each flavour in the dataframe.
@@ -122,11 +123,12 @@ def plot_binary_flavour_ROC(df: pd.DataFrame, signal_flavour: Flavour, id: str) 
     ax.plot([0, 1], [0, 1], 'k--', linewidth=1)
     ax.set_xlim([0.0, 1.0])
     ax.set_ylim([0.0, 1.05])
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
+    ax.set_xlabel('False Positive Rate', fontsize=24)
+    ax.set_ylabel('True Positive Rate', fontsize=24)
     ax.set_title(fr"{id}: ${signal_flavour.latex}$ vs (${residual_flavours[0].latex}$+${residual_flavours[1].latex}$)")
-    ax.legend(loc="lower right", fontsize=22)
-    
+    ax.legend(loc="lower right", fontsize=24)
+    plt.tight_layout()
+    plt.show()
 
 def plot_multi_flavour_ROC(df: pd.DataFrame, id: str) -> None:
     fig, ax = plt.subplots(figsize=(17, 11))
@@ -157,10 +159,12 @@ def plot_multi_flavour_ROC(df: pd.DataFrame, id: str) -> None:
     ax.plot([0, 1], [0, 1], 'k--', linewidth=1)
     ax.set_xlim([0.0, 1.0])
     ax.set_ylim([0.0, 1.05])
-    ax.set_xlabel('False Positive Rate')
-    ax.set_ylabel('True Positive Rate')
+    ax.set_xlabel('False Positive Rate', fontsize=24)
+    ax.set_ylabel('True Positive Rate', fontsize=24)
     ax.set_title(rf"{id}: $\nu_{{\alpha}}$ vs ($\nu_{{\beta}}$+$\nu_{{\gamma}}$)")
-    ax.legend(loc="lower right", fontsize=22)
+    ax.legend(loc="lower right", fontsize=24)
+    plt.tight_layout()
+    plt.show()
 
 def fraction_above_threshold(arr: np.ndarray, threshold: float) -> float:
     return np.mean(arr > threshold)
@@ -194,15 +198,36 @@ def plot_prob_distribution(df: pd.DataFrame,
     ax.hist(nu_e_prob, bins=bins, color=getColour(2), histtype='step', linewidth=1, label=label_e)
     ax.hist(nu_mu_prob, bins=bins, color=getColour(0), histtype='step', hatch='\\', linewidth=1, label=label_mu)
     ax.hist(nu_tau_prob, bins=bins, color=getColour(1), histtype='step', hatch ='//', linewidth=1, label=label_tau)
-    ax.set_title(fr"{id}: ${flavour.latex}$ Probability Score")
-    ax.set_xlabel('Probability')
+    ax.set_title(fr"{id}: ${flavour.latex}$ Probability Score", fontsize=24)
+    ax.set_xlabel(fr"${flavour.latex}$ Probability Score", fontsize=24)
     ax.set_ylabel('Frequency')
     # located at the top middle
-    ax.legend(fontsize=20, loc='upper center')
+    ax.legend(fontsize=24, loc='upper center')
+    plt.tight_layout()
+    plt.show()
+    
+def get_significance(flavour, total_e, total_mu, total_tau):
+    if flavour == Flavour.E:
+        main_count = total_e
+        opposite_count = total_mu + total_tau
+    elif flavour == Flavour.MU:
+        main_count = total_mu
+        opposite_count = total_e + total_tau
+    elif flavour == Flavour.TAU:
+        main_count = total_tau
+        opposite_count = total_e + total_mu
+    
+    poisson_label = fr"$Z_{{\mathrm{{Poisson}}, {flavour.latex}}}$"
+    asimov_label = fr"$Z_{{\mathrm{{Asimov}}, {flavour.latex}}}$"
 
+    poisson = main_count / np.sqrt(main_count + opposite_count) if (main_count + opposite_count) > 0 else 0
+    asimov = np.sqrt(2*((main_count + opposite_count) * np.log(1 + main_count / (opposite_count + 1e-8)) - main_count))
+    return poisson, asimov, poisson_label, asimov_label
+    
 def plot_prob_distribution_with_truncation(df: pd.DataFrame,
                                             flavour: Flavour,
-                                            id: str) -> None:
+                                            id: str,
+                                            magnifier: Tuple[float, float] = None) -> None:
     nu_e_prob, nu_mu_prob, nu_tau_prob = get_nu_prob(df, flavour)
     Nbins, binwidth, bins, counts, bin_centers = getHistoParam(nu_tau_prob, binwidth=0.005)
 
@@ -222,55 +247,125 @@ def plot_prob_distribution_with_truncation(df: pd.DataFrame,
 
     fig, ax = plt.subplots(figsize=(17, 11))
     n_e, _, _ = ax.hist(nu_e_prob, bins=bins, color=getColour(2), histtype='step',
-                        linewidth=1, label=label_e)
+                         linewidth=1, label=label_e)
     n_mu, _, _ = ax.hist(nu_mu_prob, bins=bins, color=getColour(0), histtype='step',
-                         hatch='\\', linewidth=1, label=label_mu)
+                          hatch='\\', linewidth=1, label=label_mu)
     n_tau, _, _ = ax.hist(nu_tau_prob, bins=bins, color=getColour(1), histtype='step',
-                          hatch='//', linewidth=1, label=label_tau)
+                           hatch='//', linewidth=1, label=label_tau)
+    truncate_at = 1000
 
-    truncate_at = 2000
-    # Truncate y-axis and annotate
-    ax.set_ylim(0, truncate_at)
+    ymax = ax.get_ylim()[1]
+    eps = 1e-6
+    hist_stack = np.vstack([n_e, n_mu, n_tau])
+    max_vals = hist_stack.max(axis=0)
+    truncation_indices = np.where(max_vals >= (ymax - eps))[0]
+
+    bin_centers = 0.5 * (bins[:-1] + bins[1:])
+
+    def get_union_annotation(indices):
+        if indices.size == 0:
+            return None, None
+        start_bin = bins[indices.min()]
+        end_bin = bins[min(indices.max() + 1, len(bins) - 1)]
+        # Instead of bin_centres, directly build the index mask
+        bin_mask = np.zeros_like(n_e, dtype=bool)
+        bin_mask[indices.min() : indices.max() + 1] = True
+        total_e = int(np.sum(n_e[bin_mask]))
+        total_mu = int(np.sum(n_mu[bin_mask]))
+        total_tau = int(np.sum(n_tau[bin_mask]))
+        bin_range = f"{start_bin:.3f}–{end_bin:.3f}"
+        
+        poisson, asimov, poisson_label, asimov_label = get_significance(flavour, total_e, total_mu, total_tau)
+        # significance, significance_label = get_significance(flavour, total_e, total_mu, total_tau)
+        
+        lines = [
+            fr"${Flavour.E.latex}$ {bin_range} = {total_e}",
+            fr"${Flavour.MU.latex}$ {bin_range} = {total_mu}",
+            fr"${Flavour.TAU.latex}$ {bin_range} = {total_tau}",
+            # fr"{significance_label} = {significance:.2f}"
+            # fr"{poisson_label} = {poisson:.2f}",
+            fr"{asimov_label} = {asimov:.2f}"
+        ]
+        return "\n".join(lines), bin_range
     
-    first_bin_range = f"{bins[0]:.2f}–{bins[1]:.2f}"
-    last_bin_range = f"{bins[-2]:.2f}–{bins[-1]:.2f}"
+    def get_bin_annotation(bin_idx):
+        start_bin = bins[bin_idx]
+        end_bin = bins[min(bin_idx + 1, len(bins) - 1)]
+        bin_range = f"{start_bin:.3f}–{end_bin:.3f}"
+        total_e = int(n_e[bin_idx])
+        total_mu = int(n_mu[bin_idx])
+        total_tau = int(n_tau[bin_idx])
+        
+        poisson, asimov, poisson_label, asimov_label = get_significance(flavour, total_e, total_mu, total_tau)
+        
+        lines = [
+            fr"${Flavour.E.latex}$ {bin_range} = {total_e}",
+            fr"${Flavour.MU.latex}$ {bin_range} = {total_mu}",
+            fr"${Flavour.TAU.latex}$ {bin_range} = {total_tau}",
+            # fr"{poisson_label} = {poisson:.2f}",
+            fr"{asimov_label} = {asimov:.2f}"
+        ]
+        return "\n".join(lines)
     
-    lines_first = [
-        fr"${Flavour.E.latex}$ {first_bin_range} = {int(n_e[0])}",
-        fr"${Flavour.MU.latex}$ {first_bin_range} = {int(n_mu[0])}",
-        fr"${Flavour.TAU.latex}$ {first_bin_range} = {int(n_tau[0])}",
-    ]
-    text_first = "\n".join(lines_first)
-    ax.annotate(
-        text_first,
-        xy=(0.10, 0.95),
-        xycoords="axes fraction",
-        fontsize=18,
-        ha='left',
-        va='top',
-        bbox=dict(boxstyle="round", facecolor="white", edgecolor="black", alpha=0.8)
-    )
-    
-    lines_last = [
-        fr"${Flavour.E.latex}$ {last_bin_range} = {int(n_e[-1])}",
-        fr"${Flavour.MU.latex}$ {last_bin_range} = {int(n_mu[-1])}",
-        fr"${Flavour.TAU.latex}$ {last_bin_range} = {int(n_tau[-1])}",
-    ]
-    text_last = "\n".join(lines_last)
-    ax.annotate(
-        text_last,
-        xy=(0.70, 0.95),
-        xycoords="axes fraction",
-        fontsize=18,
-        ha='left',
-        va='top',
-        bbox=dict(boxstyle="round", facecolor="white", edgecolor="black", alpha=0.8)
-    )
+    if not magnifier:
+        ax.set_ylim(0, truncate_at)
+        ymax = truncate_at  # enforce limit as the "top"
+        # Use slightly relaxed threshold
+        truncation_indices = np.where(max_vals >= (ymax * 0.99))[0]
+
+        # Low truncation zone
+        low_indices = truncation_indices[bin_centers[truncation_indices] < 0.1]
+        low_lines, _ = get_union_annotation(low_indices)
+        if low_lines:
+            ax.annotate(
+                low_lines,
+                xy=(0.10, 0.95),
+                xycoords="axes fraction",
+                fontsize=20,
+                ha='left',
+                va='top',
+                bbox=dict(boxstyle="round", facecolor="white", edgecolor="black", alpha=0.8)
+            )
+
+        # High truncation zone
+        high_indices = truncation_indices[bin_centers[truncation_indices] > 0.9]
+        high_lines, _ = get_union_annotation(high_indices)
+        if high_lines:
+            ax.annotate(
+                high_lines,
+                xy=(0.68, 0.95),
+                xycoords="axes fraction",
+                fontsize=24,
+                ha='left',
+                va='top',
+                bbox=dict(boxstyle="round", facecolor="white", edgecolor="black", alpha=0.8)
+            )
+
+    else:
+        bin_mask = (bin_centers >= magnifier[0]) & (bin_centers <= magnifier[1])
+        magnifier_bins = np.where(bin_mask)[0]
+        if magnifier_bins.size > 0:
+            # Find bin with maximum combined counts
+            magnifier_max_bin_idx = magnifier_bins[np.argmax(hist_stack[:, magnifier_bins].sum(axis=0))]
+            magnifier_lines = get_bin_annotation(magnifier_max_bin_idx)
+            ax.annotate(
+                magnifier_lines,
+                xy=(0.68, 0.95),
+                xycoords="axes fraction",
+                fontsize=24,
+                ha='left',
+                va='top',
+                bbox=dict(boxstyle="round", facecolor="white", edgecolor="black", alpha=0.8)
+            )
 
     ax.set_title(fr"{id}: ${flavour.latex}$ Probability Score")
-    ax.set_xlabel('Probability')
+    ax.set_xlabel(fr"${flavour.latex}$ Probability Score")
     ax.set_ylabel('Frequency')
-    ax.legend(fontsize=20, loc='upper center')
+    ax.legend(fontsize=24, loc='upper center')
+    if magnifier:
+        ax.set_xlim(magnifier[0], magnifier[1])
+    plt.tight_layout()
+    plt.show()
 
 def plot_log_energy_prob_distribution_mono_flavour(nu_prob : np.ndarray,
                                                     energy: np.ndarray,
@@ -295,9 +390,9 @@ def plot_log_energy_prob_distribution_mono_flavour(nu_prob : np.ndarray,
     mesh = ax.pcolormesh(xedges, yedges, H.T, cmap='YlGnBu', shading='auto')
     fig.colorbar(mesh, ax=ax, label="Frequency" if not normalise_by_energy else "Frequency normalised within energy bin")
 
-    ax.set_title(fr"{id}: log₁₀(Energy [GeV])–Prob ${output_flavour.latex}$ of true ${flavour.latex}$")
-    ax.set_xlabel('log₁₀(Energy [GeV])')
-    ax.set_ylabel('Probability')
+    ax.set_title(fr"{id}: log₁₀(Energy [GeV])–Prob ${output_flavour.latex}$ of true ${flavour.latex}$", fontsize=24)
+    ax.set_xlabel('log₁₀(Energy [GeV])', fontsize=24)
+    ax.set_ylabel(fr'${flavour.latex}$ Probability Score', fontsize=24)
     # ax.set_ylim(-0.1, 1.1)
 
     ax.set_xlim(5, 8)
@@ -313,8 +408,11 @@ def plot_log_energy_prob_distribution_mono_flavour(nu_prob : np.ndarray,
             if count > 0:
                 relative_intensity = norm / max_norm
                 text_colour = 'white' if relative_intensity > 0.5 else 'black'
-                ax.text(xcentres[i], ycentres[j], f"{int(count)}\n({norm:.2f})",
-                        ha='center', va='center', fontsize=12, color=text_colour)
+                ax.text(xcentres[i], ycentres[j], f"{norm:.2f}\n({int(count)})",
+                        ha='center', va='center', fontsize=18, color=text_colour)
+                
+    plt.tight_layout()
+    plt.show()
 
 def plot_energy_distribution(df: pd.DataFrame, 
                                    flavour: Flavour,
@@ -342,14 +440,13 @@ def plot_zenith_prob_distribution_mono_flavour(nu_prob : np.ndarray,
     raw_counts, xedges, yedges = np.histogram2d(nu_zenith, nu_prob, bins=[zenith_bin, bins])
     H = raw_counts / (raw_counts.sum(axis=1, keepdims=True) + 1e-8)  # normalise by zenith bin (now rows)
 
-    fig, ax = plt.subplots(figsize=(18, 13.5))
+    fig, ax = plt.subplots(figsize=(18, 12))
     mesh = ax.pcolormesh(xedges, yedges, H.T, cmap='YlOrBr', shading='auto')
     fig.colorbar(mesh, ax=ax, label="Counts normalised within zenith bin")
 
-    ax.set_title(fr"{id}: Zenith–Prob ${output_flavour.latex}$ of true ${flavour.latex}$")
-    ax.set_xlabel('Zenith [degree]')
-    ax.set_ylabel('Probability')
-    # ax.set_ylim(-0.1, 1.1)
+    ax.set_title(fr"{id}: Zenith–Prob ${output_flavour.latex}$ of true ${flavour.latex}$", fontsize=24)
+    ax.set_xlabel('Zenith [degree]', fontsize=24)
+    ax.set_ylabel(fr'${flavour.latex}$ Probability Score', fontsize=24)
 
     # Annotate bin centres
     max_norm = np.max(H)
@@ -362,8 +459,10 @@ def plot_zenith_prob_distribution_mono_flavour(nu_prob : np.ndarray,
             if count > 0:
                 relative_intensity = norm / max_norm
                 text_colour = 'white' if relative_intensity > 0.5 else 'black'
-                ax.text(xcentres[i], ycentres[j], f"{int(count)}\n({norm:.2f})",
-                        ha='center', va='center', fontsize=12, color=text_colour)
+                ax.text(xcentres[i], ycentres[j], f"{norm:.2f}\n({int(count)})",
+                        ha='center', va='center', fontsize=18, color=text_colour)
+    plt.tight_layout()
+    plt.show()
                 
 def plot_zenith_distribution(df: pd.DataFrame, 
                                    flavour: Flavour,

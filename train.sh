@@ -3,11 +3,11 @@
 #SBATCH --partition=gr10_gpu
 ##SBATCH --partition=icecube_gpu
 #SBATCH --ntasks=1
-#SBATCH --nodelist=node072
+#SBATCH --nodelist=node071
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=30G
-#SBATCH --time=120:00:00
+#SBATCH --time=10:00:00
 #SBATCH --signal=B:USR1@60
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=cyan.jo@proton.me

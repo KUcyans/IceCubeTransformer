@@ -294,7 +294,6 @@ def save_predictions(df_predictions: pd.DataFrame, df_analysis: pd.DataFrame, pr
     df_combined.to_csv(csv_name, index=False)
     print(f"✅ Predictions saved to:\n{csv_name}")
     return df_combined
-    
 
 
 def parse_checkpoint_name(ckpt_file: str):
@@ -403,34 +402,40 @@ def run_prediction(config_dir: str,
             continue
         ckpt_file_dir = os.path.join(specific_checkpoint_dir, ckpt_file)
 
-        print(f"\n🔥 Loading model from {ckpt_file}...")
-        model = build_model(config=config, device=device, ckpt_file=ckpt_file_dir)
-        model.to(device)
-        
-        print("🚀 Running predictions...")
-        predictions = trainer.predict(model=model, dataloaders=datamodule.test_dataloader())
-        # returned shape: [batch_size, num_classes]
+        try:
+            print(f"\n🔥 Loading model from {ckpt_file}...")
+            model = build_model(config=config, device=device, ckpt_file=ckpt_file_dir)
+            model.to(device)
+            
+            print("🚀 Running predictions...")
+            predictions = trainer.predict(model=model, dataloaders=datamodule.test_dataloader())
 
-        print("💾 Saving predictions...")
-        df_predictions = build_predictions(config=config,
-                                            predictions=predictions,
-                                            prediction_dir=dirs["predict_dir"],
-                                            ckpt_file=ckpt_file_dir)
-        
-        df_combined = save_predictions(df_predictions=df_predictions,
-                          df_analysis=df_analysis,
-                          prediction_dir=dirs["predict_dir"],
-                          ckpt_file=ckpt_file_dir)
-        # Create plot filename based on checkpoint
-        epoch = extract_epoch(ckpt_file)
-        plot_dir = os.path.join("Plot_inference", model_id)
-        os.makedirs(plot_dir, exist_ok=True)
+            print("💾 Saving predictions...")
+            df_predictions = build_predictions(config=config,
+                                                predictions=predictions,
+                                                prediction_dir=dirs["predict_dir"],
+                                                ckpt_file=ckpt_file_dir)
+            
+            df_combined = save_predictions(df_predictions=df_predictions,
+                            df_analysis=df_analysis,
+                            prediction_dir=dirs["predict_dir"],
+                            ckpt_file=ckpt_file_dir)
+            # Create plot filename based on checkpoint
+            epoch = extract_epoch(ckpt_file)
+            plot_dir = os.path.join("Plot_inference", model_id)
+            os.makedirs(plot_dir, exist_ok=True)
 
-        pdf_file = os.path.join(plot_dir, f"{epoch}.pdf")
-        plot_all_metrics(df_combined, pdf_path=pdf_file, run_id=model_id, epoch=epoch)
-        metrics = extend_extract_metrics_for_all_flavours(df_combined, run_id=model_id, epoch=epoch)
-        summary_metrics.append(metrics)
-        print("✅ Predictions saved successfully.")
+            pdf_file = os.path.join(plot_dir, f"{epoch}.pdf")
+            plot_all_metrics(df_combined, pdf_path=pdf_file, run_id=model_id, epoch=epoch)
+            try:
+                metrics = extend_extract_metrics_for_all_flavours(df_combined, run_id=model_id, epoch=epoch)
+                summary_metrics.append(metrics)
+            except Exception as e:
+                print(f"❌ Failed to extract metrics for epoch {epoch} with error: {e}")
+            print("✅ Predictions saved successfully.")
+        except Exception as e:
+            print(f"❌ Error processing {ckpt_file}: {e}")
+            continue
     summary_df = pd.DataFrame(summary_metrics)
     summary_path = os.path.join("Plot_inference", model_id, "summary.csv")
     summary_df.to_csv(summary_path, index=False)
@@ -442,8 +447,15 @@ if __name__ == "__main__":
     config_dir = os.path.join(base_dir, "config")
     
     data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250"
-    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_IntraTravelDistance_250m"
     data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika"
+    
+    # 32 features
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered/Snowstorm/CC_CRclean_IntraTravelDistance_250"
+    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied/Corsika"
+    
+    # 35 features with containment condition
+    # data_root_dir = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_filtered_second_round/Snowstorm/CC_CRclean_Contained"
+    # data_root_dir_corsika = "/lustre/hpc/project/icecube/HE_Nu_Aske_Oct2024/PMTfied_second/Corsika_Contained"
     
     er = EnergyRange.ER_100_TEV_100_PEV
     
