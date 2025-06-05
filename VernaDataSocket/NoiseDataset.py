@@ -39,44 +39,78 @@ class NoiseDataset(Dataset):
         self.truth_next = None
         self.current_truth_file = None
         self.next_truth_file = None
-
+    
     def _build_event_index(self):
-        """Scans all truth files and builds an event index."""
         event_index = []
 
         def extract_part_number(filepath):
-            """Extracts part number from `truth_X.parquet` (only uses filename)."""
-            filename = os.path.basename(filepath)  # ✅ Extract just the filename
+            filename = os.path.basename(filepath)
             parts = filename.split("_")
             if len(parts) < 2 or not parts[1].split(".")[0].isdigit():
-                return float("inf")  # Push invalid files to the end of sorting
+                return float("inf")
             return int(parts[1].split(".")[0])
 
-        # ✅ Ensure sorting is based on extracted part numbers
         self.truth_files = sorted(
             [os.path.join(self.truth_file_dir, f) for f in os.listdir(self.truth_file_dir)
             if f.startswith("truth_") and f.endswith(".parquet")],
             key=extract_part_number
         )
 
-        # ✅ Remove incorrectly sorted files (if they exist)
-        self.truth_files = [f for f in self.truth_files if extract_part_number(os.path.basename(f)) != float("inf")]
+        seen_event_nos = set()
         for truth_file in self.truth_files:
             truth_table = pq.read_table(truth_file, columns=self.REQUIRED_COLUMNS, memory_map=True)
-
-            # ✅ Extract only the required columns
             event_nos = np.array(truth_table.column("event_no"))
             shard_nos = np.array(truth_table.column("shard_no"))
             offsets = np.array(truth_table.column("offset"))
             N_doms = np.array(truth_table.column("N_doms"))
 
             for row_idx, event_no in enumerate(event_nos):
-                event_index.append(
-                    (event_no, truth_file, row_idx, shard_nos[row_idx], offsets[row_idx], N_doms[row_idx])
-                )
+                if event_no not in seen_event_nos:
+                    seen_event_nos.add(event_no)
+                    event_index.append(
+                        (event_no, truth_file, row_idx, shard_nos[row_idx], offsets[row_idx], N_doms[row_idx])
+                    )
 
-        event_index.sort(key=lambda x: x[0])  # Sort for deterministic access
+        event_index.sort(key=lambda x: x[0])
         return event_index
+
+    # def _build_event_index(self):
+    #     """Scans all truth files and builds an event index."""
+    #     event_index = []
+
+    #     def extract_part_number(filepath):
+    #         """Extracts part number from `truth_X.parquet` (only uses filename)."""
+    #         filename = os.path.basename(filepath)  # ✅ Extract just the filename
+    #         parts = filename.split("_")
+    #         if len(parts) < 2 or not parts[1].split(".")[0].isdigit():
+    #             return float("inf")  # Push invalid files to the end of sorting
+    #         return int(parts[1].split(".")[0])
+
+    #     # ✅ Ensure sorting is based on extracted part numbers
+    #     self.truth_files = sorted(
+    #         [os.path.join(self.truth_file_dir, f) for f in os.listdir(self.truth_file_dir)
+    #         if f.startswith("truth_") and f.endswith(".parquet")],
+    #         key=extract_part_number
+    #     )
+
+    #     # ✅ Remove incorrectly sorted files (if they exist)
+    #     self.truth_files = [f for f in self.truth_files if extract_part_number(os.path.basename(f)) != float("inf")]
+    #     for truth_file in self.truth_files:
+    #         truth_table = pq.read_table(truth_file, columns=self.REQUIRED_COLUMNS, memory_map=True)
+
+    #         # ✅ Extract only the required columns
+    #         event_nos = np.array(truth_table.column("event_no"))
+    #         shard_nos = np.array(truth_table.column("shard_no"))
+    #         offsets = np.array(truth_table.column("offset"))
+    #         N_doms = np.array(truth_table.column("N_doms"))
+
+    #         for row_idx, event_no in enumerate(event_nos):
+    #             event_index.append(
+    #                 (event_no, truth_file, row_idx, shard_nos[row_idx], offsets[row_idx], N_doms[row_idx])
+    #             )
+
+    #     event_index.sort(key=lambda x: x[0])  # Sort for deterministic access
+    #     return event_index
 
     def _select_events(self):
         """Selects the first N_events_noise events from the event index."""

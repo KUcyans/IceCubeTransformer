@@ -69,11 +69,41 @@ class MultiFlavourDataModule(pl.LightningDataModule):
             self.val_dataset = torch.utils.data.Subset(self.dataset, range(train_size, train_size + val_size))
             self.test_dataset = torch.utils.data.Subset(self.dataset, range(train_size + val_size, total_size))
 
+            self.remove_duplicate_noise_events()
+
             # ✅ Get column index dynamically
             first_event = self.train_dataset[0][0]
             self.index_order_by = self._get_order_by_index()
             print(f"Feature Dimension: {first_event.shape[1]}")
     
+    def remove_duplicate_noise_events(self):
+        """Ensures no duplicate noise events across train/val/test splits."""
+
+        # Gather event_no for each subset
+        def get_event_nos(subset):
+            event_nos = []
+            for i in range(len(subset)):
+                _, _, analysis = subset[i]
+                event_no = analysis[0]
+                event_nos.append(event_no)
+            return set(event_nos)
+
+        train_event_nos = get_event_nos(self.train_dataset)
+        val_event_nos = get_event_nos(self.val_dataset)
+        test_event_nos = get_event_nos(self.test_dataset)
+
+        # Remove overlaps from test dataset
+        overlap = (train_event_nos | val_event_nos) & test_event_nos
+        if overlap:
+            print(f"⚠️ Removing {len(overlap)} duplicate noise events from test set...")
+
+            # Keep only unique test event_nos
+            unique_indices = [i for i in range(len(self.test_dataset))
+                            if self.test_dataset[i][2][0] not in overlap]
+
+            self.test_dataset = torch.utils.data.Subset(self.dataset, unique_indices)
+            print("✅ Duplicate noise events removed from test set.")
+            
     def _get_order_by_index(self):
         """Finds the correct column index for ordering."""
         try:
@@ -109,31 +139,6 @@ class MultiFlavourDataModule(pl.LightningDataModule):
 
         return event, seq_length
     
-    # def pad_or_truncate(self, event: torch.Tensor):
-    #     """Pads or truncates events to `event_length` based on sorting by `order_by_this_column`."""
-    #     seq_length = event.size(0)
-
-    #     # Truncate if too long
-    #     if seq_length > self.event_length:
-    #         event = event[event[:, self.index_order_by].argsort(descending=True)][:self.event_length]
-    #     else:
-    #         padding = torch.zeros((self.event_length - seq_length, event.size(1)))
-    #         event = torch.cat([event, padding], dim=0)
-
-    #     return event, seq_length
-    
-    # def pad_or_truncate_inference(self, event: torch.Tensor):
-    #     seq_length = event.size(0)
-
-    #     if seq_length > self.inference_event_length:
-    #         event = event[event[:, self.index_order_by].argsort(descending=True)][:self.inference_event_length]
-    #     else:
-    #         padding = torch.zeros((self.inference_event_length - seq_length, event.size(1)))
-    #         event = torch.cat([event, padding], dim=0)
-
-    #     return event, seq_length
-
-    
     def train_validate_collate_fn(self, batch):
         features = [item[0] for item in batch]
         targets = [item[1] for item in batch]
@@ -144,15 +149,15 @@ class MultiFlavourDataModule(pl.LightningDataModule):
         
         return batch_events, batch_targets, batch_event_length
 
-    def predict_collate_fn(self, batch):
-        features = [item[0] for item in batch]
-        targets = [item[1] for item in batch]
-        batch_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
-        batch_events = torch.stack(batch_events)
-        batch_targets = torch.stack(targets)
-        batch_event_length = torch.tensor(event_length, dtype=torch.int64)
+    # def predict_collate_fn(self, batch):
+    #     features = [item[0] for item in batch]
+    #     targets = [item[1] for item in batch]
+    #     batch_events, event_length = zip(*[self.pad_or_truncate(event) for event in features])
+    #     batch_events = torch.stack(batch_events)
+    #     batch_targets = torch.stack(targets)
+    #     batch_event_length = torch.tensor(event_length, dtype=torch.int64)
 
-        return batch_events, batch_targets, batch_event_length
+    #     return batch_events, batch_targets, batch_event_length
 
     def long_predict_collate_fn(self, batch):
         features = [item[0] for item in batch]

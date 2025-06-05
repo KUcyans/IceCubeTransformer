@@ -94,24 +94,46 @@ class MultiFlavourDataset(Dataset):
                     cyclic_indices.append((ds_idx, i))
         return cyclic_indices
 
+    # def _interleave_signal_noise(self):
+    #     """Interleaves e, noise, mu, noise, tau, noise..."""
+    #     signal_datasets = self.datasets
+    #     noise_dataset = self.noise_dataset
+
+    #     signal_lengths = [len(ds) for ds in signal_datasets]
+    #     noise_length = len(noise_dataset)
+
+    #     # Determine max available balanced interleave steps
+    #     max_steps = min(min(signal_lengths), noise_length // len(signal_datasets))
+
+    #     interleaved = []
+    #     for i in range(max_steps):
+    #         for j, signal_ds in enumerate(signal_datasets):
+    #             interleaved.append((j, i))                      # signal
+    #             interleaved.append((len(signal_datasets), i * len(signal_datasets) + j))  # corresponding noise
+
+    #     return interleaved
+    
     def _interleave_signal_noise(self):
-        """Interleaves e, noise, mu, noise, tau, noise..."""
+        """Interleaves e, noise, mu, noise, tau, noise... without noise duplication."""
         signal_datasets = self.datasets
         noise_dataset = self.noise_dataset
 
         signal_lengths = [len(ds) for ds in signal_datasets]
         noise_length = len(noise_dataset)
 
-        # Determine max available balanced interleave steps
-        max_steps = min(min(signal_lengths), noise_length // len(signal_datasets))
+        # ✅ Calculate maximum balanced steps without reusing noise events
+        max_noise_events = noise_length
+        max_possible_steps = max_noise_events // len(signal_datasets)
+        max_steps = min(min(signal_lengths), max_possible_steps)
 
         interleaved = []
         for i in range(max_steps):
             for j, signal_ds in enumerate(signal_datasets):
-                interleaved.append((j, i))                      # signal
-                interleaved.append((len(signal_datasets), i * len(signal_datasets) + j))  # corresponding noise
-
+                interleaved.append((j, i))  # signal
+                noise_index = i * len(signal_datasets) + j
+                interleaved.append((len(signal_datasets), noise_index))  # noise
         return interleaved
+
 
     def __len__(self):
         return len(self.flavour_mapped_indices)
